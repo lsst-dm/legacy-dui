@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3b;
 USE lsst_schema_browser_DC3b;
 
 
-CREATE TABLE AAA_Version_DC3b_3_1_60 (version CHAR);
+CREATE TABLE AAA_Version_DC3b_3_1_61 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -132,43 +132,43 @@ SET tableId = 1, name = "CalibSource",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 13, tableId = 1, name = "ixx",
+	SET columnId = 13, tableId = 1, name = "momentIxx",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 14, tableId = 1, name = "ixxSigma",
-		description = "Uncertainty of ixx: sqrt(covariance(x, x))&#xA;",
+	SET columnId = 14, tableId = 1, name = "momentIxxSigma",
+		description = "Uncertainty of momentIxx: sqrt(covariance(x, x))&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 15, tableId = 1, name = "iyy",
+	SET columnId = 15, tableId = 1, name = "momentIyy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 16, tableId = 1, name = "iyySigma",
-		description = "Uncertainty of iyy: sqrt(covariance(y, y))&#xA;",
+	SET columnId = 16, tableId = 1, name = "momentIyySigma",
+		description = "Uncertainty of momentIyy: sqrt(covariance(y, y))&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 17, tableId = 1, name = "ixy",
+	SET columnId = 17, tableId = 1, name = "momentIxy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 18, tableId = 1, name = "ixySigma",
-		description = "Uncertainty of ixy: sqrt(covariance(x, y))&#xA;",
+	SET columnId = 18, tableId = 1, name = "momentIxySigma",
+		description = "Uncertainty of momentIxy: sqrt(covariance(x, y))&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 18;
@@ -424,71 +424,71 @@ SET tableId = 3, name = "DiaSource",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 52, tableId = 3, name = "ix",
+	SET columnId = 52, tableId = 3, name = "momentIx",
 		description = "Adaptive first moment. The moments are primarily for the moving objects, but should carry some information about defects, cosmics, etc. too.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 53, tableId = 3, name = "ixSigma",
-		description = "Uncertainty of ix.&#xA;",
+	SET columnId = 53, tableId = 3, name = "momentIxSigma",
+		description = "Uncertainty of momentIx.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 54, tableId = 3, name = "iy",
+	SET columnId = 54, tableId = 3, name = "momentIy",
 		description = "Adaptive first moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 55, tableId = 3, name = "iySigma",
-		description = "Uncertainty of iy.&#xA;",
+	SET columnId = 55, tableId = 3, name = "momentIySigma",
+		description = "Uncertainty of momentIy.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 56, tableId = 3, name = "ixx",
+	SET columnId = 56, tableId = 3, name = "momentIxx",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 57, tableId = 3, name = "ixxSigma",
-		description = "Uncertainty of ixx: sqrt(covariance(x, x)).&#xA;",
+	SET columnId = 57, tableId = 3, name = "momentIxxSigma",
+		description = "Uncertainty of momentIxx: sqrt(covariance(x, x)).&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 58, tableId = 3, name = "iyy",
+	SET columnId = 58, tableId = 3, name = "momentIyy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 59, tableId = 3, name = "iyySigma",
-		description = "Uncertainty of Iyy: sqrt(covariance(y, y)).&#xA;",
+	SET columnId = 59, tableId = 3, name = "momentIyySigma",
+		description = "Uncertainty of momentIyy: sqrt(covariance(y, y)).&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 60, tableId = 3, name = "ixy",
+	SET columnId = 60, tableId = 3, name = "momentIxy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 61, tableId = 3, name = "ixySigma",
-		description = "Uncertainty of ixy: sqrt(covariance(x, y)).&#xA;",
+	SET columnId = 61, tableId = 3, name = "momentIxySigma",
+		description = "Uncertainty of momentIxy: sqrt(covariance(x, y)).&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 36;
@@ -1475,19 +1475,19 @@ SET tableId = 8, name = "Object",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 198, tableId = 8, name = "uIxx",
+	SET columnId = 198, tableId = 8, name = "uMomentIxx",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 199, tableId = 8, name = "uIyy",
+	SET columnId = 199, tableId = 8, name = "uMomentIyy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 200, tableId = 8, name = "uIxy",
+	SET columnId = 200, tableId = 8, name = "uMomentIxy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 13;
@@ -1534,19 +1534,19 @@ SET tableId = 8, name = "Object",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 207, tableId = 8, name = "gIxx",
+	SET columnId = 207, tableId = 8, name = "gMomentIxx",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 208, tableId = 8, name = "gIyy",
+	SET columnId = 208, tableId = 8, name = "gMomentIyy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 209, tableId = 8, name = "gIxy",
+	SET columnId = 209, tableId = 8, name = "gMomentIxy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 22;
@@ -1592,19 +1592,19 @@ SET tableId = 8, name = "Object",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 216, tableId = 8, name = "rIxx",
+	SET columnId = 216, tableId = 8, name = "rMomentIxx",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 217, tableId = 8, name = "rIyy",
+	SET columnId = 217, tableId = 8, name = "rMomentIyy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 218, tableId = 8, name = "rIxy",
+	SET columnId = 218, tableId = 8, name = "rMomentIxy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 31;
@@ -1650,19 +1650,19 @@ SET tableId = 8, name = "Object",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 225, tableId = 8, name = "iIxx",
+	SET columnId = 225, tableId = 8, name = "iMomentIxx",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 38;
 
 	INSERT INTO md_Column
-	SET columnId = 226, tableId = 8, name = "iIyy",
+	SET columnId = 226, tableId = 8, name = "iMomentIyy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 39;
 
 	INSERT INTO md_Column
-	SET columnId = 227, tableId = 8, name = "iIxy",
+	SET columnId = 227, tableId = 8, name = "iMomentIxy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 40;
@@ -1766,19 +1766,19 @@ SET tableId = 8, name = "Object",
 		displayOrder = 55;
 
 	INSERT INTO md_Column
-	SET columnId = 243, tableId = 8, name = "yIxx",
+	SET columnId = 243, tableId = 8, name = "yMomentIxx",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 56;
 
 	INSERT INTO md_Column
-	SET columnId = 244, tableId = 8, name = "yIyy",
+	SET columnId = 244, tableId = 8, name = "yMomentIyy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 57;
 
 	INSERT INTO md_Column
-	SET columnId = 245, tableId = 8, name = "yIxy",
+	SET columnId = 245, tableId = 8, name = "yMomentIxy",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 58;
@@ -2495,71 +2495,71 @@ SET tableId = 16, name = "Source",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 341, tableId = 16, name = "ix",
+	SET columnId = 341, tableId = 16, name = "momentIx",
 		description = "Adaptive first moment. The moments are primarily for the moving objects, but should carry some information about defects, cosmics, etc. too.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 342, tableId = 16, name = "ixSigma",
-		description = "Uncertainty of ix.&#xA;",
+	SET columnId = 342, tableId = 16, name = "momentIxSigma",
+		description = "Uncertainty of momentIx.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 343, tableId = 16, name = "iy",
+	SET columnId = 343, tableId = 16, name = "momentIy",
 		description = "Adaptive first moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 344, tableId = 16, name = "iySigma",
-		description = "Uncertainty of iy.&#xA;",
+	SET columnId = 344, tableId = 16, name = "momentIySigma",
+		description = "Uncertainty of momentIy.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 345, tableId = 16, name = "ixx",
+	SET columnId = 345, tableId = 16, name = "momentIxx",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 346, tableId = 16, name = "ixxSigma",
-		description = "Uncertainty of ixx: sqrt(covariance(x, x)).&#xA;",
+	SET columnId = 346, tableId = 16, name = "momentIxxSigma",
+		description = "Uncertainty of momentIxx: sqrt(covariance(x, x)).&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 347, tableId = 16, name = "iyy",
+	SET columnId = 347, tableId = 16, name = "momentIyy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 348, tableId = 16, name = "iyySigma",
-		description = "Uncertainty of Iyy: sqrt(covariance(y, y)).&#xA;",
+	SET columnId = 348, tableId = 16, name = "momentIyySigma",
+		description = "Uncertainty of momentIyy: sqrt(covariance(y, y)).&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 349, tableId = 16, name = "ixy",
+	SET columnId = 349, tableId = 16, name = "momentIxy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 350, tableId = 16, name = "ixySigma",
-		description = "Uncertainty of ixy: sqrt(covariance(x, y)).&#xA;",
+	SET columnId = 350, tableId = 16, name = "momentIxySigma",
+		description = "Uncertainty of momentIxy: sqrt(covariance(x, y)).&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 36;
