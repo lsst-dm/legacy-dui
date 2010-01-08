@@ -116,7 +116,7 @@ if ( array_key_exists('t', $_GET) ) {
     $data4t2d = "To see details, select a table on the left";
 }
 
-$tableList = "<span style='line-height:14px'>";
+$tableList = "";#"<span style='line-height:14px'>";
 foreach ($tables as $k=>$v) {
     $argStr = prepareArgList('t', $v[name]);
     if ( isset($tName) && $tName == $v['name'] ) {
@@ -126,7 +126,7 @@ foreach ($tables as $k=>$v) {
 ";
     }
 }
-$tableList .= "</span>";
+$tableList .= "";#"</span>";
 
 print "
 <th width='20%'>

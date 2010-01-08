@@ -2,16 +2,16 @@
 
 body, h1, td, th {
     margin:0;
-    font-family: "trebuchet MS", verdana, arial;
+    font-family: verdana, arial;
     font-size:9pt;
     text-align:left;
-    color: #D2B84C;
-    background:black;
+    color: #ABBF90;
+    background: #111111;
     color:white;
 }
 
 h1, td, a {
-    color: #D2B84C;
+    color: #ABBF90;
 }
 
 a:hover {
@@ -23,14 +23,14 @@ table {
 }
 
 table.main {
-    border:1px solid #D2B84C;
+    border:1px solid #ABBF90;
     width:100%;
     padding:0px;
     marging:0px;
 }
 
 table.main th {
-    background:#D2B84C;
+    background:#ABBF90;
     color:black;
     padding:2px;
     margin:0px;
@@ -40,18 +40,18 @@ table.main th {
 }
 
 table.main td {
-    border:1px solid #D2B84C;
+    border:1px solid #ABBF90;
     padding:5px;
 }
 table.main td {
-    border:1px solid #D2B84C;
+    border:1px solid #ABBF90;
 }
 
 
 
 table.sortable {
     width:100%;
-    border:1px solid #D2B84C;
+    border:1px solid #ABBF90;
 }
 
 table.sortable th {
@@ -60,7 +60,7 @@ table.sortable th {
     font-weight:bold;
     background:black;
     color:white;
-    border:1px solid #D2B84C;
+    border:1px solid #ABBF90;
 }
 
 table.sortable td {
