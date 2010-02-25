@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3b;
 USE lsst_schema_browser_DC3b;
 
 
-CREATE TABLE AAA_Version_DC3b_3_1_77 (version CHAR);
+CREATE TABLE AAA_Version_DC3b_3_1_78 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -501,7 +501,7 @@ SET tableId = 3, name = "DiaSource",
 
 	INSERT INTO md_Column
 	SET columnId = 61, tableId = 3, name = "flux_PS",
-		description = "Flux for Point Source model.&#xA;",
+		description = "Calibrated flux for Point Source model.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 28;
@@ -515,7 +515,7 @@ SET tableId = 3, name = "DiaSource",
 
 	INSERT INTO md_Column
 	SET columnId = 63, tableId = 3, name = "flux_SG",
-		description = "Flux for Small Galaxy model.&#xA;",
+		description = "Calibrated flux for Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 30;
@@ -529,7 +529,7 @@ SET tableId = 3, name = "DiaSource",
 
 	INSERT INTO md_Column
 	SET columnId = 65, tableId = 3, name = "flux_CSG",
-		description = "Flux for Cannonical Small Galaxy model.&#xA;",
+		description = "Calibrated flux for Cannonical Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 32;
