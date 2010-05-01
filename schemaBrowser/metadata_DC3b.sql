@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3b;
 USE lsst_schema_browser_DC3b;
 
 
-CREATE TABLE AAA_Version_DC3b_3_1_82 (version CHAR);
+CREATE TABLE AAA_Version_DC3b_3_1_83 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -1505,14 +1505,14 @@ SET tableId = 8, name = "Object",
 	SET columnId = 199, tableId = 8, name = "radecl_PS_Cov",
 		description = "Covariance of ra_PS and decl_PS.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
 	SET columnId = 200, tableId = 8, name = "ra_SG",
 		description = "RA-coordinate of the center of the object for the Small Galaxy model for the cannonical filter.&#xA;",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 8;
 
@@ -1520,7 +1520,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 201, tableId = 8, name = "ra_SG_Sigma",
 		description = "Uncertainty of ra_SG.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 9;
 
@@ -1528,7 +1528,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 202, tableId = 8, name = "decl_SG",
 		description = "Dec-coordinate of the center of the object for the Small Galaxy model for the cannonical filter.&#xA;",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 10;
 
@@ -1536,7 +1536,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 203, tableId = 8, name = "decl_SG_Sigma",
 		description = "Uncertainty of decl_SG.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 11;
 
@@ -1544,14 +1544,14 @@ SET tableId = 8, name = "Object",
 	SET columnId = 204, tableId = 8, name = "radecl_SG_Cov",
 		description = "Covariance of ra_SG and decl_SG.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		displayOrder = 12;
 
 	INSERT INTO md_Column
 	SET columnId = 205, tableId = 8, name = "raRange",
 		description = "Ra part of the bounding box on the sky that fully encloses footprint of this object for the cannonical model (Small Galaxy) and cannonical filter.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 13;
 
@@ -1559,7 +1559,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 206, tableId = 8, name = "declRange",
 		description = "Decl part of the bounding box on the sky that fully encloses footprint of this object for the cannonical model (Small Galaxy) and cannonical filter.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 14;
 
@@ -1567,7 +1567,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 207, tableId = 8, name = "muRa_PS",
 		description = "Proper motion (ra) for the Point Source model.&#xA;",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree/year",
 		displayOrder = 15;
 
@@ -1575,7 +1575,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 208, tableId = 8, name = "muRa_PS_Sigma",
 		description = "Uncertainty of muRa_PS.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree/year",
 		displayOrder = 16;
 
@@ -1583,7 +1583,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 209, tableId = 8, name = "muDecl_PS",
 		description = "Proper motion (decl) for the Point Source model.&#xA;",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree/year",
 		displayOrder = 17;
 
@@ -1591,7 +1591,7 @@ SET tableId = 8, name = "Object",
 	SET columnId = 210, tableId = 8, name = "muDecl_PS_Sigma",
 		description = "Uncertainty of muDecl_PS.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree/year",
 		displayOrder = 18;
 
@@ -1599,14 +1599,14 @@ SET tableId = 8, name = "Object",
 	SET columnId = 211, tableId = 8, name = "muRaDecl_PS_Cov",
 		description = "Covariance of muRa_PS and muDecl_PS.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
 	SET columnId = 212, tableId = 8, name = "parallax_PS",
 		description = "Parallax for Point Source model.&#xA;",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree/year",
 		displayOrder = 20;
 
@@ -1614,15 +1614,15 @@ SET tableId = 8, name = "Object",
 	SET columnId = 213, tableId = 8, name = "parallax_PS_Sigma",
 		description = "Uncertainty of parallax_PS.&#xA;",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree/year",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 214, tableId = 8, name = "cannonicalFilterId",
-		description = "Id of the filter which is the cannonical filter for size, ellipticity and Sersic index parameters.&#xA;",
+	SET columnId = 214, tableId = 8, name = "canonicalFilterId",
+		description = "Id of the filter which is the canonical filter for size, ellipticity and Sersic index parameters.&#xA;",
 		type = "TINYINT",
-		notNull = 1,
+		notNull = 0,
 		displayOrder = 22;
 
 	INSERT INTO md_Column
@@ -1656,22 +1656,22 @@ SET tableId = 8, name = "Object",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 219, tableId = 8, name = "uNumObs",
-		description = "Number of forced sources associated with this object for u filter.&#xA;",
+	SET columnId = 219, tableId = 8, name = "flags",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 220, tableId = 8, name = "uExtendedness",
-		description = "Probability that this object is an extended object for u filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
-		type = "FLOAT",
+	SET columnId = 220, tableId = 8, name = "uNumObs",
+		description = "Number of forced sources associated with this object for u filter.&#xA;",
+		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 221, tableId = 8, name = "flags",
-		type = "INTEGER",
+	SET columnId = 221, tableId = 8, name = "uExtendedness",
+		description = "Probability that this object is an extended object for u filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 29;
 
@@ -4379,6 +4379,7 @@ SET tableId = 15, name = "Raw_Ccd_Exposure_Metadata",
 	INSERT INTO md_Column
 	SET columnId = 603, tableId = 15, name = "rawCcdExposureId",
 		description = "Id of the corresponding Raw_Ccd_Exposure.&#xA;",
+		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
@@ -4709,47 +4710,437 @@ SET tableId = 19, name = "Science_Ccd_Exposure_Metadata",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 20, name = "Source",
-	engine = "MyISAM",
-	description = "Table to store high signal-to-noise &quot;sources&quot;. A source is a measurement of  Object's properties from a single image that contains its footprint on the sky.";
+SET tableId = 20, name = "Source_pt1",
+	engine = "MyISAM";
 
 	INSERT INTO md_Column
 	SET columnId = 648, tableId = 20, name = "sourceId",
-		description = "Unique id.&#xA;",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 649, tableId = 20, name = "ccdExposureId",
-		description = "Pointer to the CcdExpsoure where this source was measured. Note that we are allowing a source to belong to multiple AmpExposures, but it may not span multiple CcdExposures.&#xA;",
+	SET columnId = 649, tableId = 20, name = "ampExposureId",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
 	SET columnId = 650, tableId = 20, name = "filterId",
-		description = "Pointer to an entry in Filter table: filter used to take Exposure where this Source was measured.&#xA;",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
 	SET columnId = 651, tableId = 20, name = "objectId",
-		description = "Pointer to Object table. Might be NULL (each Source will point to either MovingObject or Object)",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
 	SET columnId = 652, tableId = 20, name = "movingObjectId",
+		type = "BIGINT",
+		notNull = 0,
+		displayOrder = 5;
+
+	INSERT INTO md_Column
+	SET columnId = 653, tableId = 20, name = "procHistoryId",
+		type = "INTEGER",
+		notNull = 1,
+		displayOrder = 6;
+
+	INSERT INTO md_Column
+	SET columnId = 654, tableId = 20, name = "ra",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 7;
+
+	INSERT INTO md_Column
+	SET columnId = 655, tableId = 20, name = "raErrForDetection",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 8;
+
+	INSERT INTO md_Column
+	SET columnId = 656, tableId = 20, name = "raErrForWcs",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 9;
+
+	INSERT INTO md_Column
+	SET columnId = 657, tableId = 20, name = "decl",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 10;
+
+	INSERT INTO md_Column
+	SET columnId = 658, tableId = 20, name = "declErrForDetection",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 11;
+
+	INSERT INTO md_Column
+	SET columnId = 659, tableId = 20, name = "declErrForWcs",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 12;
+
+	INSERT INTO md_Column
+	SET columnId = 660, tableId = 20, name = "xFlux",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 13;
+
+	INSERT INTO md_Column
+	SET columnId = 661, tableId = 20, name = "xFluxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 14;
+
+	INSERT INTO md_Column
+	SET columnId = 662, tableId = 20, name = "yFlux",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 15;
+
+	INSERT INTO md_Column
+	SET columnId = 663, tableId = 20, name = "yFluxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 16;
+
+	INSERT INTO md_Column
+	SET columnId = 664, tableId = 20, name = "raFlux",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 17;
+
+	INSERT INTO md_Column
+	SET columnId = 665, tableId = 20, name = "raFluxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 18;
+
+	INSERT INTO md_Column
+	SET columnId = 666, tableId = 20, name = "declFlux",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 19;
+
+	INSERT INTO md_Column
+	SET columnId = 667, tableId = 20, name = "declFluxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 20;
+
+	INSERT INTO md_Column
+	SET columnId = 668, tableId = 20, name = "xPeak",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 21;
+
+	INSERT INTO md_Column
+	SET columnId = 669, tableId = 20, name = "yPeak",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 22;
+
+	INSERT INTO md_Column
+	SET columnId = 670, tableId = 20, name = "raPeak",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 23;
+
+	INSERT INTO md_Column
+	SET columnId = 671, tableId = 20, name = "declPeak",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 24;
+
+	INSERT INTO md_Column
+	SET columnId = 672, tableId = 20, name = "xAstrom",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 25;
+
+	INSERT INTO md_Column
+	SET columnId = 673, tableId = 20, name = "xAstromErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 26;
+
+	INSERT INTO md_Column
+	SET columnId = 674, tableId = 20, name = "yAstrom",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 27;
+
+	INSERT INTO md_Column
+	SET columnId = 675, tableId = 20, name = "yAstromErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 28;
+
+	INSERT INTO md_Column
+	SET columnId = 676, tableId = 20, name = "raAstrom",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 29;
+
+	INSERT INTO md_Column
+	SET columnId = 677, tableId = 20, name = "raAstromErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 30;
+
+	INSERT INTO md_Column
+	SET columnId = 678, tableId = 20, name = "declAstrom",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 31;
+
+	INSERT INTO md_Column
+	SET columnId = 679, tableId = 20, name = "declAstromErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 32;
+
+	INSERT INTO md_Column
+	SET columnId = 680, tableId = 20, name = "raObject",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 33;
+
+	INSERT INTO md_Column
+	SET columnId = 681, tableId = 20, name = "declObject",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 34;
+
+	INSERT INTO md_Column
+	SET columnId = 682, tableId = 20, name = "taiMidPoint",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 35;
+
+	INSERT INTO md_Column
+	SET columnId = 683, tableId = 20, name = "taiRange",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 36;
+
+	INSERT INTO md_Column
+	SET columnId = 684, tableId = 20, name = "psfFlux",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 37;
+
+	INSERT INTO md_Column
+	SET columnId = 685, tableId = 20, name = "psfFluxErr",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 38;
+
+	INSERT INTO md_Column
+	SET columnId = 686, tableId = 20, name = "apFlux",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 39;
+
+	INSERT INTO md_Column
+	SET columnId = 687, tableId = 20, name = "apFluxErr",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 40;
+
+	INSERT INTO md_Column
+	SET columnId = 688, tableId = 20, name = "modelFlux",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 41;
+
+	INSERT INTO md_Column
+	SET columnId = 689, tableId = 20, name = "modelFluxErr",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 42;
+
+	INSERT INTO md_Column
+	SET columnId = 690, tableId = 20, name = "petroFlux",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 43;
+
+	INSERT INTO md_Column
+	SET columnId = 691, tableId = 20, name = "petroFluxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 44;
+
+	INSERT INTO md_Column
+	SET columnId = 692, tableId = 20, name = "instFlux",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 45;
+
+	INSERT INTO md_Column
+	SET columnId = 693, tableId = 20, name = "instFluxErr",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 46;
+
+	INSERT INTO md_Column
+	SET columnId = 694, tableId = 20, name = "nonGrayCorrFlux",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 47;
+
+	INSERT INTO md_Column
+	SET columnId = 695, tableId = 20, name = "nonGrayCorrFluxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 48;
+
+	INSERT INTO md_Column
+	SET columnId = 696, tableId = 20, name = "atmCorrFlux",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 49;
+
+	INSERT INTO md_Column
+	SET columnId = 697, tableId = 20, name = "atmCorrFluxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 50;
+
+	INSERT INTO md_Column
+	SET columnId = 698, tableId = 20, name = "apDia",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 51;
+
+	INSERT INTO md_Column
+	SET columnId = 699, tableId = 20, name = "Ixx",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 52;
+
+	INSERT INTO md_Column
+	SET columnId = 700, tableId = 20, name = "IxxErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 53;
+
+	INSERT INTO md_Column
+	SET columnId = 701, tableId = 20, name = "Iyy",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 54;
+
+	INSERT INTO md_Column
+	SET columnId = 702, tableId = 20, name = "IyyErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 55;
+
+	INSERT INTO md_Column
+	SET columnId = 703, tableId = 20, name = "Ixy",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 56;
+
+	INSERT INTO md_Column
+	SET columnId = 704, tableId = 20, name = "IxyErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 57;
+
+	INSERT INTO md_Column
+	SET columnId = 705, tableId = 20, name = "snr",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 58;
+
+	INSERT INTO md_Column
+	SET columnId = 706, tableId = 20, name = "chi2",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 59;
+
+	INSERT INTO md_Column
+	SET columnId = 707, tableId = 20, name = "sky",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 60;
+
+	INSERT INTO md_Column
+	SET columnId = 708, tableId = 20, name = "skyErr",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 61;
+
+	INSERT INTO md_Column
+	SET columnId = 709, tableId = 20, name = "flagForAssociation",
+		type = "SMALLINT",
+		notNull = 0,
+		displayOrder = 62;
+
+	INSERT INTO md_Column
+	SET columnId = 710, tableId = 20, name = "flagForDetection",
+		type = "SMALLINT",
+		notNull = 0,
+		displayOrder = 63;
+
+	INSERT INTO md_Column
+	SET columnId = 711, tableId = 20, name = "flagForWcs",
+		type = "SMALLINT",
+		notNull = 0,
+		displayOrder = 64;
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+INSERT INTO md_Table
+SET tableId = 21, name = "Source_pt2",
+	engine = "MyISAM",
+	description = "Table to store high signal-to-noise &quot;sources&quot;. A source is a measurement of  Object's properties from a single image that contains its footprint on the sky. This table is expected to be used in DC3b-pt2.&#xA;";
+
+	INSERT INTO md_Column
+	SET columnId = 712, tableId = 21, name = "sourceId",
+		description = "Unique id.&#xA;",
+		type = "BIGINT",
+		notNull = 1,
+		displayOrder = 1;
+
+	INSERT INTO md_Column
+	SET columnId = 713, tableId = 21, name = "ccdExposureId",
+		description = "Pointer to the CcdExpsoure where this source was measured. Note that we are allowing a source to belong to multiple AmpExposures, but it may not span multiple CcdExposures.&#xA;",
+		type = "BIGINT",
+		notNull = 0,
+		displayOrder = 2;
+
+	INSERT INTO md_Column
+	SET columnId = 714, tableId = 21, name = "filterId",
+		description = "Pointer to an entry in Filter table: filter used to take Exposure where this Source was measured.&#xA;",
+		type = "TINYINT",
+		notNull = 1,
+		displayOrder = 3;
+
+	INSERT INTO md_Column
+	SET columnId = 715, tableId = 21, name = "objectId",
+		description = "Pointer to Object table. Might be NULL (each Source will point to either MovingObject or Object)",
+		type = "BIGINT",
+		notNull = 0,
+		displayOrder = 4;
+
+	INSERT INTO md_Column
+	SET columnId = 716, tableId = 21, name = "movingObjectId",
 		description = "Pointer to MovingObject table. Might be NULL (each Source will point to either MovingObject or Object)",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 653, tableId = 20, name = "ra",
+	SET columnId = 717, tableId = 21, name = "ra",
 		description = "RA-coordinate of the center of the source.&#xA;",
 		type = "DOUBLE",
 		notNull = 1,
@@ -4757,7 +5148,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 654, tableId = 20, name = "raSigma",
+	SET columnId = 718, tableId = 21, name = "raSigma",
 		description = "Uncertainty of ra.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4765,7 +5156,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 655, tableId = 20, name = "decl",
+	SET columnId = 719, tableId = 21, name = "decl",
 		description = "Decl-coordinate of the center of the source.&#xA;",
 		type = "DOUBLE",
 		notNull = 1,
@@ -4773,7 +5164,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 656, tableId = 20, name = "declSigma",
+	SET columnId = 720, tableId = 21, name = "declSigma",
 		description = "Uncertainty of decl.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4781,7 +5172,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 657, tableId = 20, name = "xAstrom",
+	SET columnId = 721, tableId = 21, name = "xAstrom",
 		description = "x position computed by a centroiding algorithm for the purposes of astrometry using Dave Monet's algorithm.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4789,7 +5180,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 658, tableId = 20, name = "xAstromSigma",
+	SET columnId = 722, tableId = 21, name = "xAstromSigma",
 		description = "Uncertainty of xAstrom.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4797,7 +5188,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 659, tableId = 20, name = "yAstrom",
+	SET columnId = 723, tableId = 21, name = "yAstrom",
 		description = "y position computed by a centroiding algorithm for the purposes of astrometry using Dave Monet's algorithm.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4805,7 +5196,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 660, tableId = 20, name = "yAstromSigma",
+	SET columnId = 724, tableId = 21, name = "yAstromSigma",
 		description = "Uncertainty of yAstrom.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4813,7 +5204,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 661, tableId = 20, name = "xyAstromCov",
+	SET columnId = 725, tableId = 21, name = "xyAstromCov",
 		description = "Covariance between the xAstrom and the yAstrom.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4821,7 +5212,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 662, tableId = 20, name = "xOther",
+	SET columnId = 726, tableId = 21, name = "xOther",
 		description = "x position computed by a centroiding algorithm for the purposes of astrometry using &quot;other&quot; centroiding algorithm.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4829,7 +5220,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 663, tableId = 20, name = "xOtherSigma",
+	SET columnId = 727, tableId = 21, name = "xOtherSigma",
 		description = "Uncertainty of xOther.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4837,7 +5228,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 664, tableId = 20, name = "yOther",
+	SET columnId = 728, tableId = 21, name = "yOther",
 		description = "y position computed by a centroiding algorithm for the purposes of astrometry using &quot;other&quot; centroiding algorithm.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4845,7 +5236,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 665, tableId = 20, name = "yOtherSigma",
+	SET columnId = 729, tableId = 21, name = "yOtherSigma",
 		description = "Uncertainty of yOther.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
@@ -4853,14 +5244,14 @@ SET tableId = 20, name = "Source",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 666, tableId = 20, name = "xyOtherCov",
+	SET columnId = 730, tableId = 21, name = "xyOtherCov",
 		description = "Covariance between the xOther and yOther.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 667, tableId = 20, name = "astromRefrRa",
+	SET columnId = 731, tableId = 21, name = "astromRefrRa",
 		description = "Astrometric refraction in ra.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
@@ -4868,7 +5259,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 668, tableId = 20, name = "astromRefrRaSigma",
+	SET columnId = 732, tableId = 21, name = "astromRefrRaSigma",
 		description = "Uncertainty of astromRefrRa.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
@@ -4876,7 +5267,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 669, tableId = 20, name = "astromRefrDecl",
+	SET columnId = 733, tableId = 21, name = "astromRefrDecl",
 		description = "Astrometric refraction in decl.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
@@ -4884,7 +5275,7 @@ SET tableId = 20, name = "Source",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 670, tableId = 20, name = "astromRefrDeclSigma",
+	SET columnId = 734, tableId = 21, name = "astromRefrDeclSigma",
 		description = "Uncertainty of astromRefrDecl.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
@@ -4892,259 +5283,259 @@ SET tableId = 20, name = "Source",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 671, tableId = 20, name = "sky",
+	SET columnId = 735, tableId = 21, name = "sky",
 		description = "Sky background.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 672, tableId = 20, name = "skySigma",
+	SET columnId = 736, tableId = 21, name = "skySigma",
 		description = "Uncertainty of sky.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 673, tableId = 20, name = "psfLnL",
+	SET columnId = 737, tableId = 21, name = "psfLnL",
 		description = "ln(likelihood) of being a PSF.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 674, tableId = 20, name = "lnL_SG",
+	SET columnId = 738, tableId = 21, name = "lnL_SG",
 		description = "Log-likelihood of being a Small Galaxy.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 675, tableId = 20, name = "flux_PS",
+	SET columnId = 739, tableId = 21, name = "flux_PS",
 		description = "Calibrated flux for Point Source model.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 676, tableId = 20, name = "flux_PS_Sigma",
+	SET columnId = 740, tableId = 21, name = "flux_PS_Sigma",
 		description = "Uncertainty of flux_PS.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 677, tableId = 20, name = "flux_SG",
+	SET columnId = 741, tableId = 21, name = "flux_SG",
 		description = "Calibrated flux for Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 678, tableId = 20, name = "flux_SG_Sigma",
+	SET columnId = 742, tableId = 21, name = "flux_SG_Sigma",
 		description = "Uncertainty of flux_SG.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 679, tableId = 20, name = "flux_CSG",
+	SET columnId = 743, tableId = 21, name = "flux_CSG",
 		description = "Calibrated flux for Cannonical Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 680, tableId = 20, name = "flux_CSG_Sigma",
+	SET columnId = 744, tableId = 21, name = "flux_CSG_Sigma",
 		description = "Uncertainly of flux_CSG.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 681, tableId = 20, name = "extendedness",
+	SET columnId = 745, tableId = 21, name = "extendedness",
 		description = "Probability that this source is an extended source. Valid range: 0-1, where 1 indicates an extended source with 100% probability.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 682, tableId = 20, name = "galExtinction",
+	SET columnId = 746, tableId = 21, name = "galExtinction",
 		description = "Galactic extinction.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 683, tableId = 20, name = "sersicN_SG",
+	SET columnId = 747, tableId = 21, name = "sersicN_SG",
 		description = "Sersic index for Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 36;
 
 	INSERT INTO md_Column
-	SET columnId = 684, tableId = 20, name = "sersicN_SG_Sigma",
+	SET columnId = 748, tableId = 21, name = "sersicN_SG_Sigma",
 		description = "Uncertainty of sersicN_SG.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 685, tableId = 20, name = "e1_SG",
+	SET columnId = 749, tableId = 21, name = "e1_SG",
 		description = "Ellipticity for Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 38;
 
 	INSERT INTO md_Column
-	SET columnId = 686, tableId = 20, name = "e1_SG_Sigma",
+	SET columnId = 750, tableId = 21, name = "e1_SG_Sigma",
 		description = "Uncertainty of e1_SG.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 39;
 
 	INSERT INTO md_Column
-	SET columnId = 687, tableId = 20, name = "e2_SG",
+	SET columnId = 751, tableId = 21, name = "e2_SG",
 		description = "Ellipticity for Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 40;
 
 	INSERT INTO md_Column
-	SET columnId = 688, tableId = 20, name = "e2_SG_Sigma",
+	SET columnId = 752, tableId = 21, name = "e2_SG_Sigma",
 		description = "Uncertainty of e2_SG.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 41;
 
 	INSERT INTO md_Column
-	SET columnId = 689, tableId = 20, name = "radius_SG",
+	SET columnId = 753, tableId = 21, name = "radius_SG",
 		description = "Size of Small Galaxy model.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 42;
 
 	INSERT INTO md_Column
-	SET columnId = 690, tableId = 20, name = "radius_SG_Sigma",
+	SET columnId = 754, tableId = 21, name = "radius_SG_Sigma",
 		description = "Uncertainty of radius_SG.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 43;
 
 	INSERT INTO md_Column
-	SET columnId = 691, tableId = 20, name = "midPoint",
+	SET columnId = 755, tableId = 21, name = "midPoint",
 		description = "Corrected midPoint of the exposure (tai).&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 44;
 
 	INSERT INTO md_Column
-	SET columnId = 692, tableId = 20, name = "apCorrection",
+	SET columnId = 756, tableId = 21, name = "apCorrection",
 		description = "Photometric correction: aperture correction.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 45;
 
 	INSERT INTO md_Column
-	SET columnId = 693, tableId = 20, name = "grayExtinction",
+	SET columnId = 757, tableId = 21, name = "grayExtinction",
 		description = "Photometric correction: gray extinction.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 46;
 
 	INSERT INTO md_Column
-	SET columnId = 694, tableId = 20, name = "nonGrayExtinction",
+	SET columnId = 758, tableId = 21, name = "nonGrayExtinction",
 		description = "Photometric correction: non gray extinction.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 47;
 
 	INSERT INTO md_Column
-	SET columnId = 695, tableId = 20, name = "momentIx",
+	SET columnId = 759, tableId = 21, name = "momentIx",
 		description = "Adaptive first moment. The moments are primarily for the moving objects, but should carry some information about defects, cosmics, etc. too.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 48;
 
 	INSERT INTO md_Column
-	SET columnId = 696, tableId = 20, name = "momentIxSigma",
+	SET columnId = 760, tableId = 21, name = "momentIxSigma",
 		description = "Uncertainty of momentIx.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 49;
 
 	INSERT INTO md_Column
-	SET columnId = 697, tableId = 20, name = "momentIy",
+	SET columnId = 761, tableId = 21, name = "momentIy",
 		description = "Adaptive first moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 50;
 
 	INSERT INTO md_Column
-	SET columnId = 698, tableId = 20, name = "momentIySigma",
+	SET columnId = 762, tableId = 21, name = "momentIySigma",
 		description = "Uncertainty of momentIy.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 51;
 
 	INSERT INTO md_Column
-	SET columnId = 699, tableId = 20, name = "momentIxx",
+	SET columnId = 763, tableId = 21, name = "momentIxx",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 52;
 
 	INSERT INTO md_Column
-	SET columnId = 700, tableId = 20, name = "momentIxxSigma",
+	SET columnId = 764, tableId = 21, name = "momentIxxSigma",
 		description = "Uncertainty of momentIxx.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 53;
 
 	INSERT INTO md_Column
-	SET columnId = 701, tableId = 20, name = "momentIyy",
+	SET columnId = 765, tableId = 21, name = "momentIyy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 54;
 
 	INSERT INTO md_Column
-	SET columnId = 702, tableId = 20, name = "momentIyySigma",
+	SET columnId = 766, tableId = 21, name = "momentIyySigma",
 		description = "Uncertainty of momentIyy.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 55;
 
 	INSERT INTO md_Column
-	SET columnId = 703, tableId = 20, name = "momentIxy",
+	SET columnId = 767, tableId = 21, name = "momentIxy",
 		description = "Adaptive second moment.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 56;
 
 	INSERT INTO md_Column
-	SET columnId = 704, tableId = 20, name = "momentIxySigma",
+	SET columnId = 768, tableId = 21, name = "momentIxySigma",
 		description = "Uncertainty of momentIxy.&#xA;",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 57;
 
 	INSERT INTO md_Column
-	SET columnId = 705, tableId = 20, name = "flags",
+	SET columnId = 769, tableId = 21, name = "flags",
 		description = "Flags.&#xA;",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 58;
 
 	INSERT INTO md_Column
-	SET columnId = 706, tableId = 20, name = "_chunkId",
+	SET columnId = 770, tableId = 21, name = "_chunkId",
 		description = "Internal column used by qserv.&#xA;",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 59;
 
 	INSERT INTO md_Column
-	SET columnId = 707, tableId = 20, name = "_subChunkId",
+	SET columnId = 771, tableId = 21, name = "_subChunkId",
 		description = "Internal column used by qserv.&#xA;",
 		type = "INTEGER",
 		notNull = 0,
@@ -5153,11 +5544,11 @@ SET tableId = 20, name = "Source",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 21, name = "Visit",
+SET tableId = 22, name = "Visit",
 	description = "Defines a single Visit. 1 row per LSST visit.";
 
 	INSERT INTO md_Column
-	SET columnId = 708, tableId = 21, name = "visitId",
+	SET columnId = 772, tableId = 22, name = "visitId",
 		description = "Unique identifier.&#xA;",
 		type = "INTEGER",
 		notNull = 1,
@@ -5166,25 +5557,25 @@ SET tableId = 21, name = "Visit",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 22, name = "_MovingObjectToType",
+SET tableId = 23, name = "_MovingObjectToType",
 	description = "Mapping: moving object --&amp;gt; types, with probabilities";
 
 	INSERT INTO md_Column
-	SET columnId = 709, tableId = 22, name = "movingObjectId",
+	SET columnId = 773, tableId = 23, name = "movingObjectId",
 		description = "Pointer to entry in MovingObject table",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 710, tableId = 22, name = "typeId",
+	SET columnId = 774, tableId = 23, name = "typeId",
 		description = "Pointer to entry in ObjectType table",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 711, tableId = 22, name = "probability",
+	SET columnId = 775, tableId = 23, name = "probability",
 		description = "Probability that given MovingObject is of given type. Range: 0-100 (in%)",
 		type = "TINYINT",
 		notNull = 0,
@@ -5194,25 +5585,25 @@ SET tableId = 22, name = "_MovingObjectToType",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 23, name = "_ObjectToType",
+SET tableId = 24, name = "_ObjectToType",
 	description = "Mapping Object --&amp;gt; types, with probabilities";
 
 	INSERT INTO md_Column
-	SET columnId = 712, tableId = 23, name = "objectId",
+	SET columnId = 776, tableId = 24, name = "objectId",
 		description = "Pointer to an entry in Object table",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 713, tableId = 23, name = "typeId",
+	SET columnId = 777, tableId = 24, name = "typeId",
 		description = "Pointer to an entry in ObjectType table",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 714, tableId = 23, name = "probability",
+	SET columnId = 778, tableId = 24, name = "probability",
 		description = "Probability that given object is of given type. Range 0-100 %",
 		type = "TINYINT",
 		notNull = 0,
@@ -5222,18 +5613,18 @@ SET tableId = 23, name = "_ObjectToType",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 24, name = "_Raw_Ccd_ExposureToVisit",
+SET tableId = 25, name = "_Raw_Ccd_ExposureToVisit",
 	description = "Mapping table: Raw_Ccd_Exposure --&amp;gt; visit&#xA;";
 
 	INSERT INTO md_Column
-	SET columnId = 715, tableId = 24, name = "visitId",
+	SET columnId = 779, tableId = 25, name = "visitId",
 		description = "Pointer to entry in Visit table - visit that given Exposure belongs to.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 716, tableId = 24, name = "ccdExposureId",
+	SET columnId = 780, tableId = 25, name = "ccdExposureId",
 		description = "Pointer to entry in Raw_Ccd_Exposure table.&#xA;",
 		type = "BIGINT",
 		notNull = 1,
@@ -5242,18 +5633,18 @@ SET tableId = 24, name = "_Raw_Ccd_ExposureToVisit",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 25, name = "_mops_Config",
+SET tableId = 26, name = "_mops_Config",
 	description = "Internal table used to ship runtime configuration data to MOPS worker nodes.&#xA;&#xA;This will eventually be replaced by some other mechanism. Note however that this data must be captured by the LSST software provenance tables.";
 
 	INSERT INTO md_Column
-	SET columnId = 717, tableId = 25, name = "configId",
+	SET columnId = 781, tableId = 26, name = "configId",
 		description = "Referring derived object",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 718, tableId = 25, name = "configText",
+	SET columnId = 782, tableId = 26, name = "configText",
 		description = "Config contents",
 		type = "TEXT",
 		notNull = 0,
@@ -5262,32 +5653,32 @@ SET tableId = 25, name = "_mops_Config",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 26, name = "_mops_EonQueue",
+SET tableId = 27, name = "_mops_EonQueue",
 	description = "Internal table which maintains a queue of objects to be passed to the MOPS precovery pipeline.&#xA;&#xA;Will eventually be replaced by a different queueing mechanism.";
 
 	INSERT INTO md_Column
-	SET columnId = 719, tableId = 26, name = "movingObjectId",
+	SET columnId = 783, tableId = 27, name = "movingObjectId",
 		description = "Referring derived object",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 720, tableId = 26, name = "eventId",
+	SET columnId = 784, tableId = 27, name = "eventId",
 		description = "Referring history event causing insertion",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 721, tableId = 26, name = "insertTime",
+	SET columnId = 785, tableId = 27, name = "insertTime",
 		description = "Wall clock time object was queued",
 		type = "TIMESTAMP",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 722, tableId = 26, name = "status",
+	SET columnId = 786, tableId = 27, name = "status",
 		description = "Processing status N =&amp;gt; new, I =&amp;gt; ID1 done, P =&amp;gt; precov done, X =&amp;gt; finished",
 		type = "CHAR(1)",
 		notNull = 0,
@@ -5297,32 +5688,32 @@ SET tableId = 26, name = "_mops_EonQueue",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 27, name = "_mops_MoidQueue",
+SET tableId = 28, name = "_mops_MoidQueue",
 	description = "Internal table which maintain a queue of objects to be passed to the MOPS precovery pipeline.&#xA;&#xA;Will eventually be replaced by a different queueing mechanism.";
 
 	INSERT INTO md_Column
-	SET columnId = 723, tableId = 27, name = "movingObjectId",
+	SET columnId = 787, tableId = 28, name = "movingObjectId",
 		description = "Referring derived object",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 724, tableId = 27, name = "movingObjectVersion",
+	SET columnId = 788, tableId = 28, name = "movingObjectVersion",
 		description = "version of referring derived object",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 725, tableId = 27, name = "eventId",
+	SET columnId = 789, tableId = 28, name = "eventId",
 		description = "Referring history event causing insertion",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 726, tableId = 27, name = "insertTime",
+	SET columnId = 790, tableId = 28, name = "insertTime",
 		description = "Wall clock time object was queued",
 		type = "TIMESTAMP",
 		notNull = 1,
@@ -5332,45 +5723,45 @@ SET tableId = 27, name = "_mops_MoidQueue",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 28, name = "_qservChunkMap",
+SET tableId = 29, name = "_qservChunkMap",
 	description = "Internal table used by qserv. Keeps spatial mapping ra/decl bounding box --&amp;gt; chunkId.&#xA;&#xA;";
 
 	INSERT INTO md_Column
-	SET columnId = 727, tableId = 28, name = "raMin",
+	SET columnId = 791, tableId = 29, name = "raMin",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 728, tableId = 28, name = "raMax",
+	SET columnId = 792, tableId = 29, name = "raMax",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 729, tableId = 28, name = "declMin",
+	SET columnId = 793, tableId = 29, name = "declMin",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 730, tableId = 28, name = "declMax",
+	SET columnId = 794, tableId = 29, name = "declMax",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 731, tableId = 28, name = "chunkId",
+	SET columnId = 795, tableId = 29, name = "chunkId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 732, tableId = 28, name = "objCount",
+	SET columnId = 796, tableId = 29, name = "objCount",
 		description = "Number of objects in a given chunk (for cost estimation).&#xA;",
 		type = "INTEGER",
 		notNull = 1,
@@ -5379,23 +5770,23 @@ SET tableId = 28, name = "_qservChunkMap",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 29, name = "_qservObjectIdMap",
+SET tableId = 30, name = "_qservObjectIdMap",
 	description = "Internal table used by qserv. Keeps mapping: objectId --&amp;gt; chunkId+subChunkId.&#xA;";
 
 	INSERT INTO md_Column
-	SET columnId = 733, tableId = 29, name = "objectId",
+	SET columnId = 797, tableId = 30, name = "objectId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 734, tableId = 29, name = "chunkId",
+	SET columnId = 798, tableId = 30, name = "chunkId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 735, tableId = 29, name = "subChunkId",
+	SET columnId = 799, tableId = 30, name = "subChunkId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 3;
@@ -5403,51 +5794,51 @@ SET tableId = 29, name = "_qservObjectIdMap",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 30, name = "_qservSubChunkMap",
+SET tableId = 31, name = "_qservSubChunkMap",
 	description = "Internal table used by qserv. Keeps spatial mapping ra/decl bounding box --&amp;gt; chunkId and subChunkId.&#xA;";
 
 	INSERT INTO md_Column
-	SET columnId = 736, tableId = 30, name = "raMin",
+	SET columnId = 800, tableId = 31, name = "raMin",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 737, tableId = 30, name = "raMax",
+	SET columnId = 801, tableId = 31, name = "raMax",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 738, tableId = 30, name = "declMin",
+	SET columnId = 802, tableId = 31, name = "declMin",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 739, tableId = 30, name = "declMax",
+	SET columnId = 803, tableId = 31, name = "declMax",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 740, tableId = 30, name = "chunkId",
+	SET columnId = 804, tableId = 31, name = "chunkId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 741, tableId = 30, name = "subChunkId",
+	SET columnId = 805, tableId = 31, name = "subChunkId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 742, tableId = 30, name = "objCount",
+	SET columnId = 806, tableId = 31, name = "objCount",
 		description = "Number of objects in a given subChunk (for cost estimation).&#xA;",
 		type = "INTEGER",
 		notNull = 1,
@@ -5456,11 +5847,11 @@ SET tableId = 30, name = "_qservSubChunkMap",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 31, name = "_tmpl_Id",
+SET tableId = 32, name = "_tmpl_Id",
 	description = "Template table. Schema for lists of ids (e.g. for Objects to delete)";
 
 	INSERT INTO md_Column
-	SET columnId = 743, tableId = 31, name = "id",
+	SET columnId = 807, tableId = 32, name = "id",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
@@ -5468,17 +5859,17 @@ SET tableId = 31, name = "_tmpl_Id",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 32, name = "_tmpl_IdPair",
+SET tableId = 33, name = "_tmpl_IdPair",
 	description = "Template table. Schema for list of id pairs.";
 
 	INSERT INTO md_Column
-	SET columnId = 744, tableId = 32, name = "first",
+	SET columnId = 808, tableId = 33, name = "first",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 745, tableId = 32, name = "second",
+	SET columnId = 809, tableId = 33, name = "second",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
@@ -5486,23 +5877,23 @@ SET tableId = 32, name = "_tmpl_IdPair",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 33, name = "_tmpl_MatchPair",
+SET tableId = 34, name = "_tmpl_MatchPair",
 	description = "Template table. Schema for per-visit match result tables.";
 
 	INSERT INTO md_Column
-	SET columnId = 746, tableId = 33, name = "first",
+	SET columnId = 810, tableId = 34, name = "first",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 747, tableId = 33, name = "second",
+	SET columnId = 811, tableId = 34, name = "second",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 748, tableId = 33, name = "distance",
+	SET columnId = 812, tableId = 34, name = "distance",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 3;
@@ -5510,61 +5901,61 @@ SET tableId = 33, name = "_tmpl_MatchPair",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 34, name = "_tmpl_mops_Ephemeris",
+SET tableId = 35, name = "_tmpl_mops_Ephemeris",
 	engine = "MyISAM";
 
 	INSERT INTO md_Column
-	SET columnId = 749, tableId = 34, name = "movingObjectId",
+	SET columnId = 813, tableId = 35, name = "movingObjectId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 750, tableId = 34, name = "movingObjectVersion",
+	SET columnId = 814, tableId = 35, name = "movingObjectVersion",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 751, tableId = 34, name = "ra",
+	SET columnId = 815, tableId = 35, name = "ra",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 752, tableId = 34, name = "decl",
+	SET columnId = 816, tableId = 35, name = "decl",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 753, tableId = 34, name = "mjd",
+	SET columnId = 817, tableId = 35, name = "mjd",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 754, tableId = 34, name = "smia",
+	SET columnId = 818, tableId = 35, name = "smia",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 755, tableId = 34, name = "smaa",
+	SET columnId = 819, tableId = 35, name = "smaa",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 756, tableId = 34, name = "pa",
+	SET columnId = 820, tableId = 35, name = "pa",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 757, tableId = 34, name = "mag",
+	SET columnId = 821, tableId = 35, name = "mag",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 9;
@@ -5572,67 +5963,67 @@ SET tableId = 34, name = "_tmpl_mops_Ephemeris",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 35, name = "_tmpl_mops_Prediction",
+SET tableId = 36, name = "_tmpl_mops_Prediction",
 	engine = "MyISAM";
 
 	INSERT INTO md_Column
-	SET columnId = 758, tableId = 35, name = "movingObjectId",
+	SET columnId = 822, tableId = 36, name = "movingObjectId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 759, tableId = 35, name = "movingObjectVersion",
+	SET columnId = 823, tableId = 36, name = "movingObjectVersion",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 760, tableId = 35, name = "ra",
+	SET columnId = 824, tableId = 36, name = "ra",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 761, tableId = 35, name = "decl",
+	SET columnId = 825, tableId = 36, name = "decl",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "degree",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 762, tableId = 35, name = "mjd",
+	SET columnId = 826, tableId = 36, name = "mjd",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 763, tableId = 35, name = "smia",
+	SET columnId = 827, tableId = 36, name = "smia",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 764, tableId = 35, name = "smaa",
+	SET columnId = 828, tableId = 36, name = "smaa",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 765, tableId = 35, name = "pa",
+	SET columnId = 829, tableId = 36, name = "pa",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 766, tableId = 35, name = "mag",
+	SET columnId = 830, tableId = 36, name = "mag",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 767, tableId = 35, name = "magErr",
+	SET columnId = 831, tableId = 36, name = "magErr",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 10;
@@ -5640,31 +6031,31 @@ SET tableId = 35, name = "_tmpl_mops_Prediction",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 36, name = "mops_Event";
+SET tableId = 37, name = "mops_Event";
 
 	INSERT INTO md_Column
-	SET columnId = 768, tableId = 36, name = "eventId",
+	SET columnId = 832, tableId = 37, name = "eventId",
 		description = "Auto-generated internal event ID",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 769, tableId = 36, name = "procHistoryId",
+	SET columnId = 833, tableId = 37, name = "procHistoryId",
 		description = "Pointer to processing history (prv_ProcHistory)",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 770, tableId = 36, name = "eventType",
+	SET columnId = 834, tableId = 37, name = "eventType",
 		description = "Type of event (A)ttribution/(P)recovery/(D)erivation/(I)dentification/(R)emoval",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 771, tableId = 36, name = "eventTime",
+	SET columnId = 835, tableId = 37, name = "eventTime",
 		description = "Timestamp for event creation",
 		type = "TIMESTAMP",
 		notNull = 1,
@@ -5672,56 +6063,56 @@ SET tableId = 36, name = "mops_Event";
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 772, tableId = 36, name = "movingObjectId",
+	SET columnId = 836, tableId = 37, name = "movingObjectId",
 		description = "Referring derived object ID",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 773, tableId = 36, name = "movingObjectVersion",
+	SET columnId = 837, tableId = 37, name = "movingObjectVersion",
 		description = "Pointer to resulting orbit",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 774, tableId = 36, name = "orbitCode",
+	SET columnId = 838, tableId = 37, name = "orbitCode",
 		description = "Information about computed orbit",
 		type = "CHAR(1)",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 775, tableId = 36, name = "d3",
+	SET columnId = 839, tableId = 37, name = "d3",
 		description = "Computed 3-parameter D-criterion",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 776, tableId = 36, name = "d4",
+	SET columnId = 840, tableId = 37, name = "d4",
 		description = "Computed 4-parameter D-criterion",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 777, tableId = 36, name = "ccdExposureId",
+	SET columnId = 841, tableId = 37, name = "ccdExposureId",
 		description = "Referring to Science_Ccd_Exposure id generating the event.&#xA;",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 778, tableId = 36, name = "classification",
+	SET columnId = 842, tableId = 37, name = "classification",
 		description = "MOPS efficiency classification for event",
 		type = "CHAR(1)",
 		notNull = 0,
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 779, tableId = 36, name = "ssmId",
+	SET columnId = 843, tableId = 37, name = "ssmId",
 		description = "Matching SSM ID for clean classifications",
 		type = "BIGINT",
 		notNull = 0,
@@ -5730,18 +6121,18 @@ SET tableId = 36, name = "mops_Event";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 37, name = "mops_Event_OrbitDerivation",
+SET tableId = 38, name = "mops_Event_OrbitDerivation",
 	description = "Table for associating tracklets with derivation events. There is a one to many relationship between events and tracklets (there will be multiple rows per event).";
 
 	INSERT INTO md_Column
-	SET columnId = 780, tableId = 37, name = "eventId",
+	SET columnId = 844, tableId = 38, name = "eventId",
 		description = "Parent event ID (from mops_History table)",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 781, tableId = 37, name = "trackletId",
+	SET columnId = 845, tableId = 38, name = "trackletId",
 		description = "Associated tracklet ID (multiple rows per event)",
 		type = "BIGINT",
 		notNull = 1,
@@ -5750,18 +6141,18 @@ SET tableId = 37, name = "mops_Event_OrbitDerivation",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 38, name = "mops_Event_OrbitIdentification",
+SET tableId = 39, name = "mops_Event_OrbitIdentification",
 	description = "Table for associating moving objects with identification events (one object per event). The original orbit and tracklets for the child can be obtained from the MOPS_History table by looking up the child object.";
 
 	INSERT INTO md_Column
-	SET columnId = 782, tableId = 38, name = "eventId",
+	SET columnId = 846, tableId = 39, name = "eventId",
 		description = "Parent event ID (from mops_History table)",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 783, tableId = 38, name = "childObjectId",
+	SET columnId = 847, tableId = 39, name = "childObjectId",
 		description = "Matching (child) derived object ID",
 		type = "BIGINT",
 		notNull = 1,
@@ -5770,32 +6161,32 @@ SET tableId = 38, name = "mops_Event_OrbitIdentification",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 39, name = "mops_Event_TrackletAttribution",
+SET tableId = 40, name = "mops_Event_TrackletAttribution",
 	description = "Table for associating tracklets with attribution events (one tracklet per event).";
 
 	INSERT INTO md_Column
-	SET columnId = 784, tableId = 39, name = "eventId",
+	SET columnId = 848, tableId = 40, name = "eventId",
 		description = "Parent event ID (from mops_History table)",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 785, tableId = 39, name = "trackletId",
+	SET columnId = 849, tableId = 40, name = "trackletId",
 		description = "Attributed tracklet ID",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 786, tableId = 39, name = "ephemerisDistance",
+	SET columnId = 850, tableId = 40, name = "ephemerisDistance",
 		description = "Predicted position minus actual, arcsecs",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 787, tableId = 39, name = "ephemerisUncertainty",
+	SET columnId = 851, tableId = 40, name = "ephemerisUncertainty",
 		description = "Predicted error ellipse semi-major axis, arcsecs",
 		type = "FLOAT",
 		notNull = 0,
@@ -5804,32 +6195,32 @@ SET tableId = 39, name = "mops_Event_TrackletAttribution",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 40, name = "mops_Event_TrackletPrecovery",
+SET tableId = 41, name = "mops_Event_TrackletPrecovery",
 	description = "Table for associating tracklets with precovery events (one precovery per event).";
 
 	INSERT INTO md_Column
-	SET columnId = 788, tableId = 40, name = "eventId",
+	SET columnId = 852, tableId = 41, name = "eventId",
 		description = "Parent event ID (from mops_History table)",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 789, tableId = 40, name = "trackletId",
+	SET columnId = 853, tableId = 41, name = "trackletId",
 		description = "Precovered tracklet ID",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 790, tableId = 40, name = "ephemerisDistance",
+	SET columnId = 854, tableId = 41, name = "ephemerisDistance",
 		description = "Predicted position minus actual, arcsecs",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 791, tableId = 40, name = "ephemerisUncertainty",
+	SET columnId = 855, tableId = 41, name = "ephemerisUncertainty",
 		description = "Predicted error ellipse semi-major axis, arcsecs",
 		type = "FLOAT",
 		notNull = 0,
@@ -5838,18 +6229,18 @@ SET tableId = 40, name = "mops_Event_TrackletPrecovery",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 41, name = "mops_Event_TrackletRemoval",
+SET tableId = 42, name = "mops_Event_TrackletRemoval",
 	description = "Table for associating tracklets with removal events (one removal per event).";
 
 	INSERT INTO md_Column
-	SET columnId = 792, tableId = 41, name = "eventId",
+	SET columnId = 856, tableId = 42, name = "eventId",
 		description = "Parent event ID (from mops_History table)",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 793, tableId = 41, name = "trackletId",
+	SET columnId = 857, tableId = 42, name = "trackletId",
 		description = "Removed tracklet ID",
 		type = "BIGINT",
 		notNull = 1,
@@ -5858,17 +6249,17 @@ SET tableId = 41, name = "mops_Event_TrackletRemoval",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 42, name = "mops_MovingObjectToTracklet",
+SET tableId = 43, name = "mops_MovingObjectToTracklet",
 	description = "Current membership of tracklets and moving objects.";
 
 	INSERT INTO md_Column
-	SET columnId = 794, tableId = 42, name = "movingObjectId",
+	SET columnId = 858, tableId = 43, name = "movingObjectId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 795, tableId = 42, name = "trackletId",
+	SET columnId = 859, tableId = 43, name = "trackletId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
@@ -5876,38 +6267,38 @@ SET tableId = 42, name = "mops_MovingObjectToTracklet",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 43, name = "mops_SSM",
+SET tableId = 44, name = "mops_SSM",
 	description = "Table that contains synthetic solar system model (SSM) objects.";
 
 	INSERT INTO md_Column
-	SET columnId = 796, tableId = 43, name = "ssmId",
+	SET columnId = 860, tableId = 44, name = "ssmId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 797, tableId = 43, name = "ssmDescId",
+	SET columnId = 861, tableId = 44, name = "ssmDescId",
 		description = "Pointer to SSM description",
 		type = "SMALLINT",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 798, tableId = 43, name = "q",
+	SET columnId = 862, tableId = 44, name = "q",
 		description = "semi-major axis, AU",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 799, tableId = 43, name = "e",
+	SET columnId = 863, tableId = 44, name = "e",
 		description = "eccentricity e (dimensionless)",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 800, tableId = 43, name = "i",
+	SET columnId = 864, tableId = 44, name = "i",
 		description = "inclination, deg",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5915,7 +6306,7 @@ SET tableId = 43, name = "mops_SSM",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 801, tableId = 43, name = "node",
+	SET columnId = 865, tableId = 44, name = "node",
 		description = "longitude of ascending node, deg",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5923,7 +6314,7 @@ SET tableId = 43, name = "mops_SSM",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 802, tableId = 43, name = "argPeri",
+	SET columnId = 866, tableId = 44, name = "argPeri",
 		description = "argument of perihelion, deg",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5931,35 +6322,35 @@ SET tableId = 43, name = "mops_SSM",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 803, tableId = 43, name = "timePeri",
+	SET columnId = 867, tableId = 44, name = "timePeri",
 		description = "time of perihelion, MJD (UTC)",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 804, tableId = 43, name = "epoch",
+	SET columnId = 868, tableId = 44, name = "epoch",
 		description = "epoch of osculating elements, MJD (UTC)",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 805, tableId = 43, name = "h_v",
+	SET columnId = 869, tableId = 44, name = "h_v",
 		description = "Absolute magnitude",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 806, tableId = 43, name = "h_ss",
+	SET columnId = 870, tableId = 44, name = "h_ss",
 		description = "??",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 807, tableId = 43, name = "g",
+	SET columnId = 871, tableId = 44, name = "g",
 		description = "Slope parameter g, dimensionless",
 		type = "DOUBLE",
 		notNull = 0,
@@ -5967,7 +6358,7 @@ SET tableId = 43, name = "mops_SSM",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 808, tableId = 43, name = "albedo",
+	SET columnId = 872, tableId = 44, name = "albedo",
 		description = "Albedo, dimensionless",
 		type = "DOUBLE",
 		notNull = 0,
@@ -5975,7 +6366,7 @@ SET tableId = 43, name = "mops_SSM",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 809, tableId = 43, name = "ssmObjectName",
+	SET columnId = 873, tableId = 44, name = "ssmObjectName",
 		description = "MOPS synthetic object name",
 		type = "VARCHAR(32)",
 		notNull = 1,
@@ -5984,25 +6375,25 @@ SET tableId = 43, name = "mops_SSM",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 44, name = "mops_SSMDesc",
+SET tableId = 45, name = "mops_SSMDesc",
 	description = "Table containing object name prefixes and descriptions of synthetic solar system object types.";
 
 	INSERT INTO md_Column
-	SET columnId = 810, tableId = 44, name = "ssmDescId",
+	SET columnId = 874, tableId = 45, name = "ssmDescId",
 		description = "Auto-generated row ID",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 811, tableId = 44, name = "prefix",
+	SET columnId = 875, tableId = 45, name = "prefix",
 		description = "MOPS prefix code S0/S1/etc.",
 		type = "CHAR(4)",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 812, tableId = 44, name = "description",
+	SET columnId = 876, tableId = 45, name = "description",
 		description = "Long description",
 		type = "VARCHAR(100)",
 		notNull = 0,
@@ -6011,16 +6402,16 @@ SET tableId = 44, name = "mops_SSMDesc",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 45, name = "mops_TrackToTracklet";
+SET tableId = 46, name = "mops_TrackToTracklet";
 
 	INSERT INTO md_Column
-	SET columnId = 813, tableId = 45, name = "trackId",
+	SET columnId = 877, tableId = 46, name = "trackId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 814, tableId = 45, name = "trackletId",
+	SET columnId = 878, tableId = 46, name = "trackletId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
@@ -6028,38 +6419,38 @@ SET tableId = 45, name = "mops_TrackToTracklet";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 46, name = "mops_Tracklet";
+SET tableId = 47, name = "mops_Tracklet";
 
 	INSERT INTO md_Column
-	SET columnId = 815, tableId = 46, name = "trackletId",
+	SET columnId = 879, tableId = 47, name = "trackletId",
 		description = "Auto-generated internal MOPS tracklet ID",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 816, tableId = 46, name = "ccdExposureId",
+	SET columnId = 880, tableId = 47, name = "ccdExposureId",
 		description = "Terminating field ID - pointer to Science_Ccd_Exposure&#xA;",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 817, tableId = 46, name = "procHistoryId",
+	SET columnId = 881, tableId = 47, name = "procHistoryId",
 		description = "Pointer to processing history (prv_ProcHistory)",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 818, tableId = 46, name = "ssmId",
+	SET columnId = 882, tableId = 47, name = "ssmId",
 		description = "Matching SSM ID for clean classifications",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 819, tableId = 46, name = "velRa",
+	SET columnId = 883, tableId = 47, name = "velRa",
 		description = "Average RA velocity deg/day, cos(dec) applied",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6067,7 +6458,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 820, tableId = 46, name = "velRaErr",
+	SET columnId = 884, tableId = 47, name = "velRaErr",
 		description = "Uncertainty in RA velocity",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6075,7 +6466,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 821, tableId = 46, name = "velDecl",
+	SET columnId = 885, tableId = 47, name = "velDecl",
 		description = "Average Dec velocity, deg/day)",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6083,7 +6474,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 822, tableId = 46, name = "velDeclErr",
+	SET columnId = 886, tableId = 47, name = "velDeclErr",
 		description = "Uncertainty in Dec velocity",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6091,7 +6482,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 823, tableId = 46, name = "velTot",
+	SET columnId = 887, tableId = 47, name = "velTot",
 		description = "Average total velocity, deg/day",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6099,7 +6490,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 824, tableId = 46, name = "accRa",
+	SET columnId = 888, tableId = 47, name = "accRa",
 		description = "Average RA Acceleration, deg/day^2",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6107,7 +6498,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 825, tableId = 46, name = "accRaErr",
+	SET columnId = 889, tableId = 47, name = "accRaErr",
 		description = "Uncertainty in RA acceleration",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6115,7 +6506,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 826, tableId = 46, name = "accDecl",
+	SET columnId = 890, tableId = 47, name = "accDecl",
 		description = "Average Dec Acceleration, deg/day^2",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6123,7 +6514,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 827, tableId = 46, name = "accDeclErr",
+	SET columnId = 891, tableId = 47, name = "accDeclErr",
 		description = "Uncertainty in Dec acceleration",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6131,14 +6522,14 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 828, tableId = 46, name = "extEpoch",
+	SET columnId = 892, tableId = 47, name = "extEpoch",
 		description = "Extrapolated (central) epoch, MJD (UTC)",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 829, tableId = 46, name = "extRa",
+	SET columnId = 893, tableId = 47, name = "extRa",
 		description = "Extrapolated (central) RA, deg",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6146,7 +6537,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 830, tableId = 46, name = "extRaErr",
+	SET columnId = 894, tableId = 47, name = "extRaErr",
 		description = "Uncertainty in extrapolated RA, deg",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6154,7 +6545,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 831, tableId = 46, name = "extDecl",
+	SET columnId = 895, tableId = 47, name = "extDecl",
 		description = "Extrapolated (central) Dec, deg",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6162,7 +6553,7 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 832, tableId = 46, name = "extDeclErr",
+	SET columnId = 896, tableId = 47, name = "extDeclErr",
 		description = "Uncertainty in extrapolated Dec, deg",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6170,35 +6561,35 @@ SET tableId = 46, name = "mops_Tracklet";
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 833, tableId = 46, name = "extMag",
+	SET columnId = 897, tableId = 47, name = "extMag",
 		description = "Extrapolated (central) magnitude",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 834, tableId = 46, name = "extMagErr",
+	SET columnId = 898, tableId = 47, name = "extMagErr",
 		description = "Uncertainty in extrapolated mag, deg",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 835, tableId = 46, name = "probability",
+	SET columnId = 899, tableId = 47, name = "probability",
 		description = "Likelihood tracklet is real (unused currently)",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 836, tableId = 46, name = "status",
+	SET columnId = 900, tableId = 47, name = "status",
 		description = "processing status (unfound 'X', unattributed 'U', attributed 'A')",
 		type = "CHAR(1)",
 		notNull = 0,
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 837, tableId = 46, name = "classification",
+	SET columnId = 901, tableId = 47, name = "classification",
 		description = "MOPS efficiency classification",
 		type = "CHAR(1)",
 		notNull = 0,
@@ -6207,17 +6598,17 @@ SET tableId = 46, name = "mops_Tracklet";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 47, name = "mops_TrackletToDiaSource",
+SET tableId = 48, name = "mops_TrackletToDiaSource",
 	description = "Table maintaining many-to-many relationship between tracklets and detections.&#xA;";
 
 	INSERT INTO md_Column
-	SET columnId = 838, tableId = 47, name = "trackletId",
+	SET columnId = 902, tableId = 48, name = "trackletId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 839, tableId = 47, name = "diaSourceId",
+	SET columnId = 903, tableId = 48, name = "diaSourceId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
@@ -6225,31 +6616,31 @@ SET tableId = 47, name = "mops_TrackletToDiaSource",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 48, name = "prv_Activity";
+SET tableId = 49, name = "prv_Activity";
 
 	INSERT INTO md_Column
-	SET columnId = 840, tableId = 48, name = "activityId",
+	SET columnId = 904, tableId = 49, name = "activityId",
 		description = "Unique id derived from prv_Run.offset.&#xA;",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 841, tableId = 48, name = "offset",
+	SET columnId = 905, tableId = 49, name = "offset",
 		description = "Corresponding prv_Run offset.&#xA;",
 		type = "MEDIUMINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 842, tableId = 48, name = "type",
+	SET columnId = 906, tableId = 49, name = "type",
 		description = "A name indicating type of activity, e.g. &quot;launch&quot;, &quot;workflow&quot;.&#xA;",
 		type = "VARCHAR(64)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 843, tableId = 48, name = "platform",
+	SET columnId = 907, tableId = 49, name = "platform",
 		description = "Name of the platform where the activity occurred (does not need to a be a DNS name).&#xA;",
 		type = "VARCHAR(64)",
 		notNull = 1,
@@ -6258,47 +6649,47 @@ SET tableId = 48, name = "prv_Activity";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 49, name = "prv_Filter",
+SET tableId = 50, name = "prv_Filter",
 	engine = "MyISAM",
 	description = "One row per color - the table will have 6 rows";
 
 	INSERT INTO md_Column
-	SET columnId = 844, tableId = 49, name = "filterId",
+	SET columnId = 908, tableId = 50, name = "filterId",
 		description = "Unique id.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 845, tableId = 49, name = "focalPlaneId",
+	SET columnId = 909, tableId = 50, name = "focalPlaneId",
 		description = "Pointer to FocalPlane - focal plane this filter belongs to.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 846, tableId = 49, name = "name",
+	SET columnId = 910, tableId = 50, name = "name",
 		description = "String description of the filter,e.g. 'VR SuperMacho c6027'.",
 		type = "VARCHAR(80)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 847, tableId = 49, name = "url",
+	SET columnId = 911, tableId = 50, name = "url",
 		description = "URL for filter transmission curve. (Added from archive specs for LSST precursor data).",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 848, tableId = 49, name = "clam",
+	SET columnId = 912, tableId = 50, name = "clam",
 		description = "Filter centroid wavelength (Angstroms). (Added from archive specs for LSST precursor data).",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 849, tableId = 49, name = "bw",
+	SET columnId = 913, tableId = 50, name = "bw",
 		description = "Filter effective bandwidth (Angstroms). (Added from archive specs for LSST precursor data).",
 		type = "FLOAT",
 		notNull = 1,
@@ -6307,31 +6698,31 @@ SET tableId = 49, name = "prv_Filter",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 50, name = "prv_PolicyFile";
+SET tableId = 51, name = "prv_PolicyFile";
 
 	INSERT INTO md_Column
-	SET columnId = 850, tableId = 50, name = "policyFileId",
+	SET columnId = 914, tableId = 51, name = "policyFileId",
 		description = "Identifier for the file containing the Policy.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 851, tableId = 50, name = "pathName",
+	SET columnId = 915, tableId = 51, name = "pathName",
 		description = "Path to the Policy file.",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 852, tableId = 50, name = "hashValue",
+	SET columnId = 916, tableId = 51, name = "hashValue",
 		description = "MD5 hash of the Policy file contents for verification and modification detection.",
 		type = "CHAR(32)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 853, tableId = 50, name = "modifiedDate",
+	SET columnId = 917, tableId = 51, name = "modifiedDate",
 		description = "Time of last modification of the Policy file as provided by the filesystem.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6340,31 +6731,31 @@ SET tableId = 50, name = "prv_PolicyFile";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 51, name = "prv_PolicyKey";
+SET tableId = 52, name = "prv_PolicyKey";
 
 	INSERT INTO md_Column
-	SET columnId = 854, tableId = 51, name = "policyKeyId",
+	SET columnId = 918, tableId = 52, name = "policyKeyId",
 		description = "Identifier for a key within a Policy file.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 855, tableId = 51, name = "policyFileId",
+	SET columnId = 919, tableId = 52, name = "policyFileId",
 		description = "Identifier for the Policy file.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 856, tableId = 51, name = "keyName",
+	SET columnId = 920, tableId = 52, name = "keyName",
 		description = "Name of the key in the Policy file.",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 857, tableId = 51, name = "keyType",
+	SET columnId = 921, tableId = 52, name = "keyType",
 		description = "Type of the key in the Policy file.",
 		type = "VARCHAR(16)",
 		notNull = 1,
@@ -6373,16 +6764,16 @@ SET tableId = 51, name = "prv_PolicyKey";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 52, name = "prv_Run";
+SET tableId = 53, name = "prv_Run";
 
 	INSERT INTO md_Column
-	SET columnId = 858, tableId = 52, name = "offset",
+	SET columnId = 922, tableId = 53, name = "offset",
 		type = "MEDIUMINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 859, tableId = 52, name = "runId",
+	SET columnId = 923, tableId = 53, name = "runId",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
@@ -6390,16 +6781,16 @@ SET tableId = 52, name = "prv_Run";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 53, name = "prv_SoftwarePackage";
+SET tableId = 54, name = "prv_SoftwarePackage";
 
 	INSERT INTO md_Column
-	SET columnId = 860, tableId = 53, name = "packageId",
+	SET columnId = 924, tableId = 54, name = "packageId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 861, tableId = 53, name = "packageName",
+	SET columnId = 925, tableId = 54, name = "packageName",
 		type = "VARCHAR(64)",
 		notNull = 1,
 		displayOrder = 2;
@@ -6407,28 +6798,28 @@ SET tableId = 53, name = "prv_SoftwarePackage";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 54, name = "prv_cnf_PolicyKey";
+SET tableId = 55, name = "prv_cnf_PolicyKey";
 
 	INSERT INTO md_Column
-	SET columnId = 862, tableId = 54, name = "policyKeyId",
+	SET columnId = 926, tableId = 55, name = "policyKeyId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 863, tableId = 54, name = "value",
+	SET columnId = 927, tableId = 55, name = "value",
 		type = "TEXT",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 864, tableId = 54, name = "validityBegin",
+	SET columnId = 928, tableId = 55, name = "validityBegin",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 865, tableId = 54, name = "validityEnd",
+	SET columnId = 929, tableId = 55, name = "validityEnd",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 4;
@@ -6436,34 +6827,34 @@ SET tableId = 54, name = "prv_cnf_PolicyKey";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 55, name = "prv_cnf_SoftwarePackage";
+SET tableId = 56, name = "prv_cnf_SoftwarePackage";
 
 	INSERT INTO md_Column
-	SET columnId = 866, tableId = 55, name = "packageId",
+	SET columnId = 930, tableId = 56, name = "packageId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 867, tableId = 55, name = "version",
+	SET columnId = 931, tableId = 56, name = "version",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 868, tableId = 55, name = "directory",
+	SET columnId = 932, tableId = 56, name = "directory",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 869, tableId = 55, name = "validityBegin",
+	SET columnId = 933, tableId = 56, name = "validityBegin",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 870, tableId = 55, name = "validityEnd",
+	SET columnId = 934, tableId = 56, name = "validityEnd",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 5;
@@ -6471,25 +6862,25 @@ SET tableId = 55, name = "prv_cnf_SoftwarePackage";
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 56, name = "sdqa_ImageStatus",
+SET tableId = 57, name = "sdqa_ImageStatus",
 	description = "Unique set of status names and their definitions, e.g. &quot;passed&quot;, &quot;failed&quot;, etc. ";
 
 	INSERT INTO md_Column
-	SET columnId = 871, tableId = 56, name = "sdqa_imageStatusId",
+	SET columnId = 935, tableId = 57, name = "sdqa_imageStatusId",
 		description = "Primary key",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 872, tableId = 56, name = "statusName",
+	SET columnId = 936, tableId = 57, name = "statusName",
 		description = "One-word, camel-case, descriptive name of a possible image status (e.g., passedAuto, marginallyPassedManual, etc.)",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 873, tableId = 56, name = "definition",
+	SET columnId = 937, tableId = 57, name = "definition",
 		description = "Detailed Definition of the image status",
 		type = "VARCHAR(255)",
 		notNull = 1,
@@ -6498,39 +6889,39 @@ SET tableId = 56, name = "sdqa_ImageStatus",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 57, name = "sdqa_Metric",
+SET tableId = 58, name = "sdqa_Metric",
 	description = "Unique set of metric names and associated metadata (e.g., &quot;nDeadPix&quot;, &quot;median&quot;, etc.). There will be approximately 30 records total in this table.";
 
 	INSERT INTO md_Column
-	SET columnId = 874, tableId = 57, name = "sdqa_metricId",
+	SET columnId = 938, tableId = 58, name = "sdqa_metricId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 875, tableId = 57, name = "metricName",
+	SET columnId = 939, tableId = 58, name = "metricName",
 		description = "One-word, camel-case, descriptive name of a possible metric (e.g., mSatPix, median, etc).",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 876, tableId = 57, name = "physicalUnits",
+	SET columnId = 940, tableId = 58, name = "physicalUnits",
 		description = "Physical units of metric.",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 877, tableId = 57, name = "dataType",
+	SET columnId = 941, tableId = 58, name = "dataType",
 		description = "Flag indicating whether data type of the metric value is integer (0) or float (1)",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 878, tableId = 57, name = "definition",
+	SET columnId = 942, tableId = 58, name = "definition",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 5;
@@ -6538,46 +6929,46 @@ SET tableId = 57, name = "sdqa_Metric",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 58, name = "sdqa_Rating_ForScienceAmpExposure",
+SET tableId = 59, name = "sdqa_Rating_ForScienceAmpExposure",
 	description = "Various SDQA ratings for a given amplifier image. There will approximately 30 of these records per image record.";
 
 	INSERT INTO md_Column
-	SET columnId = 879, tableId = 58, name = "sdqa_ratingId",
+	SET columnId = 943, tableId = 59, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 880, tableId = 58, name = "sdqa_metricId",
+	SET columnId = 944, tableId = 59, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 881, tableId = 58, name = "sdqa_thresholdId",
+	SET columnId = 945, tableId = 59, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 882, tableId = 58, name = "ampExposureId",
+	SET columnId = 946, tableId = 59, name = "ampExposureId",
 		description = "Pointer to Science_Amp_Exposure.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 883, tableId = 58, name = "metricValue",
+	SET columnId = 947, tableId = 59, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 884, tableId = 58, name = "metricSigma",
+	SET columnId = 948, tableId = 59, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.&#xA;",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6586,46 +6977,46 @@ SET tableId = 58, name = "sdqa_Rating_ForScienceAmpExposure",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 59, name = "sdqa_Rating_ForScienceCcdExposure",
+SET tableId = 60, name = "sdqa_Rating_ForScienceCcdExposure",
 	description = "Various SDQA ratings for a given ScienceCcdExposure.&#xA;";
 
 	INSERT INTO md_Column
-	SET columnId = 885, tableId = 59, name = "sdqa_ratingId",
+	SET columnId = 949, tableId = 60, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 886, tableId = 59, name = "sdqa_metricId",
+	SET columnId = 950, tableId = 60, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 887, tableId = 59, name = "sdqa_thresholdId",
+	SET columnId = 951, tableId = 60, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 888, tableId = 59, name = "ccdExposureId",
+	SET columnId = 952, tableId = 60, name = "ccdExposureId",
 		description = "Pointer to Science_Ccd_Exposure.&#xA;",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 889, tableId = 59, name = "metricValue",
+	SET columnId = 953, tableId = 60, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 890, tableId = 59, name = "metricSigma",
+	SET columnId = 954, tableId = 60, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.&#xA;",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6634,39 +7025,39 @@ SET tableId = 59, name = "sdqa_Rating_ForScienceCcdExposure",
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
-SET tableId = 60, name = "sdqa_Threshold",
+SET tableId = 61, name = "sdqa_Threshold",
 	description = "Version-controlled metric thresholds. Total number of these records is approximately equal to 30 x the number of times the thresholds will be changed over the entire period of LSST operations (of ordre of 100), with most of the changes occuring in the first year of operations.";
 
 	INSERT INTO md_Column
-	SET columnId = 891, tableId = 60, name = "sdqa_thresholdId",
+	SET columnId = 955, tableId = 61, name = "sdqa_thresholdId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 892, tableId = 60, name = "sdqa_metricId",
+	SET columnId = 956, tableId = 61, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric table.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 893, tableId = 60, name = "upperThreshold",
+	SET columnId = 957, tableId = 61, name = "upperThreshold",
 		description = "Threshold for which a metric value is tested to be greater than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 894, tableId = 60, name = "lowerThreshold",
+	SET columnId = 958, tableId = 61, name = "lowerThreshold",
 		description = "Threshold for which a metric value is tested to be less than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 895, tableId = 60, name = "createdDate",
+	SET columnId = 959, tableId = 61, name = "createdDate",
 		description = "Database timestamp when the record is inserted.",
 		type = "TIMESTAMP",
 		notNull = 1,
