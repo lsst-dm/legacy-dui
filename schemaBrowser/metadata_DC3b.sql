@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3b;
 USE lsst_schema_browser_DC3b;
 
 
-CREATE TABLE AAA_Version_DC3b_3_1_83 (version CHAR);
+CREATE TABLE AAA_Version_DC3b_3_1_84 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -6633,18 +6633,25 @@ SET tableId = 49, name = "prv_Activity";
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 906, tableId = 49, name = "type",
-		description = "A name indicating type of activity, e.g. &quot;launch&quot;, &quot;workflow&quot;.&#xA;",
+	SET columnId = 906, tableId = 49, name = "name",
+		description = "A name for the activity.&#xA;",
 		type = "VARCHAR(64)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 907, tableId = 49, name = "platform",
-		description = "Name of the platform where the activity occurred (does not need to a be a DNS name).&#xA;",
+	SET columnId = 907, tableId = 49, name = "type",
+		description = "A name indicating type of activity, e.g. &quot;launch&quot;, &quot;workflow&quot;.&#xA;",
 		type = "VARCHAR(64)",
 		notNull = 1,
 		displayOrder = 4;
+
+	INSERT INTO md_Column
+	SET columnId = 908, tableId = 49, name = "platform",
+		description = "Name of the platform where the activity occurred (does not need to a be a DNS name).&#xA;",
+		type = "VARCHAR(64)",
+		notNull = 1,
+		displayOrder = 5;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -6654,42 +6661,42 @@ SET tableId = 50, name = "prv_Filter",
 	description = "One row per color - the table will have 6 rows";
 
 	INSERT INTO md_Column
-	SET columnId = 908, tableId = 50, name = "filterId",
+	SET columnId = 909, tableId = 50, name = "filterId",
 		description = "Unique id.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 909, tableId = 50, name = "focalPlaneId",
+	SET columnId = 910, tableId = 50, name = "focalPlaneId",
 		description = "Pointer to FocalPlane - focal plane this filter belongs to.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 910, tableId = 50, name = "name",
+	SET columnId = 911, tableId = 50, name = "name",
 		description = "String description of the filter,e.g. 'VR SuperMacho c6027'.",
 		type = "VARCHAR(80)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 911, tableId = 50, name = "url",
+	SET columnId = 912, tableId = 50, name = "url",
 		description = "URL for filter transmission curve. (Added from archive specs for LSST precursor data).",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 912, tableId = 50, name = "clam",
+	SET columnId = 913, tableId = 50, name = "clam",
 		description = "Filter centroid wavelength (Angstroms). (Added from archive specs for LSST precursor data).",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 913, tableId = 50, name = "bw",
+	SET columnId = 914, tableId = 50, name = "bw",
 		description = "Filter effective bandwidth (Angstroms). (Added from archive specs for LSST precursor data).",
 		type = "FLOAT",
 		notNull = 1,
@@ -6701,28 +6708,28 @@ INSERT INTO md_Table
 SET tableId = 51, name = "prv_PolicyFile";
 
 	INSERT INTO md_Column
-	SET columnId = 914, tableId = 51, name = "policyFileId",
+	SET columnId = 915, tableId = 51, name = "policyFileId",
 		description = "Identifier for the file containing the Policy.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 915, tableId = 51, name = "pathName",
+	SET columnId = 916, tableId = 51, name = "pathName",
 		description = "Path to the Policy file.",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 916, tableId = 51, name = "hashValue",
+	SET columnId = 917, tableId = 51, name = "hashValue",
 		description = "MD5 hash of the Policy file contents for verification and modification detection.",
 		type = "CHAR(32)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 917, tableId = 51, name = "modifiedDate",
+	SET columnId = 918, tableId = 51, name = "modifiedDate",
 		description = "Time of last modification of the Policy file as provided by the filesystem.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6734,28 +6741,28 @@ INSERT INTO md_Table
 SET tableId = 52, name = "prv_PolicyKey";
 
 	INSERT INTO md_Column
-	SET columnId = 918, tableId = 52, name = "policyKeyId",
+	SET columnId = 919, tableId = 52, name = "policyKeyId",
 		description = "Identifier for a key within a Policy file.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 919, tableId = 52, name = "policyFileId",
+	SET columnId = 920, tableId = 52, name = "policyFileId",
 		description = "Identifier for the Policy file.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 920, tableId = 52, name = "keyName",
+	SET columnId = 921, tableId = 52, name = "keyName",
 		description = "Name of the key in the Policy file.",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 921, tableId = 52, name = "keyType",
+	SET columnId = 922, tableId = 52, name = "keyType",
 		description = "Type of the key in the Policy file.",
 		type = "VARCHAR(16)",
 		notNull = 1,
@@ -6767,13 +6774,13 @@ INSERT INTO md_Table
 SET tableId = 53, name = "prv_Run";
 
 	INSERT INTO md_Column
-	SET columnId = 922, tableId = 53, name = "offset",
+	SET columnId = 923, tableId = 53, name = "offset",
 		type = "MEDIUMINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 923, tableId = 53, name = "runId",
+	SET columnId = 924, tableId = 53, name = "runId",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
@@ -6784,13 +6791,13 @@ INSERT INTO md_Table
 SET tableId = 54, name = "prv_SoftwarePackage";
 
 	INSERT INTO md_Column
-	SET columnId = 924, tableId = 54, name = "packageId",
+	SET columnId = 925, tableId = 54, name = "packageId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 925, tableId = 54, name = "packageName",
+	SET columnId = 926, tableId = 54, name = "packageName",
 		type = "VARCHAR(64)",
 		notNull = 1,
 		displayOrder = 2;
@@ -6801,25 +6808,25 @@ INSERT INTO md_Table
 SET tableId = 55, name = "prv_cnf_PolicyKey";
 
 	INSERT INTO md_Column
-	SET columnId = 926, tableId = 55, name = "policyKeyId",
+	SET columnId = 927, tableId = 55, name = "policyKeyId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 927, tableId = 55, name = "value",
+	SET columnId = 928, tableId = 55, name = "value",
 		type = "TEXT",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 928, tableId = 55, name = "validityBegin",
+	SET columnId = 929, tableId = 55, name = "validityBegin",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 929, tableId = 55, name = "validityEnd",
+	SET columnId = 930, tableId = 55, name = "validityEnd",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 4;
@@ -6830,31 +6837,31 @@ INSERT INTO md_Table
 SET tableId = 56, name = "prv_cnf_SoftwarePackage";
 
 	INSERT INTO md_Column
-	SET columnId = 930, tableId = 56, name = "packageId",
+	SET columnId = 931, tableId = 56, name = "packageId",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 931, tableId = 56, name = "version",
+	SET columnId = 932, tableId = 56, name = "version",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 932, tableId = 56, name = "directory",
+	SET columnId = 933, tableId = 56, name = "directory",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 933, tableId = 56, name = "validityBegin",
+	SET columnId = 934, tableId = 56, name = "validityBegin",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 934, tableId = 56, name = "validityEnd",
+	SET columnId = 935, tableId = 56, name = "validityEnd",
 		type = "DATETIME",
 		notNull = 0,
 		displayOrder = 5;
@@ -6866,21 +6873,21 @@ SET tableId = 57, name = "sdqa_ImageStatus",
 	description = "Unique set of status names and their definitions, e.g. &quot;passed&quot;, &quot;failed&quot;, etc. ";
 
 	INSERT INTO md_Column
-	SET columnId = 935, tableId = 57, name = "sdqa_imageStatusId",
+	SET columnId = 936, tableId = 57, name = "sdqa_imageStatusId",
 		description = "Primary key",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 936, tableId = 57, name = "statusName",
+	SET columnId = 937, tableId = 57, name = "statusName",
 		description = "One-word, camel-case, descriptive name of a possible image status (e.g., passedAuto, marginallyPassedManual, etc.)",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 937, tableId = 57, name = "definition",
+	SET columnId = 938, tableId = 57, name = "definition",
 		description = "Detailed Definition of the image status",
 		type = "VARCHAR(255)",
 		notNull = 1,
@@ -6893,35 +6900,35 @@ SET tableId = 58, name = "sdqa_Metric",
 	description = "Unique set of metric names and associated metadata (e.g., &quot;nDeadPix&quot;, &quot;median&quot;, etc.). There will be approximately 30 records total in this table.";
 
 	INSERT INTO md_Column
-	SET columnId = 938, tableId = 58, name = "sdqa_metricId",
+	SET columnId = 939, tableId = 58, name = "sdqa_metricId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 939, tableId = 58, name = "metricName",
+	SET columnId = 940, tableId = 58, name = "metricName",
 		description = "One-word, camel-case, descriptive name of a possible metric (e.g., mSatPix, median, etc).",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 940, tableId = 58, name = "physicalUnits",
+	SET columnId = 941, tableId = 58, name = "physicalUnits",
 		description = "Physical units of metric.",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 941, tableId = 58, name = "dataType",
+	SET columnId = 942, tableId = 58, name = "dataType",
 		description = "Flag indicating whether data type of the metric value is integer (0) or float (1)",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 942, tableId = 58, name = "definition",
+	SET columnId = 943, tableId = 58, name = "definition",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 5;
@@ -6933,42 +6940,42 @@ SET tableId = 59, name = "sdqa_Rating_ForScienceAmpExposure",
 	description = "Various SDQA ratings for a given amplifier image. There will approximately 30 of these records per image record.";
 
 	INSERT INTO md_Column
-	SET columnId = 943, tableId = 59, name = "sdqa_ratingId",
+	SET columnId = 944, tableId = 59, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 944, tableId = 59, name = "sdqa_metricId",
+	SET columnId = 945, tableId = 59, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 945, tableId = 59, name = "sdqa_thresholdId",
+	SET columnId = 946, tableId = 59, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 946, tableId = 59, name = "ampExposureId",
+	SET columnId = 947, tableId = 59, name = "ampExposureId",
 		description = "Pointer to Science_Amp_Exposure.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 947, tableId = 59, name = "metricValue",
+	SET columnId = 948, tableId = 59, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 948, tableId = 59, name = "metricSigma",
+	SET columnId = 949, tableId = 59, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.&#xA;",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6981,42 +6988,42 @@ SET tableId = 60, name = "sdqa_Rating_ForScienceCcdExposure",
 	description = "Various SDQA ratings for a given ScienceCcdExposure.&#xA;";
 
 	INSERT INTO md_Column
-	SET columnId = 949, tableId = 60, name = "sdqa_ratingId",
+	SET columnId = 950, tableId = 60, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 950, tableId = 60, name = "sdqa_metricId",
+	SET columnId = 951, tableId = 60, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 951, tableId = 60, name = "sdqa_thresholdId",
+	SET columnId = 952, tableId = 60, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 952, tableId = 60, name = "ccdExposureId",
+	SET columnId = 953, tableId = 60, name = "ccdExposureId",
 		description = "Pointer to Science_Ccd_Exposure.&#xA;",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 953, tableId = 60, name = "metricValue",
+	SET columnId = 954, tableId = 60, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 954, tableId = 60, name = "metricSigma",
+	SET columnId = 955, tableId = 60, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.&#xA;",
 		type = "DOUBLE",
 		notNull = 1,
@@ -7029,35 +7036,35 @@ SET tableId = 61, name = "sdqa_Threshold",
 	description = "Version-controlled metric thresholds. Total number of these records is approximately equal to 30 x the number of times the thresholds will be changed over the entire period of LSST operations (of ordre of 100), with most of the changes occuring in the first year of operations.";
 
 	INSERT INTO md_Column
-	SET columnId = 955, tableId = 61, name = "sdqa_thresholdId",
+	SET columnId = 956, tableId = 61, name = "sdqa_thresholdId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 956, tableId = 61, name = "sdqa_metricId",
+	SET columnId = 957, tableId = 61, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric table.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 957, tableId = 61, name = "upperThreshold",
+	SET columnId = 958, tableId = 61, name = "upperThreshold",
 		description = "Threshold for which a metric value is tested to be greater than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 958, tableId = 61, name = "lowerThreshold",
+	SET columnId = 959, tableId = 61, name = "lowerThreshold",
 		description = "Threshold for which a metric value is tested to be less than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 959, tableId = 61, name = "createdDate",
+	SET columnId = 960, tableId = 61, name = "createdDate",
 		description = "Database timestamp when the record is inserted.",
 		type = "TIMESTAMP",
 		notNull = 1,
