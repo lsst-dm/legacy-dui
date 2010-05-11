@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3b;
 USE lsst_schema_browser_DC3b;
 
 
-CREATE TABLE AAA_Version_DC3b_3_1_84 (version CHAR);
+CREATE TABLE AAA_Version_DC3b_3_1_85 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -6621,7 +6621,7 @@ SET tableId = 49, name = "prv_Activity";
 	INSERT INTO md_Column
 	SET columnId = 904, tableId = 49, name = "activityId",
 		description = "Unique id derived from prv_Run.offset.&#xA;",
-		type = "TINYINT",
+		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
