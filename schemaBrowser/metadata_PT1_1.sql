@@ -7,9 +7,9 @@
 -- for copyright information.
 
 
-DROP DATABASE IF EXISTS lsst_schema_browser_PT1.1;
-CREATE DATABASE lsst_schema_browser_PT1.1;
-USE lsst_schema_browser_PT1.1;
+DROP DATABASE IF EXISTS lsst_schema_browser_PT1_1;
+CREATE DATABASE lsst_schema_browser_PT1_1;
+USE lsst_schema_browser_PT1_1;
 
 
 CREATE TABLE AAA_Version_DC3b_3_2_3 (version CHAR);
