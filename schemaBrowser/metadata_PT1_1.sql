@@ -558,28 +558,28 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 287, tableId = 13, name = "uE1_SG",
-		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 54;
 
 	INSERT INTO md_Column
 	SET columnId = 288, tableId = 13, name = "uE1_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of uE1_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 55;
 
 	INSERT INTO md_Column
 	SET columnId = 289, tableId = 13, name = "uE2_SG",
-		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 56;
 
 	INSERT INTO md_Column
 	SET columnId = 290, tableId = 13, name = "uE2_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of uE2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 57;
@@ -796,28 +796,28 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 320, tableId = 13, name = "gE1_SG",
-		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 87;
 
 	INSERT INTO md_Column
 	SET columnId = 321, tableId = 13, name = "gE1_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of gE1_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 88;
 
 	INSERT INTO md_Column
 	SET columnId = 322, tableId = 13, name = "gE2_SG",
-		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 89;
 
 	INSERT INTO md_Column
 	SET columnId = 323, tableId = 13, name = "gE2_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of gE2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 90;
@@ -1034,28 +1034,28 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 353, tableId = 13, name = "rE1_SG",
-		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 120;
 
 	INSERT INTO md_Column
 	SET columnId = 354, tableId = 13, name = "rE1_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of rE1_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 121;
 
 	INSERT INTO md_Column
 	SET columnId = 355, tableId = 13, name = "rE2_SG",
-		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity of Small Galaxy model for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 122;
 
 	INSERT INTO md_Column
 	SET columnId = 356, tableId = 13, name = "rE2_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of rE2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 123;
@@ -1272,28 +1272,28 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 386, tableId = 13, name = "iE1_SG",
-		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 153;
 
 	INSERT INTO md_Column
 	SET columnId = 387, tableId = 13, name = "iE1_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of iE1_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 154;
 
 	INSERT INTO md_Column
 	SET columnId = 388, tableId = 13, name = "iE2_SG",
-		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity of Small Galaxy model for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 155;
 
 	INSERT INTO md_Column
 	SET columnId = 389, tableId = 13, name = "iE2_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of iE2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 156;
@@ -1510,28 +1510,28 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 419, tableId = 13, name = "zE1_SG",
-		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 186;
 
 	INSERT INTO md_Column
 	SET columnId = 420, tableId = 13, name = "zE1_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of zE1_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 187;
 
 	INSERT INTO md_Column
 	SET columnId = 421, tableId = 13, name = "zE2_SG",
-		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity of Small Galaxy model for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 188;
 
 	INSERT INTO md_Column
 	SET columnId = 422, tableId = 13, name = "zE2_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of zE2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 189;
@@ -1748,28 +1748,28 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 452, tableId = 13, name = "yE1_SG",
-		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 219;
 
 	INSERT INTO md_Column
 	SET columnId = 453, tableId = 13, name = "yE1_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of yE1_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 220;
 
 	INSERT INTO md_Column
 	SET columnId = 454, tableId = 13, name = "yE2_SG",
-		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy model for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 221;
 
 	INSERT INTO md_Column
 	SET columnId = 455, tableId = 13, name = "yE2_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of yE2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 222;
@@ -3291,28 +3291,28 @@ SET tableId = 31, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 854, tableId = 31, name = "e1_SG",
-		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
+		description = "Not set for PT1.1. Ellipticity for Small Galaxy.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 69;
 
 	INSERT INTO md_Column
 	SET columnId = 855, tableId = 31, name = "e1_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of e1_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 70;
 
 	INSERT INTO md_Column
 	SET columnId = 856, tableId = 31, name = "e2_SG",
-		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of e2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 71;
 
 	INSERT INTO md_Column
 	SET columnId = 857, tableId = 31, name = "e2_SG_Sigma",
-		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of e2_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 72;
@@ -3340,14 +3340,14 @@ SET tableId = 31, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 861, tableId = 31, name = "flux_e1_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and flux for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and e1 for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 76;
 
 	INSERT INTO md_Column
 	SET columnId = 862, tableId = 31, name = "flux_e2_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and flux for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and e2 for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 77;
@@ -3368,49 +3368,49 @@ SET tableId = 31, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 865, tableId = 31, name = "e1_e1_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of e1 and e1 for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 80;
 
 	INSERT INTO md_Column
 	SET columnId = 866, tableId = 31, name = "e1_e2_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of e1 and e2 for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 81;
 
 	INSERT INTO md_Column
 	SET columnId = 867, tableId = 31, name = "e1_radius_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of e1 and radius for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 82;
 
 	INSERT INTO md_Column
 	SET columnId = 868, tableId = 31, name = "e1_sersicN_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of e1 and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 83;
 
 	INSERT INTO md_Column
 	SET columnId = 869, tableId = 31, name = "e2_e2_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of e2 and e2 for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 84;
 
 	INSERT INTO md_Column
 	SET columnId = 870, tableId = 31, name = "e2_radius_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of e2 and radius for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 85;
 
 	INSERT INTO md_Column
 	SET columnId = 871, tableId = 31, name = "e2_sersicN_SG_Cov",
-		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of e2 and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 86;
