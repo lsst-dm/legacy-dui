@@ -162,184 +162,186 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 234, tableId = 13, name = "objectId",
-		description = "Unique id.&#xA;",
+		description = "Unique object id.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
 	SET columnId = 235, tableId = 13, name = "iauId",
-		description = "IAU compliant name for the object. Example: &quot;LSST-DR11 J001234.65-123456.18 GAL&quot;. The last 3 characters identify classification. Note that it will not accommodate multiple classifications.&#xA;",
+		description = "Not set for PT1.1. IAU compliant name for the object. Example: &quot;LSST-DR11 J001234.65-123456.18 GAL&quot;. The last 3 characters identify classification. Note that it will not accommodate multiple classifications.",
 		type = "CHAR(34)",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
 	SET columnId = 236, tableId = 13, name = "ra_PS",
-		description = "RA-coordinate of the center of the object for the Point Source model for the cannonical filter.&#xA;",
+		description = "RA of mean source cluster position. Computed from the normalized sum of the unit vector positions of all sources belonging to an object; for sources that are close together this is equivalent to minimizing the sum of the square angular separations between the source positions and the object position.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
 	SET columnId = 237, tableId = 13, name = "ra_PS_Sigma",
-		description = "Uncertainty of ra_PS.",
+		description = "Standard deviation of ra_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
 	SET columnId = 238, tableId = 13, name = "decl_PS",
-		description = "Dec-coordinate of the center of the object for the Point Source model for the cannonical filter.&#xA;",
+		description = "Dec of mean source cluster position. Computed from the normalized sum of the unit vector positions of all sources belonging to an object; for sources that are close together this is equivalent to minimizing the sum of the square angular separations between the source positions and the object position.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
 	SET columnId = 239, tableId = 13, name = "decl_PS_Sigma",
-		description = "Uncertainty of decl_PS.",
+		description = "Standard deviation of decl_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
 	SET columnId = 240, tableId = 13, name = "radecl_PS_Cov",
-		description = "Covariance of ra_PS and decl_PS.&#xA;",
+		description = "Covariance of ra_PS and decl_PS.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "deg^2",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
 	SET columnId = 241, tableId = 13, name = "ra_SG",
-		description = "RA-coordinate of the center of the object for the Small Galaxy model for the cannonical filter.&#xA;",
+		description = "Inverse variance weighted mean source cluster position RA. Note that PT1.1 contains no small galaxy model code - this position is computed using the same point source model source positions as ra_PS, decl_PS.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
 	SET columnId = 242, tableId = 13, name = "ra_SG_Sigma",
-		description = "Uncertainty of ra_SG.&#xA;",
+		description = "Standard deviation of ra_SG.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
 	SET columnId = 243, tableId = 13, name = "decl_SG",
-		description = "Dec-coordinate of the center of the object for the Small Galaxy model for the cannonical filter.&#xA;",
+		description = "Inverse variance weighted mean source cluster position Dec. Note that PT1.1 contains no small galaxy model code - this position is computed using the same point source model source positions as ra_PS, decl_PS.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
 	SET columnId = 244, tableId = 13, name = "decl_SG_Sigma",
-		description = "Uncertainty of decl_SG.&#xA;",
+		description = "Standard deviation of decl_SG.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
 	SET columnId = 245, tableId = 13, name = "radecl_SG_Cov",
-		description = "Covariance of ra_SG and decl_SG.&#xA;",
+		description = "Covariance of ra_SG and decl_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "deg^2",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
 	SET columnId = 246, tableId = 13, name = "raRange",
-		description = "Ra part of the bounding box on the sky that fully encloses footprint of this object for the cannonical model (Small Galaxy) and cannonical filter.&#xA;",
+		description = "Not set for PT1.1. Width in RA of the bounding box on the sky that fully encloses the footprint of this object for the canonical model (Small Galaxy) and canonical filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
 	SET columnId = 247, tableId = 13, name = "declRange",
-		description = "Decl part of the bounding box on the sky that fully encloses footprint of this object for the cannonical model (Small Galaxy) and cannonical filter.&#xA;",
+		description = "Not set for PT1.1. Height in Dec of the bounding box on the sky that fully encloses the footprint of this object in the canonical model (Small Galaxy) and canonical filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
 	SET columnId = 248, tableId = 13, name = "muRa_PS",
-		description = "Proper motion (ra) for the Point Source model.&#xA;",
+		description = "Not set for PT1.1. Proper motion (ra) for the Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/year",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
 	SET columnId = 249, tableId = 13, name = "muRa_PS_Sigma",
-		description = "Uncertainty of muRa_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of muRa_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/year",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
 	SET columnId = 250, tableId = 13, name = "muDecl_PS",
-		description = "Proper motion (decl) for the Point Source model.&#xA;",
+		description = "Not set for PT1.1. Proper motion (decl) for the Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/year",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
 	SET columnId = 251, tableId = 13, name = "muDecl_PS_Sigma",
-		description = "Uncertainty of muDecl_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of muDecl_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/year",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
 	SET columnId = 252, tableId = 13, name = "muRaDecl_PS_Cov",
-		description = "Covariance of muRa_PS and muDecl_PS.&#xA;",
+		description = "Not set for PT1.1. Covariance of muRa_PS and muDecl_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
 	SET columnId = 253, tableId = 13, name = "parallax_PS",
-		description = "Parallax for Point Source model.&#xA;",
+		description = "Not set for PT1.1. Parallax for Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
 	SET columnId = 254, tableId = 13, name = "parallax_PS_Sigma",
-		description = "Uncertainty of parallax_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of parallax_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
 	SET columnId = 255, tableId = 13, name = "canonicalFilterId",
-		description = "Id of the filter which is the canonical filter for size, ellipticity and Sersic index parameters.&#xA;",
+		description = "Not set for PT1.1. Id of the filter which is the canonical filter for size, ellipticity and Sersic index parameters.",
 		type = "TINYINT",
 		notNull = 0,
 		displayOrder = 22;
 
 	INSERT INTO md_Column
 	SET columnId = 256, tableId = 13, name = "extendedness",
-		description = "Probability that this object is an extended object. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is an extended object. Valid range: 0-1, where 1 indicates an extended object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 23;
 
 	INSERT INTO md_Column
 	SET columnId = 257, tableId = 13, name = "varProb",
-		description = "Probability that this object is variable. Valid range: 0-1, where 1 indicates a variable object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is variable. Valid range: 0-1, where 1 indicates a variable object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 24;
@@ -349,7 +351,7 @@ SET tableId = 13, name = "Object",
 		description = "Time when this object was observed for the first time (taiMidPoint of the first Source)",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "TAI",
+		unit = "mjd",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
@@ -357,165 +359,168 @@ SET tableId = 13, name = "Object",
 		description = "The latest time when this object was observed (taiMidPoint of the last Source).",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "TAI",
+		unit = "mjd",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
 	SET columnId = 260, tableId = 13, name = "flags",
 		type = "INTEGER",
 		notNull = 0,
+		description = "Always 0 in PT1.1.",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
 	SET columnId = 261, tableId = 13, name = "uNumObs",
-		description = "Number of forced sources associated with this object for u filter.&#xA;",
+		description = "Number of u-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 28;
 
 	INSERT INTO md_Column
 	SET columnId = 262, tableId = 13, name = "uExtendedness",
-		description = "Probability that this object is an extended object for u filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is an extended object for u filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 29;
 
 	INSERT INTO md_Column
 	SET columnId = 263, tableId = 13, name = "uVarProb",
-		description = "Probability that this object is variable for u filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is variable for u filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 30;
 
 	INSERT INTO md_Column
 	SET columnId = 264, tableId = 13, name = "uRaOffset_PS",
-		description = "Center correction of ra_PS for u filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of ra_PS for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 31;
 
 	INSERT INTO md_Column
 	SET columnId = 265, tableId = 13, name = "uRaOffset_PS_Sigma",
-		description = "Uncertainty of uRaOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uRaOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 32;
 
 	INSERT INTO md_Column
 	SET columnId = 266, tableId = 13, name = "uDeclOffset_PS",
-		description = "Center correction of decl_PS for u filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_PS for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 33;
 
 	INSERT INTO md_Column
 	SET columnId = 267, tableId = 13, name = "uDeclOffset_PS_Sigma",
-		description = "Uncertainty of uDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 34;
 
 	INSERT INTO md_Column
 	SET columnId = 268, tableId = 13, name = "uRaDeclOffset_PS_Cov",
-		description = "Covariance of uRaOffset_PS and uDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Covariance of uRaOffset_PS and uDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 35;
 
 	INSERT INTO md_Column
 	SET columnId = 269, tableId = 13, name = "uRaOffset_SG",
-		description = "Center correction of raOffset_SG for u filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of raOffset_SG for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 36;
 
 	INSERT INTO md_Column
 	SET columnId = 270, tableId = 13, name = "uRaOffset_SG_Sigma",
-		description = "Uncertainty of uRaOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uRaOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 37;
 
 	INSERT INTO md_Column
 	SET columnId = 271, tableId = 13, name = "uDeclOffset_SG",
-		description = "Center correction of decl_SG for u filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_SG for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 38;
 
 	INSERT INTO md_Column
 	SET columnId = 272, tableId = 13, name = "uDeclOffset_SG_Sigma",
-		description = "Uncertainty of uDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 39;
 
 	INSERT INTO md_Column
 	SET columnId = 273, tableId = 13, name = "uRaDeclOffset_SG_Cov",
-		description = "Covariance of uRaOffset_SG and uDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Covariance of uRaOffset_SG and uDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 40;
 
 	INSERT INTO md_Column
 	SET columnId = 274, tableId = 13, name = "uLnL_PS",
-		description = "Log-likelihood of being a Point Source for u filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Point Source for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 41;
 
 	INSERT INTO md_Column
 	SET columnId = 275, tableId = 13, name = "uLnL_SG",
-		description = "Log-likelihood of being a Small Galaxy for u filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Small Galaxy for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 42;
 
 	INSERT INTO md_Column
 	SET columnId = 276, tableId = 13, name = "uFlux_PS",
-		description = "Flux for Point Source model for u filter.&#xA;",
+		description = "Inverse variance weighted mean AB PSF flux of u-band sources belonging to this object.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 43;
 
 	INSERT INTO md_Column
 	SET columnId = 277, tableId = 13, name = "uFlux_PS_Sigma",
-		description = "Uncertainty of uFlux_PS.&#xA;",
+		description = "Standard deviation of uFlux_PS.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 44;
 
 	INSERT INTO md_Column
 	SET columnId = 278, tableId = 13, name = "uFlux_SG",
-		description = "Flux for Small Galaxy model for u filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Small Galaxy model for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 45;
 
 	INSERT INTO md_Column
 	SET columnId = 279, tableId = 13, name = "uFlux_SG_Sigma",
-		description = "Uncertainty of uFlux_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uFlux_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 46;
 
 	INSERT INTO md_Column
 	SET columnId = 280, tableId = 13, name = "uFlux_CSG",
-		description = "Flux for Cannonical Small Galaxy model for u filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Canonical Small Galaxy model for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 47;
 
 	INSERT INTO md_Column
 	SET columnId = 281, tableId = 13, name = "uFlux_CSG_Sigma",
-		description = "Uncertainty of uFlux_CSG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uFlux_CSG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 48;
 
 	INSERT INTO md_Column
 	SET columnId = 282, tableId = 13, name = "uTimescale",
-		description = "Characteristic timescale of flux variations for u filter.&#xA;",
+		description = "Not set for PT1.1. Characteristic timescale of flux variations for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "day",
@@ -523,230 +528,237 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 283, tableId = 13, name = "uEarliestObsTime",
-		description = "Time when this object was observed for the first time in u filter.&#xA;",
+		description = "Time (TAI) when this object was observed for the first time in u filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 50;
 
 	INSERT INTO md_Column
 	SET columnId = 284, tableId = 13, name = "uLatestObsTime",
-		description = "The latest time when this object was observed in u filter.&#xA;",
+		description = "The latest time (TAI) when this object was observed in u filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 51;
 
 	INSERT INTO md_Column
 	SET columnId = 285, tableId = 13, name = "uSersicN_SG",
-		description = "Sersic index for Small Galaxy model for u filter.&#xA;",
+		description = "Not set for PT1.1. Sersic index for Small Galaxy model for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 52;
 
 	INSERT INTO md_Column
 	SET columnId = 286, tableId = 13, name = "uSersicN_SG_Sigma",
-		description = "Uncertainty of uSersicN_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 53;
 
 	INSERT INTO md_Column
 	SET columnId = 287, tableId = 13, name = "uE1_SG",
-		description = "Ellipticity for Small Galaxy model for u filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 54;
 
 	INSERT INTO md_Column
 	SET columnId = 288, tableId = 13, name = "uE1_SG_Sigma",
-		description = "Uncertainty of uE1_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 55;
 
 	INSERT INTO md_Column
 	SET columnId = 289, tableId = 13, name = "uE2_SG",
-		description = "Ellipticity for Small Galaxy model for u filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 56;
 
 	INSERT INTO md_Column
 	SET columnId = 290, tableId = 13, name = "uE2_SG_Sigma",
-		description = "Uncertainty of uE2_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of uSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 57;
 
 	INSERT INTO md_Column
 	SET columnId = 291, tableId = 13, name = "uRadius_SG",
-		description = "Size of Small Galaxy model for u filter.&#xA;",
+		description = "Unweighted mean u-band radius of source cluster. Note that PT1.1 contains no small galaxy model code - radii are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 58;
 
 	INSERT INTO md_Column
 	SET columnId = 292, tableId = 13, name = "uRadius_SG_Sigma",
-		description = "Uncertainty of uRadius_SG.&#xA;",
+		description = "Standard deviation of uRadius_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 59;
 
 	INSERT INTO md_Column
 	SET columnId = 293, tableId = 13, name = "uFlags",
 		type = "INTEGER",
 		notNull = 0,
+		description = "Encodes the number of u-band sources used to determine mean flux/ellipticity. Equal to N_flux_samples + N_ellipticity_samples*4096.",
 		displayOrder = 60;
 
 	INSERT INTO md_Column
 	SET columnId = 294, tableId = 13, name = "gNumObs",
-		description = "Number of forced sources associated with this object for g filter.&#xA;",
+		description = "Number of g-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 61;
 
 	INSERT INTO md_Column
 	SET columnId = 295, tableId = 13, name = "gExtendedness",
-		description = "Probability that this object is an extended object for g filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is an extended object for g filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 62;
 
 	INSERT INTO md_Column
 	SET columnId = 296, tableId = 13, name = "gVarProb",
-		description = "Probability that this object is variable for g filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is variable for g filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 63;
 
 	INSERT INTO md_Column
 	SET columnId = 297, tableId = 13, name = "gRaOffset_PS",
-		description = "Center correction of ga_PS for g filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of ra_PS for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 64;
 
 	INSERT INTO md_Column
 	SET columnId = 298, tableId = 13, name = "gRaOffset_PS_Sigma",
-		description = "Uncertainty of gRaOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gRaOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 65;
 
 	INSERT INTO md_Column
 	SET columnId = 299, tableId = 13, name = "gDeclOffset_PS",
-		description = "Center correction of decl_PS for g filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_PS for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 66;
 
 	INSERT INTO md_Column
 	SET columnId = 300, tableId = 13, name = "gDeclOffset_PS_Sigma",
-		description = "Uncertainty of gDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 67;
 
 	INSERT INTO md_Column
 	SET columnId = 301, tableId = 13, name = "gRaDeclOffset_PS_Cov",
-		description = "Covariance of gRaOffset_PS and gDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Covariance of gRaOffset_PS and gDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 68;
 
 	INSERT INTO md_Column
 	SET columnId = 302, tableId = 13, name = "gRaOffset_SG",
-		description = "Center correction of gaOffset_SG for g filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of raOffset_SG for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 69;
 
 	INSERT INTO md_Column
 	SET columnId = 303, tableId = 13, name = "gRaOffset_SG_Sigma",
-		description = "Uncertainty of gRaOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gRaOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 70;
 
 	INSERT INTO md_Column
 	SET columnId = 304, tableId = 13, name = "gDeclOffset_SG",
-		description = "Center correction of decl_SG for g filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_SG for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 71;
 
 	INSERT INTO md_Column
 	SET columnId = 305, tableId = 13, name = "gDeclOffset_SG_Sigma",
-		description = "Uncertainty of gDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 72;
 
 	INSERT INTO md_Column
 	SET columnId = 306, tableId = 13, name = "gRaDeclOffset_SG_Cov",
-		description = "Covariance of gRaOffset_SG and gDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Covariance of gRaOffset_SG and gDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 73;
 
 	INSERT INTO md_Column
 	SET columnId = 307, tableId = 13, name = "gLnL_PS",
-		description = "Log-likelihood of being a Point Source for g filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Point Source for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 74;
 
 	INSERT INTO md_Column
 	SET columnId = 308, tableId = 13, name = "gLnL_SG",
-		description = "Log-likelihood of being a Small Galaxy for g filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Small Galaxy for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 75;
 
 	INSERT INTO md_Column
 	SET columnId = 309, tableId = 13, name = "gFlux_PS",
-		description = "Flux for Point Source model for g filter.&#xA;",
+		description = "Inverse variance weighted mean AB PSF flux of g-band sources belonging to this object.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 76;
 
 	INSERT INTO md_Column
 	SET columnId = 310, tableId = 13, name = "gFlux_PS_Sigma",
-		description = "Uncertainty of gFlux_PS.&#xA;",
+		description = "Standard deviation of gFlux_PS.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 77;
 
 	INSERT INTO md_Column
 	SET columnId = 311, tableId = 13, name = "gFlux_SG",
-		description = "Flux for Small Galaxy model for g filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Small Galaxy model for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 78;
 
 	INSERT INTO md_Column
 	SET columnId = 312, tableId = 13, name = "gFlux_SG_Sigma",
-		description = "Uncertainty of gFlux_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gFlux_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 79;
 
 	INSERT INTO md_Column
 	SET columnId = 313, tableId = 13, name = "gFlux_CSG",
-		description = "Flux for Cannonical Small Galaxy model for g filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Canonical Small Galaxy model for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 80;
 
 	INSERT INTO md_Column
 	SET columnId = 314, tableId = 13, name = "gFlux_CSG_Sigma",
-		description = "Uncertainty of gFlux_CSG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gFlux_CSG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 81;
 
 	INSERT INTO md_Column
 	SET columnId = 315, tableId = 13, name = "gTimescale",
-		description = "Characteristic timescale of flux variations for g filter.&#xA;",
+		description = "Not set for PT1.1. Characteristic timescale of flux variations for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "day",
@@ -754,230 +766,237 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 316, tableId = 13, name = "gEarliestObsTime",
-		description = "Time when this object was observed for the first time in g filter.&#xA;",
+		description = "Time (TAI) when this object was observed for the first time in g filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 83;
 
 	INSERT INTO md_Column
 	SET columnId = 317, tableId = 13, name = "gLatestObsTime",
-		description = "The latest time when this object was observed in g filter.&#xA;",
+		description = "The latest time (TAI) when this object was observed in g filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 84;
 
 	INSERT INTO md_Column
 	SET columnId = 318, tableId = 13, name = "gSersicN_SG",
-		description = "Sersic index for Small Galaxy model for g filter.&#xA;",
+		description = "Not set for PT1.1. Sersic index for Small Galaxy model for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 85;
 
 	INSERT INTO md_Column
 	SET columnId = 319, tableId = 13, name = "gSersicN_SG_Sigma",
-		description = "Uncertainty of gSersicN_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 86;
 
 	INSERT INTO md_Column
 	SET columnId = 320, tableId = 13, name = "gE1_SG",
-		description = "Ellipticity for Small Galaxy model for g filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 87;
 
 	INSERT INTO md_Column
 	SET columnId = 321, tableId = 13, name = "gE1_SG_Sigma",
-		description = "Uncertainty of gE1_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 88;
 
 	INSERT INTO md_Column
 	SET columnId = 322, tableId = 13, name = "gE2_SG",
-		description = "Ellipticity for Small Galaxy model for g filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 89;
 
 	INSERT INTO md_Column
 	SET columnId = 323, tableId = 13, name = "gE2_SG_Sigma",
-		description = "Uncertainty of gE2_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of gSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 90;
 
 	INSERT INTO md_Column
 	SET columnId = 324, tableId = 13, name = "gRadius_SG",
-		description = "Size of Small Galaxy model for g filter.&#xA;",
+		description = "Unweighted mean g-band radius of source cluster. Note that PT1.1 contains no small galaxy model code - radii are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 91;
 
 	INSERT INTO md_Column
 	SET columnId = 325, tableId = 13, name = "gRadius_SG_Sigma",
-		description = "Uncertainty of gRadius_SG.&#xA;",
+		description = "Standard deviation of gRadius_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 92;
 
 	INSERT INTO md_Column
 	SET columnId = 326, tableId = 13, name = "gFlags",
 		type = "INTEGER",
 		notNull = 0,
+		description = "Encodes the number of g-band sources used to determine mean flux/ellipticity. Equal to N_flux_samples + N_ellipticity_samples*4096.",
 		displayOrder = 93;
 
 	INSERT INTO md_Column
 	SET columnId = 327, tableId = 13, name = "rNumObs",
-		description = "Number of forced sources associated with this object for r filter.&#xA;",
+		description = "Number of r-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 94;
 
 	INSERT INTO md_Column
 	SET columnId = 328, tableId = 13, name = "rExtendedness",
-		description = "Probability that this object is an extended object for r filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is an extended object for r filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 95;
 
 	INSERT INTO md_Column
 	SET columnId = 329, tableId = 13, name = "rVarProb",
-		description = "Probability that this object is variable for r filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is variable for r filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 96;
 
 	INSERT INTO md_Column
 	SET columnId = 330, tableId = 13, name = "rRaOffset_PS",
-		description = "Center correction of ra_PS for r filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of ra_PS for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 97;
 
 	INSERT INTO md_Column
 	SET columnId = 331, tableId = 13, name = "rRaOffset_PS_Sigma",
-		description = "Uncertainty of rRaOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rRaOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 98;
 
 	INSERT INTO md_Column
 	SET columnId = 332, tableId = 13, name = "rDeclOffset_PS",
-		description = "Center correction of decl_PS for r filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_PS for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 99;
 
 	INSERT INTO md_Column
 	SET columnId = 333, tableId = 13, name = "rDeclOffset_PS_Sigma",
-		description = "Uncertainty of rDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 100;
 
 	INSERT INTO md_Column
 	SET columnId = 334, tableId = 13, name = "rRaDeclOffset_PS_Cov",
-		description = "Covariance of rRaOffset_PS and gDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Covariance of rRaOffset_PS and rDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 101;
 
 	INSERT INTO md_Column
 	SET columnId = 335, tableId = 13, name = "rRaOffset_SG",
-		description = "Center correction of raOffset_SG for r filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of raOffset_SG for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 102;
 
 	INSERT INTO md_Column
 	SET columnId = 336, tableId = 13, name = "rRaOffset_SG_Sigma",
-		description = "Uncertainty of rRaOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rRaOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 103;
 
 	INSERT INTO md_Column
 	SET columnId = 337, tableId = 13, name = "rDeclOffset_SG",
-		description = "Center correction of decl_SG for r filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_SG for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 104;
 
 	INSERT INTO md_Column
 	SET columnId = 338, tableId = 13, name = "rDeclOffset_SG_Sigma",
-		description = "Uncertainty of rDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 105;
 
 	INSERT INTO md_Column
 	SET columnId = 339, tableId = 13, name = "rRaDeclOffset_SG_Cov",
-		description = "Covariance of rRaOffset_SG and gDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Covariance of rRaOffset_SG and rDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 106;
 
 	INSERT INTO md_Column
 	SET columnId = 340, tableId = 13, name = "rLnL_PS",
-		description = "Log-likelihood of being a Point Source for r filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Point Source for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 107;
 
 	INSERT INTO md_Column
 	SET columnId = 341, tableId = 13, name = "rLnL_SG",
-		description = "Log-likelihood of being a Small Galaxy for r filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Small Galaxy for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 108;
 
 	INSERT INTO md_Column
 	SET columnId = 342, tableId = 13, name = "rFlux_PS",
-		description = "Flux for Point Source model for r filter.&#xA;",
+		description = "Inverse variance weighted mean AB PSF flux of r-band sources belonging to this object.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 109;
 
 	INSERT INTO md_Column
 	SET columnId = 343, tableId = 13, name = "rFlux_PS_Sigma",
-		description = "Uncertainty of rFlux_PS.&#xA;",
+		description = "Standard deviation of rFlux_PS.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 110;
 
 	INSERT INTO md_Column
 	SET columnId = 344, tableId = 13, name = "rFlux_SG",
-		description = "Flux for Small Galaxy model for r filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Small Galaxy model for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 111;
 
 	INSERT INTO md_Column
 	SET columnId = 345, tableId = 13, name = "rFlux_SG_Sigma",
-		description = "Uncertainty of rFlux_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rFlux_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 112;
 
 	INSERT INTO md_Column
 	SET columnId = 346, tableId = 13, name = "rFlux_CSG",
-		description = "Flux for Cannonical Small Galaxy model for r filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Canonical Small Galaxy model for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 113;
 
 	INSERT INTO md_Column
 	SET columnId = 347, tableId = 13, name = "rFlux_CSG_Sigma",
-		description = "Uncertainty of rFlux_CSG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rFlux_CSG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 114;
 
 	INSERT INTO md_Column
 	SET columnId = 348, tableId = 13, name = "rTimescale",
-		description = "Characteristic timescale of flux variations for r filter.&#xA;",
+		description = "Not set for PT1.1. Characteristic timescale of flux variations for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "day",
@@ -985,230 +1004,237 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 349, tableId = 13, name = "rEarliestObsTime",
-		description = "Time when this object was observed for the first time in g filter.&#xA;",
+		description = "Time (TAI) when this object was observed for the first time in r filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 116;
 
 	INSERT INTO md_Column
 	SET columnId = 350, tableId = 13, name = "rLatestObsTime",
-		description = "The latest time when this object was observed in g filter.&#xA;",
+		description = "The latest time (TAI) when this object was observed in r filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 117;
 
 	INSERT INTO md_Column
 	SET columnId = 351, tableId = 13, name = "rSersicN_SG",
-		description = "Sersic index for Small Galaxy model for r filter.&#xA;",
+		description = "Not set for PT1.1. Sersic index for Small Galaxy model for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 118;
 
 	INSERT INTO md_Column
 	SET columnId = 352, tableId = 13, name = "rSersicN_SG_Sigma",
-		description = "Uncertainty of rSersicN_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 119;
 
 	INSERT INTO md_Column
 	SET columnId = 353, tableId = 13, name = "rE1_SG",
-		description = "Ellipticity for Small Galaxy model for r filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 120;
 
 	INSERT INTO md_Column
 	SET columnId = 354, tableId = 13, name = "rE1_SG_Sigma",
-		description = "Uncertainty of rE1_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 121;
 
 	INSERT INTO md_Column
 	SET columnId = 355, tableId = 13, name = "rE2_SG",
-		description = "Ellipticity for Small Galaxy model for r filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 122;
 
 	INSERT INTO md_Column
 	SET columnId = 356, tableId = 13, name = "rE2_SG_Sigma",
-		description = "Uncertainty of rE2_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of rSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 123;
 
 	INSERT INTO md_Column
 	SET columnId = 357, tableId = 13, name = "rRadius_SG",
-		description = "Size of Small Galaxy model for r filter.&#xA;",
+		description = "Unweighted mean r-band radius of source cluster. Note that PT1.1 contains no small galaxy model code - radii are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 124;
 
 	INSERT INTO md_Column
 	SET columnId = 358, tableId = 13, name = "rRadius_SG_Sigma",
-		description = "Uncertainty of rRadius_SG.&#xA;",
+		description = "Standard deviation of rRadius_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 125;
 
 	INSERT INTO md_Column
 	SET columnId = 359, tableId = 13, name = "rFlags",
 		type = "INTEGER",
 		notNull = 0,
+		description = "Encodes the number of r-band sources used to determine mean flux/ellipticity. Equal to N_flux_samples + N_ellipticity_samples*4096.",
 		displayOrder = 126;
 
 	INSERT INTO md_Column
 	SET columnId = 360, tableId = 13, name = "iNumObs",
-		description = "Number of forced sources associated with this object for i filter.&#xA;",
+		description = "Number of i-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 127;
 
 	INSERT INTO md_Column
 	SET columnId = 361, tableId = 13, name = "iExtendedness",
-		description = "Probability that this object is an extended object for i filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is an extended object for i filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 128;
 
 	INSERT INTO md_Column
 	SET columnId = 362, tableId = 13, name = "iVarProb",
-		description = "Probability that this object is variable for i filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is variable for i filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 129;
 
 	INSERT INTO md_Column
 	SET columnId = 363, tableId = 13, name = "iRaOffset_PS",
-		description = "Center correction of ia_PS for i filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of ra_PS for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 130;
 
 	INSERT INTO md_Column
 	SET columnId = 364, tableId = 13, name = "iRaOffset_PS_Sigma",
-		description = "Uncertainty of iRaOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iRaOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 131;
 
 	INSERT INTO md_Column
 	SET columnId = 365, tableId = 13, name = "iDeclOffset_PS",
-		description = "Center correction of decl_PS for i filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_PS for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 132;
 
 	INSERT INTO md_Column
 	SET columnId = 366, tableId = 13, name = "iDeclOffset_PS_Sigma",
-		description = "Uncertainty of iDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 133;
 
 	INSERT INTO md_Column
 	SET columnId = 367, tableId = 13, name = "iRaDeclOffset_PS_Cov",
-		description = "Covariance of iRaOffset_PS and gDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Covariance of iRaOffset_PS and iDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 134;
 
 	INSERT INTO md_Column
 	SET columnId = 368, tableId = 13, name = "iRaOffset_SG",
-		description = "Center correction of iaOffset_SG for i filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of raOffset_SG for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 135;
 
 	INSERT INTO md_Column
 	SET columnId = 369, tableId = 13, name = "iRaOffset_SG_Sigma",
-		description = "Uncertainty of iRaOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iRaOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 136;
 
 	INSERT INTO md_Column
 	SET columnId = 370, tableId = 13, name = "iDeclOffset_SG",
-		description = "Center correction of decl_SG for i filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_SG for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 137;
 
 	INSERT INTO md_Column
 	SET columnId = 371, tableId = 13, name = "iDeclOffset_SG_Sigma",
-		description = "Uncertainty of iDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 138;
 
 	INSERT INTO md_Column
 	SET columnId = 372, tableId = 13, name = "iRaDeclOffset_SG_Cov",
-		description = "Covariance of iRaOffset_SG and gDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Covariance of iRaOffset_SG and iDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 139;
 
 	INSERT INTO md_Column
 	SET columnId = 373, tableId = 13, name = "iLnL_PS",
-		description = "Log-likelihood of being a Point Source for i filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Point Source for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 140;
 
 	INSERT INTO md_Column
 	SET columnId = 374, tableId = 13, name = "iLnL_SG",
-		description = "Log-likelihood of being a Small Galaxy for i filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Small Galaxy for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 141;
 
 	INSERT INTO md_Column
 	SET columnId = 375, tableId = 13, name = "iFlux_PS",
-		description = "Flux for Point Source model for i filter.&#xA;",
+		description = "Inverse variance weighted mean AB PSF flux of i-band sources belonging to this object.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 142;
 
 	INSERT INTO md_Column
 	SET columnId = 376, tableId = 13, name = "iFlux_PS_Sigma",
-		description = "Uncertainty of iFlux_PS.&#xA;",
+		description = "Standard deviation of iFlux_PS.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 143;
 
 	INSERT INTO md_Column
 	SET columnId = 377, tableId = 13, name = "iFlux_SG",
-		description = "Flux for Small Galaxy model for i filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Small Galaxy model for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 144;
 
 	INSERT INTO md_Column
 	SET columnId = 378, tableId = 13, name = "iFlux_SG_Sigma",
-		description = "Uncertainty of iFlux_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iFlux_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 145;
 
 	INSERT INTO md_Column
 	SET columnId = 379, tableId = 13, name = "iFlux_CSG",
-		description = "Flux for Cannonical Small Galaxy model for i filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Canonical Small Galaxy model for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 146;
 
 	INSERT INTO md_Column
 	SET columnId = 380, tableId = 13, name = "iFlux_CSG_Sigma",
-		description = "Uncertainty of iFlux_CSG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iFlux_CSG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 147;
 
 	INSERT INTO md_Column
 	SET columnId = 381, tableId = 13, name = "iTimescale",
-		description = "Characteristic timescale of flux variations for i filter.&#xA;",
+		description = "Not set for PT1.1. Characteristic timescale of flux variations for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "day",
@@ -1216,230 +1242,237 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 382, tableId = 13, name = "iEarliestObsTime",
-		description = "Time when this object was observed for the first time in g filter.&#xA;",
+		description = "Time (TAI) when this object was observed for the first time in i filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 149;
 
 	INSERT INTO md_Column
 	SET columnId = 383, tableId = 13, name = "iLatestObsTime",
-		description = "The latest time when this object was observed in g filter.&#xA;",
+		description = "The latest time (TAI) when this object was observed in i filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 150;
 
 	INSERT INTO md_Column
 	SET columnId = 384, tableId = 13, name = "iSersicN_SG",
-		description = "Sersic index for Small Galaxy model for i filter.&#xA;",
+		description = "Not set for PT1.1. Sersic index for Small Galaxy model for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 151;
 
 	INSERT INTO md_Column
 	SET columnId = 385, tableId = 13, name = "iSersicN_SG_Sigma",
-		description = "Uncertainty of iSersicN_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 152;
 
 	INSERT INTO md_Column
 	SET columnId = 386, tableId = 13, name = "iE1_SG",
-		description = "Ellipticity for Small Galaxy model for i filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 153;
 
 	INSERT INTO md_Column
 	SET columnId = 387, tableId = 13, name = "iE1_SG_Sigma",
-		description = "Uncertainty of iE1_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 154;
 
 	INSERT INTO md_Column
 	SET columnId = 388, tableId = 13, name = "iE2_SG",
-		description = "Ellipticity for Small Galaxy model for i filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 155;
 
 	INSERT INTO md_Column
 	SET columnId = 389, tableId = 13, name = "iE2_SG_Sigma",
-		description = "Uncertainty of iE2_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of iSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 156;
 
 	INSERT INTO md_Column
 	SET columnId = 390, tableId = 13, name = "iRadius_SG",
-		description = "Size of Small Galaxy model for i filter.&#xA;",
+		description = "Unweighted mean i-band radius of source cluster. Note that PT1.1 contains no small galaxy model code - radii are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 157;
 
 	INSERT INTO md_Column
 	SET columnId = 391, tableId = 13, name = "iRadius_SG_Sigma",
-		description = "Uncertainty of iRadius_SG.&#xA;",
+		description = "Standard deviation of iRadius_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 158;
 
 	INSERT INTO md_Column
 	SET columnId = 392, tableId = 13, name = "iFlags",
 		type = "INTEGER",
 		notNull = 0,
+		description = "Encodes the number of i-band sources used to determine mean flux/ellipticity. Equal to N_flux_samples + N_ellipticity_samples*4096.",
 		displayOrder = 159;
 
 	INSERT INTO md_Column
 	SET columnId = 393, tableId = 13, name = "zNumObs",
-		description = "Number of forced sources associated with this object for z filter.&#xA;",
+		description = "Number of z-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 160;
 
 	INSERT INTO md_Column
 	SET columnId = 394, tableId = 13, name = "zExtendedness",
-		description = "Probability that this object is an extended object for z filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is an extended object for z filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 161;
 
 	INSERT INTO md_Column
 	SET columnId = 395, tableId = 13, name = "zVarProb",
-		description = "Probability that this object is variable for z filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is variable for z filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 162;
 
 	INSERT INTO md_Column
 	SET columnId = 396, tableId = 13, name = "zRaOffset_PS",
-		description = "Center correction of za_PS for z filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of ra_PS for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 163;
 
 	INSERT INTO md_Column
 	SET columnId = 397, tableId = 13, name = "zRaOffset_PS_Sigma",
-		description = "Uncertainty of zRaOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zRaOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 164;
 
 	INSERT INTO md_Column
 	SET columnId = 398, tableId = 13, name = "zDeclOffset_PS",
-		description = "Center correction of decl_PS for z filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_PS for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 165;
 
 	INSERT INTO md_Column
 	SET columnId = 399, tableId = 13, name = "zDeclOffset_PS_Sigma",
-		description = "Uncertainty of zDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 166;
 
 	INSERT INTO md_Column
 	SET columnId = 400, tableId = 13, name = "zRaDeclOffset_PS_Cov",
-		description = "Covariance of zRaOffset_PS and gDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Covariance of zRaOffset_PS and zDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 167;
 
 	INSERT INTO md_Column
 	SET columnId = 401, tableId = 13, name = "zRaOffset_SG",
-		description = "Center correction of zaOffset_SG for z filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of raOffset_SG for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 168;
 
 	INSERT INTO md_Column
 	SET columnId = 402, tableId = 13, name = "zRaOffset_SG_Sigma",
-		description = "Uncertainty of zRaOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zRaOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 169;
 
 	INSERT INTO md_Column
 	SET columnId = 403, tableId = 13, name = "zDeclOffset_SG",
-		description = "Center correction of decl_SG for z filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_SG for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 170;
 
 	INSERT INTO md_Column
 	SET columnId = 404, tableId = 13, name = "zDeclOffset_SG_Sigma",
-		description = "Uncertainty of zDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 171;
 
 	INSERT INTO md_Column
 	SET columnId = 405, tableId = 13, name = "zRaDeclOffset_SG_Cov",
-		description = "Covariance of zRaOffset_SG and gDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Covariance of zRaOffset_SG and zDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 172;
 
 	INSERT INTO md_Column
 	SET columnId = 406, tableId = 13, name = "zLnL_PS",
-		description = "Log-likelihood of being a Point Source for z filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Point Source for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 173;
 
 	INSERT INTO md_Column
 	SET columnId = 407, tableId = 13, name = "zLnL_SG",
-		description = "Log-likelihood of being a Small Galaxy for z filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Small Galaxy for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 174;
 
 	INSERT INTO md_Column
 	SET columnId = 408, tableId = 13, name = "zFlux_PS",
-		description = "Flux for Point Source model for z filter.&#xA;",
+		description = "Inverse variance weighted mean AB PSF flux of z-band sources belonging to this object.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 175;
 
 	INSERT INTO md_Column
 	SET columnId = 409, tableId = 13, name = "zFlux_PS_Sigma",
-		description = "Uncertainty of zFlux_PS.&#xA;",
+		description = "Standard deviation of zFlux_PS.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 176;
 
 	INSERT INTO md_Column
 	SET columnId = 410, tableId = 13, name = "zFlux_SG",
-		description = "Flux for Small Galaxy model for z filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Small Galaxy model for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 177;
 
 	INSERT INTO md_Column
 	SET columnId = 411, tableId = 13, name = "zFlux_SG_Sigma",
-		description = "Uncertainty of zFlux_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zFlux_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 178;
 
 	INSERT INTO md_Column
 	SET columnId = 412, tableId = 13, name = "zFlux_CSG",
-		description = "Flux for Cannonical Small Galaxy model for z filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Canonical Small Galaxy model for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 179;
 
 	INSERT INTO md_Column
 	SET columnId = 413, tableId = 13, name = "zFlux_CSG_Sigma",
-		description = "Uncertainty of zFlux_CSG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zFlux_CSG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 180;
 
 	INSERT INTO md_Column
 	SET columnId = 414, tableId = 13, name = "zTimescale",
-		description = "Characteristic timescale of flux variations for z filter.&#xA;",
+		description = "Not set for PT1.1. Characteristic timescale of flux variations for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "day",
@@ -1447,230 +1480,237 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 415, tableId = 13, name = "zEarliestObsTime",
-		description = "Time when this object was observed for the first time in g filter.&#xA;",
+		description = "Time (TAI) when this object was observed for the first time in z filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 182;
 
 	INSERT INTO md_Column
 	SET columnId = 416, tableId = 13, name = "zLatestObsTime",
-		description = "The latest time when this object was observed in g filter.&#xA;",
+		description = "The latest time (TAI) when this object was observed in z filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 183;
 
 	INSERT INTO md_Column
 	SET columnId = 417, tableId = 13, name = "zSersicN_SG",
-		description = "Sersic index for Small Galaxy model for z filter.&#xA;",
+		description = "Not set for PT1.1. Sersic index for Small Galaxy model for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 184;
 
 	INSERT INTO md_Column
 	SET columnId = 418, tableId = 13, name = "zSersicN_SG_Sigma",
-		description = "Uncertainty of zSersicN_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 185;
 
 	INSERT INTO md_Column
 	SET columnId = 419, tableId = 13, name = "zE1_SG",
-		description = "Ellipticity for Small Galaxy model for z filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 186;
 
 	INSERT INTO md_Column
 	SET columnId = 420, tableId = 13, name = "zE1_SG_Sigma",
-		description = "Uncertainty of zE1_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 187;
 
 	INSERT INTO md_Column
 	SET columnId = 421, tableId = 13, name = "zE2_SG",
-		description = "Ellipticity for Small Galaxy model for z filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 188;
 
 	INSERT INTO md_Column
 	SET columnId = 422, tableId = 13, name = "zE2_SG_Sigma",
-		description = "Uncertainty of zE2_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of zSersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 189;
 
 	INSERT INTO md_Column
 	SET columnId = 423, tableId = 13, name = "zRadius_SG",
-		description = "Size of Small Galaxy model for z filter.&#xA;",
+		description = "Unweighted mean z-band radius of source cluster. Note that PT1.1 contains no small galaxy model code - radii are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 190;
 
 	INSERT INTO md_Column
 	SET columnId = 424, tableId = 13, name = "zRadius_SG_Sigma",
-		description = "Uncertainty of zRadius_SG.&#xA;",
+		description = "Standard deviation of zRadius_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 191;
 
 	INSERT INTO md_Column
 	SET columnId = 425, tableId = 13, name = "zFlags",
 		type = "INTEGER",
 		notNull = 0,
+		description = "Encodes the number of z-band sources used to determine mean flux/ellipticity. Equal to N_flux_samples + N_ellipticity_samples*4096.",
 		displayOrder = 192;
 
 	INSERT INTO md_Column
 	SET columnId = 426, tableId = 13, name = "yNumObs",
-		description = "Number of forced sources associated with this object for y filter.&#xA;",
+		description = "Number of y-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 193;
 
 	INSERT INTO md_Column
 	SET columnId = 427, tableId = 13, name = "yExtendedness",
-		description = "Probability that this object is an extended object for y filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is an extended object for y filter. Valid range: 0-1, where 1 indicates an extended object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 194;
 
 	INSERT INTO md_Column
 	SET columnId = 428, tableId = 13, name = "yVarProb",
-		description = "Probability that this object is variable for y filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this object is variable for y filter. Valid range: 0-1, where 1 indicates a variable object with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 195;
 
 	INSERT INTO md_Column
 	SET columnId = 429, tableId = 13, name = "yRaOffset_PS",
-		description = "Center correction of ya_PS for y filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of ra_PS for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 196;
 
 	INSERT INTO md_Column
 	SET columnId = 430, tableId = 13, name = "yRaOffset_PS_Sigma",
-		description = "Uncertainty of yRaOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of yRaOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 197;
 
 	INSERT INTO md_Column
 	SET columnId = 431, tableId = 13, name = "yDeclOffset_PS",
-		description = "Center correction of decl_PS for y filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_PS for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 198;
 
 	INSERT INTO md_Column
 	SET columnId = 432, tableId = 13, name = "yDeclOffset_PS_Sigma",
-		description = "Uncertainty of yDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of yDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 199;
 
 	INSERT INTO md_Column
 	SET columnId = 433, tableId = 13, name = "yRaDeclOffset_PS_Cov",
-		description = "Covariance of yRaOffset_PS and gDeclOffset_PS.&#xA;",
+		description = "Not set for PT1.1. Covariance of yRaOffset_PS and yDeclOffset_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 200;
 
 	INSERT INTO md_Column
 	SET columnId = 434, tableId = 13, name = "yRaOffset_SG",
-		description = "Center correction of yaOffset_SG for y filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of raOffset_SG for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 201;
 
 	INSERT INTO md_Column
 	SET columnId = 435, tableId = 13, name = "yRaOffset_SG_Sigma",
-		description = "Uncertainty of yRaOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of yRaOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 202;
 
 	INSERT INTO md_Column
 	SET columnId = 436, tableId = 13, name = "yDeclOffset_SG",
-		description = "Center correction of decl_SG for y filter.&#xA;",
+		description = "Not set for PT1.1. Center correction of decl_SG for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 203;
 
 	INSERT INTO md_Column
 	SET columnId = 437, tableId = 13, name = "yDeclOffset_SG_Sigma",
-		description = "Uncertainty of yDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of yDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 204;
 
 	INSERT INTO md_Column
 	SET columnId = 438, tableId = 13, name = "yRaDeclOffset_SG_Cov",
-		description = "Covariance of yRaOffset_SG and gDeclOffset_SG.&#xA;",
+		description = "Not set for PT1.1. Covariance of yRaOffset_SG and yDeclOffset_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 205;
 
 	INSERT INTO md_Column
 	SET columnId = 439, tableId = 13, name = "yLnL_PS",
-		description = "Log-likelihood of being a Point Source for y filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Point Source for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 206;
 
 	INSERT INTO md_Column
 	SET columnId = 440, tableId = 13, name = "yLnL_SG",
-		description = "Log-likelihood of being a Small Galaxy for y filter.&#xA;",
+		description = "Not set for PT1.1. Log-likelihood of being a Small Galaxy for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 207;
 
 	INSERT INTO md_Column
 	SET columnId = 441, tableId = 13, name = "yFlux_PS",
-		description = "Flux for Point Source model for y filter.&#xA;",
+		description = "Inverse variance weighted mean AB PSF flux of y-band sources belonging to this object.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 208;
 
 	INSERT INTO md_Column
 	SET columnId = 442, tableId = 13, name = "yFlux_PS_Sigma",
-		description = "Uncertainty of yFlux_PS.&#xA;",
+		description = "Standard deviation of yFlux_PS.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "erg/s/cm^2/Hz",
 		displayOrder = 209;
 
 	INSERT INTO md_Column
 	SET columnId = 443, tableId = 13, name = "yFlux_SG",
-		description = "Flux for Small Galaxy model for y filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Small Galaxy model for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 210;
 
 	INSERT INTO md_Column
 	SET columnId = 444, tableId = 13, name = "yFlux_SG_Sigma",
-		description = "Uncertainty of yFlux_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of yFlux_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 211;
 
 	INSERT INTO md_Column
 	SET columnId = 445, tableId = 13, name = "yFlux_CSG",
-		description = "Flux for Cannonical Small Galaxy model for y filter.&#xA;",
+		description = "Not set for PT1.1. Flux for Canonical Small Galaxy model for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 212;
 
 	INSERT INTO md_Column
 	SET columnId = 446, tableId = 13, name = "yFlux_CSG_Sigma",
-		description = "Uncertainty of yFlux_CSG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of yFlux_CSG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 213;
 
 	INSERT INTO md_Column
 	SET columnId = 447, tableId = 13, name = "yTimescale",
-		description = "Characteristic timescale of flux variations for y filter.&#xA;",
+		description = "Not set for PT1.1. Characteristic timescale of flux variations for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "day",
@@ -1678,90 +1718,95 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 448, tableId = 13, name = "yEarliestObsTime",
-		description = "Time when this object was observed for the first time in g filter.&#xA;",
+		description = "Time (TAI) when this object was observed for the first time in y filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 215;
 
 	INSERT INTO md_Column
 	SET columnId = 449, tableId = 13, name = "yLatestObsTime",
-		description = "The latest time when this object was observed in g filter.&#xA;",
+		description = "The latest time (TAI) when this object was observed in y filter.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "mjd",
 		displayOrder = 216;
 
 	INSERT INTO md_Column
 	SET columnId = 450, tableId = 13, name = "ySersicN_SG",
-		description = "Sersic index for Small Galaxy model for y filter.&#xA;",
+		description = "Not set for PT1.1. Sersic index for Small Galaxy model for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 217;
 
 	INSERT INTO md_Column
 	SET columnId = 451, tableId = 13, name = "ySersicN_SG_Sigma",
-		description = "Uncertainty of ySersicN_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 218;
 
 	INSERT INTO md_Column
 	SET columnId = 452, tableId = 13, name = "yE1_SG",
-		description = "Ellipticity for Small Galaxy model for y filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 219;
 
 	INSERT INTO md_Column
 	SET columnId = 453, tableId = 13, name = "yE1_SG_Sigma",
-		description = "Uncertainty of yE1_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 220;
 
 	INSERT INTO md_Column
 	SET columnId = 454, tableId = 13, name = "yE2_SG",
-		description = "Ellipticity for Small Galaxy model for y filter.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 221;
 
 	INSERT INTO md_Column
 	SET columnId = 455, tableId = 13, name = "yE2_SG_Sigma",
-		description = "Uncertainty of yE2_SG.&#xA;",
+		description = "Not set for PT1.1. Uncertainty of ySersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 222;
 
 	INSERT INTO md_Column
 	SET columnId = 456, tableId = 13, name = "yRadius_SG",
-		description = "Size of Small Galaxy model for y filter.&#xA;",
+		description = "Unweighted mean y-band radius of source cluster. Note that PT1.1 contains no small galaxy model code - radii are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 223;
 
 	INSERT INTO md_Column
 	SET columnId = 457, tableId = 13, name = "yRadius_SG_Sigma",
-		description = "Uncertainty of yRadius_SG.&#xA;",
+		description = "Standard deviation of yRadius_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 224;
 
 	INSERT INTO md_Column
 	SET columnId = 458, tableId = 13, name = "yFlags",
 		type = "INTEGER",
 		notNull = 0,
+		description = "Encodes the number of y-band sources used to determine mean flux/ellipticity. Equal to N_flux_samples + N_ellipticity_samples*4096.",
 		displayOrder = 225;
 
 	INSERT INTO md_Column
 	SET columnId = 459, tableId = 13, name = "_chunkId",
-		description = "Internal column used by qserv.&#xA;",
+		description = "Internal column used by qserv.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 226;
 
 	INSERT INTO md_Column
 	SET columnId = 460, tableId = 13, name = "_subChunkId",
-		description = "Internal column used by qserv.&#xA;",
+		description = "Internal column used by qserv.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 227;
@@ -2134,7 +2179,7 @@ SET tableId = 24, name = "RefObjMatch",
 
 	INSERT INTO md_Column
 	SET columnId = 692, tableId = 24, name = "refObjectId",
-		description = "Reference object id (pointer to SimRefObject). NULL if object has no matches.",
+		description = "Reference object id (pointer to SimRefObject). NULL if reference object has no matches.",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 1;
@@ -2148,23 +2193,26 @@ SET tableId = 24, name = "RefObjMatch",
 
 	INSERT INTO md_Column
 	SET columnId = 694, tableId = 24, name = "refRa",
-		description = "ICRS reference object RA at mean epoch of object.",
+		description = "ICRS reference object RA at mean epoch of sources assigned to object.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "deg",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
 	SET columnId = 695, tableId = 24, name = "refDec",
-		description = "ICRS reference object Dec at mean epoch of object.",
+		description = "ICRS reference object Dec at mean epoch of sources assigned to object.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "deg",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
 	SET columnId = 696, tableId = 24, name = "angSep",
-		description = "Angular separation between reference object and  object.",
+		description = "Angular separation between reference object and object.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
@@ -2183,21 +2231,21 @@ SET tableId = 24, name = "RefObjMatch",
 
 	INSERT INTO md_Column
 	SET columnId = 699, tableId = 24, name = "closestToRef",
-		description = "Is object the closest match for reference object?",
+		description = "1 if object is the closest match for reference object, 0 otherwise.",
 		type = "TINYINT",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
 	SET columnId = 700, tableId = 24, name = "closestToObj",
-		description = "Is reference object the closest match for object?",
+		description = "1 if reference object is the closest match for object, 0 otherwise.",
 		type = "TINYINT",
 		notNull = 0,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
 	SET columnId = 701, tableId = 24, name = "flags",
-		description = "Bitwise or of match flags:&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;0x1: the reference object has proper motion&lt;/li&gt;&#xA;	&lt;li&gt;0x2: the reference object has parallax&lt;/li&gt;&#xA;	&lt;li&gt;0x4: a reduction for parallax from barycentric to geocentric place was applied prior to matching the reference object. Should never be set when matching against objects, but may be set when matching against sources.&lt;/li&gt;&#xA;&lt;/ul&gt;",
+		description = "Bitwise or of match flags. 0x1: the reference object has proper motion. 0x2: the reference object has parallax. 0x4: a reduction for parallax from barycentric to geocentric place was applied prior to matching the reference object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 10;
@@ -2528,14 +2576,14 @@ SET tableId = 29, name = "SimRefObject",
 
 	INSERT INTO md_Column
 	SET columnId = 759, tableId = 29, name = "isStar",
-		description = "1 for star, 0 for galaxy.",
+		description = "1 for stars, 0 for galaxies.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
 	SET columnId = 760, tableId = 29, name = "ra",
-		description = "RA. ICRS.",
+		description = "RA, ICRS.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
@@ -2543,7 +2591,7 @@ SET tableId = 29, name = "SimRefObject",
 
 	INSERT INTO md_Column
 	SET columnId = 761, tableId = 29, name = "decl",
-		description = "Decl. ICRS.",
+		description = "Dec, ICRS.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
@@ -2551,7 +2599,7 @@ SET tableId = 29, name = "SimRefObject",
 
 	INSERT INTO md_Column
 	SET columnId = 762, tableId = 29, name = "gLat",
-		description = "Galactic latitude, NULL for galaxies.",
+		description = "Galactic latitude. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "deg",
@@ -2559,7 +2607,7 @@ SET tableId = 29, name = "SimRefObject",
 
 	INSERT INTO md_Column
 	SET columnId = 763, tableId = 29, name = "gLon",
-		description = "Galactic longitude. Null for galaxies.",
+		description = "Galactic longitude, deg. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "deg",
@@ -2567,49 +2615,49 @@ SET tableId = 29, name = "SimRefObject",
 
 	INSERT INTO md_Column
 	SET columnId = 764, tableId = 29, name = "sedName",
-		description = "Best-fit SED name. Null for galaxies.",
+		description = "Best-fit SED name. NULL for galaxies.",
 		type = "CHAR(32)",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
 	SET columnId = 765, tableId = 29, name = "uMag",
-		description = "u band AB magnitude.",
+		description = "u band AB magnitude",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
 	SET columnId = 766, tableId = 29, name = "gMag",
-		description = "g band AB magnitude.",
+		description = "g band AB magnitude",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
 	SET columnId = 767, tableId = 29, name = "rMag",
-		description = "r band AB magnitude.",
+		description = "r band AB magnitude",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 10;
 
 	INSERT INTO md_Column
 	SET columnId = 768, tableId = 29, name = "iMag",
-		description = "i band AB magnitude.",
+		description = "i band AB magnitude",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 11;
 
 	INSERT INTO md_Column
 	SET columnId = 769, tableId = 29, name = "zMag",
-		description = "z band AB magnitude.",
+		description = "z band AB magnitude",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 12;
 
 	INSERT INTO md_Column
 	SET columnId = 770, tableId = 29, name = "yMag",
-		description = "y band AB magnitude.",
+		description = "y band AB magnitude",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 13;
@@ -2632,7 +2680,7 @@ SET tableId = 29, name = "SimRefObject",
 
 	INSERT INTO md_Column
 	SET columnId = 773, tableId = 29, name = "parallax",
-		description = "Parallal. NULL for galaxies.",
+		description = "Stellar parallax. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "milliarcsec",
@@ -2643,7 +2691,7 @@ SET tableId = 29, name = "SimRefObject",
 		description = "Radial velocity. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "km/sec",
+		unit = "km/s",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
@@ -2736,348 +2784,440 @@ SET tableId = 31, name = "Source",
 	SET columnId = 786, tableId = 31, name = "sourceId",
 		type = "BIGINT",
 		notNull = 1,
+		description = "Primary key (unique identifier)",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
 	SET columnId = 787, tableId = 31, name = "scienceCcdExposureId",
 		type = "BIGINT",
 		notNull = 0,
+		description = "Identifier for the CCD the source was detected/measured on (pointer to Science_Ccd_Exposure).",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
 	SET columnId = 788, tableId = 31, name = "filterId",
 		type = "TINYINT",
 		notNull = 1,
+		description = "Pointer to Filter table; 0='u', 1='g', 2='r', 3='i', 4='z', 5='y'.",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
 	SET columnId = 789, tableId = 31, name = "objectId",
 		type = "BIGINT",
 		notNull = 0,
+		description = "The object this source was assigned to. NULL if the PT1.1 clustering algorithm generated a single-source object for this source.",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
 	SET columnId = 790, tableId = 31, name = "movingObjectId",
 		type = "BIGINT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
 	SET columnId = 791, tableId = 31, name = "procHistoryId",
 		type = "INTEGER",
 		notNull = 1,
+		description = "Not set for PT1.1.",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
 	SET columnId = 792, tableId = 31, name = "ra",
 		type = "DOUBLE",
 		notNull = 1,
+		description = "RA of source centroid (equal to raAstrom).",
+		unit = "deg",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
 	SET columnId = 793, tableId = 31, name = "raErrForDetection",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Component of ra uncertainty due to detection uncertainty (xAstromErr, yAstromErr).",
+		unit = "deg",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
 	SET columnId = 794, tableId = 31, name = "raErrForWcs",
 		type = "FLOAT",
 		notNull = 1,
+		description = "Not set for PT1.1. Component of ra uncertainty due to uncertainty in WCS solution.",
+		unit = "deg",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
 	SET columnId = 795, tableId = 31, name = "decl",
 		type = "DOUBLE",
 		notNull = 1,
+		description = "Declination of source centroid (equal to declAstrom).",
+		unit = "deg",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
 	SET columnId = 796, tableId = 31, name = "declErrForDetection",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Component of decl uncertainty due to detection uncertainty (xAstromErr, yAstromErr).",
+		unit = "deg",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
 	SET columnId = 797, tableId = 31, name = "declErrForWcs",
 		type = "FLOAT",
 		notNull = 1,
+		description = "Not set for PT1.1. Component of decl uncertainty due to uncertainty in WCS solution.",
+		unit = "deg",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
 	SET columnId = 798, tableId = 31, name = "xFlux",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1.",
+		unit = "pix",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
 	SET columnId = 799, tableId = 31, name = "xFluxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1. Uncertainty of xFlux.",
+		unit = "pix",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
 	SET columnId = 800, tableId = 31, name = "yFlux",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1.",
+		unit = "pix",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
 	SET columnId = 801, tableId = 31, name = "yFluxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1. Uncertainty of yFlux.",
+		unit = "pix",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
 	SET columnId = 802, tableId = 31, name = "raFlux",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1. RA of (xFlux, yFlux).",
+		unit = "deg",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
 	SET columnId = 803, tableId = 31, name = "raFluxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1. Uncertainty of raFlux.",
+		unit = "deg",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
 	SET columnId = 804, tableId = 31, name = "declFlux",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1. Dec of (xFlux, yFlux).",
+		unit = "deg",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
 	SET columnId = 805, tableId = 31, name = "declFluxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1. Uncertainty of declFlux.",
+		unit = "deg",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
 	SET columnId = 806, tableId = 31, name = "xPeak",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1.",
+		unit = "pix",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
 	SET columnId = 807, tableId = 31, name = "yPeak",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1.",
+		unit = "pix",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
 	SET columnId = 808, tableId = 31, name = "raPeak",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1. RA of (xPeak, yPeak).",
+		unit = "deg",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
 	SET columnId = 809, tableId = 31, name = "declPeak",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1. Dec of (xPeak, yPeak).",
+		unit = "deg",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
 	SET columnId = 810, tableId = 31, name = "xAstrom",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Position (x) measured for purposes of astrometry.",
+		unit = "pix",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
 	SET columnId = 811, tableId = 31, name = "xAstromErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Uncertainty of xAstrom.",
+		unit = "pix",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
 	SET columnId = 812, tableId = 31, name = "yAstrom",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Position (y) measured for purposes of astrometry.",
+		unit = "pix",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
 	SET columnId = 813, tableId = 31, name = "yAstromErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Uncertainty of yAstrom.",
+		unit = "pix",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
 	SET columnId = 814, tableId = 31, name = "raAstrom",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "RA of (xAstrom, yAstrom).",
+		unit = "deg",
 		displayOrder = 29;
 
 	INSERT INTO md_Column
 	SET columnId = 815, tableId = 31, name = "raAstromErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Uncertainty of raAstrom.",
+		unit = "deg",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
 	SET columnId = 816, tableId = 31, name = "declAstrom",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Dec of (xAstrom, yAstrom).",
+		unit = "deg",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
 	SET columnId = 817, tableId = 31, name = "declAstromErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Uncertainty of declAstrom.",
+		unit = "deg",
 		displayOrder = 32;
 
 	INSERT INTO md_Column
 	SET columnId = 818, tableId = 31, name = "raObject",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "ra_PS of object associated with this source, or ra if the source was not associated with any object (objectId is NULL).",
+		unit = "deg",
 		displayOrder = 33;
 
 	INSERT INTO md_Column
 	SET columnId = 819, tableId = 31, name = "declObject",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "decl_PS of object associated with this source, or decl if the source was not associated with any object (objectId is NULL).",
+		unit = "deg",
 		displayOrder = 34;
 
 	INSERT INTO md_Column
 	SET columnId = 820, tableId = 31, name = "taiMidPoint",
 		type = "DOUBLE",
 		notNull = 1,
+		description = "Middle of exposure time (TAI).",
+		unit = "mjd",
 		displayOrder = 35;
 
 	INSERT INTO md_Column
 	SET columnId = 821, tableId = 31, name = "taiRange",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Exposure time.",
+		unit = "s",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
 	SET columnId = 822, tableId = 31, name = "psfFlux",
 		type = "DOUBLE",
 		notNull = 1,
+		description = "Uncalibrated PSF flux of source.",
+		unit = "DN",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
 	SET columnId = 823, tableId = 31, name = "psfFluxErr",
 		type = "FLOAT",
 		notNull = 1,
+		description = "Uncertainty of psfFlux.",
+		unit = "DN",
 		displayOrder = 38;
 
 	INSERT INTO md_Column
 	SET columnId = 824, tableId = 31, name = "apFlux",
 		type = "DOUBLE",
 		notNull = 1,
+		description = "Uncalibrated aperture flux of source.",
+		unit = "DN",
 		displayOrder = 39;
 
 	INSERT INTO md_Column
 	SET columnId = 825, tableId = 31, name = "apFluxErr",
 		type = "FLOAT",
 		notNull = 1,
+		description = "Uncertainty of apFlux.",
+		unit = "DN",
 		displayOrder = 40;
 
 	INSERT INTO md_Column
 	SET columnId = 826, tableId = 31, name = "modelFlux",
 		type = "DOUBLE",
 		notNull = 1,
+		description = "Not set for PT1.1.",
 		displayOrder = 41;
 
 	INSERT INTO md_Column
 	SET columnId = 827, tableId = 31, name = "modelFluxErr",
 		type = "FLOAT",
 		notNull = 1,
+		description = "Not set for PT1.1.",
 		displayOrder = 42;
 
 	INSERT INTO md_Column
 	SET columnId = 828, tableId = 31, name = "petroFlux",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 43;
 
 	INSERT INTO md_Column
 	SET columnId = 829, tableId = 31, name = "petroFluxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 44;
 
 	INSERT INTO md_Column
 	SET columnId = 830, tableId = 31, name = "instFlux",
 		type = "DOUBLE",
 		notNull = 1,
+		description = "Not set for PT1.1.",
 		displayOrder = 45;
 
 	INSERT INTO md_Column
 	SET columnId = 831, tableId = 31, name = "instFluxErr",
 		type = "FLOAT",
 		notNull = 1,
+		description = "Not set for PT1.1.",
 		displayOrder = 46;
 
 	INSERT INTO md_Column
 	SET columnId = 832, tableId = 31, name = "nonGrayCorrFlux",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 47;
 
 	INSERT INTO md_Column
 	SET columnId = 833, tableId = 31, name = "nonGrayCorrFluxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 48;
 
 	INSERT INTO md_Column
 	SET columnId = 834, tableId = 31, name = "atmCorrFlux",
 		type = "DOUBLE",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 49;
 
 	INSERT INTO md_Column
 	SET columnId = 835, tableId = 31, name = "atmCorrFluxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 50;
 
 	INSERT INTO md_Column
 	SET columnId = 836, tableId = 31, name = "apDia",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1",
 		displayOrder = 51;
 
 	INSERT INTO md_Column
 	SET columnId = 837, tableId = 31, name = "Ixx",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Adaptive second moment.",
 		displayOrder = 52;
 
 	INSERT INTO md_Column
 	SET columnId = 838, tableId = 31, name = "IxxErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Uncertainty of Ixx.",
 		displayOrder = 53;
 
 	INSERT INTO md_Column
 	SET columnId = 839, tableId = 31, name = "Iyy",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Adaptive second moment.",
 		displayOrder = 54;
 
 	INSERT INTO md_Column
 	SET columnId = 840, tableId = 31, name = "IyyErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Uncertainty of Iyy.",
 		displayOrder = 55;
 
 	INSERT INTO md_Column
 	SET columnId = 841, tableId = 31, name = "Ixy",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Adaptive second moment.",
 		displayOrder = 56;
 
 	INSERT INTO md_Column
 	SET columnId = 842, tableId = 31, name = "IxyErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Uncertainty of Ixy.",
 		displayOrder = 57;
 
 	INSERT INTO md_Column
 	SET columnId = 843, tableId = 31, name = "snr",
 		type = "FLOAT",
 		notNull = 1,
+		description = "Not set for PT1.1.",
 		displayOrder = 58;
 
 	INSERT INTO md_Column
@@ -3090,206 +3230,208 @@ SET tableId = 31, name = "Source",
 	SET columnId = 845, tableId = 31, name = "sky",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 60;
 
 	INSERT INTO md_Column
 	SET columnId = 846, tableId = 31, name = "skyErr",
 		type = "FLOAT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 61;
 
 	INSERT INTO md_Column
 	SET columnId = 847, tableId = 31, name = "extendedness",
-		description = "Probability that this source is an extended source. Valid range: 0-1, where 1 indicates an extended source with 100% probability.&#xA;",
+		description = "Not set for PT1.1. Probability that this source is an extended source. Valid range: 0-1, where 1 indicates an extended source with 100% probability.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 62;
 
 	INSERT INTO md_Column
 	SET columnId = 848, tableId = 31, name = "flux_PS",
-		description = "Calibrated flux for Point Source model.",
+		description = "Not set for PT1.1. Calibrated flux for Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 63;
 
 	INSERT INTO md_Column
 	SET columnId = 849, tableId = 31, name = "flux_PS_Sigma",
-		description = "Uncertainty of flux_PS.",
+		description = "Not set for PT1.1. Uncertainty of flux_PS.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 64;
 
 	INSERT INTO md_Column
 	SET columnId = 850, tableId = 31, name = "flux_SG",
-		description = "Calibrated flux for Small Galaxy model.",
+		description = "Not set for PT1.1. Calibrated flux for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 65;
 
 	INSERT INTO md_Column
 	SET columnId = 851, tableId = 31, name = "flux_SG_Sigma",
-		description = "Uncertainty of flux_SG.",
+		description = "Not set for PT1.1. Uncertainty of flux_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 66;
 
 	INSERT INTO md_Column
 	SET columnId = 852, tableId = 31, name = "sersicN_SG",
-		description = "Sersi index for Small Galaxy model.",
+		description = "Not set for PT1.1. Sersic index for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 67;
 
 	INSERT INTO md_Column
 	SET columnId = 853, tableId = 31, name = "sersicN_SG_Sigma",
-		description = "Uncertainty of sersicN_SG.",
+		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 68;
 
 	INSERT INTO md_Column
 	SET columnId = 854, tableId = 31, name = "e1_SG",
-		description = "Ellipticity for Small Galaxy model.",
+		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 69;
 
 	INSERT INTO md_Column
 	SET columnId = 855, tableId = 31, name = "e1_SG_Sigma",
-		description = "Uncertainty of e1_SG.",
+		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 70;
 
 	INSERT INTO md_Column
 	SET columnId = 856, tableId = 31, name = "e2_SG",
-		description = "Ellipticity for Small Galaxy model.",
+		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 71;
 
 	INSERT INTO md_Column
 	SET columnId = 857, tableId = 31, name = "e2_SG_Sigma",
-		description = "Uncertainty of e2_SG.",
+		description = "Not set for PT1.1. Uncertainty of sersicN_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 72;
 
 	INSERT INTO md_Column
 	SET columnId = 858, tableId = 31, name = "radius_SG",
-		description = "Size of Small Galaxy model.",
+		description = "Not set for PT1.1. Size of Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 73;
 
 	INSERT INTO md_Column
 	SET columnId = 859, tableId = 31, name = "radius_SG_Sigma",
-		description = "Uncertainty of radius_SG.",
+		description = "Not set for PT1.1. Uncertainty of radius_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 74;
 
 	INSERT INTO md_Column
 	SET columnId = 860, tableId = 31, name = "flux_flux_SG_Cov",
-		description = "Covariance of flux and flux for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and flux for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 75;
 
 	INSERT INTO md_Column
 	SET columnId = 861, tableId = 31, name = "flux_e1_SG_Cov",
-		description = "Covariance of flux and e1 for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and flux for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 76;
 
 	INSERT INTO md_Column
 	SET columnId = 862, tableId = 31, name = "flux_e2_SG_Cov",
-		description = "Covariance of flux and e2 for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and flux for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 77;
 
 	INSERT INTO md_Column
 	SET columnId = 863, tableId = 31, name = "flux_radius_SG_Cov",
-		description = "Covariance of flux and radius for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and radius for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 78;
 
 	INSERT INTO md_Column
 	SET columnId = 864, tableId = 31, name = "flux_sersicN_SG_Cov",
-		description = "Covariance of flux and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 79;
 
 	INSERT INTO md_Column
 	SET columnId = 865, tableId = 31, name = "e1_e1_SG_Cov",
-		description = "Covariance of e1 and e1 for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 80;
 
 	INSERT INTO md_Column
 	SET columnId = 866, tableId = 31, name = "e1_e2_SG_Cov",
-		description = "Covariance of e1 and e2 for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 81;
 
 	INSERT INTO md_Column
 	SET columnId = 867, tableId = 31, name = "e1_radius_SG_Cov",
-		description = "Covariance of e1 and radius for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 82;
 
 	INSERT INTO md_Column
 	SET columnId = 868, tableId = 31, name = "e1_sersicN_SG_Cov",
-		description = "Covariance of e1 and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 83;
 
 	INSERT INTO md_Column
 	SET columnId = 869, tableId = 31, name = "e2_e2_SG_Cov",
-		description = "Covariance of e2 and e2 for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 84;
 
 	INSERT INTO md_Column
 	SET columnId = 870, tableId = 31, name = "e2_radius_SG_Cov",
-		description = "Covariance of e2 and radius for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 85;
 
 	INSERT INTO md_Column
 	SET columnId = 871, tableId = 31, name = "e2_sersicN_SG_Cov",
-		description = "Covariance of e2 and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of flux and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 86;
 
 	INSERT INTO md_Column
 	SET columnId = 872, tableId = 31, name = "radius_radius_SG_Cov",
-		description = "Covariance of radius and radius for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of radius and radius for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 87;
 
 	INSERT INTO md_Column
 	SET columnId = 873, tableId = 31, name = "radius_sersicN_SG_Cov",
-		description = "Covariance of radius and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance of radius and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 88;
 
 	INSERT INTO md_Column
 	SET columnId = 874, tableId = 31, name = "sersicN_sersicN_SG_Cov",
-		description = "Covariance for sersicN and sersicN for Small Galaxy model.",
+		description = "Not set for PT1.1. Covariance for sersicN and sersicN for Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 89;
@@ -3298,18 +3440,21 @@ SET tableId = 31, name = "Source",
 	SET columnId = 875, tableId = 31, name = "flagForAssociation",
 		type = "SMALLINT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 90;
 
 	INSERT INTO md_Column
 	SET columnId = 876, tableId = 31, name = "flagForDetection",
 		type = "SMALLINT",
 		notNull = 0,
+		description = "Bitwise-or of detection flags. EDGE (0x1): source is in region labelled EDGE. SHAPE_SHIFT (0x2): centroid shifted while estimating adaptive moments. SHAPE_MAXITER (0x4): too many iterations for adaptive moments. SHAPE_UNWEIGHTED (0x8): &quot;adaptive&quot; moments are unweighted. SHAPE_UNWEIGHTED_PSF (0x10): the PSF's &quot;adaptive&quot; moments are unweighted. SHAPE_UNWEIGHTED_BAD (0x20): even the unweighted moments were bad. PEAKCENTER (0x40): given centre is position of peak pixel. BINNED1 (0x80): source was found in 1x1 binned image. INTERP (0x100): source's footprint includes interpolated pixels. INTERP_CENTER (0x200): source's centre is close to interpolated pixels. SATUR (0x400): source's footprint includes saturated pixels. SATUR_CENTER (0x800): source's centre is close to saturated pixels. DETECT_NEGATIVE (0x1000): source was detected as being significantly negative. STAR (0x2000): source is thought to be point-like.",
 		displayOrder = 91;
 
 	INSERT INTO md_Column
 	SET columnId = 877, tableId = 31, name = "flagForWcs",
 		type = "SMALLINT",
 		notNull = 0,
+		description = "Not set for PT1.1.",
 		displayOrder = 92;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
