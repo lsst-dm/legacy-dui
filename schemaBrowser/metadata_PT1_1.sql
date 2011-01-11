@@ -2094,7 +2094,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure_Metadata",
 
 	INSERT INTO md_Column
 	SET columnId = 653, tableId = 19, name = "exposureType",
-		description = "Meaning of the bits: 0x1 - rawAmp, 0x2 - postIsrAmp, more tbd.",
+		description = "Meaning of the bits:<br> * 0x1: rawAmp,<br> * 0x2: postIsrAmp,<br> * more tbd.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
@@ -2538,7 +2538,7 @@ SET tableId = 28, name = "Science_Ccd_Exposure_Metadata",
 
 	INSERT INTO md_Column
 	SET columnId = 754, tableId = 28, name = "exposureType",
-		description = "Meaning of the bits: 0x1 - scienceCcd, 0x2 - diffCcd, more tbd.",
+		description = "Meaning of the bits:<br> * 0x1: scienceCcd<br> * 0x2: diffCcd<br> * more tbd.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
@@ -3447,7 +3447,7 @@ SET tableId = 31, name = "Source",
 	SET columnId = 876, tableId = 31, name = "flagForDetection",
 		type = "SMALLINT",
 		notNull = 0,
-		description = "Bitwise-or of detection flags.<br> * EDGE (0x1): source is in region labelled EDGE.<br> * SHAPE_SHIFT (0x2): centroid shifted while estimating adaptive moments.<br> * SHAPE_MAXITER (0x4): too many iterations for adaptive moments.<br> * SHAPE_UNWEIGHTED (0x8): &quot;adaptive&quot; moments are unweighted.<br> * SHAPE_UNWEIGHTED_PSF (0x10): the PSF's &quot;adaptive&quot; moments are unweighted.<br> * SHAPE_UNWEIGHTED_BAD (0x20): even the unweighted moments were bad.<br> * PEAKCENTER (0x40): given centre is position of peak pixel.<br> * BINNED1 (0x80): source was found in 1x1 binned image.<br> * INTERP (0x100): source's footprint includes interpolated pixels.<br> * INTERP_CENTER (0x200): source's centre is close to interpolated pixels.<br> * SATUR (0x400): source's footprint includes saturated pixels.<br> * SATUR_CENTER (0x800): source's centre is close to saturated pixels.<br> * DETECT_NEGATIVE (0x1000): source was detected as being significantly negative.<br> * STAR (0x2000): source is thought to be point-like.",
+		description = "Bitwise-or of detection flags.<br> * 0x0001 EDGE: source is in region labelled EDGE.<br> * 0x0002 SHAPE_SHIFT: centroid shifted while estimating adaptive moments.<br> * 0x0004 SHAPE_MAXITER: too many iterations for adaptive moments.<br> * 0x0008 SHAPE_UNWEIGHTED: &quot;adaptive&quot; moments are unweighted.<br> * 0x0010 SHAPE_UNWEIGHTED_PSF: the PSF's &quot;adaptive&quot; moments are unweighted.<br> * 0x0020 SHAPE_UNWEIGHTED_BAD: even the unweighted moments were bad.<br> * 0x0040 PEAKCENTER: given centre is position of peak pixel.<br> * 0x0080 BINNED1: source was found in 1x1 binned image.<br> * 0x0100 INTERP: source's footprint includes interpolated pixels.<br> * 0x0200 INTERP_CENTER: source's centre is close to interpolated pixels.<br> * 0x0400 SATUR: source's footprint includes saturated pixels.<br> * 0x0800 SATUR_CENTER: source's centre is close to saturated pixels.<br> * 0x1000 DETECT_NEGATIVE: source was detected as being significantly negative.<br> * 0x2000 STAR: source is thought to be point-like.",
 		displayOrder = 91;
 
 	INSERT INTO md_Column
