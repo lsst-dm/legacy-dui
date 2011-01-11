@@ -86,21 +86,21 @@ SET tableId = 7, name = "Filter",
 
 	INSERT INTO md_Column
 	SET columnId = 106, tableId = 7, name = "filterName",
-		description = "Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y'&#xA;",
+		description = "Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y'.",
 		type = "CHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
 	SET columnId = 107, tableId = 7, name = "photClam",
-		description = "Filter centroid wavelength",
+		description = "Filter centroid wavelength.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
 	SET columnId = 108, tableId = 7, name = "photBW",
-		description = "System effective bandwidth",
+		description = "System effective bandwidth.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 4;
@@ -184,7 +184,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 237, tableId = 13, name = "ra_PS_Sigma",
-		description = "Standard deviation of ra_PS.",
+		description = "Uncertainty of ra_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "deg",
@@ -200,7 +200,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 239, tableId = 13, name = "decl_PS_Sigma",
-		description = "Standard deviation of decl_PS.",
+		description = "Uncertainty of decl_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "deg",
@@ -224,7 +224,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 242, tableId = 13, name = "ra_SG_Sigma",
-		description = "Standard deviation of ra_SG.",
+		description = "Uncertainty of ra_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "deg",
@@ -240,7 +240,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 244, tableId = 13, name = "decl_SG_Sigma",
-		description = "Standard deviation of decl_SG.",
+		description = "Uncertain of decl_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "deg",
@@ -275,7 +275,7 @@ SET tableId = 13, name = "Object",
 		description = "Not set for PT1.1. Proper motion (ra) for the Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "deg/year",
+		unit = "miliarcsec/year",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
@@ -283,7 +283,7 @@ SET tableId = 13, name = "Object",
 		description = "Not set for PT1.1. Uncertainty of muRa_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "deg/year",
+		unit = "miliarcsec/year",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
@@ -291,7 +291,7 @@ SET tableId = 13, name = "Object",
 		description = "Not set for PT1.1. Proper motion (decl) for the Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "deg/year",
+		unit = "miliarcsec/year",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
@@ -299,7 +299,7 @@ SET tableId = 13, name = "Object",
 		description = "Not set for PT1.1. Uncertainty of muDecl_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "deg/year",
+		unit = "miliarcsec/year",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
@@ -314,7 +314,7 @@ SET tableId = 13, name = "Object",
 		description = "Not set for PT1.1. Parallax for Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "deg",
+		unit = "miliarcsec",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
@@ -348,7 +348,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 258, tableId = 13, name = "earliestObsTime",
-		description = "Time when this object was observed for the first time (taiMidPoint of the first Source)",
+		description = "Time when this object was observed for the first time (taiMidPoint of the first Source).",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "mjd",
@@ -484,7 +484,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 277, tableId = 13, name = "uFlux_PS_Sigma",
-		description = "Standard deviation of uFlux_PS.",
+		description = "Uncertain of uFlux_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "erg/s/cm^2/Hz",
@@ -594,7 +594,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 292, tableId = 13, name = "uRadius_SG_Sigma",
-		description = "Standard deviation of uRadius_SG.",
+		description = "Uncertainty of uRadius_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
@@ -722,7 +722,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 310, tableId = 13, name = "gFlux_PS_Sigma",
-		description = "Standard deviation of gFlux_PS.",
+		description = "Uncertainty of gFlux_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "erg/s/cm^2/Hz",
@@ -832,7 +832,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 325, tableId = 13, name = "gRadius_SG_Sigma",
-		description = "Standard deviation of gRadius_SG.",
+		description = "Uncertainty of gRadius_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
@@ -960,7 +960,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 343, tableId = 13, name = "rFlux_PS_Sigma",
-		description = "Standard deviation of rFlux_PS.",
+		description = "Uncertainty of rFlux_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "erg/s/cm^2/Hz",
@@ -1070,7 +1070,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 358, tableId = 13, name = "rRadius_SG_Sigma",
-		description = "Standard deviation of rRadius_SG.",
+		description = "Uncertainty of rRadius_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
@@ -1198,7 +1198,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 376, tableId = 13, name = "iFlux_PS_Sigma",
-		description = "Standard deviation of iFlux_PS.",
+		description = "Uncertainty of iFlux_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "erg/s/cm^2/Hz",
@@ -1308,7 +1308,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 391, tableId = 13, name = "iRadius_SG_Sigma",
-		description = "Standard deviation of iRadius_SG.",
+		description = "Uncertainty of iRadius_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
@@ -1436,7 +1436,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 409, tableId = 13, name = "zFlux_PS_Sigma",
-		description = "Standard deviation of zFlux_PS.",
+		description = "Uncertainty of zFlux_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "erg/s/cm^2/Hz",
@@ -1546,7 +1546,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 424, tableId = 13, name = "zRadius_SG_Sigma",
-		description = "Standard deviation of zRadius_SG.",
+		description = "Uncertainty of zRadius_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
@@ -1674,7 +1674,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 442, tableId = 13, name = "yFlux_PS_Sigma",
-		description = "Standard deviation of yFlux_PS.",
+		description = "Uncertainty of yFlux_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "erg/s/cm^2/Hz",
@@ -1784,7 +1784,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 457, tableId = 13, name = "yRadius_SG_Sigma",
-		description = "Standard deviation of yRadius_SG.",
+		description = "Uncertainty of yRadius_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
@@ -2081,7 +2081,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure_Metadata",
 
 	INSERT INTO md_Column
 	SET columnId = 651, tableId = 19, name = "rawAmpExposureId",
-		description = "Id of the corresponding Raw_Amp_Exposure.&#xA;",
+		description = "Id of the corresponding Raw_Amp_Exposure.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
@@ -2094,7 +2094,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure_Metadata",
 
 	INSERT INTO md_Column
 	SET columnId = 653, tableId = 19, name = "exposureType",
-		description = "Meaning of the bits: 0x1 - rawAmp, 0x2 - postIsrAmp, more tbd.&#xA;",
+		description = "Meaning of the bits: 0x1 - rawAmp, 0x2 - postIsrAmp, more tbd.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
@@ -2258,7 +2258,7 @@ SET tableId = 27, name = "Science_Ccd_Exposure",
 
 	INSERT INTO md_Column
 	SET columnId = 712, tableId = 27, name = "scienceCcdExposureId",
-		description = "Primary key (unique identifier).&#xA;",
+		description = "Primary key (unique identifier).",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
@@ -2433,7 +2433,7 @@ SET tableId = 27, name = "Science_Ccd_Exposure",
 
 	INSERT INTO md_Column
 	SET columnId = 739, tableId = 27, name = "taiMjd",
-		description = "Date of the start of the exposure",
+		description = "Date of the start of the exposure.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 28;
@@ -2460,7 +2460,7 @@ SET tableId = 27, name = "Science_Ccd_Exposure",
 
 	INSERT INTO md_Column
 	SET columnId = 743, tableId = 27, name = "nCombine",
-		description = "Number of images co-added to create a deeper image",
+		description = "Number of images co-added to create a deeper image.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 32;
@@ -2538,7 +2538,7 @@ SET tableId = 28, name = "Science_Ccd_Exposure_Metadata",
 
 	INSERT INTO md_Column
 	SET columnId = 754, tableId = 28, name = "exposureType",
-		description = "Meaning of the bits: 0x1 - scienceCcd, 0x2 - diffCcd, more tbd.&#xA;",
+		description = "Meaning of the bits: 0x1 - scienceCcd, 0x2 - diffCcd, more tbd.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
@@ -3466,7 +3466,7 @@ SET tableId = 33, name = "Visit",
 
 	INSERT INTO md_Column
 	SET columnId = 938, tableId = 33, name = "visitId",
-		description = "Unique identifier.&#xA;",
+		description = "Unique identifier.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
@@ -3476,11 +3476,11 @@ SET tableId = 33, name = "Visit",
 INSERT INTO md_Table
 SET tableId = 71, name = "sdqa_ImageStatus",
 	engine = "MyISAM",
-	description = "Unique set of status names and their definitions, e.g. &quot;passed&quot;, &quot;failed&quot;, etc. ";
+	description = "Unique set of status names and their definitions, e.g. &quot;passed&quot;, &quot;failed&quot;, etc.";
 
 	INSERT INTO md_Column
 	SET columnId = 1113, tableId = 71, name = "sdqa_imageStatusId",
-		description = "Primary key",
+		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
@@ -3494,7 +3494,7 @@ SET tableId = 71, name = "sdqa_ImageStatus",
 
 	INSERT INTO md_Column
 	SET columnId = 1115, tableId = 71, name = "definition",
-		description = "Detailed Definition of the image status",
+		description = "Detailed Definition of the image status.",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 3;
@@ -3584,7 +3584,7 @@ SET tableId = 73, name = "sdqa_Rating_ForScienceAmpExposure",
 
 	INSERT INTO md_Column
 	SET columnId = 1126, tableId = 73, name = "metricSigma",
-		description = "Uncertainty of the value of this metric.&#xA;",
+		description = "Uncertainty of the value of this metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 6;
@@ -3594,7 +3594,7 @@ SET tableId = 73, name = "sdqa_Rating_ForScienceAmpExposure",
 INSERT INTO md_Table
 SET tableId = 74, name = "sdqa_Rating_ForScienceCcdExposure",
 	engine = "MyISAM",
-	description = "Various SDQA ratings for a given ScienceCcdExposure.&#xA;";
+	description = "Various SDQA ratings for a given ScienceCcdExposure.";
 
 	INSERT INTO md_Column
 	SET columnId = 1127, tableId = 74, name = "sdqa_ratingId",
@@ -3619,7 +3619,7 @@ SET tableId = 74, name = "sdqa_Rating_ForScienceCcdExposure",
 
 	INSERT INTO md_Column
 	SET columnId = 1130, tableId = 74, name = "ccdExposureId",
-		description = "Pointer to Science_Ccd_Exposure.&#xA;",
+		description = "Pointer to Science_Ccd_Exposure.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
@@ -3633,7 +3633,7 @@ SET tableId = 74, name = "sdqa_Rating_ForScienceCcdExposure",
 
 	INSERT INTO md_Column
 	SET columnId = 1132, tableId = 74, name = "metricSigma",
-		description = "Uncertainty of the value of this metric.&#xA;",
+		description = "Uncertainty of the value of this metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 6;
