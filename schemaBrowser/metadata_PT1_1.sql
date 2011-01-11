@@ -19,14 +19,14 @@ CREATE TABLE md_Table (
 	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
 	engine VARCHAR(255),
-	description VARCHAR(255)
+	description TEXT
 );
 
 CREATE TABLE md_Column (
 	columnId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
 	name VARCHAR(255) NOT NULL,
-	description VARCHAR(255),
+	description TEXT,
 	type VARCHAR(255),
 	notNull INTEGER DEFAULT 0,
 	defaultValue VARCHAR(255),
@@ -2245,7 +2245,7 @@ SET tableId = 24, name = "RefObjMatch",
 
 	INSERT INTO md_Column
 	SET columnId = 701, tableId = 24, name = "flags",
-		description = "Bitwise or of match flags. 0x1: the reference object has proper motion. 0x2: the reference object has parallax. 0x4: a reduction for parallax from barycentric to geocentric place was applied prior to matching the reference object.",
+		description = "Bitwise or of match flags.<br> * 0x1: the reference object has proper motion.<br> * 0x2: the reference object has parallax.<br> * 0x4: a reduction for parallax from barycentric to geocentric place was applied prior to matching the reference object.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 10;
@@ -3447,7 +3447,7 @@ SET tableId = 31, name = "Source",
 	SET columnId = 876, tableId = 31, name = "flagForDetection",
 		type = "SMALLINT",
 		notNull = 0,
-		description = "Bitwise-or of detection flags. EDGE (0x1): source is in region labelled EDGE. SHAPE_SHIFT (0x2): centroid shifted while estimating adaptive moments. SHAPE_MAXITER (0x4): too many iterations for adaptive moments. SHAPE_UNWEIGHTED (0x8): &quot;adaptive&quot; moments are unweighted. SHAPE_UNWEIGHTED_PSF (0x10): the PSF's &quot;adaptive&quot; moments are unweighted. SHAPE_UNWEIGHTED_BAD (0x20): even the unweighted moments were bad. PEAKCENTER (0x40): given centre is position of peak pixel. BINNED1 (0x80): source was found in 1x1 binned image. INTERP (0x100): source's footprint includes interpolated pixels. INTERP_CENTER (0x200): source's centre is close to interpolated pixels. SATUR (0x400): source's footprint includes saturated pixels. SATUR_CENTER (0x800): source's centre is close to saturated pixels. DETECT_NEGATIVE (0x1000): source was detected as being significantly negative. STAR (0x2000): source is thought to be point-like.",
+		description = "Bitwise-or of detection flags.<br> * EDGE (0x1): source is in region labelled EDGE.<br> * SHAPE_SHIFT (0x2): centroid shifted while estimating adaptive moments.<br> * SHAPE_MAXITER (0x4): too many iterations for adaptive moments.<br> * SHAPE_UNWEIGHTED (0x8): &quot;adaptive&quot; moments are unweighted.<br> * SHAPE_UNWEIGHTED_PSF (0x10): the PSF's &quot;adaptive&quot; moments are unweighted.<br> * SHAPE_UNWEIGHTED_BAD (0x20): even the unweighted moments were bad.<br> * PEAKCENTER (0x40): given centre is position of peak pixel.<br> * BINNED1 (0x80): source was found in 1x1 binned image.<br> * INTERP (0x100): source's footprint includes interpolated pixels.<br> * INTERP_CENTER (0x200): source's centre is close to interpolated pixels.<br> * SATUR (0x400): source's footprint includes saturated pixels.<br> * SATUR_CENTER (0x800): source's centre is close to saturated pixels.<br> * DETECT_NEGATIVE (0x1000): source was detected as being significantly negative.<br> * STAR (0x2000): source is thought to be point-like.",
 		displayOrder = 91;
 
 	INSERT INTO md_Column
