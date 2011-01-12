@@ -796,7 +796,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 320, tableId = 13, name = "gE1_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean g-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 87;
@@ -810,7 +810,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 322, tableId = 13, name = "gE2_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean g-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 89;
@@ -1034,7 +1034,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 353, tableId = 13, name = "rE1_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean r-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 120;
@@ -1048,7 +1048,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 355, tableId = 13, name = "rE2_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean r-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 122;
@@ -1272,7 +1272,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 386, tableId = 13, name = "iE1_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean i-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 153;
@@ -1286,7 +1286,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 388, tableId = 13, name = "iE2_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean i-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 155;
@@ -1510,7 +1510,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 419, tableId = 13, name = "zE1_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean z-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 186;
@@ -1524,7 +1524,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 421, tableId = 13, name = "zE2_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean z-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 188;
@@ -1748,7 +1748,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 452, tableId = 13, name = "yE1_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean y-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 219;
@@ -1762,7 +1762,7 @@ SET tableId = 13, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 454, tableId = 13, name = "yE2_SG",
-		description = "Unweighted mean u-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
+		description = "Unweighted mean y-band ellipticity of source cluster in a tangent plane centered on (ra_PS, decl_PS) and with the standard N,E basis. Note that PT1.1 contains no small galaxy model code - ellipticities are derived from source adaptive second moments (Ixx, Iyy, Ixy).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 221;
