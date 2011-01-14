@@ -109,46 +109,54 @@ SET tableId = 7, name = "Filter",
 
 INSERT INTO md_Table
 SET tableId = 10, name = "LeapSeconds",
+	description = "Based on <a href='http://maia.usno.navy.mil/ser7/tai-utc.dat'>http://maia.usno.navy.mil/ser7/tai-utc.dat</a>.",
 	engine = "MyISAM";
 
 	INSERT INTO md_Column
 	SET columnId = 120, tableId = 10, name = "whenJd",
+		description = "JD of change in TAI-UTC difference (leap second).",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
 	SET columnId = 121, tableId = 10, name = "offset",
+		description = "New number of leap seconds.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
 	SET columnId = 122, tableId = 10, name = "mjdRef",
+		description = "Reference MJD for drift (prior to 1972-Jan-1).",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
 	SET columnId = 123, tableId = 10, name = "drift",
+		description = "Drift in seconds per day (prior to 1972-Jan-1).",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
 	SET columnId = 124, tableId = 10, name = "whenMjdUtc",
+		description = "MJD in UTC system of change (computed).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
 	SET columnId = 125, tableId = 10, name = "whenUtc",
+		description = "Nanoseconds from epoch in UTC system of change (computed).",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
 	SET columnId = 126, tableId = 10, name = "whenTai",
+		description = "Nanoseconds from epoch in TAI system of change (computed).",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 7;
