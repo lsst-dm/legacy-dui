@@ -18,6 +18,15 @@ a:hover {
     color:white;
 }
 
+ul {
+    margin-top:-0.05em;
+    margin-bottom:-0.05em;
+}
+
+li {
+    margin-left:-2em;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -36,7 +45,7 @@ table.main th {
     margin:0px;
     text-align:center;
     font-size:10pt;
-    font-weight:bold';
+    font-weight:bold;
 }
 
 table.main td {

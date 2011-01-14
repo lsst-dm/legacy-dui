@@ -2094,7 +2094,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure_Metadata",
 
 	INSERT INTO md_Column
 	SET columnId = 653, tableId = 19, name = "exposureType",
-		description = "Meaning of the bits:<br> * 0x1: rawAmp,<br> * 0x2: postIsrAmp,<br> * more tbd.",
+		description = "Meaning of the bits:<ul><li>0x1: rawAmp,<li>0x2: postIsrAmp,<li>more tbd.</ul>",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
@@ -2245,7 +2245,7 @@ SET tableId = 24, name = "RefObjMatch",
 
 	INSERT INTO md_Column
 	SET columnId = 701, tableId = 24, name = "flags",
-		description = "Bitwise or of match flags.<br> * 0x1: the reference object has proper motion.<br> * 0x2: the reference object has parallax.<br> * 0x4: a reduction for parallax from barycentric to geocentric place was applied prior to matching the reference object.",
+		description = "Bitwise or of match flags.<ul><li>0x1: the reference object has proper motion.<li>0x2: the reference object has parallax.<li>0x4: a reduction for parallax from barycentric to geocentric place was applied prior to matching the reference object.</ul>",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 10;
@@ -2538,7 +2538,7 @@ SET tableId = 28, name = "Science_Ccd_Exposure_Metadata",
 
 	INSERT INTO md_Column
 	SET columnId = 754, tableId = 28, name = "exposureType",
-		description = "Meaning of the bits:<br> * 0x1: scienceCcd<br> * 0x2: diffCcd<br> * more tbd.",
+		description = "Meaning of the bits:<ul><li>0x1: scienceCcd<li>0x2: diffCcd<li>more tbd.</ul>",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
@@ -3447,7 +3447,7 @@ SET tableId = 31, name = "Source",
 	SET columnId = 876, tableId = 31, name = "flagForDetection",
 		type = "SMALLINT",
 		notNull = 0,
-		description = "Bitwise-or of detection flags.<br> * 0x0001 EDGE: source is in region labelled EDGE.<br> * 0x0002 SHAPE_SHIFT: centroid shifted while estimating adaptive moments.<br> * 0x0004 SHAPE_MAXITER: too many iterations for adaptive moments.<br> * 0x0008 SHAPE_UNWEIGHTED: &quot;adaptive&quot; moments are unweighted.<br> * 0x0010 SHAPE_UNWEIGHTED_PSF: the PSF's &quot;adaptive&quot; moments are unweighted.<br> * 0x0020 SHAPE_UNWEIGHTED_BAD: even the unweighted moments were bad.<br> * 0x0040 PEAKCENTER: given centre is position of peak pixel.<br> * 0x0080 BINNED1: source was found in 1x1 binned image.<br> * 0x0100 INTERP: source's footprint includes interpolated pixels.<br> * 0x0200 INTERP_CENTER: source's centre is close to interpolated pixels.<br> * 0x0400 SATUR: source's footprint includes saturated pixels.<br> * 0x0800 SATUR_CENTER: source's centre is close to saturated pixels.<br> * 0x1000 DETECT_NEGATIVE: source was detected as being significantly negative.<br> * 0x2000 STAR: source is thought to be point-like.",
+		description = "Bitwise-or of detection flags.<ul><li>0x0001 EDGE: source is in region labelled EDGE.<li>0x0002 SHAPE_SHIFT: centroid shifted while estimating adaptive moments.<li>0x0004 SHAPE_MAXITER: too many iterations for adaptive moments.<li>0x0008 SHAPE_UNWEIGHTED: &quot;adaptive&quot; moments are unweighted.<li>0x0010 SHAPE_UNWEIGHTED_PSF: the PSF's &quot;adaptive&quot; moments are unweighted.<li>0x0020 SHAPE_UNWEIGHTED_BAD: even the unweighted moments were bad.<li>0x0040 PEAKCENTER: given centre is position of peak pixel.<li>0x0080 BINNED1: source was found in 1x1 binned image.<li>0x0100 INTERP: source's footprint includes interpolated pixels.<li>0x0200 INTERP_CENTER: source's centre is close to interpolated pixels.<li>0x0400 SATUR: source's footprint includes saturated pixels.<li>0x0800 SATUR_CENTER: source's centre is close to saturated pixels.<li>0x1000 DETECT_NEGATIVE: source was detected as being significantly negative.<li>0x2000 STAR: source is thought to be point-like.</ul>",
 		displayOrder = 91;
 
 	INSERT INTO md_Column
