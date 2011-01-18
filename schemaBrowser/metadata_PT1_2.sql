@@ -3283,6 +3283,7 @@ SET tableId = 17, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 445, tableId = 17, name = "chi2",
+		description = "Not set for PT1.2.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 59;

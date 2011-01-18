@@ -17,9 +17,6 @@ CREATE DATABASE lsst_schema_browser_PT1_1;
 USE lsst_schema_browser_PT1_1;
 
 
-CREATE TABLE AAA_Revision_18796 (r CHAR);
-
-
 CREATE TABLE md_Table (
 	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
@@ -3235,6 +3232,7 @@ SET tableId = 17, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 438, tableId = 17, name = "chi2",
+		description = "Not set for PT1.1.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 59;
