@@ -3541,7 +3541,7 @@ SET tableId = 19, name = "ZZZ_Db_Description",
 
 	INSERT INTO md_Column
 	SET columnId = 480, tableId = 19, name = "r",
-		description = "Captures information from svn about the schema file including the file name, the revision, date and author./descr>",
+		description = "Captures information from svn about the schema file including the file name, the revision, date and author.",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 1;
