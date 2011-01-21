@@ -38,6 +38,16 @@ CREATE TABLE md_Column (
 	INDEX md_Column_idx (tableId, name)
 );
 
+CREATE TABLE md_DbDescr (
+	schemaFile VARCHAR(255),
+	revision VARCHAR(64)
+);
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+INSERT INTO md_DbDescr
+SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "18844";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table

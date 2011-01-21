@@ -12,9 +12,6 @@ CREATE DATABASE lsst_schema_browser_DC3a;
 USE lsst_schema_browser_DC3a;
 
 
-CREATE TABLE AAA_Version_DC3a_3_0_24 (version CHAR);
-
-
 CREATE TABLE md_Table (
 	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
@@ -35,6 +32,16 @@ CREATE TABLE md_Column (
         displayOrder INTEGER NOT NULL,
 	INDEX md_Column_idx (tableId, name)
 );
+
+CREATE TABLE md_DbDescr (
+	schemaFile VARCHAR(255),
+	revision VARCHAR(64)
+);
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+INSERT INTO md_DbDescr
+SET schemaFile = "lsstSchema4mysqlDC3a.sql", revision = "3.0.24";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 

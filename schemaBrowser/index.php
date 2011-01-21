@@ -67,6 +67,10 @@ print " (underlined showed)</p>
 
 global $database;
 
+$dbDescr = $database->getDbDescr();
+$dbDescrFile = $dbDescr[0]['schemaFile'];
+$dbDescrRev  = $dbDescr[0]['revision'];
+
 $tables = $database->getTableNames();
 
 if ( array_key_exists('t', $_GET) ) {
@@ -140,6 +144,8 @@ print "
   <td valign='top'>$data4t2d</td>
 </tr>
 </table>
+
+<p class='footprint'>Based on $dbDescrFile, rev $dbDescrRev</p>
 
 ";
 

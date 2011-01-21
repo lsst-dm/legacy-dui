@@ -12,9 +12,6 @@ CREATE DATABASE lsst_schema_browser_ImSim;
 USE lsst_schema_browser_ImSim;
 
 
-CREATE TABLE AAA_Version_ImSimSchema_1_0_0 (version CHAR);
-
-
 CREATE TABLE md_Table (
 	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
@@ -35,6 +32,17 @@ CREATE TABLE md_Column (
         displayOrder INTEGER NOT NULL,
 	INDEX md_Column_idx (tableId, name)
 );
+
+CREATE TABLE md_DbDescr (
+	schemaFile VARCHAR(255),
+	revision VARCHAR(64)
+);
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+
+INSERT INTO md_DbDescr
+SET schemaFile = "lsstImSimSchema4mysql.sql", revision = "1.0.0";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 

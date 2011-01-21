@@ -85,3 +85,9 @@ h1 {
 a {
     text-decoration:none;
 }
+
+p.footprint {
+    font-size:x-small;
+    color:gray;
+    font-style:italic;
+}

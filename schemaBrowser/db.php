@@ -21,12 +21,18 @@ class MySQLDB {
         mysqli_select_db($this->connection, DB_NAME_PREFIX . $csv) 
             or die(mysqli_error($this->connection));
     }
-
     
     /** returns array **/
     public
     function getTableNames() {
         $q = "SELECT name FROM md_Table ORDER BY name ASC";
+        return $this->fetchIntoArray($q);
+    }
+
+    /** returns array **/
+    public
+    function getDbDescr() {
+        $q = "SELECT schemaFile, revision FROM md_DbDescr";
         return $this->fetchIntoArray($q);
     }
 
