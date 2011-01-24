@@ -1,8 +1,6 @@
 <?php
 
-define ("DB_SERVER", "localhost");
-define ("DB_USER", "becla");
-define ("DB_PASS", "");
+include_once("constants_auth.php");
 
 define ("DB_NAME_PREFIX", "lsst_schema_browser_");
 $schemaVersions = array("DC3a", "DC3b", "PT1_1", "PT1_2", "ImSim");
