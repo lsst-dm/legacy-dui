@@ -119,9 +119,9 @@ if ( array_key_exists('t', $_GET) ) {
     if (count($tIndexes) > 0) {
         $data4t2d .= "
 
-</br>
-</br>
-</br>
+<br />
+<br />
+<br />
 <table id='ttable' class='sortable' cellpadding='0' cellspacing='0'>
 <tr>
   <th>index type</th>
