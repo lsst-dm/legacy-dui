@@ -61,6 +61,18 @@ class MySQLDB {
         return $this->fetchIntoArray($q);
     }
 
+    /** returns array **/
+    public
+    function getTableIndexes($tId) {
+        if ( !is_numeric($tId) ) return;
+        if ( $tId < 0 ) return;
+        $q = "SELECT type, ".
+                    "columns ".
+             "FROM  md_Index ".
+             "WHERE tableId='$tId' ";
+        return $this->fetchIntoArray($q);
+    }
+
     private
     function query($query) {
         $result = mysqli_query($this->connection, $query);

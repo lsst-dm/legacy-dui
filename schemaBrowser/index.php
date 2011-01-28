@@ -82,6 +82,7 @@ if ( array_key_exists('t', $_GET) ) {
     $tDescr  = $tInfo[0]['description'];
     
     $tColumns = $database->getTableColumns($tId);
+    $tIndexes = $database->getTableIndexes($tId);
 
     $data4t2d ="
 <p>$tDescr</p>
@@ -94,7 +95,7 @@ if ( array_key_exists('t', $_GET) ) {
   <th>not null</th>
   <th>default</th>
   <th>unit</th>
-  <th>ucd</tg>
+  <th>ucd</th>
   <th>description</th>
 </tr>
 ";
@@ -113,8 +114,41 @@ if ( array_key_exists('t', $_GET) ) {
 ";
     }
     $data4t2d .= "</table>
-<p><b>Engine:</b> $tEngine</p>
 ";
+
+    if (count($tIndexes) > 0) {
+        $data4t2d .= "
+
+</br>
+</br>
+</br>
+<table id='ttable' class='sortable' cellpadding='0' cellspacing='0'>
+<tr>
+  <th>index type</th>
+  <th>columns</th>
+</tr>
+";
+        foreach($tIndexes as $k=>$v) {
+            $data4t2d .= "<tr>".
+                "<td valign='top'>".$v['type']."</td>".
+                "<td valign='top'>".$v['columns']."</td>".
+                "</tr>
+";
+        }
+
+        $data4t2d .= "
+</table>
+
+";
+    }
+
+    if ( ! is_null($tEngine) ) {
+        $data4t2d .= "
+
+<p><b>Engine:</b> $tEngine</p>
+
+";
+    }
 } else {
     $title4t2d = "&nbsp;";
     $data4t2d = "To see details, select a table on the left";

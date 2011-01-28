@@ -33,6 +33,14 @@ CREATE TABLE md_Column (
 	INDEX md_Column_idx (tableId, name)
 );
 
+CREATE TABLE md_Index (
+	indexId INTEGER NOT NULL PRIMARY KEY,
+	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
+	type VARCHAR(64) NOT NULL,
+	columns VARCHAR(255) NOT NULL,
+	INDEX md_Column_idx (tableId)
+) ;
+
 CREATE TABLE md_DbDescr (
 	schemaFile VARCHAR(255),
 	revision VARCHAR(64)

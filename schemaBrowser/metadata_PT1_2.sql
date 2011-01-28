@@ -18,14 +18,14 @@ USE lsst_schema_browser_PT1_2;
 
 
 CREATE TABLE md_Table (
-	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	tableId INTEGER NOT NULL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
 	engine VARCHAR(255),
 	description TEXT
 );
 
 CREATE TABLE md_Column (
-	columnId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	columnId INTEGER NOT NULL PRIMARY KEY,
 	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
 	name VARCHAR(255) NOT NULL,
 	description TEXT,
@@ -37,6 +37,14 @@ CREATE TABLE md_Column (
         displayOrder INTEGER NOT NULL,
 	INDEX md_Column_idx (tableId, name)
 );
+
+CREATE TABLE md_Index (
+	indexId INTEGER NOT NULL PRIMARY KEY,
+	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
+	type VARCHAR(64) NOT NULL,
+	columns VARCHAR(255) NOT NULL,
+	INDEX md_Column_idx (tableId)
+) ;
 
 CREATE TABLE md_DbDescr (
 	schemaFile VARCHAR(255),
@@ -66,6 +74,16 @@ SET tableId = 1, name = "AmpMap",
 		notNull = 1,
 		displayOrder = 2;
 
+	INSERT INTO md_Index
+	SET indexId = 1, tableId = 1,
+		type = "PRIMARY KEY",
+		columns = "ampNum";
+
+	INSERT INTO md_Index
+	SET indexId = 2, tableId = 1,
+		type = "UNIQUE",
+		columns = "ampName";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -83,6 +101,16 @@ SET tableId = 2, name = "CcdMap",
 		type = "CHAR(3)",
 		notNull = 1,
 		displayOrder = 2;
+
+	INSERT INTO md_Index
+	SET indexId = 3, tableId = 2,
+		type = "PRIMARY KEY",
+		columns = "ccdNum";
+
+	INSERT INTO md_Index
+	SET indexId = 4, tableId = 2,
+		type = "UNIQUE",
+		columns = "ccdName";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -117,6 +145,11 @@ SET tableId = 3, name = "Filter",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 4;
+
+	INSERT INTO md_Index
+	SET indexId = 5, tableId = 3,
+		type = "PRIMARY KEY",
+		columns = "filterId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -1832,6 +1865,16 @@ SET tableId = 5, name = "Object",
 		notNull = 0,
 		displayOrder = 227;
 
+	INSERT INTO md_Index
+	SET indexId = 6, tableId = 5,
+		type = "PRIMARY KEY",
+		columns = "objectId";
+
+	INSERT INTO md_Index
+	SET indexId = 7, tableId = 5,
+		type = "-",
+		columns = "decl_PS";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -1852,6 +1895,11 @@ SET tableId = 6, name = "ObjectType",
 		notNull = 0,
 		displayOrder = 2;
 
+	INSERT INTO md_Index
+	SET indexId = 8, tableId = 6,
+		type = "PRIMARY KEY",
+		columns = "typeId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -1869,6 +1917,16 @@ SET tableId = 7, name = "RaftMap",
 		type = "CHAR(3)",
 		notNull = 1,
 		displayOrder = 2;
+
+	INSERT INTO md_Index
+	SET indexId = 9, tableId = 7,
+		type = "PRIMARY KEY",
+		columns = "raftNum";
+
+	INSERT INTO md_Index
+	SET indexId = 10, tableId = 7,
+		type = "UNIQUE",
+		columns = "raftName";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -2122,6 +2180,11 @@ SET tableId = 8, name = "Raw_Amp_Exposure",
 		notNull = 0,
 		displayOrder = 40;
 
+	INSERT INTO md_Index
+	SET indexId = 11, tableId = 8,
+		type = "PRIMARY KEY",
+		columns = "rawAmpExposureId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -2167,6 +2230,16 @@ SET tableId = 9, name = "Raw_Amp_Exposure_Metadata",
 		notNull = 0,
 		displayOrder = 6;
 
+	INSERT INTO md_Index
+	SET indexId = 12, tableId = 9,
+		type = "PRIMARY KEY",
+		columns = "rawAmpExposureId, metadataKey";
+
+	INSERT INTO md_Index
+	SET indexId = 13, tableId = 9,
+		type = "-",
+		columns = "metadataKey";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -2197,6 +2270,16 @@ SET tableId = 10, name = "Raw_Amp_To_Science_Ccd_Exposure",
 		notNull = 1,
 		displayOrder = 4;
 
+	INSERT INTO md_Index
+	SET indexId = 14, tableId = 10,
+		type = "PRIMARY KEY",
+		columns = "rawAmpExposureId";
+
+	INSERT INTO md_Index
+	SET indexId = 15, tableId = 10,
+		type = "-",
+		columns = "scienceCcdExposureId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -2220,6 +2303,16 @@ SET tableId = 11, name = "Raw_Amp_To_Snap_Ccd_Exposure",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 3;
+
+	INSERT INTO md_Index
+	SET indexId = 16, tableId = 11,
+		type = "PRIMARY KEY",
+		columns = "rawAmpExposureId";
+
+	INSERT INTO md_Index
+	SET indexId = 17, tableId = 11,
+		type = "-",
+		columns = "snapCcdExposureId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -2299,6 +2392,16 @@ SET tableId = 12, name = "RefObjMatch",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 10;
+
+	INSERT INTO md_Index
+	SET indexId = 18, tableId = 12,
+		type = "-",
+		columns = "objectId";
+
+	INSERT INTO md_Index
+	SET indexId = 19, tableId = 12,
+		type = "-",
+		columns = "refObjectId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -2588,6 +2691,11 @@ SET tableId = 13, name = "Science_Ccd_Exposure",
 		notNull = 1,
 		displayOrder = 43;
 
+	INSERT INTO md_Index
+	SET indexId = 20, tableId = 13,
+		type = "PRIMARY KEY",
+		columns = "scienceCcdExposureId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -2631,6 +2739,16 @@ SET tableId = 14, name = "Science_Ccd_Exposure_Metadata",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 6;
+
+	INSERT INTO md_Index
+	SET indexId = 21, tableId = 14,
+		type = "PRIMARY KEY",
+		columns = "scienceCcdExposureId, metadataKey";
+
+	INSERT INTO md_Index
+	SET indexId = 22, tableId = 14,
+		type = "-",
+		columns = "metadataKey";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -2821,6 +2939,16 @@ SET tableId = 15, name = "SimRefObject",
 		notNull = 1,
 		displayOrder = 25;
 
+	INSERT INTO md_Index
+	SET indexId = 23, tableId = 15,
+		type = "PRIMARY KEY",
+		columns = "refObjectId";
+
+	INSERT INTO md_Index
+	SET indexId = 24, tableId = 15,
+		type = "-",
+		columns = "decl";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -2844,6 +2972,16 @@ SET tableId = 16, name = "Snap_Ccd_To_Science_Ccd_Exposure",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 3;
+
+	INSERT INTO md_Index
+	SET indexId = 25, tableId = 16,
+		type = "PRIMARY KEY",
+		columns = "snapCcdExposureId";
+
+	INSERT INTO md_Index
+	SET indexId = 26, tableId = 16,
+		type = "-",
+		columns = "scienceCcdExposureId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3529,6 +3667,41 @@ SET tableId = 17, name = "Source",
 		notNull = 0,
 		displayOrder = 92;
 
+	INSERT INTO md_Index
+	SET indexId = 27, tableId = 17,
+		type = "PRIMARY KEY",
+		columns = "sourceId";
+
+	INSERT INTO md_Index
+	SET indexId = 28, tableId = 17,
+		type = "-",
+		columns = "scienceCcdExposureId";
+
+	INSERT INTO md_Index
+	SET indexId = 29, tableId = 17,
+		type = "-",
+		columns = "filterId";
+
+	INSERT INTO md_Index
+	SET indexId = 30, tableId = 17,
+		type = "-",
+		columns = "movingObjectId";
+
+	INSERT INTO md_Index
+	SET indexId = 31, tableId = 17,
+		type = "-",
+		columns = "objectId";
+
+	INSERT INTO md_Index
+	SET indexId = 32, tableId = 17,
+		type = "-",
+		columns = "procHistoryId";
+
+	INSERT INTO md_Index
+	SET indexId = 33, tableId = 17,
+		type = "-",
+		columns = "decl";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -3584,6 +3757,11 @@ SET tableId = 20, name = "sdqa_ImageStatus",
 		notNull = 1,
 		displayOrder = 3;
 
+	INSERT INTO md_Index
+	SET indexId = 34, tableId = 20,
+		type = "PRIMARY KEY",
+		columns = "sdqa_imageStatusId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -3624,6 +3802,16 @@ SET tableId = 21, name = "sdqa_Metric",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 5;
+
+	INSERT INTO md_Index
+	SET indexId = 35, tableId = 21,
+		type = "PRIMARY KEY",
+		columns = "sdqa_metricId";
+
+	INSERT INTO md_Index
+	SET indexId = 36, tableId = 21,
+		type = "UNIQUE",
+		columns = "metricName";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3674,6 +3862,31 @@ SET tableId = 22, name = "sdqa_Rating_ForScienceAmpExposure",
 		notNull = 1,
 		displayOrder = 6;
 
+	INSERT INTO md_Index
+	SET indexId = 37, tableId = 22,
+		type = "PRIMARY KEY",
+		columns = "sdqa_ratingId";
+
+	INSERT INTO md_Index
+	SET indexId = 38, tableId = 22,
+		type = "UNIQUE",
+		columns = "sdqa_metricId, ampExposureId";
+
+	INSERT INTO md_Index
+	SET indexId = 39, tableId = 22,
+		type = "-",
+		columns = "sdqa_metricId";
+
+	INSERT INTO md_Index
+	SET indexId = 40, tableId = 22,
+		type = "-",
+		columns = "sdqa_thresholdId";
+
+	INSERT INTO md_Index
+	SET indexId = 41, tableId = 22,
+		type = "-",
+		columns = "ampExposureId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -3723,6 +3936,31 @@ SET tableId = 23, name = "sdqa_Rating_ForScienceCcdExposure",
 		notNull = 1,
 		displayOrder = 6;
 
+	INSERT INTO md_Index
+	SET indexId = 42, tableId = 23,
+		type = "PRIMARY KEY",
+		columns = "sdqa_ratingId";
+
+	INSERT INTO md_Index
+	SET indexId = 43, tableId = 23,
+		type = "UNIQUE",
+		columns = "sdqa_metricId, ccdExposureId";
+
+	INSERT INTO md_Index
+	SET indexId = 44, tableId = 23,
+		type = "-",
+		columns = "sdqa_metricId";
+
+	INSERT INTO md_Index
+	SET indexId = 45, tableId = 23,
+		type = "-",
+		columns = "sdqa_thresholdId";
+
+	INSERT INTO md_Index
+	SET indexId = 46, tableId = 23,
+		type = "-",
+		columns = "ccdExposureId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -3764,6 +4002,31 @@ SET tableId = 24, name = "sdqa_Rating_ForSnapCcdExposure",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 6;
+
+	INSERT INTO md_Index
+	SET indexId = 47, tableId = 24,
+		type = "PRIMARY KEY",
+		columns = "sdqa_ratingId";
+
+	INSERT INTO md_Index
+	SET indexId = 48, tableId = 24,
+		type = "-",
+		columns = "sdqa_metricIdASC, ccdExposureId";
+
+	INSERT INTO md_Index
+	SET indexId = 49, tableId = 24,
+		type = "-",
+		columns = "sdqa_metricId";
+
+	INSERT INTO md_Index
+	SET indexId = 50, tableId = 24,
+		type = "-",
+		columns = "sdqa_thresholdId";
+
+	INSERT INTO md_Index
+	SET indexId = 51, tableId = 24,
+		type = "-",
+		columns = "ccdExposureId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3807,4 +4070,19 @@ SET tableId = 25, name = "sdqa_Threshold",
 		notNull = 1,
 		defaultValue = "CURRENT_TIMESTAMP",
 		displayOrder = 5;
+
+	INSERT INTO md_Index
+	SET indexId = 52, tableId = 25,
+		type = "PRIMARY KEY",
+		columns = "sdqa_thresholdId";
+
+	INSERT INTO md_Index
+	SET indexId = 53, tableId = 25,
+		type = "UNIQUE",
+		columns = "sdqa_metricId";
+
+	INSERT INTO md_Index
+	SET indexId = 54, tableId = 25,
+		type = "-",
+		columns = "sdqa_metricId";
 
