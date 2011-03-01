@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "19660";
+SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "19667";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3619,14 +3619,14 @@ SET tableId = 17, name = "Source",
 		displayOrder = 85;
 
 	INSERT INTO md_Column
-	SET columnId = 472, tableId = 17, name = "sigma_SG",
+	SET columnId = 472, tableId = 17, name = "sourceWidth_SG",
 		description = "The width of an un-psf-corrected source for the Small Galaxy model, calculated as: (Ixx*Iyy - Ixy^2)^(1/4).",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 86;
 
 	INSERT INTO md_Column
-	SET columnId = 473, tableId = 17, name = "sigma_SG_Sigma",
+	SET columnId = 473, tableId = 17, name = "SourceWidth_SG_Sigma",
 		description = "Uncertainty of sigma_SG.",
 		type = "FLOAT",
 		notNull = 0,
