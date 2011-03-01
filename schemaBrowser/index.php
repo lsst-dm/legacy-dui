@@ -102,14 +102,19 @@ if ( array_key_exists('t', $_GET) ) {
     foreach($tColumns as $k=>$v) {
         if ( $v['notNull'] == 1 ) $notNull = 'y' ; else $notNull = '&nbsp;';
 
+        if ( preg_match('/Not set for/i', $v['description']) ) {
+            $greyOut = "style='color:grey'";
+        } else {
+            $greyOut = '';
+        }
         $data4t2d .= "<tr>".
-            "<td valign='top' width='10%'>".$v['name']."</td>".
-            "<td valign='top' width='5%'>".$v['type']."</td>".
-            "<td valign='top' width='5%'>". $notNull."</td>".
-            "<td valign='top' width='5%'>".$v['defaultValue']."</td>".
-            "<td valign='top' width='5%'>".$v['unit']."</td>".
-            "<td valign='top' width='5%'>".$v['ucd']."</td>".
-            "<td valign='top' width='65%'>".$v['description']."</td>".
+            "<td $greyOut valign='top' width='10%'>".$v['name']."</td>".
+            "<td $greyOut valign='top' width='5%'>".$v['type']."</td>".
+            "<td $greyOut valign='top' width='5%'>". $notNull."</td>".
+            "<td $greyOut valign='top' width='5%'>".$v['defaultValue']."</td>".
+            "<td $greyOut valign='top' width='5%'>".$v['unit']."</td>".
+            "<td $greyOut valign='top' width='5%'>".$v['ucd']."</td>".
+            "<td $greyOut valign='top' width='65%'>".$v['description']."</td>".
             "</tr>
 ";
     }
