@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "19667";
+SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "19703";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3626,8 +3626,8 @@ SET tableId = 17, name = "Source",
 		displayOrder = 86;
 
 	INSERT INTO md_Column
-	SET columnId = 473, tableId = 17, name = "SourceWidth_SG_Sigma",
-		description = "Uncertainty of sigma_SG.",
+	SET columnId = 473, tableId = 17, name = "sourceWidth_SG_Sigma",
+		description = "Uncertainty of sourceWidth_SG.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 87;
