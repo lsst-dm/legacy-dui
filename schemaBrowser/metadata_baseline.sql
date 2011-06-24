@@ -12,9 +12,9 @@
 -- script cat/bin/schema_to_metadata.sql based on the schema 
 -- description tables from schema file located in cat/sql/
 
-DROP DATABASE IF EXISTS lsst_schema_browser_DC3b;
-CREATE DATABASE lsst_schema_browser_DC3b;
-USE lsst_schema_browser_DC3b;
+DROP DATABASE IF EXISTS lsst_schema_browser_baseline;
+CREATE DATABASE lsst_schema_browser_baseline;
+USE lsst_schema_browser_baseline;
 
 
 CREATE TABLE md_Table (
@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlDC3b.sql", revision = "19004";
+SET schemaFile = "baselineSchema.sql", revision = "22690";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -8499,7 +8499,7 @@ SET tableId = 65, name = "prv_Activity",
 	INSERT INTO md_Column
 	SET columnId = 1082, tableId = 65, name = "activityId",
 		description = "Unique id derived from prv_Run.offset.&#xA;",
-		type = "INTEGER",
+		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
@@ -8609,7 +8609,7 @@ SET tableId = 67, name = "prv_PolicyFile",
 	INSERT INTO md_Column
 	SET columnId = 1093, tableId = 67, name = "policyFileId",
 		description = "Identifier for the file containing the Policy.",
-		type = "INTEGER",
+		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
@@ -8648,14 +8648,14 @@ SET tableId = 68, name = "prv_PolicyKey",
 	INSERT INTO md_Column
 	SET columnId = 1097, tableId = 68, name = "policyKeyId",
 		description = "Identifier for a key within a Policy file.",
-		type = "INTEGER",
+		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
 	SET columnId = 1098, tableId = 68, name = "policyFileId",
 		description = "Identifier for the Policy file.",
-		type = "INTEGER",
+		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
 
@@ -8742,7 +8742,7 @@ SET tableId = 71, name = "prv_cnf_PolicyKey",
 
 	INSERT INTO md_Column
 	SET columnId = 1105, tableId = 71, name = "policyKeyId",
-		type = "INTEGER",
+		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
