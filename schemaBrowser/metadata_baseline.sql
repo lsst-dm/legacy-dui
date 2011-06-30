@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "baselineSchema.sql", revision = "22796";
+SET schemaFile = "baselineSchema.sql", revision = "22798";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -6035,7 +6035,7 @@ SET tableId = 32, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 794, tableId = 32, name = "raSigmaForWcs",
-		description = "Not set for PT1.2. Component of ra uncertainty due to uncertainty in WCS solution.",
+		description = "Component of ra uncertainty due to uncertainty in WCS solution.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "degree",
@@ -6059,7 +6059,7 @@ SET tableId = 32, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 797, tableId = 32, name = "declSigmaForWcs",
-		description = "Not set for PT1.2. Component of decl uncertainty due to uncertainty in WCS solution.",
+		description = "Component of decl uncertainty due to uncertainty in WCS solution.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "degree",
