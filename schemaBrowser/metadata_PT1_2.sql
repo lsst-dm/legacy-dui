@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "22637";
+SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "22711";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3721,7 +3721,7 @@ SET tableId = 21, name = "Source",
 	SET columnId = 471, tableId = 21, name = "psfFlux",
 		description = "Uncalibrated PSF flux of source.",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "DN",
 		displayOrder = 38;
 
@@ -3729,7 +3729,7 @@ SET tableId = 21, name = "Source",
 	SET columnId = 472, tableId = 21, name = "psfFluxSigma",
 		description = "Uncertainty of psfFlux.",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "DN",
 		displayOrder = 39;
 
@@ -3737,7 +3737,7 @@ SET tableId = 21, name = "Source",
 	SET columnId = 473, tableId = 21, name = "apFlux",
 		description = "Uncalibrated aperture flux of source.",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "DN",
 		displayOrder = 40;
 
@@ -3745,7 +3745,7 @@ SET tableId = 21, name = "Source",
 	SET columnId = 474, tableId = 21, name = "apFluxSigma",
 		description = "Uncertainty of apFlux.",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
 		unit = "DN",
 		displayOrder = 41;
 
@@ -4269,6 +4269,11 @@ SET tableId = 22, name = "Visit",
 		notNull = 1,
 		displayOrder = 1;
 
+	INSERT INTO md_Index
+	SET indexId = 45, tableId = 22,
+		type = "PRIMARY KEY",
+		columns = "visitId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
@@ -4312,7 +4317,7 @@ SET tableId = 24, name = "sdqa_ImageStatus",
 		displayOrder = 3;
 
 	INSERT INTO md_Index
-	SET indexId = 45, tableId = 24,
+	SET indexId = 46, tableId = 24,
 		type = "PRIMARY KEY",
 		columns = "sdqa_imageStatusId";
 
@@ -4358,12 +4363,12 @@ SET tableId = 25, name = "sdqa_Metric",
 		displayOrder = 5;
 
 	INSERT INTO md_Index
-	SET indexId = 46, tableId = 25,
+	SET indexId = 47, tableId = 25,
 		type = "PRIMARY KEY",
 		columns = "sdqa_metricId";
 
 	INSERT INTO md_Index
-	SET indexId = 47, tableId = 25,
+	SET indexId = 48, tableId = 25,
 		type = "UNIQUE",
 		columns = "metricName";
 
@@ -4417,27 +4422,27 @@ SET tableId = 26, name = "sdqa_Rating_ForScienceAmpExposure",
 		displayOrder = 6;
 
 	INSERT INTO md_Index
-	SET indexId = 48, tableId = 26,
+	SET indexId = 49, tableId = 26,
 		type = "PRIMARY KEY",
 		columns = "sdqa_ratingId";
 
 	INSERT INTO md_Index
-	SET indexId = 49, tableId = 26,
+	SET indexId = 50, tableId = 26,
 		type = "-",
 		columns = "sdqa_metricIdASC, ampExposureId";
 
 	INSERT INTO md_Index
-	SET indexId = 50, tableId = 26,
+	SET indexId = 51, tableId = 26,
 		type = "-",
 		columns = "sdqa_metricId";
 
 	INSERT INTO md_Index
-	SET indexId = 51, tableId = 26,
+	SET indexId = 52, tableId = 26,
 		type = "-",
 		columns = "sdqa_thresholdId";
 
 	INSERT INTO md_Index
-	SET indexId = 52, tableId = 26,
+	SET indexId = 53, tableId = 26,
 		type = "-",
 		columns = "ampExposureId";
 
@@ -4491,27 +4496,27 @@ SET tableId = 27, name = "sdqa_Rating_ForScienceCcdExposure",
 		displayOrder = 6;
 
 	INSERT INTO md_Index
-	SET indexId = 53, tableId = 27,
+	SET indexId = 54, tableId = 27,
 		type = "PRIMARY KEY",
 		columns = "sdqa_ratingId";
 
 	INSERT INTO md_Index
-	SET indexId = 54, tableId = 27,
+	SET indexId = 55, tableId = 27,
 		type = "UNIQUE",
 		columns = "sdqa_metricId, ccdExposureId";
 
 	INSERT INTO md_Index
-	SET indexId = 55, tableId = 27,
+	SET indexId = 56, tableId = 27,
 		type = "-",
 		columns = "sdqa_metricId";
 
 	INSERT INTO md_Index
-	SET indexId = 56, tableId = 27,
+	SET indexId = 57, tableId = 27,
 		type = "-",
 		columns = "sdqa_thresholdId";
 
 	INSERT INTO md_Index
-	SET indexId = 57, tableId = 27,
+	SET indexId = 58, tableId = 27,
 		type = "-",
 		columns = "ccdExposureId";
 
@@ -4559,17 +4564,17 @@ SET tableId = 28, name = "sdqa_Threshold",
 		displayOrder = 5;
 
 	INSERT INTO md_Index
-	SET indexId = 58, tableId = 28,
+	SET indexId = 59, tableId = 28,
 		type = "PRIMARY KEY",
 		columns = "sdqa_thresholdId";
 
 	INSERT INTO md_Index
-	SET indexId = 59, tableId = 28,
+	SET indexId = 60, tableId = 28,
 		type = "UNIQUE",
 		columns = "sdqa_metricId";
 
 	INSERT INTO md_Index
-	SET indexId = 60, tableId = 28,
+	SET indexId = 61, tableId = 28,
 		type = "-",
 		columns = "sdqa_metricId";
 
