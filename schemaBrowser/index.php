@@ -60,6 +60,7 @@ if ( $n > 1 ) {
 }
 print " (underlined showed)</p>
 
+<p><a href='sciSQL' target='_none'>Click here for user defined functions documentation</a>.</p>
 <table class='main'>
 <tr>
 
