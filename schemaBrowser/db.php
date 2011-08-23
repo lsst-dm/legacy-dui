@@ -13,7 +13,7 @@ class MySQLDB {
 
         // check which schema version should be displayed
         if ( array_key_exists('sVer', $_GET) ) {
-            $csv = $_GET['sVer'];
+            $csv = mysql_real_escape_string($_GET['sVer']);
         } else {
             $csv = DEFAULT_VERSION;
         }

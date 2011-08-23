@@ -43,7 +43,7 @@ prepareArgList($k, $v) {
 }
 
 if ( array_key_exists('sVer', $_GET) ) {
-    $csv = $_GET['sVer']; // current schema version
+    $csv = mysql_real_escape_string($_GET['sVer']); // current schema version
 } else {
     $csv = DEFAULT_VERSION;
 }
@@ -75,7 +75,7 @@ $dbDescrRev  = $dbDescr[0]['revision'];
 $tables = $database->getTableNames();
 
 if ( array_key_exists('t', $_GET) ) {
-    $tName = $_GET['t'];
+    $tName = mysql_real_escape_string($_GET['t']);
     $title4t2d = "Details for table <i>$tName</i></td></tr>";
     $tInfo = $database->getTableInfo($tName);
     $tId     = $tInfo[0]['tableId'];
