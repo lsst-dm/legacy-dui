@@ -60,7 +60,10 @@ if ( $n > 1 ) {
 }
 print " (underlined showed)</p>
 
-<p><a href='sciSQL' target='_none'>Click here for user defined functions documentation</a>.</p>
+<p>User defined functions documentation: 
+    <a href='sciSQL_0.1' target='_none'>version 0.1</a> (default on lsst10),
+    <a href='sciSQL_0.2' target='_none'>version 0.2</a> (upcoming, on lsst10-new)
+</p>
 <table class='main'>
 <tr>
 
