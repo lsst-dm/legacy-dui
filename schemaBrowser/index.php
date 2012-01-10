@@ -81,10 +81,11 @@ if ( array_key_exists('t', $_GET) ) {
     $tName = mysql_real_escape_string($_GET['t']);
     $title4t2d = "Details for table <i>$tName</i></td></tr>";
     $tInfo = $database->getTableInfo($tName);
-    $tId     = $tInfo[0]['tableId'];
-    $tEngine = $tInfo[0]['engine'];
-    $tDescr  = $tInfo[0]['description'];
-    
+    if (array_key_exists(0, $tInfo)) {
+        $tId     = $tInfo[0]['tableId'];
+        $tEngine = $tInfo[0]['engine'];
+        $tDescr  = $tInfo[0]['description'];
+    }
     $tColumns = $database->getTableColumns($tId);
     $tIndexes = $database->getTableIndexes($tId);
 
@@ -103,24 +104,26 @@ if ( array_key_exists('t', $_GET) ) {
   <th>description</th>
 </tr>
 ";
-    foreach($tColumns as $k=>$v) {
-        if ( $v['notNull'] == 1 ) $notNull = 'y' ; else $notNull = '&nbsp;';
+    if (is_array($tColumns)) {
+        foreach($tColumns as $k=>$v) {
+            if ( $v['notNull'] == 1 ) $notNull = 'y' ; else $notNull = '&nbsp;';
 
-        if ( preg_match('/Not set for/i', $v['description']) ) {
-            $greyOut = "style='color:grey'";
-        } else {
-            $greyOut = '';
-        }
-        $data4t2d .= "<tr>".
+            if ( preg_match('/Not set for/i', $v['description']) ) {
+                $greyOut = "style='color:grey'";
+            } else {
+                $greyOut = '';
+            }
+            $data4t2d .= "<tr>".
             "<td $greyOut valign='top' width='10%'>".$v['name']."</td>".
             "<td $greyOut valign='top' width='5%'>".$v['type']."</td>".
-            "<td $greyOut valign='top' width='5%'>". $notNull."</td>".
+            "<td $greyOut valign='top' width='5%'>".$notNull."</td>".
             "<td $greyOut valign='top' width='5%'>".$v['defaultValue']."</td>".
             "<td $greyOut valign='top' width='5%'>".$v['unit']."</td>".
             "<td $greyOut valign='top' width='5%'>".$v['ucd']."</td>".
             "<td $greyOut valign='top' width='65%'>".$v['description']."</td>".
             "</tr>
 ";
+        }
     }
     $data4t2d .= "</table>
 ";
