@@ -167,9 +167,9 @@ $tableList = "";#"<span style='line-height:14px'>";
 foreach ($tables as $k=>$v) {
     $argStr = prepareArgList('t', $v['name']);
     if ( isset($tName) && $tName == $v['name'] ) {
-        $tableList .= "<a href='index.php$argStr' style='color:white;font-weight:bold'>$v['name']</a><br />";
+        $tableList .= "<a href='index.php$argStr' style='color:white;font-weight:bold'>" . $v['name'] . "</a><br />";
     } else {
-        $tableList .= "<a href='index.php$argStr'>$v['name']</a><br />
+        $tableList .= "<a href='index.php$argStr'>" . $v['name'] . "</a><br />
 ";
     }
 }
