@@ -98,7 +98,7 @@ if ( array_key_exists('t', $_GET) ) {
   <th>name</th>
   <th>type</th>
   <th>not null</th>
-  <th>default</th>
+<!--  <th>default</th> -->
   <th>unit</th>
   <th>ucd</th>
   <th>description</th>
@@ -117,7 +117,7 @@ if ( array_key_exists('t', $_GET) ) {
             "<td $greyOut valign='top' width='10%'>".$v['name']."</td>".
             "<td $greyOut valign='top' width='5%'>".$v['type']."</td>".
             "<td $greyOut valign='top' width='5%'>".$notNull."</td>".
-            "<td $greyOut valign='top' width='5%'>".$v['defaultValue']."</td>".
+         // "<td $greyOut valign='top' width='5%'>".$v['defaultValue']."</td>".
             "<td $greyOut valign='top' width='5%'>".$v['unit']."</td>".
             "<td $greyOut valign='top' width='5%'>".$v['ucd']."</td>".
             "<td $greyOut valign='top' width='65%'>".$v['description']."</td>".
