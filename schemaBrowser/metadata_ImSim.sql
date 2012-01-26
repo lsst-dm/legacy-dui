@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstImSimSchema4mysql.sql", revision = "21999";
+SET schemaFile = "lsstImSimSchema4mysql.sql", revision = "4.7.1.0-16-g0ea6a9b";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -67,6 +67,7 @@ SET tableId = 1, name = "SimRefGalaxy",
 		description = "Unique reference galaxy ID.",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
@@ -74,7 +75,8 @@ SET tableId = 1, name = "SimRefGalaxy",
 		description = "ICRS R.A. of galaxy center.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.eq.ra",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -82,101 +84,125 @@ SET tableId = 1, name = "SimRefGalaxy",
 		description = "ICRS Dec. of galaxy center.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.eq.dec",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 4, tableId = 1, name = "uMag",
-		description = "u-band AB magnitude.",
-		type = "DOUBLE",
+	SET columnId = 4, tableId = 1, name = "htmId20",
+		description = "Level 20 HTM ID of (ra, decl)",
+		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 5, tableId = 1, name = "gMag",
-		description = "g-band AB magnitude.",
+	SET columnId = 5, tableId = 1, name = "uMag",
+		description = "u-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 6, tableId = 1, name = "rMag",
-		description = "r-band AB magnitude.",
+	SET columnId = 6, tableId = 1, name = "gMag",
+		description = "g-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 7, tableId = 1, name = "iMag",
-		description = "i-band AB magnitude.",
+	SET columnId = 7, tableId = 1, name = "rMag",
+		description = "r-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 8, tableId = 1, name = "zMag",
-		description = "z-band AB magnitude.",
+	SET columnId = 8, tableId = 1, name = "iMag",
+		description = "i-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 9, tableId = 1, name = "yMag",
-		description = "y-band AB magnitude.",
+	SET columnId = 9, tableId = 1, name = "zMag",
+		description = "z-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 10, tableId = 1, name = "redshift",
-		description = "Redshift.",
+	SET columnId = 10, tableId = 1, name = "yMag",
+		description = "y-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 11, tableId = 1, name = "semiMajorBulge",
+	SET columnId = 11, tableId = 1, name = "redshift",
+		description = "Redshift.",
+		type = "DOUBLE",
+		notNull = 1,
+		ucd = "src.redshift",
+		displayOrder = 11;
+
+	INSERT INTO md_Column
+	SET columnId = 12, tableId = 1, name = "semiMajorBulge",
 		description = "Semi-major axis length of galaxy bulge.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "arcsec",
-		displayOrder = 11;
+		ucd = "src.morph.scLength",
+		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 12, tableId = 1, name = "semiMinorBulge",
+	SET columnId = 13, tableId = 1, name = "semiMinorBulge",
 		description = "Semi-minor axis length of galaxy bulge.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "arcsec",
-		displayOrder = 12;
+		ucd = "src.morph.scLength",
+		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 13, tableId = 1, name = "semiMajorDisk",
+	SET columnId = 14, tableId = 1, name = "semiMajorDisk",
 		description = "Semi-major axis length of galaxy disk.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "arcsec",
-		displayOrder = 13;
+		ucd = "src.morph.scLength",
+		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 14, tableId = 1, name = "semiMinorDisk",
+	SET columnId = 15, tableId = 1, name = "semiMinorDisk",
 		description = "Semi-minor axis length of galaxy disk.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "arcsec",
-		displayOrder = 14;
+		ucd = "src.morph.scLength",
+		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 15, tableId = 1, name = "varClass",
+	SET columnId = 16, tableId = 1, name = "varClass",
 		description = "Variability classification code: <ul>    <li>0 = Non-variable</li>    <li>2 = Active galactic nucleus</li>    <li>3 = Lensed Quasar</li> </ul>",
 		type = "TINYINT",
 		notNull = 1,
-		displayOrder = 15;
+		displayOrder = 16;
 
 	INSERT INTO md_Index
 	SET indexId = 1, tableId = 1,
 		type = "PRIMARY KEY",
 		columns = "refGalaxyId";
+
+	INSERT INTO md_Index
+	SET indexId = 2, tableId = 1,
+		type = "-",
+		columns = "htmId20";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -185,182 +211,216 @@ SET tableId = 2, name = "SimRefObject",
 	description = "Stores properties of ImSim reference objects.         Includes both stars and galaxies.";
 
 	INSERT INTO md_Column
-	SET columnId = 16, tableId = 2, name = "refObjectId",
+	SET columnId = 17, tableId = 2, name = "refObjectId",
 		description = "Unique reference object ID.",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;src",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 17, tableId = 2, name = "isStar",
+	SET columnId = 18, tableId = 2, name = "isStar",
 		description = "1 for stars, 0 for galaxies.",
 		type = "TINYINT",
 		notNull = 1,
+		ucd = "src.class",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 18, tableId = 2, name = "varClass",
+	SET columnId = 19, tableId = 2, name = "varClass",
 		description = "Variability classification code: <ul>    <li>0 = Non-variable</li>    <li>1 = RR-Lyrae</li>    <li>2 = Active galactic nucleus</li>    <li>3 = Lensed Quasar</li>    <li>4 = M-Dwarf flares</li>    <li>5 = Eclipsing binary</li>    <li>6 = Microlensing</li>    <li>7 = Long duration microlensing</li>    <li>8 = AM CVn</li>    <li>9 = Cepheid</li> </ul>",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 19, tableId = 2, name = "ra",
+	SET columnId = 20, tableId = 2, name = "ra",
 		description = "ICRS R.A. of object.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.eq.ra",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 20, tableId = 2, name = "decl",
+	SET columnId = 21, tableId = 2, name = "decl",
 		description = "ICRS Dec. of object.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.eq.dec",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 21, tableId = 2, name = "gLat",
-		description = "Galactic latitude of star. NULL for galaxies.",
-		type = "DOUBLE",
-		notNull = 0,
-		unit = "deg",
+	SET columnId = 22, tableId = 2, name = "htmId20",
+		description = "Level 20 HTM ID of (ra, decl)",
+		type = "BIGINT",
+		notNull = 1,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 22, tableId = 2, name = "gLon",
-		description = "Galactic longitude of star. NULL for galaxies.",
+	SET columnId = 23, tableId = 2, name = "gLat",
+		description = "Galactic latitude, NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.galactic.lat",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 23, tableId = 2, name = "sedName",
-		description = "Best-fit SED name. NULL for galaxies.",
-		type = "VARCHAR(255)",
+	SET columnId = 24, tableId = 2, name = "gLon",
+		description = "Galactic longitude. Null for galaxies.",
+		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree",
+		ucd = "pos.galactic.lon",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 24, tableId = 2, name = "uMag",
-		description = "u-band AB magnitude.",
-		type = "DOUBLE",
-		notNull = 1,
+	SET columnId = 25, tableId = 2, name = "sedName",
+		description = "Best-fit SED name. Null for galaxies.",
+		type = "VARCHAR(255)",
+		notNull = 0,
+		ucd = "src.sec",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 25, tableId = 2, name = "gMag",
-		description = "g-band AB magnitude.",
+	SET columnId = 26, tableId = 2, name = "uMag",
+		description = "u band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 26, tableId = 2, name = "rMag",
-		description = "r-band AB magnitude.",
+	SET columnId = 27, tableId = 2, name = "gMag",
+		description = "g band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 27, tableId = 2, name = "iMag",
-		description = "i-band AB magnitude.",
+	SET columnId = 28, tableId = 2, name = "rMag",
+		description = "r band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 28, tableId = 2, name = "zMag",
-		description = "z-band AB magnitude.",
+	SET columnId = 29, tableId = 2, name = "iMag",
+		description = "i band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 29, tableId = 2, name = "yMag",
-		description = "y-band AB magnitude.",
+	SET columnId = 30, tableId = 2, name = "zMag",
+		description = "z band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 30, tableId = 2, name = "muRa",
-		description = "Proper motion : dRA/dt*cos(decl). NULL for galaxies.",
+	SET columnId = 31, tableId = 2, name = "yMag",
+		description = "y band AB magnitude.",
 		type = "DOUBLE",
-		notNull = 0,
-		unit = "milliarcsec/year",
+		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 31, tableId = 2, name = "muDecl",
-		description = "Proper motion : dDec/dt. NULL for galaxies.",
+	SET columnId = 32, tableId = 2, name = "muRa",
+		description = "dRA/dt*cos(decl). NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "milliarcsec/year",
+		ucd = "pos.pm",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 32, tableId = 2, name = "parallax",
-		description = "Stellar parallax. NULL for galaxies.",
+	SET columnId = 33, tableId = 2, name = "muDecl",
+		description = "dDec/dt. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "milliarcsec",
+		unit = "milliarcsec/year",
+		ucd = "pos.pm",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 33, tableId = 2, name = "vRad",
-		description = "Radial velocity of star. NULL for galaxies.",
+	SET columnId = 34, tableId = 2, name = "parallax",
+		description = "Parallal. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "km/s",
+		unit = "milliarcsec",
+		ucd = "pos.parallax",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 34, tableId = 2, name = "redshift",
-		description = "Redshift. NULL for stars.",
+	SET columnId = 35, tableId = 2, name = "vRad",
+		description = "Radial velocity. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "km/sec",
+		ucd = "spect.dopplerVeloc.opt",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 35, tableId = 2, name = "semiMajorBulge",
+	SET columnId = 36, tableId = 2, name = "redshift",
+		description = "Redshift. NULL for stars.",
+		type = "DOUBLE",
+		notNull = 0,
+		ucd = "src.redshift",
+		displayOrder = 20;
+
+	INSERT INTO md_Column
+	SET columnId = 37, tableId = 2, name = "semiMajorBulge",
 		description = "Semi-major axis length of galaxy bulge. NULL for stars.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "arcsec",
-		displayOrder = 20;
+		ucd = "src.morph.scLength",
+		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 36, tableId = 2, name = "semiMinorBulge",
+	SET columnId = 38, tableId = 2, name = "semiMinorBulge",
 		description = "Semi-minor axis length of galaxy bulge. NULL for stars.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "arcsec",
-		displayOrder = 21;
+		ucd = "src.morph.scLength",
+		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 37, tableId = 2, name = "semiMajorDisk",
+	SET columnId = 39, tableId = 2, name = "semiMajorDisk",
 		description = "Semi-major axis length of galaxy disk. NULL for stars.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "arcsec",
-		displayOrder = 22;
+		ucd = "src.morph.scLength",
+		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 38, tableId = 2, name = "semiMinorDisk",
+	SET columnId = 40, tableId = 2, name = "semiMinorDisk",
 		description = "Semi-minor axis length of galaxy disk. NULL for stars.",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "arcsec",
-		displayOrder = 23;
+		ucd = "src.morph.scLength",
+		displayOrder = 24;
 
 	INSERT INTO md_Index
-	SET indexId = 2, tableId = 2,
+	SET indexId = 3, tableId = 2,
 		type = "PRIMARY KEY",
 		columns = "refObjectId";
+
+	INSERT INTO md_Index
+	SET indexId = 4, tableId = 2,
+		type = "-",
+		columns = "htmId20";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -369,148 +429,183 @@ SET tableId = 3, name = "SimRefStar",
 	description = "Stores properties of stars used to generate ImSim exposures,        including position, motion, per-filter AB magnitudes and        variability classification.";
 
 	INSERT INTO md_Column
-	SET columnId = 39, tableId = 3, name = "refStarId",
+	SET columnId = 41, tableId = 3, name = "refStarId",
 		description = "Unique galaxy ID.",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 40, tableId = 3, name = "ra",
+	SET columnId = 42, tableId = 3, name = "ra",
 		description = "ICRS R.A. of star.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.eq.ra",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 41, tableId = 3, name = "decl",
+	SET columnId = 43, tableId = 3, name = "decl",
 		description = "ICRS Dec. of star.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.eq.dec",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 42, tableId = 3, name = "gLat",
-		description = "Galactic latitude of star.",
-		type = "DOUBLE",
+	SET columnId = 44, tableId = 3, name = "htmId20",
+		description = "Level 20 HTM ID of (ra, decl)",
+		type = "BIGINT",
 		notNull = 1,
-		unit = "deg",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 43, tableId = 3, name = "gLon",
-		description = "Galactic longitude of star.",
+	SET columnId = 45, tableId = 3, name = "gLat",
+		description = "Galactic latitude of star.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "deg",
+		unit = "degree",
+		ucd = "pos.galactic.lat",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 44, tableId = 3, name = "sedName",
-		description = "Best-fit SED name.",
-		type = "VARCHAR(255)",
-		notNull = 0,
+	SET columnId = 46, tableId = 3, name = "gLon",
+		description = "Galactic longitude of star.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "degree",
+		ucd = "pos.galactic.lon",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 45, tableId = 3, name = "uMag",
-		description = "u-band AB magnitude.",
-		type = "DOUBLE",
-		notNull = 1,
+	SET columnId = 47, tableId = 3, name = "sedName",
+		description = "Best-fit SED name.",
+		type = "VARCHAR(255)",
+		notNull = 0,
+		ucd = "src.sec",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 46, tableId = 3, name = "gMag",
-		description = "g-band AB magnitude.",
+	SET columnId = 48, tableId = 3, name = "uMag",
+		description = "u-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 47, tableId = 3, name = "rMag",
-		description = "r-band AB magnitude.",
+	SET columnId = 49, tableId = 3, name = "gMag",
+		description = "g-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 48, tableId = 3, name = "iMag",
-		description = "i-band AB magnitude.",
+	SET columnId = 50, tableId = 3, name = "rMag",
+		description = "r-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 49, tableId = 3, name = "zMag",
-		description = "z-band AB magnitude.",
+	SET columnId = 51, tableId = 3, name = "iMag",
+		description = "i-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 50, tableId = 3, name = "yMag",
-		description = "y-band AB magnitude.",
+	SET columnId = 52, tableId = 3, name = "zMag",
+		description = "z-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		ucd = "phot.mag",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 51, tableId = 3, name = "muRa",
+	SET columnId = 53, tableId = 3, name = "yMag",
+		description = "y-band AB magnitude.",
+		type = "DOUBLE",
+		notNull = 1,
+		ucd = "phot.mag",
+		displayOrder = 13;
+
+	INSERT INTO md_Column
+	SET columnId = 54, tableId = 3, name = "muRa",
 		description = "Proper-motion in R.A. : dRA/dt*cos(decl)",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "milliarcsec/year",
-		displayOrder = 13;
+		ucd = "pos.pm",
+		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 52, tableId = 3, name = "muDecl",
+	SET columnId = 55, tableId = 3, name = "muDecl",
 		description = "Proper-motion in Dec. : dDec/dt",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "milliarcsec/year",
-		displayOrder = 14;
+		ucd = "pos.pm",
+		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 53, tableId = 3, name = "parallax",
+	SET columnId = 56, tableId = 3, name = "parallax",
 		description = "Stellar parallax.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "milliarcsec",
-		displayOrder = 15;
-
-	INSERT INTO md_Column
-	SET columnId = 54, tableId = 3, name = "vRad",
-		description = "Radial velocity.",
-		type = "DOUBLE",
-		notNull = 1,
-		unit = "km/s",
+		ucd = "pos.parallax",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 55, tableId = 3, name = "varClass",
+	SET columnId = 57, tableId = 3, name = "vRad",
+		description = "Radial velocity.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "km/sec",
+		ucd = "spect.dopplerVeloc.opt",
+		displayOrder = 17;
+
+	INSERT INTO md_Column
+	SET columnId = 58, tableId = 3, name = "varClass",
 		description = "Variability classification code: <ul>    <li>0 = Non-variable</li>    <li>1 = RR-Lyrae</li>    <li>4 = M-Dwarf flares</li>    <li>5 = Eclipsing binary</li>    <li>6 = Microlensing</li>    <li>7 = Long duration microlensing</li>    <li>8 = AM CVn</li>    <li>9 = Cepheid</li> </ul>",
 		type = "TINYINT",
 		notNull = 1,
-		displayOrder = 17;
+		displayOrder = 18;
 
 	INSERT INTO md_Index
-	SET indexId = 3, tableId = 3,
+	SET indexId = 5, tableId = 3,
 		type = "PRIMARY KEY",
 		columns = "refStarId";
+
+	INSERT INTO md_Index
+	SET indexId = 6, tableId = 3,
+		type = "-",
+		columns = "htmId20";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
 SET tableId = 4, name = "ZZZ_Db_Description",
 	engine = "MyISAM",
-	description = "Internal table used for storing database description.";
+	description = "Internal table used for storing database description";
 
 	INSERT INTO md_Column
-	SET columnId = 56, tableId = 4, name = "r",
-		description = "Captures information from svn about the schema file including the file name, the revision, date and author.",
-		type = "VARCHAR(255)",
+	SET columnId = 59, tableId = 4, name = "f",
+		description = "The schema file name.",
+		type = "VARCHAR(255),",
 		notNull = 0,
 		displayOrder = 1;
+
+	INSERT INTO md_Column
+	SET columnId = 60, tableId = 4, name = "r",
+		description = "Captures information from 'git describe'.",
+		type = "VARCHAR(255)",
+		notNull = 0,
+		displayOrder = 2;
 

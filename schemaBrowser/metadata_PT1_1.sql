@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlPT1_1.sql", revision = "18899";
+SET schemaFile = "lsstSchema4mysqlPT1_1.sql", revision = "4.7.1.0-16-g0ea6a9b";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3669,14 +3669,22 @@ SET tableId = 18, name = "Visit",
 
 INSERT INTO md_Table
 SET tableId = 19, name = "ZZZ_Db_Description",
+	engine = "MyISAM",
 	description = "Internal table used for storing database description";
 
 	INSERT INTO md_Column
-	SET columnId = 473, tableId = 19, name = "r",
-		description = "Captures information from svn about the schema file including the file name, the revision, date and author.",
-		type = "VARCHAR(255)",
+	SET columnId = 473, tableId = 19, name = "f",
+		description = "The schema file name.",
+		type = "VARCHAR(255),",
 		notNull = 0,
 		displayOrder = 1;
+
+	INSERT INTO md_Column
+	SET columnId = 474, tableId = 19, name = "r",
+		description = "Captures information from 'git describe'.",
+		type = "VARCHAR(255)",
+		notNull = 0,
+		displayOrder = 2;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3686,21 +3694,21 @@ SET tableId = 20, name = "sdqa_ImageStatus",
 	description = "Unique set of status names and their definitions, e.g. &quot;passed&quot;, &quot;failed&quot;, etc.";
 
 	INSERT INTO md_Column
-	SET columnId = 474, tableId = 20, name = "sdqa_imageStatusId",
+	SET columnId = 475, tableId = 20, name = "sdqa_imageStatusId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 475, tableId = 20, name = "statusName",
+	SET columnId = 476, tableId = 20, name = "statusName",
 		description = "One-word, camel-case, descriptive name of a possible image status (e.g., passedAuto, marginallyPassedManual, etc.)",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 476, tableId = 20, name = "definition",
+	SET columnId = 477, tableId = 20, name = "definition",
 		description = "Detailed Definition of the image status.",
 		type = "VARCHAR(255)",
 		notNull = 1,
@@ -3719,35 +3727,35 @@ SET tableId = 21, name = "sdqa_Metric",
 	description = "Unique set of metric names and associated metadata (e.g., &quot;nDeadPix&quot;, &quot;median&quot;, etc.). There will be approximately 30 records total in this table.";
 
 	INSERT INTO md_Column
-	SET columnId = 477, tableId = 21, name = "sdqa_metricId",
+	SET columnId = 478, tableId = 21, name = "sdqa_metricId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 478, tableId = 21, name = "metricName",
+	SET columnId = 479, tableId = 21, name = "metricName",
 		description = "One-word, camel-case, descriptive name of a possible metric (e.g., mSatPix, median, etc).",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 479, tableId = 21, name = "physicalUnits",
+	SET columnId = 480, tableId = 21, name = "physicalUnits",
 		description = "Physical units of metric.",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 480, tableId = 21, name = "dataType",
+	SET columnId = 481, tableId = 21, name = "dataType",
 		description = "Flag indicating whether data type of the metric value is integer (0) or float (1)",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 481, tableId = 21, name = "definition",
+	SET columnId = 482, tableId = 21, name = "definition",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 5;
@@ -3770,42 +3778,42 @@ SET tableId = 22, name = "sdqa_Rating_ForScienceAmpExposure",
 	description = "Various SDQA ratings for a given amplifier image. There will approximately 30 of these records per image record.";
 
 	INSERT INTO md_Column
-	SET columnId = 482, tableId = 22, name = "sdqa_ratingId",
+	SET columnId = 483, tableId = 22, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 483, tableId = 22, name = "sdqa_metricId",
+	SET columnId = 484, tableId = 22, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 484, tableId = 22, name = "sdqa_thresholdId",
+	SET columnId = 485, tableId = 22, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 485, tableId = 22, name = "ampExposureId",
+	SET columnId = 486, tableId = 22, name = "ampExposureId",
 		description = "Pointer to Science_Amp_Exposure.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 486, tableId = 22, name = "metricValue",
+	SET columnId = 487, tableId = 22, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 487, tableId = 22, name = "metricSigma",
+	SET columnId = 488, tableId = 22, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -3844,42 +3852,42 @@ SET tableId = 23, name = "sdqa_Rating_ForScienceCcdExposure",
 	description = "Various SDQA ratings for a given ScienceCcdExposure.";
 
 	INSERT INTO md_Column
-	SET columnId = 488, tableId = 23, name = "sdqa_ratingId",
+	SET columnId = 489, tableId = 23, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 489, tableId = 23, name = "sdqa_metricId",
+	SET columnId = 490, tableId = 23, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 490, tableId = 23, name = "sdqa_thresholdId",
+	SET columnId = 491, tableId = 23, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 491, tableId = 23, name = "ccdExposureId",
+	SET columnId = 492, tableId = 23, name = "ccdExposureId",
 		description = "Pointer to Science_Ccd_Exposure.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 492, tableId = 23, name = "metricValue",
+	SET columnId = 493, tableId = 23, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 493, tableId = 23, name = "metricSigma",
+	SET columnId = 494, tableId = 23, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -3917,37 +3925,37 @@ SET tableId = 24, name = "sdqa_Rating_ForSnapCcdExposure",
 	engine = "MyISAM";
 
 	INSERT INTO md_Column
-	SET columnId = 494, tableId = 24, name = "sdqa_ratingId",
+	SET columnId = 495, tableId = 24, name = "sdqa_ratingId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 495, tableId = 24, name = "sdqa_metricId",
+	SET columnId = 496, tableId = 24, name = "sdqa_metricId",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 496, tableId = 24, name = "sdqa_thresholdId",
+	SET columnId = 497, tableId = 24, name = "sdqa_thresholdId",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 497, tableId = 24, name = "ccdExposureId",
+	SET columnId = 498, tableId = 24, name = "ccdExposureId",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 498, tableId = 24, name = "metricValue",
+	SET columnId = 499, tableId = 24, name = "metricValue",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 499, tableId = 24, name = "metricSigma",
+	SET columnId = 500, tableId = 24, name = "metricSigma",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 6;
@@ -3985,35 +3993,35 @@ SET tableId = 25, name = "sdqa_Threshold",
 	description = "Version-controlled metric thresholds. Total number of these records is approximately equal to 30 x the number of times the thresholds will be changed over the entire period of LSST operations (of ordre of 100), with most of the changes occuring in the first year of operations.";
 
 	INSERT INTO md_Column
-	SET columnId = 500, tableId = 25, name = "sdqa_thresholdId",
+	SET columnId = 501, tableId = 25, name = "sdqa_thresholdId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 501, tableId = 25, name = "sdqa_metricId",
+	SET columnId = 502, tableId = 25, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric table.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 502, tableId = 25, name = "upperThreshold",
+	SET columnId = 503, tableId = 25, name = "upperThreshold",
 		description = "Threshold for which a metric value is tested to be greater than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 503, tableId = 25, name = "lowerThreshold",
+	SET columnId = 504, tableId = 25, name = "lowerThreshold",
 		description = "Threshold for which a metric value is tested to be less than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 504, tableId = 25, name = "createdDate",
+	SET columnId = 505, tableId = 25, name = "createdDate",
 		description = "Database timestamp when the record is inserted.",
 		type = "TIMESTAMP",
 		notNull = 1,
