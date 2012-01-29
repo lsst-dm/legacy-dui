@@ -78,7 +78,7 @@ $dbDescrRev  = $dbDescr[0]['revision'];
 $tables = $database->getTableNames();
 
 if ( array_key_exists('t', $_GET) ) {
-    $tName = mysql_real_escape_string($_GET['t']);
+    $tName = $database->real_escape_string($_GET['t']);
     $title4t2d = "Details for table <i>$tName</i></td></tr>";
     $tInfo = $database->getTableInfo($tName);
     if (array_key_exists(0, $tInfo)) {

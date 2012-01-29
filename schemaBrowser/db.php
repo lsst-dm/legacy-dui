@@ -13,7 +13,7 @@ class MySQLDB {
 
         // check which schema version should be displayed
         if ( array_key_exists('sVer', $_GET) ) {
-            $csv = mysql_real_escape_string($_GET['sVer']);
+            $csv = $this->real_escape_string($_GET['sVer']);
         } else {
             $csv = DEFAULT_VERSION;
         }
@@ -71,6 +71,11 @@ class MySQLDB {
              "FROM  md_Index ".
              "WHERE tableId='$tId' ";
         return $this->fetchIntoArray($q);
+    }
+
+    public
+    function real_escape_string($s) {
+        return mysqli_real_escape_string($this->connection, $s);
     }
 
     private
