@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "baselineSchema.sql", revision = "4.7.1.0-18-g3e97d97";
+SET schemaFile = "baselineSchema.sql", revision = "4.7.1.0-19-gd1a07be";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -1001,7 +1001,7 @@ SET tableId = 8, name = "Filter",
 		description = "Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y'",
 		type = "CHAR(255)",
 		notNull = 1,
-		ucd = "inst.bandpass",
+		ucd = "instr.bandpass",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -5113,6 +5113,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 19;
 
@@ -5121,6 +5122,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 20;
 
@@ -5129,6 +5131,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 21;
 
@@ -5137,6 +5140,7 @@ SET tableId = 19, name = "Raw_Amp_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 22;
 
@@ -5461,6 +5465,7 @@ SET tableId = 23, name = "Raw_Ccd_Exposure",
 		description = "Coordinate system type. (Allowed systems: FK5, ICRS)",
 		type = "VARCHAR(20)",
 		notNull = 0,
+		ucd = "pos.frame",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
@@ -5545,48 +5550,56 @@ SET tableId = 23, name = "Raw_Ccd_Exposure",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 680, tableId = 23, name = "cd11",
+	SET columnId = 680, tableId = 23, name = "cd1_1",
 		description = "First derivative of coordinate 1 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
+		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 681, tableId = 23, name = "cd21",
-		description = "First derivative of coordinate 2 w.r.t. axis 1.",
+	SET columnId = 681, tableId = 23, name = "cd1_2",
+		description = "First derivative of coordinate 1 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
+		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 682, tableId = 23, name = "darkTime",
+	SET columnId = 682, tableId = 23, name = "cd2_1",
+		description = "First derivative of coordinate 2 w.r.t. axis 1.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "deg/pixel",
+		ucd = "pos.wcs.cdmatrix",
+		displayOrder = 19;
+
+	INSERT INTO md_Column
+	SET columnId = 683, tableId = 23, name = "cd2_2",
+		description = "First derivative of coordinate 2 w.r.t. axis 2.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "deg/pixel",
+		ucd = "pos.wcs.cdmatrix",
+		displayOrder = 20;
+
+	INSERT INTO md_Column
+	SET columnId = 684, tableId = 23, name = "darkTime",
 		description = "Total elapsed time from exposure start to end of read.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "s",
-		displayOrder = 19;
+		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 683, tableId = 23, name = "cd12",
-		description = "First derivative of coordinate 1 w.r.t. axis 2.",
-		type = "DOUBLE",
-		notNull = 1,
-		displayOrder = 20;
-
-	INSERT INTO md_Column
-	SET columnId = 684, tableId = 23, name = "zd",
+	SET columnId = 685, tableId = 23, name = "zd",
 		description = "Zenith distance at observation mid-point.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "deg",
 		ucd = "pos.az.zd",
-		displayOrder = 21;
-
-	INSERT INTO md_Column
-	SET columnId = 685, tableId = 23, name = "cd22",
-		description = "First derivative of coordinate 2 w.r.t. axis 2.",
-		type = "DOUBLE",
-		notNull = 1,
 		displayOrder = 22;
 
 	INSERT INTO md_Column
@@ -6000,6 +6013,7 @@ SET tableId = 28, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 16;
 
@@ -6008,6 +6022,7 @@ SET tableId = 28, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 17;
 
@@ -6016,6 +6031,7 @@ SET tableId = 28, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 18;
 
@@ -6024,6 +6040,7 @@ SET tableId = 28, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 19;
 

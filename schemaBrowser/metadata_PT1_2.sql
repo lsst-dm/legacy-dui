@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "4.7.1.0-18-g3e97d97";
+SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "4.7.1.0-19-gd1a07be";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -137,7 +137,7 @@ SET tableId = 3, name = "Filter",
 		description = "Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y',  'w', 'V'.",
 		type = "CHAR(3)",
 		notNull = 1,
-		ucd = "inst.bandpass",
+		ucd = "instr.bandpass",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -632,6 +632,7 @@ SET tableId = 6, name = "Object",
 		type = "DOUBLE",
 		notNull = 0,
 		unit = "d",
+		ucd = "time.epoch",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
@@ -2569,6 +2570,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 		description = "Filter name, pulled in from the Filter table.",
 		type = "CHAR(3)",
 		notNull = 1,
+		ucd = "instr.bandpass",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
@@ -2653,6 +2655,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 318, tableId = 9, name = "cd1_1",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 22;
 
@@ -2660,6 +2663,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 319, tableId = 9, name = "cd1_2",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 23;
 
@@ -2667,6 +2671,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 320, tableId = 9, name = "cd2_1",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 24;
 
@@ -2674,6 +2679,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 321, tableId = 9, name = "cd2_2",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 25;
 
@@ -2950,6 +2956,7 @@ SET tableId = 13, name = "Raw_Amp_To_Snap_Ccd_Exposure",
 	SET columnId = 350, tableId = 13, name = "rawAmpExposureId",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;obs.image",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
@@ -3031,6 +3038,7 @@ SET tableId = 14, name = "RefObjMatch",
 		description = "Total number of matches for reference object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
@@ -3244,7 +3252,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "Filter name, pulled in from the Filter table.",
 		type = "CHAR(3)",
 		notNull = 1,
-		ucd = "inst.bandpass",
+		ucd = "instr.bandpass",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
@@ -3337,6 +3345,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 19;
 
@@ -3345,6 +3354,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 20;
 
@@ -3353,6 +3363,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 21;
 
@@ -3361,6 +3372,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 22;
 
