@@ -61,8 +61,9 @@ if ( $n > 1 ) {
 print " (underlined showed)</p>
 
 <p>User defined functions documentation: 
-    <a href='sciSQL_0.1' target='_none'>version 0.1</a> (old),
-    <a href='sciSQL_0.2' target='_none'>version 0.2</a> (default on lsst10)
+    <a href='sciSQL_0.1' target='_none'>version 0.1</a>,
+    <a href='sciSQL_0.2' target='_none'>version 0.2</a>,
+    <a href='sciSQL_0.3' target='_none'>version 0.3</a> (default on lsst10)
 </p>
 <table class='main'>
 <tr>
