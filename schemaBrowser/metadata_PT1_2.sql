@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "4.7.1.0-16-g0ea6a9b";
+SET schemaFile = "lsstSchema4mysqlPT1_2.sql", revision = "4.7.1.0-19-gd1a07be";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -137,7 +137,7 @@ SET tableId = 3, name = "Filter",
 		description = "Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y',  'w', 'V'.",
 		type = "CHAR(3)",
 		notNull = 1,
-		ucd = "inst.bandpass",
+		ucd = "instr.bandpass",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -175,7 +175,7 @@ SET tableId = 4, name = "LeapSeconds",
 		description = "JD of change in TAI-UTC difference (leap second).",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 1;
 
@@ -184,8 +184,8 @@ SET tableId = 4, name = "LeapSeconds",
 		description = "New number of leap seconds.",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "sec",
-		ucd = "time.start",
+		unit = "s",
+		ucd = "time.interval",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -193,7 +193,7 @@ SET tableId = 4, name = "LeapSeconds",
 		description = "Reference MJD for drift (prior to 1972-Jan-1).",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 3;
 
@@ -202,7 +202,7 @@ SET tableId = 4, name = "LeapSeconds",
 		description = "Drift in seconds per day (prior to 1972-Jan-1).",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "sec/day",
+		unit = "s/d",
 		ucd = "arith.rate",
 		displayOrder = 4;
 
@@ -211,7 +211,7 @@ SET tableId = 4, name = "LeapSeconds",
 		description = "MJD in UTC system of change (computed).",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 5;
 
@@ -220,7 +220,7 @@ SET tableId = 4, name = "LeapSeconds",
 		description = "Nanoseconds from epoch in UTC system of change (computed).",
 		type = "BIGINT",
 		notNull = 0,
-		unit = "nanosec",
+		unit = "ns",
 		ucd = "time",
 		displayOrder = 6;
 
@@ -229,7 +229,7 @@ SET tableId = 4, name = "LeapSeconds",
 		description = "Nanoseconds from epoch in TAI system of change (computed).",
 		type = "BIGINT",
 		notNull = 0,
-		unit = "nanosec",
+		unit = "ns",
 		ucd = "time",
 		displayOrder = 7;
 
@@ -423,7 +423,7 @@ SET tableId = 6, name = "Object",
 		description = "RA of mean source cluster position. Computed from the normalized sum of the unit vector positions of all sources belonging to an object, where unit vectors are computed from the Source ra and decl column values. For sources that are close together this is equivalent to minimizing the sum of the square angular separations between the source positions and the object position.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 3;
 
@@ -432,7 +432,7 @@ SET tableId = 6, name = "Object",
 		description = "Uncertainty of ra_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.ra",
 		displayOrder = 4;
 
@@ -441,7 +441,7 @@ SET tableId = 6, name = "Object",
 		description = "Dec of mean source cluster position. Computed from the normalized sum of the unit vector positions of all sources belonging to an object, where unit vectors are computed from the Source ra and decl column  values. For sources that are close together this is equivalent to minimizing the sum of the square angular separations between the source positions and the object position.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 5;
 
@@ -450,7 +450,7 @@ SET tableId = 6, name = "Object",
 		description = "Uncertainty of decl_PS (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.dec",
 		displayOrder = 6;
 
@@ -468,6 +468,7 @@ SET tableId = 6, name = "Object",
 		description = "Level 20 HTM ID of (ra_PS, decl_PS)",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "pos.HTM",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
@@ -475,7 +476,7 @@ SET tableId = 6, name = "Object",
 		description = "Inverse variance weighted mean source cluster position RA. This position is computed using the same source positions (Source ra and decl column values) as ra_PS, decl_PS.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 9;
 
@@ -484,7 +485,7 @@ SET tableId = 6, name = "Object",
 		description = "Uncertainty of ra_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.ra",
 		displayOrder = 10;
 
@@ -493,7 +494,7 @@ SET tableId = 6, name = "Object",
 		description = "Inverse variance weighted mean source cluster position Dec. This position is computed using the same source positions (Source ra and decl column values) as ra_PS, decl_PS.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 11;
 
@@ -502,7 +503,7 @@ SET tableId = 6, name = "Object",
 		description = "Uncertainty of decl_SG (standard deviation).",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.dec",
 		displayOrder = 12;
 
@@ -520,7 +521,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Width in RA of the bounding box on the sky that fully encloses the footprint of this object for the canonical model (Small Galaxy) and canonical filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
@@ -528,7 +529,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Height in Dec of the bounding box on the sky that fully encloses the footprint of this object in the canonical model (Small Galaxy) and canonical filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
@@ -536,7 +537,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Proper motion (ra) for the Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/yr",
 		ucd = "pos.pm",
 		displayOrder = 16;
 
@@ -545,7 +546,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Uncertainty of muRa_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/yr",
 		ucd = "stat.error;pos.pm",
 		displayOrder = 17;
 
@@ -554,7 +555,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Proper motion (decl) for the Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/yr",
 		ucd = "pos.pm",
 		displayOrder = 18;
 
@@ -563,7 +564,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Uncertainty of muDecl_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/yr",
 		ucd = "stat.error;pos.pm",
 		displayOrder = 19;
 
@@ -572,7 +573,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Covariance of muRa_PS and muDecl_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "(degree/year)^2",
+		unit = "(deg/yr)^2",
 		ucd = "stat.covariance;pos.eq",
 		displayOrder = 20;
 
@@ -581,7 +582,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Parallax for Point Source model.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/yr",
 		ucd = "pos.parallax",
 		displayOrder = 21;
 
@@ -590,7 +591,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Uncertainty of parallax_PS.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree/year",
+		unit = "deg/yr",
 		ucd = "stat.error;pos.parallax",
 		displayOrder = 22;
 
@@ -621,7 +622,7 @@ SET tableId = 6, name = "Object",
 		description = "Time when this object was observed for the first time (taiMidPoint of the first Source).",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 26;
 
@@ -630,7 +631,8 @@ SET tableId = 6, name = "Object",
 		description = "The latest time when this object was observed (taiMidPoint of the last Source).",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
+		ucd = "time.epoch",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
@@ -638,7 +640,7 @@ SET tableId = 6, name = "Object",
 		description = "The mean of the observation times (taiMidPoint) of the sources associated with this object.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 28;
 
@@ -655,6 +657,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of u-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "stat.value",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
@@ -814,7 +817,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Characteristic timescale of flux variations for u filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		displayOrder = 51;
 
 	INSERT INTO md_Column
@@ -822,7 +825,7 @@ SET tableId = 6, name = "Object",
 		description = "Time (TAI) when this object was observed for the first time in u filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 52;
 
@@ -831,7 +834,7 @@ SET tableId = 6, name = "Object",
 		description = "The latest time (TAI) when this object was observed in u filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 53;
 
@@ -887,6 +890,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "phys.angSize",
 		displayOrder = 60;
 
 	INSERT INTO md_Column
@@ -895,6 +899,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "stat.error;phys.angSize",
 		displayOrder = 61;
 
 	INSERT INTO md_Column
@@ -902,6 +907,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute uFlux_PS.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 62;
 
 	INSERT INTO md_Column
@@ -909,6 +915,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute uFlux_ESG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 63;
 
 	INSERT INTO md_Column
@@ -916,13 +923,15 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute uFlux_Gaussian.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 64;
 
 	INSERT INTO md_Column
 	SET columnId = 104, tableId = 6, name = "uEllipticity_Num",
-		description = "Number of sources used to compute uE1_SG, uE2_SG, and uRadius_SG.",
+		description = "Number of sources used to compute uE1_SG, uE2_SG, and  uRadius_SG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 65;
 
 	INSERT INTO md_Column
@@ -938,6 +947,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of g-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "stat.value",
 		displayOrder = 67;
 
 	INSERT INTO md_Column
@@ -1097,7 +1107,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Characteristic timescale of flux variations for g filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		displayOrder = 88;
 
 	INSERT INTO md_Column
@@ -1105,7 +1115,7 @@ SET tableId = 6, name = "Object",
 		description = "Time (TAI) when this object was observed for the first time in g filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 89;
 
@@ -1114,7 +1124,7 @@ SET tableId = 6, name = "Object",
 		description = "The latest time (TAI) when this object was observed in g filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 90;
 
@@ -1170,6 +1180,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "phys.angSize",
 		displayOrder = 97;
 
 	INSERT INTO md_Column
@@ -1178,6 +1189,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "stat.error;phys.angSize",
 		displayOrder = 98;
 
 	INSERT INTO md_Column
@@ -1185,6 +1197,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute gFlux_PS.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 99;
 
 	INSERT INTO md_Column
@@ -1192,6 +1205,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute gFlux_ESG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 100;
 
 	INSERT INTO md_Column
@@ -1199,13 +1213,15 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute gFlux_Gaussian.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 101;
 
 	INSERT INTO md_Column
 	SET columnId = 141, tableId = 6, name = "gEllipticity_Num",
-		description = "Number of sources used to compute gE1_SG, gE2_SG, and gRadius_SG.",
+		description = "Number of sources used to compute gE1_SG, gE2_SG, and  gRadius_SG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 102;
 
 	INSERT INTO md_Column
@@ -1221,6 +1237,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of r-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "stat.value",
 		displayOrder = 104;
 
 	INSERT INTO md_Column
@@ -1380,7 +1397,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Characteristic timescale of flux variations for r filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		displayOrder = 125;
 
 	INSERT INTO md_Column
@@ -1388,7 +1405,7 @@ SET tableId = 6, name = "Object",
 		description = "Time (TAI) when this object was observed for the first time in r filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 126;
 
@@ -1397,7 +1414,7 @@ SET tableId = 6, name = "Object",
 		description = "The latest time (TAI) when this object was observed in r filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 127;
 
@@ -1453,6 +1470,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "phys.angSize",
 		displayOrder = 134;
 
 	INSERT INTO md_Column
@@ -1461,6 +1479,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "stat.error;phys.angSize",
 		displayOrder = 135;
 
 	INSERT INTO md_Column
@@ -1468,6 +1487,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute rFlux_PS.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 136;
 
 	INSERT INTO md_Column
@@ -1475,6 +1495,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute rFlux_ESG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 137;
 
 	INSERT INTO md_Column
@@ -1482,13 +1503,15 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute rFlux_Gaussian.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 138;
 
 	INSERT INTO md_Column
 	SET columnId = 178, tableId = 6, name = "rEllipticity_Num",
-		description = "Number of sources used to compute rE1_SG, rE2_SG, and rRadius_SG.",
+		description = "Number of sources used to compute rE1_SG, rE2_SG, and  rRadius_SG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 139;
 
 	INSERT INTO md_Column
@@ -1504,6 +1527,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of i-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "stat.value",
 		displayOrder = 141;
 
 	INSERT INTO md_Column
@@ -1663,7 +1687,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Characteristic timescale of flux variations for i filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		displayOrder = 162;
 
 	INSERT INTO md_Column
@@ -1671,7 +1695,7 @@ SET tableId = 6, name = "Object",
 		description = "Time (TAI) when this object was observed for the first time in i filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 163;
 
@@ -1680,7 +1704,7 @@ SET tableId = 6, name = "Object",
 		description = "The latest time (TAI) when this object was observed in i filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 164;
 
@@ -1736,6 +1760,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "phys.angSize",
 		displayOrder = 171;
 
 	INSERT INTO md_Column
@@ -1744,6 +1769,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "stat.error;phys.angSize",
 		displayOrder = 172;
 
 	INSERT INTO md_Column
@@ -1751,6 +1777,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute iFlux_PS.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 173;
 
 	INSERT INTO md_Column
@@ -1758,6 +1785,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute iFlux_ESG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 174;
 
 	INSERT INTO md_Column
@@ -1765,13 +1793,15 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute iFlux_Gaussian.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 175;
 
 	INSERT INTO md_Column
 	SET columnId = 215, tableId = 6, name = "iEllipticity_Num",
-		description = "Number of sources used to compute iE1_SG, iE2_SG, and iRadius_SG.",
+		description = "Number of sources used to compute iE1_SG, iE2_SG, and  iRadius_SG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 176;
 
 	INSERT INTO md_Column
@@ -1787,6 +1817,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of z-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "stat.value",
 		displayOrder = 178;
 
 	INSERT INTO md_Column
@@ -1946,7 +1977,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Characteristic timescale of flux variations for z filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		displayOrder = 199;
 
 	INSERT INTO md_Column
@@ -1954,7 +1985,7 @@ SET tableId = 6, name = "Object",
 		description = "Time (TAI) when this object was observed for the first time in z filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 200;
 
@@ -1963,7 +1994,7 @@ SET tableId = 6, name = "Object",
 		description = "The latest time (TAI) when this object was observed in z filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 201;
 
@@ -2019,6 +2050,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "phys.angSize",
 		displayOrder = 208;
 
 	INSERT INTO md_Column
@@ -2027,6 +2059,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "stat.error;phys.angSize",
 		displayOrder = 209;
 
 	INSERT INTO md_Column
@@ -2034,6 +2067,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute zFlux_PS.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 210;
 
 	INSERT INTO md_Column
@@ -2041,6 +2075,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute zFlux_ESG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 211;
 
 	INSERT INTO md_Column
@@ -2048,13 +2083,15 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute zFlux_Gaussian.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 212;
 
 	INSERT INTO md_Column
 	SET columnId = 252, tableId = 6, name = "zEllipticity_Num",
-		description = "Number of sources used to compute zE1_SG, zE2_SG, and zRadius_SG.",
+		description = "Number of sources used to compute zE1_SG, zE2_SG, and  zRadius_SG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 213;
 
 	INSERT INTO md_Column
@@ -2070,6 +2107,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of y-band sources associated with this object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "stat.value",
 		displayOrder = 215;
 
 	INSERT INTO md_Column
@@ -2229,7 +2267,7 @@ SET tableId = 6, name = "Object",
 		description = "Not set for PT1.2. Characteristic timescale of flux variations for y filter.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		displayOrder = 236;
 
 	INSERT INTO md_Column
@@ -2237,7 +2275,7 @@ SET tableId = 6, name = "Object",
 		description = "Time (TAI) when this object was observed for the first time in y filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 237;
 
@@ -2246,7 +2284,7 @@ SET tableId = 6, name = "Object",
 		description = "The latest time (TAI) when this object was observed in y filter.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 238;
 
@@ -2302,6 +2340,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "phys.angSize",
 		displayOrder = 245;
 
 	INSERT INTO md_Column
@@ -2310,6 +2349,7 @@ SET tableId = 6, name = "Object",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "arcsec",
+		ucd = "stat.error;phys.angSize",
 		displayOrder = 246;
 
 	INSERT INTO md_Column
@@ -2317,6 +2357,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute yFlux_PS.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 247;
 
 	INSERT INTO md_Column
@@ -2324,6 +2365,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute yFlux_ESG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 248;
 
 	INSERT INTO md_Column
@@ -2331,6 +2373,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute yFlux_Gaussian.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 249;
 
 	INSERT INTO md_Column
@@ -2338,6 +2381,7 @@ SET tableId = 6, name = "Object",
 		description = "Number of sources used to compute yE1_SG, yE2_SG, and yRadius_SG.",
 		type = "SMALLINT",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 250;
 
 	INSERT INTO md_Column
@@ -2526,6 +2570,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 		description = "Filter name, pulled in from the Filter table.",
 		type = "CHAR(3)",
 		notNull = 1,
+		ucd = "instr.bandpass",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
@@ -2533,7 +2578,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 		description = "ICRS R.A. of amp center.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 12;
 
@@ -2542,7 +2587,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 		description = "ICRS Dec. of amp center.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 13;
 
@@ -2557,7 +2602,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 311, tableId = 9, name = "raDeSys",
 		type = "VARCHAR(20)",
 		notNull = 1,
-		ucd = "pos.eq.dec",
+		ucd = "pos.frame",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
@@ -2594,7 +2639,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 316, tableId = 9, name = "crval1",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.wcs.crvar",
 		displayOrder = 20;
 
@@ -2602,7 +2647,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 317, tableId = 9, name = "crval2",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.wcs.crvar",
 		displayOrder = 21;
 
@@ -2610,6 +2655,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 318, tableId = 9, name = "cd1_1",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 22;
 
@@ -2617,6 +2663,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 319, tableId = 9, name = "cd1_2",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 23;
 
@@ -2624,6 +2671,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 320, tableId = 9, name = "cd2_1",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 24;
 
@@ -2631,6 +2679,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 321, tableId = 9, name = "cd2_2",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 25;
 
@@ -2645,7 +2694,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 323, tableId = 9, name = "llcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 27;
 
@@ -2653,7 +2702,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 324, tableId = 9, name = "ulcRa",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 28;
 
@@ -2661,7 +2710,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 325, tableId = 9, name = "ulcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 29;
 
@@ -2669,7 +2718,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 326, tableId = 9, name = "urcRa",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 30;
 
@@ -2677,7 +2726,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 327, tableId = 9, name = "urcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 31;
 
@@ -2685,7 +2734,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 328, tableId = 9, name = "lrcRa",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 32;
 
@@ -2693,7 +2742,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 329, tableId = 9, name = "lrcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 33;
 
@@ -2701,7 +2750,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 330, tableId = 9, name = "taiMjd",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 34;
 
@@ -2724,7 +2773,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 333, tableId = 9, name = "expTime",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "sec",
+		unit = "s",
 		ucd = "time.duration",
 		displayOrder = 37;
 
@@ -2739,7 +2788,7 @@ SET tableId = 9, name = "Raw_Amp_Exposure",
 	SET columnId = 335, tableId = 9, name = "darkTime",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "sec",
+		unit = "s",
 		ucd = "time.duration",
 		displayOrder = 39;
 
@@ -2838,6 +2887,7 @@ SET tableId = 11, name = "Raw_Amp_Exposure_To_Htm11",
 		description = "ID for Level 11 HTM triangle overlapping raw amp exposure. For each amp exposure, there will be one row for every overlapping triangle.",
 		type = "INTEGER",
 		notNull = 1,
+		ucd = "pos.HTM",
 		displayOrder = 2;
 
 	INSERT INTO md_Index
@@ -2860,6 +2910,7 @@ SET tableId = 12, name = "Raw_Amp_To_Science_Ccd_Exposure",
 	SET columnId = 346, tableId = 12, name = "rawAmpExposureId",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;obs.image",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
@@ -2867,6 +2918,7 @@ SET tableId = 12, name = "Raw_Amp_To_Science_Ccd_Exposure",
 		description = "Pointer to the Science_Ccd_Exposure.",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;obs.image",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -2881,6 +2933,7 @@ SET tableId = 12, name = "Raw_Amp_To_Science_Ccd_Exposure",
 		description = "Reference to the corresponding entry in the AmpMap table.",
 		type = "TINYINT",
 		notNull = 1,
+		ucd = "meta.id;inst.det",
 		displayOrder = 4;
 
 	INSERT INTO md_Index
@@ -2903,18 +2956,21 @@ SET tableId = 13, name = "Raw_Amp_To_Snap_Ccd_Exposure",
 	SET columnId = 350, tableId = 13, name = "rawAmpExposureId",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;obs.image",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
 	SET columnId = 351, tableId = 13, name = "amp",
 		type = "TINYINT",
 		notNull = 1,
+		ucd = "meta.id;inst.det",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
 	SET columnId = 352, tableId = 13, name = "snapCcdExposureId",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;obs.image",
 		displayOrder = 3;
 
 	INSERT INTO md_Index
@@ -2939,6 +2995,7 @@ SET tableId = 14, name = "RefObjMatch",
 		description = "Reference object id (pointer to SimRefObject). NULL if reference object has no matches.",
 		type = "BIGINT",
 		notNull = 0,
+		ucd = "meta.id",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
@@ -2954,7 +3011,7 @@ SET tableId = 14, name = "RefObjMatch",
 		description = "ICRS reference object RA at mean epoch of sources assigned to object.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 3;
 
@@ -2963,7 +3020,7 @@ SET tableId = 14, name = "RefObjMatch",
 		description = "ICRS reference object Dec at mean epoch of sources assigned to object.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 4;
 
@@ -2981,6 +3038,7 @@ SET tableId = 14, name = "RefObjMatch",
 		description = "Total number of matches for reference object.",
 		type = "INTEGER",
 		notNull = 0,
+		ucd = "meta.number",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
@@ -3038,6 +3096,7 @@ SET tableId = 15, name = "RefSrcMatch",
 		description = "Reference object id (pointer to SimRefObject). NULL if reference object has no matches.",
 		type = "BIGINT",
 		notNull = 0,
+		ucd = "meta.id",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
@@ -3045,6 +3104,7 @@ SET tableId = 15, name = "RefSrcMatch",
 		description = "Source id. NULL if source has no matches.",
 		type = "BIGINT",
 		notNull = 0,
+		ucd = "meta.id",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -3052,7 +3112,7 @@ SET tableId = 15, name = "RefSrcMatch",
 		description = "ICRS reference object RA at epoch of source.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 3;
 
@@ -3061,7 +3121,7 @@ SET tableId = 15, name = "RefSrcMatch",
 		description = "ICRS reference object Dec at epoch of source.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 4;
 
@@ -3192,7 +3252,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "Filter name, pulled in from the Filter table.",
 		type = "CHAR(3)",
 		notNull = 1,
-		ucd = "inst.bandpass",
+		ucd = "instr.bandpass",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
@@ -3200,7 +3260,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "ICRS R.A. of CCD center.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 9;
 
@@ -3209,7 +3269,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "ICRS Dec. of CCD center.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 10;
 
@@ -3225,7 +3285,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 384, tableId = 16, name = "raDeSys",
 		type = "VARCHAR(20)",
 		notNull = 1,
-		ucd = "pos.eq.dec",
+		ucd = "pos.frame",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
@@ -3267,7 +3327,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "Coordinate value 1 @reference pixel.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.wcs.crvar",
 		displayOrder = 17;
 
@@ -3276,7 +3336,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "Coordinate value 2 @reference pixel.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.wcs.crvar",
 		displayOrder = 18;
 
@@ -3285,6 +3345,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 19;
 
@@ -3293,6 +3354,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 1 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 20;
 
@@ -3301,6 +3363,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 21;
 
@@ -3309,6 +3372,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "First derivative of coordinate 2 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg/pixel",
 		ucd = "pos.wcs.cdmatrix",
 		displayOrder = 22;
 
@@ -3323,7 +3387,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 396, tableId = 16, name = "llcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 24;
 
@@ -3331,7 +3395,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 397, tableId = 16, name = "ulcRa",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 25;
 
@@ -3339,7 +3403,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 398, tableId = 16, name = "ulcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 26;
 
@@ -3347,7 +3411,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 399, tableId = 16, name = "urcRa",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 27;
 
@@ -3355,7 +3419,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 400, tableId = 16, name = "urcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 28;
 
@@ -3363,7 +3427,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 401, tableId = 16, name = "lrcRa",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 29;
 
@@ -3371,7 +3435,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 	SET columnId = 402, tableId = 16, name = "lrcDecl",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 30;
 
@@ -3380,7 +3444,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "Date of the start of the exposure.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "day",
+		unit = "d",
 		ucd = "time.start",
 		displayOrder = 31;
 
@@ -3404,7 +3468,7 @@ SET tableId = 16, name = "Science_Ccd_Exposure",
 		description = "Duration of exposure.",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "sec",
+		unit = "s",
 		ucd = "time.duration",
 		displayOrder = 34;
 
@@ -3513,6 +3577,7 @@ SET tableId = 17, name = "Science_Ccd_Exposure_Metadata",
 	SET columnId = 418, tableId = 17, name = "scienceCcdExposureId",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;obs.image",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
@@ -3575,6 +3640,7 @@ SET tableId = 18, name = "Science_Ccd_Exposure_To_Htm10",
 		description = "ID for Level 10 HTM triangle overlapping science CCD exposure. For each CCD exposure, there will be one row for every overlapping triangle.",
 		type = "INTEGER",
 		notNull = 1,
+		ucd = "pos.HTM",
 		displayOrder = 2;
 
 	INSERT INTO md_Index
@@ -3607,7 +3673,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "1 for stars, 0 for galaxies.",
 		type = "TINYINT",
 		notNull = 1,
-		ucd = "src.class",
+		ucd = "src.class.starGalaxy",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -3615,6 +3681,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Variability classification code: <ul>    <li>0 = Non-variable</li>    <li>1 = RR-Lyrae</li>    <li>2 = Active galactic nucleus</li>    <li>3 = Lensed Quasar</li>    <li>4 = M-Dwarf flares</li>    <li>5 = Eclipsing binary</li>    <li>6 = Microlensing</li>    <li>7 = Long duration microlensing</li>    <li>8 = AM CVn</li>    <li>9 = Cepheid</li> </ul>",
 		type = "TINYINT",
 		notNull = 1,
+		ucd = "meta.code;src.class",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
@@ -3622,7 +3689,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "ICRS R.A. of object.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 4;
 
@@ -3631,7 +3698,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "ICRS Dec. of object.",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 5;
 
@@ -3640,6 +3707,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Level 20 HTM ID of (ra, decl)",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "pos.HTM",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
@@ -3647,7 +3715,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Galactic latitude of star. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.galactic.lat",
 		displayOrder = 7;
 
@@ -3656,7 +3724,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Galactic longitude of star. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.galactic.lon",
 		displayOrder = 8;
 
@@ -3673,6 +3741,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "u-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "mag",
 		ucd = "phot.mag",
 		displayOrder = 10;
 
@@ -3681,6 +3750,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "g-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "mag",
 		ucd = "phot.mag",
 		displayOrder = 11;
 
@@ -3689,6 +3759,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "r-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "mag",
 		ucd = "phot.mag",
 		displayOrder = 12;
 
@@ -3697,6 +3768,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "i-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "mag",
 		ucd = "phot.mag",
 		displayOrder = 13;
 
@@ -3705,6 +3777,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "z-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "mag",
 		ucd = "phot.mag",
 		displayOrder = 14;
 
@@ -3713,6 +3786,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "y-band AB magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "mag",
 		ucd = "phot.mag",
 		displayOrder = 15;
 
@@ -3721,7 +3795,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Proper motion: dRA/dt*cos(decl). NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "milliarcsec/year",
+		unit = "mas/yr",
 		ucd = "pos.pm",
 		displayOrder = 16;
 
@@ -3730,7 +3804,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Proper motion: dDec/dt. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "milliarcsec/year",
+		unit = "mas/yr",
 		ucd = "pos.pm",
 		displayOrder = 17;
 
@@ -3739,7 +3813,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Stellar parallax. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "milliarcsec",
+		unit = "mas",
 		ucd = "pos.parallax",
 		displayOrder = 18;
 
@@ -3748,7 +3822,7 @@ SET tableId = 19, name = "SimRefObject",
 		description = "Radial velocity of star. NULL for galaxies.",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "km/sec",
+		unit = "km/s",
 		ucd = "spect.dopplerVeloc.opt",
 		displayOrder = 19;
 
@@ -3880,6 +3954,7 @@ SET tableId = 20, name = "Snap_Ccd_To_Science_Ccd_Exposure",
 		description = "Reference to the corresponding entry in the Science_Ccd_Exposure table.",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "meta.id;obs.image",
 		displayOrder = 3;
 
 	INSERT INTO md_Index
@@ -3911,7 +3986,7 @@ SET tableId = 21, name = "Source",
 		description = "Identifier for the CCD the source was detected/measured on (pointer to Science_Ccd_Exposure).",
 		type = "BIGINT",
 		notNull = 0,
-		ucd = "meta.id;src",
+		ucd = "meta.id;obs.image",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
@@ -3951,7 +4026,7 @@ SET tableId = 21, name = "Source",
 		description = "RA of source centroid (equal to raAstrom).",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 7;
 
@@ -3960,7 +4035,7 @@ SET tableId = 21, name = "Source",
 		description = "Component of ra uncertainty due to detection uncertainty (xAstromSigma, yAstromSigma).",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.ra",
 		displayOrder = 8;
 
@@ -3969,7 +4044,7 @@ SET tableId = 21, name = "Source",
 		description = "Not set for PT1.2. Component of ra uncertainty due to uncertainty in WCS solution.",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.ra",
 		displayOrder = 9;
 
@@ -3978,7 +4053,7 @@ SET tableId = 21, name = "Source",
 		description = "Declination of source centroid (equal to declAstrom).",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 10;
 
@@ -3987,7 +4062,7 @@ SET tableId = 21, name = "Source",
 		description = "Component of decl uncertainty due to detection uncertainty (xAstromSigma, yAstromSigma).",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.dec",
 		displayOrder = 11;
 
@@ -3996,7 +4071,7 @@ SET tableId = 21, name = "Source",
 		description = "Not set for PT1.2. Component of decl uncertainty due to uncertainty in WCS solution.",
 		type = "FLOAT",
 		notNull = 1,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.dec",
 		displayOrder = 12;
 
@@ -4005,6 +4080,7 @@ SET tableId = 21, name = "Source",
 		description = "Level 20 HTM ID of (ra, decl)",
 		type = "BIGINT",
 		notNull = 1,
+		ucd = "pos.HTM",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
@@ -4150,7 +4226,7 @@ SET tableId = 21, name = "Source",
 		description = "RA of (xAstrom, yAstrom).",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 30;
 
@@ -4159,7 +4235,7 @@ SET tableId = 21, name = "Source",
 		description = "Uncertainty of raAstrom.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.ra",
 		displayOrder = 31;
 
@@ -4168,7 +4244,7 @@ SET tableId = 21, name = "Source",
 		description = "Dec of (xAstrom, yAstrom).",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 32;
 
@@ -4177,7 +4253,7 @@ SET tableId = 21, name = "Source",
 		description = "Uncertainty of declAstrom.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "stat.error;pos.eq.dec",
 		displayOrder = 33;
 
@@ -4186,7 +4262,7 @@ SET tableId = 21, name = "Source",
 		description = "ra_PS of object associated with this source, or ra if the source was not associated with any object (objectId is NULL).",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.ra",
 		displayOrder = 34;
 
@@ -4195,7 +4271,7 @@ SET tableId = 21, name = "Source",
 		description = "decl_PS of object associated with this source, or decl if the source was not associated with any object (objectId is NULL).",
 		type = "DOUBLE",
 		notNull = 0,
-		unit = "degree",
+		unit = "deg",
 		ucd = "pos.eq.dec",
 		displayOrder = 35;
 
@@ -4204,7 +4280,7 @@ SET tableId = 21, name = "Source",
 		description = "Middle of exposure time (TAI).",
 		type = "DOUBLE",
 		notNull = 1,
-		unit = "day",
+		unit = "d",
 		ucd = "time.epoch",
 		displayOrder = 36;
 
@@ -4213,7 +4289,7 @@ SET tableId = 21, name = "Source",
 		description = "Exposure time.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "sec",
+		unit = "s",
 		ucd = "time.duration",
 		displayOrder = 37;
 
@@ -4621,6 +4697,7 @@ SET tableId = 21, name = "Source",
 		description = "Not set for PT1.2. Size of Small Galaxy model.",
 		type = "FLOAT",
 		notNull = 0,
+		ucd = "phys.angSize",
 		displayOrder = 88;
 
 	INSERT INTO md_Column
@@ -4628,6 +4705,7 @@ SET tableId = 21, name = "Source",
 		description = "Not set for PT1.2. Uncertainty of radius_SG.",
 		type = "FLOAT",
 		notNull = 0,
+		ucd = "stat.error;phys.angSize",
 		displayOrder = 89;
 
 	INSERT INTO md_Column
