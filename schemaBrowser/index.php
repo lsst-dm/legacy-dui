@@ -26,6 +26,7 @@
 include_once("constants.php");
 include_once("db.php");
 
+global $database;
 
 // takes as argument element to be added to the arguments
 function 
@@ -43,7 +44,7 @@ prepareArgList($k, $v) {
 }
 
 if ( array_key_exists('sVer', $_GET) ) {
-    $csv = mysql_real_escape_string($_GET['sVer']); // current schema version
+    $csv = $database->real_escape_string($_GET['sVer']); // current schema version
 } else {
     $csv = DEFAULT_VERSION;
 }
@@ -54,7 +55,7 @@ if ( $n > 1 ) {
     foreach($schemaVersions as $k=>$v) {
         $argsStr = prepareArgList('sVer', $v);
         $s = "<a href=\"index.php$argsStr\">$v</a>";
-        if ( $v == $csv ) print "<b><u>$s</b></u>"; else print "$s";
+        if ( $v == $csv ) print "<b><u>$s</u></b>"; else print "$s";
         if ( $k < $n-1 ) print "&nbsp;|&nbsp;";
     }
 }
@@ -70,7 +71,6 @@ print " (underlined showed)</p>
 
 ";
 
-global $database;
 
 $dbDescr = $database->getDbDescr();
 $dbDescrFile = $dbDescr[0]['schemaFile'];
