@@ -25,7 +25,7 @@ class MySQLDB {
     /** returns array **/
     public
     function getTableNames() {
-        $q = "SELECT name FROM md_Table ORDER BY name ASC";
+        $q = "SELECT name, CASE WHEN description like 'Not filled%' THEN 0 ELSE 1 END AS isSet FROM md_Table ORDER BY name ASC";
         return $this->fetchIntoArray($q);
     }
 

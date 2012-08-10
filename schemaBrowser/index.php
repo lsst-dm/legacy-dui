@@ -169,11 +169,19 @@ if ( array_key_exists('t', $_GET) ) {
 
 $tableList = "";#"<span style='line-height:14px'>";
 foreach ($tables as $k=>$v) {
+    print "table is " . $v['name'] . ", is set = " . $v['isSet'] . "<br>";
+    if ( $v['isSet'] == 0 ) {
+        print "isset = " . $v['isSet'];
+        $grayTName = " style='color:gray'";
+    } else {
+        $grayTName = "";
+    }
+
     $argStr = prepareArgList('t', $v['name']);
     if ( isset($tName) && $tName == $v['name'] ) {
-        $tableList .= "<a href='index.php$argStr' style='color:white;font-weight:bold'>" . $v['name'] . "</a><br />";
+        $tableList .= "<a href='index.php$argStr' style='color:white;' 'style=font-weight:bold'>" . $v['name'] . "</a><br />";
     } else {
-        $tableList .= "<a href='index.php$argStr'>" . $v['name'] . "</a><br />
+        $tableList .= "<a href='index.php$argStr'" . $grayTName . ">" . $v['name'] . "</a><br />
 ";
     }
 }
