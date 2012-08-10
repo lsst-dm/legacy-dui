@@ -54,7 +54,7 @@ CREATE TABLE md_DbDescr (
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_DbDescr
-SET schemaFile = "lsstSchema4mysqlS12_lsstsim.sql", revision = "5.2.1.0-dirty";
+SET schemaFile = "lsstSchema4mysqlS12_lsstsim.sql", revision = "5.2.1.0-7-g7ec6622-dirty";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -122,7 +122,8 @@ SET tableId = 2, name = "CcdMap",
 
 INSERT INTO md_Table
 SET tableId = 3, name = "ChiSquaredCoadd",
-	engine = "MyISAM";
+	engine = "MyISAM",
+	description = "Not filled.";
 
 	INSERT INTO md_Column
 	SET columnId = 5, tableId = 3, name = "chiSquaredCoaddId",
@@ -402,7 +403,7 @@ SET tableId = 3, name = "ChiSquaredCoadd",
 INSERT INTO md_Table
 SET tableId = 4, name = "ChiSquaredCoadd_Metadata",
 	engine = "MyISAM",
-	description = "Generic key-value pair metadata for ChiSquaredCoadd.";
+	description = "Not filled. Generic key-value pair metadata for ChiSquaredCoadd.";
 
 	INSERT INTO md_Column
 	SET columnId = 37, tableId = 4, name = "chiSquaredCoaddId",
@@ -457,7 +458,7 @@ SET tableId = 4, name = "ChiSquaredCoadd_Metadata",
 INSERT INTO md_Table
 SET tableId = 5, name = "ChiSquaredCoadd_To_Htm10",
 	engine = "MyISAM",
-	description = "Stores a mapping between exposures in ChiSquaredCoadd and the IDs of spatially overlapping level-10 HTM triangles.";
+	description = "Not filled. Stores a mapping between exposures in ChiSquaredCoadd and the IDs of spatially overlapping level-10 HTM triangles.";
 
 	INSERT INTO md_Column
 	SET columnId = 43, tableId = 5, name = "chiSquaredCoaddId",
@@ -489,7 +490,7 @@ SET tableId = 5, name = "ChiSquaredCoadd_To_Htm10",
 INSERT INTO md_Table
 SET tableId = 6, name = "ChiSquaredForcedSource",
 	engine = "MyISAM",
-	description = "Table of forced-photometry sources, measured using positions of objects from ChiSquaredSource.";
+	description = "Not filled. Table of forced-photometry sources, measured using positions of objects from ChiSquaredSource.";
 
 	INSERT INTO md_Column
 	SET columnId = 45, tableId = 6, name = "chiSquaredForcedSourceId",
@@ -1029,7 +1030,7 @@ SET tableId = 6, name = "ChiSquaredForcedSource",
 INSERT INTO md_Table
 SET tableId = 7, name = "ChiSquaredSource",
 	engine = "MyISAM",
-	description = "Table to store high signal-to-noise &quot;sources&quot; measured on the coadd exposures in ChiSquaredCoadd.";
+	description = "Not filled. Table to store high signal-to-noise &quot;sources&quot; measured on the coadd exposures in ChiSquaredCoadd.";
 
 	INSERT INTO md_Column
 	SET columnId = 104, tableId = 7, name = "chiSquaredSourceId",
@@ -1509,7 +1510,8 @@ SET tableId = 7, name = "ChiSquaredSource",
 
 INSERT INTO md_Table
 SET tableId = 8, name = "DeepCoadd",
-	engine = "MyISAM";
+	engine = "MyISAM",
+	description = "Not filled.";
 
 	INSERT INTO md_Column
 	SET columnId = 158, tableId = 8, name = "deepCoaddId",
@@ -1805,7 +1807,7 @@ SET tableId = 8, name = "DeepCoadd",
 INSERT INTO md_Table
 SET tableId = 9, name = "DeepCoadd_Metadata",
 	engine = "MyISAM",
-	description = "Generic key-value pair metadata for DeepCoadd.";
+	description = "Not filled. Generic key-value pair metadata for DeepCoadd.";
 
 	INSERT INTO md_Column
 	SET columnId = 192, tableId = 9, name = "deepCoaddId",
@@ -1860,7 +1862,7 @@ SET tableId = 9, name = "DeepCoadd_Metadata",
 INSERT INTO md_Table
 SET tableId = 10, name = "DeepCoadd_To_Htm10",
 	engine = "MyISAM",
-	description = "Stores a mapping between exposures in DeepCoadd and the IDs of spatially overlapping level-10 HTM triangles.";
+	description = "Not filled. Stores a mapping between exposures in DeepCoadd and the IDs of spatially overlapping level-10 HTM triangles.";
 
 	INSERT INTO md_Column
 	SET columnId = 198, tableId = 10, name = "deepCoaddId",
@@ -1892,7 +1894,7 @@ SET tableId = 10, name = "DeepCoadd_To_Htm10",
 INSERT INTO md_Table
 SET tableId = 11, name = "DeepForcedSource",
 	engine = "MyISAM",
-	description = "Table of forced-photometry sources, measured using positions of objects from DeepSource.";
+	description = "Not filled. Table of forced-photometry sources, measured using positions of objects from DeepSource.";
 
 	INSERT INTO md_Column
 	SET columnId = 200, tableId = 11, name = "deepForcedSourceId",
@@ -2432,7 +2434,7 @@ SET tableId = 11, name = "DeepForcedSource",
 INSERT INTO md_Table
 SET tableId = 12, name = "DeepSource",
 	engine = "MyISAM",
-	description = "Table to store high signal-to-noise &quot;sources&quot; measured on the coadd exposures in DeepCoadd.";
+	description = "Not filled. Table to store high signal-to-noise &quot;sources&quot; measured on the coadd exposures in DeepCoadd.";
 
 	INSERT INTO md_Column
 	SET columnId = 259, tableId = 12, name = "deepSourceId",
@@ -6659,7 +6661,7 @@ SET tableId = 28, name = "Raw_Amp_To_Science_Ccd_Exposure",
 INSERT INTO md_Table
 SET tableId = 29, name = "RefChiSquaredSrcMatch",
 	engine = "MyISAM",
-	description = "Table containing the results of a spatial match between RefObject and ChiSquaredSource.";
+	description = "Not filled. Table containing the results of a spatial match between RefObject and ChiSquaredSource.";
 
 	INSERT INTO md_Column
 	SET columnId = 734, tableId = 29, name = "refObjectId",
@@ -6728,12 +6730,22 @@ SET tableId = 29, name = "RefChiSquaredSrcMatch",
 		type = "-",
 		columns = "refObjectId";
 
+	INSERT INTO md_Index
+	SET indexId = 71, tableId = 29,
+		type = "-",
+		columns = "refObjectId, chiSquaredSourceId";
+
+	INSERT INTO md_Index
+	SET indexId = 72, tableId = 29,
+		type = "-",
+		columns = "chiSquaredSourceId, refObjectId";
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 INSERT INTO md_Table
 SET tableId = 30, name = "RefDeepSrcMatch",
 	engine = "MyISAM",
-	description = "Table containing the results of a spatial match between RefObject and DeepSource.";
+	description = "Not filled. Table containing the results of a spatial match between RefObject and DeepSource.";
 
 	INSERT INTO md_Column
 	SET columnId = 741, tableId = 30, name = "refObjectId",
@@ -6793,14 +6805,24 @@ SET tableId = 30, name = "RefDeepSrcMatch",
 		displayOrder = 7;
 
 	INSERT INTO md_Index
-	SET indexId = 71, tableId = 30,
+	SET indexId = 73, tableId = 30,
 		type = "-",
 		columns = "deepSourceId";
 
 	INSERT INTO md_Index
-	SET indexId = 72, tableId = 30,
+	SET indexId = 74, tableId = 30,
 		type = "-",
 		columns = "refObjectId";
+
+	INSERT INTO md_Index
+	SET indexId = 75, tableId = 30,
+		type = "-",
+		columns = "refObjectId, deepSourceId";
+
+	INSERT INTO md_Index
+	SET indexId = 76, tableId = 30,
+		type = "-",
+		columns = "deepSourceId, refObjectId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -6867,14 +6889,24 @@ SET tableId = 31, name = "RefGoodSeeingSrcMatch",
 		displayOrder = 7;
 
 	INSERT INTO md_Index
-	SET indexId = 73, tableId = 31,
+	SET indexId = 77, tableId = 31,
 		type = "-",
 		columns = "goodSeeingSourceId";
 
 	INSERT INTO md_Index
-	SET indexId = 74, tableId = 31,
+	SET indexId = 78, tableId = 31,
 		type = "-",
 		columns = "refObjectId";
+
+	INSERT INTO md_Index
+	SET indexId = 79, tableId = 31,
+		type = "-",
+		columns = "refObjectId, goodSeeingSourceId";
+
+	INSERT INTO md_Index
+	SET indexId = 80, tableId = 31,
+		type = "-",
+		columns = "goodSeeingSourceId, refObjectId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -6968,12 +7000,12 @@ SET tableId = 32, name = "RefObjMatch",
 		displayOrder = 10;
 
 	INSERT INTO md_Index
-	SET indexId = 75, tableId = 32,
+	SET indexId = 81, tableId = 32,
 		type = "-",
 		columns = "objectId";
 
 	INSERT INTO md_Index
-	SET indexId = 76, tableId = 32,
+	SET indexId = 82, tableId = 32,
 		type = "-",
 		columns = "refObjectId";
 
@@ -7243,17 +7275,17 @@ SET tableId = 33, name = "RefObject",
 		displayOrder = 30;
 
 	INSERT INTO md_Index
-	SET indexId = 77, tableId = 33,
+	SET indexId = 83, tableId = 33,
 		type = "PRIMARY KEY",
 		columns = "refObjectId";
 
 	INSERT INTO md_Index
-	SET indexId = 78, tableId = 33,
+	SET indexId = 84, tableId = 33,
 		type = "-",
 		columns = "decl";
 
 	INSERT INTO md_Index
-	SET indexId = 79, tableId = 33,
+	SET indexId = 85, tableId = 33,
 		type = "-",
 		columns = "htmId20";
 
@@ -7349,14 +7381,19 @@ SET tableId = 34, name = "RefSrcMatch",
 		displayOrder = 10;
 
 	INSERT INTO md_Index
-	SET indexId = 80, tableId = 34,
+	SET indexId = 86, tableId = 34,
 		type = "-",
 		columns = "sourceId";
 
 	INSERT INTO md_Index
-	SET indexId = 81, tableId = 34,
+	SET indexId = 87, tableId = 34,
 		type = "-",
 		columns = "refObjectId";
+
+	INSERT INTO md_Index
+	SET indexId = 88, tableId = 34,
+		type = "-",
+		columns = "refObjectId, sourceId";
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -7741,12 +7778,12 @@ SET tableId = 35, name = "Science_Ccd_Exposure",
 		displayOrder = 46;
 
 	INSERT INTO md_Index
-	SET indexId = 82, tableId = 35,
+	SET indexId = 89, tableId = 35,
 		type = "PRIMARY KEY",
 		columns = "scienceCcdExposureId";
 
 	INSERT INTO md_Index
-	SET indexId = 83, tableId = 35,
+	SET indexId = 90, tableId = 35,
 		type = "-",
 		columns = "htmId20";
 
@@ -7796,12 +7833,12 @@ SET tableId = 36, name = "Science_Ccd_Exposure_Metadata",
 		displayOrder = 6;
 
 	INSERT INTO md_Index
-	SET indexId = 84, tableId = 36,
+	SET indexId = 91, tableId = 36,
 		type = "PRIMARY KEY",
 		columns = "scienceCcdExposureId, metadataKey";
 
 	INSERT INTO md_Index
-	SET indexId = 85, tableId = 36,
+	SET indexId = 92, tableId = 36,
 		type = "-",
 		columns = "metadataKey";
 
@@ -7828,12 +7865,12 @@ SET tableId = 37, name = "Science_Ccd_Exposure_To_Htm10",
 		displayOrder = 2;
 
 	INSERT INTO md_Index
-	SET indexId = 86, tableId = 37,
+	SET indexId = 93, tableId = 37,
 		type = "-",
 		columns = "htmId10";
 
 	INSERT INTO md_Index
-	SET indexId = 87, tableId = 37,
+	SET indexId = 94, tableId = 37,
 		type = "-",
 		columns = "scienceCcdExposureId";
 
@@ -7851,7 +7888,7 @@ SET tableId = 38, name = "SkyTile",
 		displayOrder = 1;
 
 	INSERT INTO md_Index
-	SET indexId = 88, tableId = 38,
+	SET indexId = 95, tableId = 38,
 		type = "PRIMARY KEY",
 		columns = "skyTileId";
 
@@ -7914,7 +7951,7 @@ SET tableId = 39, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 866, tableId = 39, name = "objectId",
-		description = "ID of object this source was assigned to. NULL if the source did not participate in spatial clustering, or if the clustering algorithm considered the source to be a "noise" source.",
+		description = "ID of object this source was assigned to. NULL if the source did not participate in spatial clustering, or if the clustering algorithm considered the source to be a 'noise' source.",
 		type = "BIGINT",
 		notNull = 0,
 		ucd = "meta.id;src",
@@ -8374,37 +8411,37 @@ SET tableId = 39, name = "Source",
 		displayOrder = 60;
 
 	INSERT INTO md_Index
-	SET indexId = 89, tableId = 39,
+	SET indexId = 96, tableId = 39,
 		type = "PRIMARY KEY",
 		columns = "sourceId";
 
 	INSERT INTO md_Index
-	SET indexId = 90, tableId = 39,
+	SET indexId = 97, tableId = 39,
 		type = "-",
 		columns = "parentSourceId";
 
 	INSERT INTO md_Index
-	SET indexId = 91, tableId = 39,
+	SET indexId = 98, tableId = 39,
 		type = "-",
 		columns = "scienceCcdExposureId";
 
 	INSERT INTO md_Index
-	SET indexId = 92, tableId = 39,
+	SET indexId = 99, tableId = 39,
 		type = "-",
 		columns = "filterId";
 
 	INSERT INTO md_Index
-	SET indexId = 93, tableId = 39,
+	SET indexId = 100, tableId = 39,
 		type = "-",
 		columns = "objectId";
 
 	INSERT INTO md_Index
-	SET indexId = 94, tableId = 39,
+	SET indexId = 101, tableId = 39,
 		type = "-",
 		columns = "decl";
 
 	INSERT INTO md_Index
-	SET indexId = 95, tableId = 39,
+	SET indexId = 102, tableId = 39,
 		type = "-",
 		columns = "htmId20";
 
@@ -8424,7 +8461,7 @@ SET tableId = 40, name = "Visit",
 		displayOrder = 1;
 
 	INSERT INTO md_Index
-	SET indexId = 96, tableId = 40,
+	SET indexId = 103, tableId = 40,
 		type = "PRIMARY KEY",
 		columns = "visitId";
 
