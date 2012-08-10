@@ -169,7 +169,6 @@ if ( array_key_exists('t', $_GET) ) {
 
 $tableList = "";#"<span style='line-height:14px'>";
 foreach ($tables as $k=>$v) {
-    print "table is " . $v['name'] . ", is set = " . $v['isSet'] . "<br>";
     if ( $v['isSet'] == 0 ) {
         print "isset = " . $v['isSet'];
         $grayTName = " style='color:gray'";
