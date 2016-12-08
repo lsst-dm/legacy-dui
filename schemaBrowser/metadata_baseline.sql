@@ -156,24 +156,24 @@ SET tableId = 2, name = "CcdVisit",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 12, tableId = 2, name = "zenithDistance",
+	SET columnId = 12, tableId = 2, name = "skyRotation",
+		description = "Sky rotation angle.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "deg",
+		displayOrder = 9;
+
+	INSERT INTO md_Column
+	SET columnId = 13, tableId = 2, name = "zenithDistance",
 		description = "Zenith distance at observation mid-point.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "deg",
 		ucd = "pos.az.zd",
-		displayOrder = 9;
-
-	INSERT INTO md_Column
-	SET columnId = 13, tableId = 2, name = "llcx",
-		description = "FITS pixel coordinates (0.5, 0.5).",
-		type = "INTEGER",
-		notNull = 1,
-		unit = "pixels",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 14, tableId = 2, name = "llcy",
+	SET columnId = 14, tableId = 2, name = "llcx",
 		description = "FITS pixel coordinates (0.5, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
@@ -181,15 +181,15 @@ SET tableId = 2, name = "CcdVisit",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 15, tableId = 2, name = "ulcx",
-		description = "FITS pixel coordinates (0.5, 0.5+ySize).",
+	SET columnId = 15, tableId = 2, name = "llcy",
+		description = "FITS pixel coordinates (0.5, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 16, tableId = 2, name = "ulcy",
+	SET columnId = 16, tableId = 2, name = "ulcx",
 		description = "FITS pixel coordinates (0.5, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
@@ -197,15 +197,15 @@ SET tableId = 2, name = "CcdVisit",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 17, tableId = 2, name = "urcx",
-		description = "FITS pixel coordinates (0.5+xSize, 0.5+ySize).",
+	SET columnId = 17, tableId = 2, name = "ulcy",
+		description = "FITS pixel coordinates (0.5, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 18, tableId = 2, name = "urcy",
+	SET columnId = 18, tableId = 2, name = "urcx",
 		description = "FITS pixel coordinates (0.5+xSize, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
@@ -213,15 +213,15 @@ SET tableId = 2, name = "CcdVisit",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 19, tableId = 2, name = "lrcx",
-		description = "FITS pixel coordinates (0.5+xSize, 0.5).",
+	SET columnId = 19, tableId = 2, name = "urcy",
+		description = "FITS pixel coordinates (0.5+xSize, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 20, tableId = 2, name = "lrcy",
+	SET columnId = 20, tableId = 2, name = "lrcx",
 		description = "FITS pixel coordinates (0.5+xSize, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
@@ -229,48 +229,47 @@ SET tableId = 2, name = "CcdVisit",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 21, tableId = 2, name = "xSize",
-		description = "Number of columns in the image.",
+	SET columnId = 21, tableId = 2, name = "lrcy",
+		description = "FITS pixel coordinates (0.5+xSize, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
+		unit = "pixels",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 22, tableId = 2, name = "ySize",
-		description = "Number of rows in the image.",
+	SET columnId = 22, tableId = 2, name = "xSize",
+		description = "Number of columns in the image.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 23, tableId = 2, name = "obsStart",
+	SET columnId = 23, tableId = 2, name = "ySize",
+		description = "Number of rows in the image.",
+		type = "INTEGER",
+		notNull = 1,
+		displayOrder = 20;
+
+	INSERT INTO md_Column
+	SET columnId = 24, tableId = 2, name = "obsStart",
 		description = "Start of the exposure, TAI, accurate to 10ms.",
 		type = "TIMESTAMP",
 		notNull = 1,
 		defaultValue = "CURRENT_TIMESTAMP",
 		ucd = "time.start",
-		displayOrder = 20;
+		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 24, tableId = 2, name = "expMidpt",
+	SET columnId = 25, tableId = 2, name = "expMidpt",
 		description = "Midpoint for exposure. TAI, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
 		ucd = "time.epoch",
-		displayOrder = 21;
-
-	INSERT INTO md_Column
-	SET columnId = 25, tableId = 2, name = "expTime",
-		description = "Average duration of exposure, accurate to 10ms.",
-		type = "DOUBLE",
-		notNull = 1,
-		unit = "s",
-		ucd = "time.duration",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 26, tableId = 2, name = "darkTime",
-		description = "Average dark current accumulation time, accurate to 10ms.",
+	SET columnId = 26, tableId = 2, name = "expTime",
+		description = "Average duration of exposure, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "s",
@@ -278,24 +277,24 @@ SET tableId = 2, name = "CcdVisit",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 27, tableId = 2, name = "ccdTemp",
-		description = "Temperature measured on the Ccd.",
-		type = "FLOAT",
+	SET columnId = 27, tableId = 2, name = "darkTime",
+		description = "Average dark current accumulation time, accurate to 10ms.",
+		type = "DOUBLE",
 		notNull = 1,
+		unit = "s",
+		ucd = "time.duration",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 28, tableId = 2, name = "binX",
-		description = "Binning of the ccd in x (row) direction.",
-		type = "INTEGER",
+	SET columnId = 28, tableId = 2, name = "ccdTemp",
+		description = "Temperature measured on the Ccd.",
+		type = "FLOAT",
 		notNull = 1,
-		unit = "pixel",
-		ucd = "meta.number",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 29, tableId = 2, name = "binY",
-		description = "Binning of the ccd in y (column) direction.",
+	SET columnId = 29, tableId = 2, name = "binX",
+		description = "Binning of the ccd in x (row) direction.",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixel",
@@ -303,51 +302,60 @@ SET tableId = 2, name = "CcdVisit",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 30, tableId = 2, name = "WCS",
-		description = "Precise WCS solution for the Ccd. [100x4 BYTES].",
-		type = "BLOB",
-		notNull = 0,
+	SET columnId = 30, tableId = 2, name = "binY",
+		description = "Binning of the ccd in y (column) direction.",
+		type = "INTEGER",
+		notNull = 1,
+		unit = "pixel",
+		ucd = "meta.number",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 31, tableId = 2, name = "zeroPoint",
-		description = "Zero-point for the Ccd, estimated at Ccd center.",
-		type = "FLOAT",
-		notNull = 1,
+	SET columnId = 31, tableId = 2, name = "WCS",
+		description = "Precise WCS solution for the Ccd. [100x4 BYTES].",
+		type = "BLOB",
+		notNull = 0,
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 32, tableId = 2, name = "seeing",
+	SET columnId = 32, tableId = 2, name = "zeroPoint",
+		description = "Zero-point for the Ccd, estimated at Ccd center.",
+		type = "FLOAT",
+		notNull = 1,
+		displayOrder = 29;
+
+	INSERT INTO md_Column
+	SET columnId = 33, tableId = 2, name = "seeing",
 		description = "Mean measured FWHM of the PSF.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "arcsec",
-		displayOrder = 29;
-
-	INSERT INTO md_Column
-	SET columnId = 33, tableId = 2, name = "skyBg",
-		description = "Average sky background.",
-		type = "FLOAT",
-		notNull = 1,
-		unit = "DN",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 34, tableId = 2, name = "skyNoise",
-		description = "RMS noise of the sky background.",
+	SET columnId = 34, tableId = 2, name = "skyBg",
+		description = "Average sky background.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "DN",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 35, tableId = 2, name = "flags",
+	SET columnId = 35, tableId = 2, name = "skyNoise",
+		description = "RMS noise of the sky background.",
+		type = "FLOAT",
+		notNull = 1,
+		unit = "DN",
+		displayOrder = 32;
+
+	INSERT INTO md_Column
+	SET columnId = 36, tableId = 2, name = "flags",
 		description = "Flags, bitwise OR tbd",
 		type = "INTEGER",
 		notNull = 1,
 		defaultValue = "0",
 		ucd = "meta.code",
-		displayOrder = 32;
+		displayOrder = 33;
 
 	INSERT INTO md_Index
 	SET indexId = 2, tableId = 2,
@@ -362,32 +370,32 @@ SET tableId = 3, name = "CcdVisitMetadata",
 	description = "Generic key-value pair metadata for CcdVisit.";
 
 	INSERT INTO md_Column
-	SET columnId = 36, tableId = 3, name = "ccdVisitId",
+	SET columnId = 37, tableId = 3, name = "ccdVisitId",
 		type = "BIGINT",
 		notNull = 1,
 		ucd = "meta.id;obs.image",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 37, tableId = 3, name = "metadataKey",
+	SET columnId = 38, tableId = 3, name = "metadataKey",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 38, tableId = 3, name = "intValue",
+	SET columnId = 39, tableId = 3, name = "intValue",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 39, tableId = 3, name = "doubleValue",
+	SET columnId = 40, tableId = 3, name = "doubleValue",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 40, tableId = 3, name = "stringValue",
+	SET columnId = 41, tableId = 3, name = "stringValue",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 5;
@@ -410,14 +418,14 @@ SET tableId = 4, name = "DiaForcedSource",
 	description = "Forced-photometry source measurement on an individual difference Exposure based on a Multifit shape model derived from a deep detection.";
 
 	INSERT INTO md_Column
-	SET columnId = 41, tableId = 4, name = "diaObjectId",
+	SET columnId = 42, tableId = 4, name = "diaObjectId",
 		type = "BIGINT",
 		notNull = 1,
 		ucd = "meta.id;src",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 42, tableId = 4, name = "ccdVisitId",
+	SET columnId = 43, tableId = 4, name = "ccdVisitId",
 		description = "Id of the visit where this forcedSource was measured. Note that we are allowing a forcedSource to belong to multiple amplifiers, but it may not span multiple ccds.",
 		type = "BIGINT",
 		notNull = 1,
@@ -425,7 +433,7 @@ SET tableId = 4, name = "DiaForcedSource",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 43, tableId = 4, name = "psFlux",
+	SET columnId = 44, tableId = 4, name = "psFlux",
 		description = "Point Source model flux.",
 		type = "FLOAT",
 		notNull = 1,
@@ -434,7 +442,7 @@ SET tableId = 4, name = "DiaForcedSource",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 44, tableId = 4, name = "psFlux_Sigma",
+	SET columnId = 45, tableId = 4, name = "psFluxSigma",
 		description = "Uncertainty of psFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -443,7 +451,7 @@ SET tableId = 4, name = "DiaForcedSource",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 45, tableId = 4, name = "x",
+	SET columnId = 46, tableId = 4, name = "x",
 		description = "x position at which psFlux has been measured.",
 		type = "FLOAT",
 		notNull = 1,
@@ -452,7 +460,7 @@ SET tableId = 4, name = "DiaForcedSource",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 46, tableId = 4, name = "y",
+	SET columnId = 47, tableId = 4, name = "y",
 		description = "y position at which psFlux has been measured.",
 		type = "FLOAT",
 		notNull = 1,
@@ -461,7 +469,7 @@ SET tableId = 4, name = "DiaForcedSource",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 47, tableId = 4, name = "flags",
+	SET columnId = 48, tableId = 4, name = "flags",
 		description = "Flags, bitwise OR tbd",
 		type = "TINYINT",
 		notNull = 1,
@@ -487,7 +495,7 @@ SET tableId = 5, name = "DiaObject",
 	description = "The DiaObject table contains descriptions of the astronomical objects detected on one or more difference images.";
 
 	INSERT INTO md_Column
-	SET columnId = 48, tableId = 5, name = "diaObjectId",
+	SET columnId = 49, tableId = 5, name = "diaObjectId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -495,22 +503,22 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 49, tableId = 5, name = "validityStart",
+	SET columnId = 50, tableId = 5, name = "validityStart",
 		description = "Time when validity of this diaObject starts.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 50, tableId = 5, name = "validityEnd",
+	SET columnId = 51, tableId = 5, name = "validityEnd",
 		description = "Time when validity of this diaObject ends.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 51, tableId = 5, name = "ra",
-		description = "RA-coordinate of the center of this diaObject.",
+	SET columnId = 52, tableId = 5, name = "ra",
+		description = "RA-coordinate of the position of the object at time radecTai.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
@@ -518,7 +526,7 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 52, tableId = 5, name = "raSigma",
+	SET columnId = 53, tableId = 5, name = "raSigma",
 		description = "Uncertainty of ra.",
 		type = "FLOAT",
 		notNull = 1,
@@ -527,8 +535,8 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 53, tableId = 5, name = "decl",
-		description = "Decl-coordinate of the center of this diaObject.",
+	SET columnId = 54, tableId = 5, name = "decl",
+		description = "Decl-coordinate of the position of the object at time radecTai.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
@@ -536,7 +544,7 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 54, tableId = 5, name = "declSigma",
+	SET columnId = 55, tableId = 5, name = "declSigma",
 		description = "Uncertainty of decl.",
 		type = "FLOAT",
 		notNull = 1,
@@ -545,7 +553,7 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 55, tableId = 5, name = "ra_decl_Cov",
+	SET columnId = 56, tableId = 5, name = "ra_decl_Cov",
 		description = "Covariance between ra and decl.",
 		type = "FLOAT",
 		notNull = 1,
@@ -553,52 +561,51 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 56, tableId = 5, name = "muRa",
+	SET columnId = 57, tableId = 5, name = "radecTai",
+		description = "Time at which the object was at a position ra/decl.",
+		type = "DOUBLE",
+		notNull = 1,
+		ucd = "time.epoch",
+		displayOrder = 9;
+
+	INSERT INTO md_Column
+	SET columnId = 58, tableId = 5, name = "pmRa",
 		description = "Proper motion (ra).",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "mas/yr",
 		ucd = "pos.pm",
-		displayOrder = 9;
+		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 57, tableId = 5, name = "muRaSigma",
-		description = "Uncertainty of muRa.",
+	SET columnId = 59, tableId = 5, name = "pmRaSigma",
+		description = "Uncertainty of pmRa.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "mas/yr",
 		ucd = "stat.error;pos.pm",
-		displayOrder = 10;
+		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 58, tableId = 5, name = "muDecl",
+	SET columnId = 60, tableId = 5, name = "pmDecl",
 		description = "Proper motion (decl).",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "mas/yr",
 		ucd = "pos.pm",
-		displayOrder = 11;
+		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 59, tableId = 5, name = "muDecSigma",
-		description = "Uncertainty of muDecl.",
+	SET columnId = 61, tableId = 5, name = "pmDeclSigma",
+		description = "Uncertainty of pmDecl.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "mas/yr",
 		ucd = "stat.error;pos.pm",
-		displayOrder = 12;
-
-	INSERT INTO md_Column
-	SET columnId = 60, tableId = 5, name = "muRa_muDeclCov",
-		description = "Covariance of muRa and muDecl.",
-		type = "FLOAT",
-		notNull = 1,
-		unit = "(mas/yr)^2",
-		ucd = "stat.covariance;pos.eq",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 61, tableId = 5, name = "parallax",
+	SET columnId = 62, tableId = 5, name = "parallax",
 		description = "Parallax.",
 		type = "FLOAT",
 		notNull = 1,
@@ -607,7 +614,7 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 62, tableId = 5, name = "parallaxSigma",
+	SET columnId = 63, tableId = 5, name = "parallaxSigma",
 		description = "Uncertainty of parallax.",
 		type = "FLOAT",
 		notNull = 1,
@@ -616,93 +623,100 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 63, tableId = 5, name = "muRa_parallax_Cov",
-		description = "Covariance of muRa and parallax.",
+	SET columnId = 64, tableId = 5, name = "pmRa_pmDecl_Cov",
+		description = "Covariance of pmRa and pmDecl.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "(mas/yr)^2",
+		ucd = "stat.covariance;pos.eq",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 64, tableId = 5, name = "muDecl_parallax_Cov",
-		description = "Covariance of muDecl and parallax.",
+	SET columnId = 65, tableId = 5, name = "pmRa_parallax_Cov",
+		description = "Covariance of pmRa and parallax.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "mas^2/yr",
+		ucd = "stat.covariance",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 65, tableId = 5, name = "lnL",
-		description = "Natural log of the likelihood of the linear proper motion parallax fit.",
+	SET columnId = 66, tableId = 5, name = "pmDecl_parallax_Cov",
+		description = "Covariance of pmDecl and parallax.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "mas^2/yr",
+		ucd = "stat.covariance",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 66, tableId = 5, name = "chi2",
-		description = "Chi^2 static of the model fit.",
+	SET columnId = 67, tableId = 5, name = "pmParallaxLnL",
+		description = "Natural log of the likelihood of the linear proper motion parallax fit.",
 		type = "FLOAT",
 		notNull = 1,
+		ucd = "stat.likelihood",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 67, tableId = 5, name = "N",
-		description = "The number of data points (pixels) used to fit the model.",
-		type = "INT",
+	SET columnId = 68, tableId = 5, name = "pmParallaxChi2",
+		description = "Chi^2 static of the model fit.",
+		type = "FLOAT",
 		notNull = 1,
+		ucd = "stat.fit.chi2",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 68, tableId = 5, name = "uPSFlux",
+	SET columnId = 69, tableId = 5, name = "pmParallaxNdata",
+		description = "The number of data points used to fit the model.",
+		type = "INT",
+		notNull = 1,
+		displayOrder = 21;
+
+	INSERT INTO md_Column
+	SET columnId = 70, tableId = 5, name = "uPSFluxMean",
 		description = "Weighted mean point-source model magnitude for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
 		ucd = "phot.count",
-		displayOrder = 21;
-
-	INSERT INTO md_Column
-	SET columnId = 69, tableId = 5, name = "uPSFluxErr",
-		description = "Standard error of uPSFlux.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 70, tableId = 5, name = "uPSFluxSigma",
-		description = "Uncertainty of uPSFlux.",
+	SET columnId = 71, tableId = 5, name = "uPSFluxMeanErr",
+		description = "Standard error of uPSFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 71, tableId = 5, name = "uFPFlux",
-		description = "Weighted mean forced photometry flux for u fliter.",
+	SET columnId = 72, tableId = 5, name = "uPSFluxSigma",
+		description = "Standard deviation of the distribution of uPSFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		ucd = "phot.count",
+		ucd = "stat.stdev",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 72, tableId = 5, name = "uFPFluxErr",
-		description = "Standard error of uFPFlux.",
+	SET columnId = 73, tableId = 5, name = "uPSFluxChi2",
+		description = "Chi^2 statistic for the scatter of uPSFlux around uPSFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "nmgy",
+		ucd = "stat.fit.chi2",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 73, tableId = 5, name = "uFPFluxSigma",
-		description = "Uncertainty of uFPFlux.",
-		type = "FLOAT",
+	SET columnId = 74, tableId = 5, name = "uPSFluxNdata",
+		description = "The number of data points used to compute uPSFluxChi2.",
+		type = "INT",
 		notNull = 0,
-		unit = "nmgy",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 74, tableId = 5, name = "gPSFlux",
-		description = "Weighted mean point-source model magnitude for g filter.",
+	SET columnId = 75, tableId = 5, name = "uFPFluxMean",
+		description = "Weighted mean forced photometry flux for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
@@ -710,24 +724,26 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 75, tableId = 5, name = "gPSFluxErr",
-		description = "Standard error of gPSFlux.",
+	SET columnId = 76, tableId = 5, name = "uFPFluxMeanErr",
+		description = "Standard error of uFPFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 76, tableId = 5, name = "gPSFluxSigma",
-		description = "Uncertainty of gPSFlux.",
+	SET columnId = 77, tableId = 5, name = "uFPFluxSigma",
+		description = "Standard deviation of the distribution of uFPFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "stat.stdev",
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 77, tableId = 5, name = "gFPFlux",
-		description = "Weighted mean forced photometry flux for g fliter.",
+	SET columnId = 78, tableId = 5, name = "gPSFluxMean",
+		description = "Weighted mean point-source model magnitude for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
@@ -735,174 +751,179 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 78, tableId = 5, name = "gFPFluxErr",
-		description = "Standard error of gFPFlux.",
+	SET columnId = 79, tableId = 5, name = "gPSFluxMeanErr",
+		description = "Standard error of gPSFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 79, tableId = 5, name = "gFPFluxSigma",
-		description = "Uncertainty of gFPFlux.",
+	SET columnId = 80, tableId = 5, name = "gPSFluxSigma",
+		description = "Standard deviation of the distribution of gPSFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "stat.stdev",
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 80, tableId = 5, name = "rPSFlux",
-		description = "Weighted mean point-source model magnitude for u filter.",
+	SET columnId = 81, tableId = 5, name = "gPSFluxChi2",
+		description = "Chi^2 statistic for the scatter of gPSFlux around gPSFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "nmgy",
-		ucd = "phot.count",
+		ucd = "stat.fit.chi2",
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 81, tableId = 5, name = "rPSFluxErr",
-		description = "Standard error of rPSFlux.",
-		type = "FLOAT",
+	SET columnId = 82, tableId = 5, name = "gPSFluxNdata",
+		description = "The number of data points used to compute gPSFluxChi2.",
+		type = "INT",
 		notNull = 0,
-		unit = "nmgy",
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 82, tableId = 5, name = "rPSFluxSigma",
-		description = "Uncertainty of rPSFlux.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
-		displayOrder = 35;
-
-	INSERT INTO md_Column
-	SET columnId = 83, tableId = 5, name = "rFPFlux",
-		description = "Weighted mean forced photometry flux for r fliter.",
+	SET columnId = 83, tableId = 5, name = "gFPFluxMean",
+		description = "Weighted mean forced photometry flux for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
 		ucd = "phot.count",
+		displayOrder = 35;
+
+	INSERT INTO md_Column
+	SET columnId = 84, tableId = 5, name = "gFPFluxMeanErr",
+		description = "Standard error of gFPFluxMean.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
-	SET columnId = 84, tableId = 5, name = "rFPFluxErr",
-		description = "Standard error of rFPFlux.",
+	SET columnId = 85, tableId = 5, name = "gFPFluxSigma",
+		description = "Standard deviation of the distribution of gFPFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "stat.stdev",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 85, tableId = 5, name = "rFPFluxSigma",
-		description = "Uncertainty of rFPFlux.",
+	SET columnId = 86, tableId = 5, name = "rPSFluxMean",
+		description = "Weighted mean point-source model magnitude for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "phot.count",
 		displayOrder = 38;
 
 	INSERT INTO md_Column
-	SET columnId = 86, tableId = 5, name = "iPSFlux",
+	SET columnId = 87, tableId = 5, name = "rPSFluxMeanErr",
+		description = "Standard error of rPSFluxMean.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
+		displayOrder = 39;
+
+	INSERT INTO md_Column
+	SET columnId = 88, tableId = 5, name = "rPSFluxSigma",
+		description = "Standard deviation of the distribution of rPSFlux.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.stdev",
+		displayOrder = 40;
+
+	INSERT INTO md_Column
+	SET columnId = 89, tableId = 5, name = "rPSFluxChi2",
+		description = "Chi^2 statistic for the scatter of rPSFlux around rPSFluxMean.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.fit.chi2",
+		displayOrder = 41;
+
+	INSERT INTO md_Column
+	SET columnId = 90, tableId = 5, name = "rPSFluxNdata",
+		description = "The number of data points used to compute rPSFluxChi2.",
+		type = "INT",
+		notNull = 0,
+		displayOrder = 42;
+
+	INSERT INTO md_Column
+	SET columnId = 91, tableId = 5, name = "rFPFluxMean",
+		description = "Weighted mean forced photometry flux for r filter.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "phot.count",
+		displayOrder = 43;
+
+	INSERT INTO md_Column
+	SET columnId = 92, tableId = 5, name = "rFPFluxMeanErr",
+		description = "Standard error of rFPFluxMean.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
+		displayOrder = 44;
+
+	INSERT INTO md_Column
+	SET columnId = 93, tableId = 5, name = "rFPFluxSigma",
+		description = "Standard deviation of the distribution of rFPFlux.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.stdev",
+		displayOrder = 45;
+
+	INSERT INTO md_Column
+	SET columnId = 94, tableId = 5, name = "iPSFluxMean",
 		description = "Weighted mean point-source model magnitude for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
 		ucd = "phot.count",
-		displayOrder = 39;
-
-	INSERT INTO md_Column
-	SET columnId = 87, tableId = 5, name = "iPSFluxErr",
-		description = "Standard error of iPSFlux.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
-		displayOrder = 40;
-
-	INSERT INTO md_Column
-	SET columnId = 88, tableId = 5, name = "iPSFluxSigma",
-		description = "Uncertainty of iPSFlux.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
-		displayOrder = 41;
-
-	INSERT INTO md_Column
-	SET columnId = 89, tableId = 5, name = "iFPFlux",
-		description = "Weighted mean forced photometry flux for i fliter.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
-		ucd = "phot.count",
-		displayOrder = 42;
-
-	INSERT INTO md_Column
-	SET columnId = 90, tableId = 5, name = "iFPFluxErr",
-		description = "Standard error of iFPFlux.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
-		displayOrder = 43;
-
-	INSERT INTO md_Column
-	SET columnId = 91, tableId = 5, name = "iFPFluxSigma",
-		description = "Uncertainty of uFPFlux.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
-		displayOrder = 44;
-
-	INSERT INTO md_Column
-	SET columnId = 92, tableId = 5, name = "zPSFlux",
-		description = "Weighted mean point-source model magnitude for z filter.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
-		ucd = "phot.count",
-		displayOrder = 45;
-
-	INSERT INTO md_Column
-	SET columnId = 93, tableId = 5, name = "zPSFluxErr",
-		description = "Standard error of zPSFlux.",
-		type = "FLOAT",
-		notNull = 0,
-		unit = "nmgy",
 		displayOrder = 46;
 
 	INSERT INTO md_Column
-	SET columnId = 94, tableId = 5, name = "zPSFluxSigma",
-		description = "Uncertainty of zPSFlux.",
+	SET columnId = 95, tableId = 5, name = "iPSFluxMeanErr",
+		description = "Standard error of iPSFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 47;
 
 	INSERT INTO md_Column
-	SET columnId = 95, tableId = 5, name = "zFPFlux",
-		description = "Weighted mean forced photometry flux for z fliter.",
+	SET columnId = 96, tableId = 5, name = "iPSFluxSigma",
+		description = "Standard deviation of the distribution of iPSFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		ucd = "phot.count",
+		ucd = "stat.stdev",
 		displayOrder = 48;
 
 	INSERT INTO md_Column
-	SET columnId = 96, tableId = 5, name = "zFPFluxErr",
-		description = "Standard error of zFPFlux.",
+	SET columnId = 97, tableId = 5, name = "iPSFluxChi2",
+		description = "Chi^2 statistic for the scatter of iPSFlux around iPSFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "nmgy",
+		ucd = "stat.fit.chi2",
 		displayOrder = 49;
 
 	INSERT INTO md_Column
-	SET columnId = 97, tableId = 5, name = "zFPFluxSigma",
-		description = "Uncertainty of zFPFlux.",
-		type = "FLOAT",
+	SET columnId = 98, tableId = 5, name = "iPSFluxNdata",
+		description = "The number of data points used to compute iPSFluxChi2.",
+		type = "INT",
 		notNull = 0,
-		unit = "nmgy",
 		displayOrder = 50;
 
 	INSERT INTO md_Column
-	SET columnId = 98, tableId = 5, name = "yPSFlux",
-		description = "Weighted mean point-source model magnitude for y filter.",
+	SET columnId = 99, tableId = 5, name = "iFPFluxMean",
+		description = "Weighted mean forced photometry flux for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
@@ -910,26 +931,26 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 51;
 
 	INSERT INTO md_Column
-	SET columnId = 99, tableId = 5, name = "yPSFluxErr",
-		description = "Standard error of yPSFlux.",
+	SET columnId = 100, tableId = 5, name = "iFPFluxMeanErr",
+		description = "Standard error of iFPFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		ucd = "phot.count",
+		ucd = "stat.error",
 		displayOrder = 52;
 
 	INSERT INTO md_Column
-	SET columnId = 100, tableId = 5, name = "yPSFluxSigma",
-		description = "Uncertainty of yPSFlux.",
+	SET columnId = 101, tableId = 5, name = "iFPFluxSigma",
+		description = "Standard deviation of the distribution of iFPFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		ucd = "phot.count",
+		ucd = "stat.stdev",
 		displayOrder = 53;
 
 	INSERT INTO md_Column
-	SET columnId = 101, tableId = 5, name = "yFPFlux",
-		description = "Weighted mean forced photometry flux for y fliter.",
+	SET columnId = 102, tableId = 5, name = "zPSFluxMean",
+		description = "Weighted mean point-source model magnitude for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
@@ -937,191 +958,302 @@ SET tableId = 5, name = "DiaObject",
 		displayOrder = 54;
 
 	INSERT INTO md_Column
-	SET columnId = 102, tableId = 5, name = "yFPFluxErr",
-		description = "Standard error of yFPFlux.",
+	SET columnId = 103, tableId = 5, name = "zPSFluxMeanErr",
+		description = "Standard error of zPSFluxMean.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		ucd = "phot.count",
+		ucd = "stat.error",
 		displayOrder = 55;
 
 	INSERT INTO md_Column
-	SET columnId = 103, tableId = 5, name = "yFPFluxSigma",
-		description = "Uncertainty of yFPFlux.",
+	SET columnId = 104, tableId = 5, name = "zPSFluxSigma",
+		description = "Standard deviation of the distribution of zPSFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		ucd = "phot.count",
+		ucd = "stat.stdev",
 		displayOrder = 56;
 
 	INSERT INTO md_Column
-	SET columnId = 104, tableId = 5, name = "uLcPeriodic",
-		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for u filter. [32 FLOAT].",
-		type = "BLOB",
+	SET columnId = 105, tableId = 5, name = "zPSFluxChi2",
+		description = "Chi^2 statistic for the scatter of zPSFlux around zPSFluxMean.",
+		type = "FLOAT",
 		notNull = 0,
+		ucd = "stat.fit.chi2",
 		displayOrder = 57;
 
 	INSERT INTO md_Column
-	SET columnId = 105, tableId = 5, name = "gLcPeriodic",
-		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for g filter. [32 FLOAT].",
-		type = "BLOB",
+	SET columnId = 106, tableId = 5, name = "zPSFluxNdata",
+		description = "The number of data points used to compute zPSFluxChi2.",
+		type = "INT",
 		notNull = 0,
 		displayOrder = 58;
 
 	INSERT INTO md_Column
-	SET columnId = 106, tableId = 5, name = "rLcPeriodic",
-		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for r filter. [32 FLOAT].",
-		type = "BLOB",
+	SET columnId = 107, tableId = 5, name = "zFPFluxMean",
+		description = "Weighted mean forced photometry flux for z filter.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "phot.count",
 		displayOrder = 59;
 
 	INSERT INTO md_Column
-	SET columnId = 107, tableId = 5, name = "iLcPeriodic",
-		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for i filter. [32 FLOAT].",
-		type = "BLOB",
+	SET columnId = 108, tableId = 5, name = "zFPFluxMeanErr",
+		description = "Standard error of zFPFluxMean.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 60;
 
 	INSERT INTO md_Column
-	SET columnId = 108, tableId = 5, name = "zLcPeriodic",
-		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for z filter. [32 FLOAT].",
-		type = "BLOB",
+	SET columnId = 109, tableId = 5, name = "zFPFluxSigma",
+		description = "Standard deviation of the distribution of zFPFlux.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.stdev",
 		displayOrder = 61;
 
 	INSERT INTO md_Column
-	SET columnId = 109, tableId = 5, name = "yLcPeriodic",
-		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for y filter. [32 FLOAT].",
-		type = "BLOB",
+	SET columnId = 110, tableId = 5, name = "yPSFluxMean",
+		description = "Weighted mean point-source model magnitude for y filter.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "phot.count",
 		displayOrder = 62;
 
 	INSERT INTO md_Column
-	SET columnId = 110, tableId = 5, name = "uLcNonPeriodic",
-		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for u filter. [20 FLOAT].",
-		type = "BLOB",
+	SET columnId = 111, tableId = 5, name = "yPSFluxMeanErr",
+		description = "Standard error of yPSFluxMean.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 63;
 
 	INSERT INTO md_Column
-	SET columnId = 111, tableId = 5, name = "gLcNonPeriodic",
-		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for g filter. [20 FLOAT].",
-		type = "BLOB",
+	SET columnId = 112, tableId = 5, name = "yPSFluxSigma",
+		description = "Standard deviation of the distribution of yPSFlux.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 64;
 
 	INSERT INTO md_Column
-	SET columnId = 112, tableId = 5, name = "rLcNonPeriodic",
-		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for r filter. [20 FLOAT].",
-		type = "BLOB",
+	SET columnId = 113, tableId = 5, name = "yPSFluxChi2",
+		description = "Chi^2 statistic for the scatter of yPSFlux around yPSFluxMean.",
+		type = "FLOAT",
 		notNull = 0,
+		ucd = "stat.fit.chi2",
 		displayOrder = 65;
 
 	INSERT INTO md_Column
-	SET columnId = 113, tableId = 5, name = "iLcNonPeriodic",
-		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for i filter. [20 FLOAT].",
-		type = "BLOB",
+	SET columnId = 114, tableId = 5, name = "yPSFluxNdata",
+		description = "The number of data points used to compute yPSFluxChi2.",
+		type = "INT",
 		notNull = 0,
 		displayOrder = 66;
 
 	INSERT INTO md_Column
-	SET columnId = 114, tableId = 5, name = "zLcNonPeriodic",
-		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for z filter. [20 FLOAT].",
-		type = "BLOB",
+	SET columnId = 115, tableId = 5, name = "yFPFluxMean",
+		description = "Weighted mean forced photometry flux for y filter.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "phot.count",
 		displayOrder = 67;
 
 	INSERT INTO md_Column
-	SET columnId = 115, tableId = 5, name = "yLcNonPeriodic",
-		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for y filter. [20 FLOAT].",
-		type = "BLOB",
+	SET columnId = 116, tableId = 5, name = "yFPFluxMeanErr",
+		description = "Standard error of yFPFluxMean.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
 		displayOrder = 68;
 
 	INSERT INTO md_Column
-	SET columnId = 116, tableId = 5, name = "nearbyObj1",
-		description = "Id of the closest nearby object.",
-		type = "BIGINT",
+	SET columnId = 117, tableId = 5, name = "yFPFluxSigma",
+		description = "Standard deviation of the distribution of yFPFlux.",
+		type = "FLOAT",
 		notNull = 0,
-		ucd = "meta.id;src",
+		unit = "nmgy",
+		ucd = "stat.stdev",
 		displayOrder = 69;
 
 	INSERT INTO md_Column
-	SET columnId = 117, tableId = 5, name = "nearbyObj1Dist",
-		description = "Distance to nearbyObj1.",
-		type = "FLOAT",
+	SET columnId = 118, tableId = 5, name = "uLcPeriodic",
+		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for u filter. [32 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
-		unit = "arcsec",
 		displayOrder = 70;
 
 	INSERT INTO md_Column
-	SET columnId = 118, tableId = 5, name = "nearbyObj1LnP",
-		description = "Natural log of the probability that the observed diaObject is the same as the nearbyObj1.",
-		type = "FLOAT",
+	SET columnId = 119, tableId = 5, name = "gLcPeriodic",
+		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for g filter. [32 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
 		displayOrder = 71;
 
 	INSERT INTO md_Column
-	SET columnId = 119, tableId = 5, name = "nearbyObj2",
-		description = "Id of the second-closest nearby object.",
-		type = "BIGINT",
+	SET columnId = 120, tableId = 5, name = "rLcPeriodic",
+		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for r filter. [32 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
-		ucd = "meta.id;src",
 		displayOrder = 72;
 
 	INSERT INTO md_Column
-	SET columnId = 120, tableId = 5, name = "nearbyObj2Dist",
-		description = "Distance to nearbyObj2.",
-		type = "FLOAT",
+	SET columnId = 121, tableId = 5, name = "iLcPeriodic",
+		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for i filter. [32 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
-		unit = "arcsec",
 		displayOrder = 73;
 
 	INSERT INTO md_Column
-	SET columnId = 121, tableId = 5, name = "nearbyObj2LnP",
-		description = "Natural log of the probability that the observed diaObject is the same as the nearbyObj2.",
-		type = "FLOAT",
+	SET columnId = 122, tableId = 5, name = "zLcPeriodic",
+		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for z filter. [32 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
 		displayOrder = 74;
 
 	INSERT INTO md_Column
-	SET columnId = 122, tableId = 5, name = "nearbyObj3",
-		description = "Id of the third-closest nearby object.",
-		type = "BIGINT",
+	SET columnId = 123, tableId = 5, name = "yLcPeriodic",
+		description = "Periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for y filter. [32 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
-		ucd = "meta.id;src",
 		displayOrder = 75;
 
 	INSERT INTO md_Column
-	SET columnId = 123, tableId = 5, name = "nearbyObj3Dist",
-		description = "Distance to nearbyObj3.",
-		type = "FLOAT",
+	SET columnId = 124, tableId = 5, name = "uLcNonPeriodic",
+		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for u filter. [20 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
-		unit = "arcsec",
 		displayOrder = 76;
 
 	INSERT INTO md_Column
-	SET columnId = 124, tableId = 5, name = "nearbyObj3LnP",
-		description = "Natural log of the probability that the observed diaObject is the same as the nearbyObj3.",
-		type = "FLOAT",
+	SET columnId = 125, tableId = 5, name = "gLcNonPeriodic",
+		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for g filter. [20 FLOAT].",
+		type = "BLOB",
 		notNull = 0,
 		displayOrder = 77;
 
 	INSERT INTO md_Column
-	SET columnId = 125, tableId = 5, name = "flags",
+	SET columnId = 126, tableId = 5, name = "rLcNonPeriodic",
+		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for r filter. [20 FLOAT].",
+		type = "BLOB",
+		notNull = 0,
+		displayOrder = 78;
+
+	INSERT INTO md_Column
+	SET columnId = 127, tableId = 5, name = "iLcNonPeriodic",
+		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for i filter. [20 FLOAT].",
+		type = "BLOB",
+		notNull = 0,
+		displayOrder = 79;
+
+	INSERT INTO md_Column
+	SET columnId = 128, tableId = 5, name = "zLcNonPeriodic",
+		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for z filter. [20 FLOAT].",
+		type = "BLOB",
+		notNull = 0,
+		displayOrder = 80;
+
+	INSERT INTO md_Column
+	SET columnId = 129, tableId = 5, name = "yLcNonPeriodic",
+		description = "Non-periodic features extracted from light-curves using generalized Lomb-Scargle periodogram for y filter. [20 FLOAT].",
+		type = "BLOB",
+		notNull = 0,
+		displayOrder = 81;
+
+	INSERT INTO md_Column
+	SET columnId = 130, tableId = 5, name = "nearbyObj1",
+		description = "Id of the closest nearby object.",
+		type = "BIGINT",
+		notNull = 0,
+		ucd = "meta.id;src",
+		displayOrder = 82;
+
+	INSERT INTO md_Column
+	SET columnId = 131, tableId = 5, name = "nearbyObj1Dist",
+		description = "Distance to nearbyObj1.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "arcsec",
+		displayOrder = 83;
+
+	INSERT INTO md_Column
+	SET columnId = 132, tableId = 5, name = "nearbyObj1LnP",
+		description = "Natural log of the probability that the observed diaObject is the same as the nearbyObj1.",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 84;
+
+	INSERT INTO md_Column
+	SET columnId = 133, tableId = 5, name = "nearbyObj2",
+		description = "Id of the second-closest nearby object.",
+		type = "BIGINT",
+		notNull = 0,
+		ucd = "meta.id;src",
+		displayOrder = 85;
+
+	INSERT INTO md_Column
+	SET columnId = 134, tableId = 5, name = "nearbyObj2Dist",
+		description = "Distance to nearbyObj2.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "arcsec",
+		displayOrder = 86;
+
+	INSERT INTO md_Column
+	SET columnId = 135, tableId = 5, name = "nearbyObj2LnP",
+		description = "Natural log of the probability that the observed diaObject is the same as the nearbyObj2.",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 87;
+
+	INSERT INTO md_Column
+	SET columnId = 136, tableId = 5, name = "nearbyObj3",
+		description = "Id of the third-closest nearby object.",
+		type = "BIGINT",
+		notNull = 0,
+		ucd = "meta.id;src",
+		displayOrder = 88;
+
+	INSERT INTO md_Column
+	SET columnId = 137, tableId = 5, name = "nearbyObj3Dist",
+		description = "Distance to nearbyObj3.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "arcsec",
+		displayOrder = 89;
+
+	INSERT INTO md_Column
+	SET columnId = 138, tableId = 5, name = "nearbyObj3LnP",
+		description = "Natural log of the probability that the observed diaObject is the same as the nearbyObj3.",
+		type = "FLOAT",
+		notNull = 0,
+		displayOrder = 90;
+
+	INSERT INTO md_Column
+	SET columnId = 139, tableId = 5, name = "flags",
 		description = "Flags, bitwise OR tbd.",
 		type = "BIGINT",
 		notNull = 1,
 		defaultValue = "0",
 		ucd = "meta.code",
-		displayOrder = 78;
+		displayOrder = 91;
 
 	INSERT INTO md_Column
-	SET columnId = 126, tableId = 5, name = "htmId20",
+	SET columnId = 140, tableId = 5, name = "htmId20",
 		description = "HTM index.",
 		type = "BIGINT",
 		notNull = 1,
-		displayOrder = 79;
+		displayOrder = 92;
 
 	INSERT INTO md_Index
 	SET indexId = 7, tableId = 5,
@@ -1146,7 +1278,7 @@ SET tableId = 6, name = "DiaObject_To_Object_Match",
 	description = "The table stores mapping of diaObjects to the nearby objects.";
 
 	INSERT INTO md_Column
-	SET columnId = 127, tableId = 6, name = "diaObjectId",
+	SET columnId = 141, tableId = 6, name = "diaObjectId",
 		description = "Id of diaObject.",
 		type = "BIGINT",
 		notNull = 1,
@@ -1154,7 +1286,7 @@ SET tableId = 6, name = "DiaObject_To_Object_Match",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 128, tableId = 6, name = "objectId",
+	SET columnId = 142, tableId = 6, name = "objectId",
 		description = "Id of a nearby object.",
 		type = "BIGINT",
 		notNull = 1,
@@ -1162,7 +1294,7 @@ SET tableId = 6, name = "DiaObject_To_Object_Match",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 129, tableId = 6, name = "dist",
+	SET columnId = 143, tableId = 6, name = "dist",
 		description = "The distance between the diaObject and the object.",
 		type = "FLOAT",
 		notNull = 1,
@@ -1170,7 +1302,7 @@ SET tableId = 6, name = "DiaObject_To_Object_Match",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 130, tableId = 6, name = "lnP",
+	SET columnId = 144, tableId = 6, name = "lnP",
 		description = "Natural log of the probability that the observed diaObject is the same as the nearby object.",
 		type = "FLOAT",
 		notNull = 0,
@@ -1194,7 +1326,7 @@ SET tableId = 7, name = "DiaSource",
 	description = "Table to store 'difference image sources'; - sources detected at SNR >=5 on difference images.";
 
 	INSERT INTO md_Column
-	SET columnId = 131, tableId = 7, name = "diaSourceId",
+	SET columnId = 145, tableId = 7, name = "diaSourceId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -1202,7 +1334,7 @@ SET tableId = 7, name = "DiaSource",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 132, tableId = 7, name = "ccdVisitId",
+	SET columnId = 146, tableId = 7, name = "ccdVisitId",
 		description = "Id of the ccdVisit where this diaSource was measured. Note that we are allowing a diaSource to belong to multiple amplifiers, but it may not span multiple ccds.",
 		type = "BIGINT",
 		notNull = 1,
@@ -1210,7 +1342,7 @@ SET tableId = 7, name = "DiaSource",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 133, tableId = 7, name = "diaObjectId",
+	SET columnId = 147, tableId = 7, name = "diaObjectId",
 		description = "Id of the diaObject this source was associated with, if any. If not, it is set to NULL (each diaSource will be associated with either a diaObject or ssObject).",
 		type = "BIGINT",
 		notNull = 0,
@@ -1218,7 +1350,7 @@ SET tableId = 7, name = "DiaSource",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 134, tableId = 7, name = "ssObjectId",
+	SET columnId = 148, tableId = 7, name = "ssObjectId",
 		description = "Id of the ssObject this source was associated with, if any. If not, it is set to NULL (each diaSource will be associated with either a diaObject or ssObject).",
 		type = "BIGINT",
 		notNull = 0,
@@ -1226,533 +1358,870 @@ SET tableId = 7, name = "DiaSource",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 135, tableId = 7, name = "parentDiaSourceId",
-		description = "Id of the parent diaSource this diaObject has been deblended from, if any.",
+	SET columnId = 149, tableId = 7, name = "parentDiaSourceId",
+		description = "Id of the parent diaSource this diaSource has been deblended from, if any.",
 		type = "BIGINT",
 		notNull = 0,
 		ucd = "meta.id;src",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 136, tableId = 7, name = "filterName",
-		description = "Name of the filter used to take the Visit where this diaSource was measured.",
-		type = "CHAR(1)",
-		notNull = 1,
-		ucd = "meta.id;instr.filter",
-		displayOrder = 6;
-
-	INSERT INTO md_Column
-	SET columnId = 137, tableId = 7, name = "prv_procOrder",
+	SET columnId = 150, tableId = 7, name = "prv_procOrder",
 		description = "Position of this diaSource in the processing order relative to other diaSources within a given diaObjectId or ssObjectId.",
 		type = "INT",
 		notNull = 1,
-		displayOrder = 7;
+		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 138, tableId = 7, name = "ssObjectReassocTime",
+	SET columnId = 151, tableId = 7, name = "ssObjectReassocTime",
 		description = "Time when this diaSource was reassociated from diaObject to ssObject (if such reassociation happens, otherwise NULL).",
 		type = "DATETIME",
 		notNull = 0,
-		displayOrder = 8;
+		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 139, tableId = 7, name = "midPointTai",
+	SET columnId = 152, tableId = 7, name = "midPointTai",
 		description = "Effective mid-exposure time for this diaSource.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "d",
 		ucd = "time.epoch",
-		displayOrder = 9;
+		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 140, tableId = 7, name = "ra",
+	SET columnId = 153, tableId = 7, name = "ra",
 		description = "RA-coordinate of the center of this diaSource.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		ucd = "pos.eq.ra",
-		displayOrder = 10;
+		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 141, tableId = 7, name = "raSigma",
+	SET columnId = 154, tableId = 7, name = "raSigma",
 		description = "Uncertainty of ra.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "deg",
 		ucd = "stat.error;pos.eq.ra",
-		displayOrder = 11;
+		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 142, tableId = 7, name = "decl",
+	SET columnId = 155, tableId = 7, name = "decl",
 		description = " Decl-coordinate of the center of this diaSource.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		ucd = "pos.eq.dec",
-		displayOrder = 12;
+		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 143, tableId = 7, name = "declSigma",
+	SET columnId = 156, tableId = 7, name = "declSigma",
 		description = "Uncertainty of decl.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "deg",
 		ucd = "stat.error;pos.eq.dec",
-		displayOrder = 13;
+		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 144, tableId = 7, name = "ra_decl_Cov",
+	SET columnId = 157, tableId = 7, name = "ra_decl_Cov",
 		description = "Covariance between ra and decl.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "deg^2",
-		displayOrder = 14;
+		ucd = "stat.covariance",
+		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 145, tableId = 7, name = "x",
+	SET columnId = 158, tableId = 7, name = "x",
 		description = "x position computed by a centroiding algorithm.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "pixel",
 		ucd = "pos.cartesian.x",
-		displayOrder = 15;
+		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 146, tableId = 7, name = "xSigma",
+	SET columnId = 159, tableId = 7, name = "xSigma",
 		description = "Uncertainty of x.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "pixel",
 		ucd = "stat.error:pos.cartesian.x",
-		displayOrder = 16;
+		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 147, tableId = 7, name = "y",
+	SET columnId = 160, tableId = 7, name = "y",
 		description = "y position computed by a centroiding algorithm.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "pixel",
 		ucd = "pos.cartesian.y",
-		displayOrder = 17;
+		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 148, tableId = 7, name = "ySigma",
+	SET columnId = 161, tableId = 7, name = "ySigma",
 		description = "Uncertainty of y.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "pixel",
 		ucd = "stat.error:pos.cartesian.y",
-		displayOrder = 18;
+		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 149, tableId = 7, name = "x_y_Cov",
+	SET columnId = 162, tableId = 7, name = "x_y_Cov",
 		description = "Covariance between x and y.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "pixel^2",
+		ucd = "stat.covariance",
+		displayOrder = 18;
+
+	INSERT INTO md_Column
+	SET columnId = 163, tableId = 7, name = "apFlux",
+		description = "Calibrated aperture flux. Note that this actually measures the difference between the template and the visit image.",
+		type = "FLOAT",
+		notNull = 1,
+		unit = "nmgy",
+		ucd = "phot.count",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 150, tableId = 7, name = "snr",
-		description = "The signal-to-noise ratio at which this source was detected in the difference image.",
+	SET columnId = 164, tableId = 7, name = "apFluxErr",
+		description = "Estimated uncertainty of apFlux.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "nmgy",
+		ucd = "stat.error;phot.count",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 151, tableId = 7, name = "psFlux",
+	SET columnId = 165, tableId = 7, name = "snr",
+		description = "The signal-to-noise ratio at which this source was detected in the difference image.",
+		type = "FLOAT",
+		notNull = 1,
+		ucd = "stat.snr",
+		displayOrder = 21;
+
+	INSERT INTO md_Column
+	SET columnId = 166, tableId = 7, name = "psFlux",
 		description = "Calibrated flux for Point Source model. Note this actually measures the flux difference between the template and the visit image.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
 		ucd = "phot.count",
-		displayOrder = 21;
+		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 152, tableId = 7, name = "psFluxSigma",
+	SET columnId = 167, tableId = 7, name = "psFluxSigma",
 		description = "Uncertainty of psFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		displayOrder = 22;
-
-	INSERT INTO md_Column
-	SET columnId = 153, tableId = 7, name = "psLnL",
-		description = "Natural log likelihood of the observed data given the Point Source model.",
-		type = "FLOAT",
-		notNull = 0,
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 154, tableId = 7, name = "psChi2",
-		description = "Chi^2 static of the model fit.",
-		type = "FLOAT",
+	SET columnId = 168, tableId = 7, name = "psRa",
+		description = " RA-coordinate of centroid for point source model.",
+		type = "DOUBLE",
 		notNull = 0,
+		unit = "deg",
+		ucd = "pos.eq.ra",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 155, tableId = 7, name = "psN",
-		description = "The number of data points (pixels) used to fit the model.",
-		type = "INT",
+	SET columnId = 169, tableId = 7, name = "psRaSigma",
+		description = "Uncertainty of psRa.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "deg",
+		ucd = "stat.error;pos.eq.ra",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 156, tableId = 7, name = "trailFlux",
-		description = "Calibrated flux for a trailed source model. Note this actually measures the flux difference between the template and the visit image.",
-		type = "FLOAT",
+	SET columnId = 170, tableId = 7, name = "psDecl",
+		description = " Decl-coordinate of centroid for point source model.",
+		type = "DOUBLE",
 		notNull = 0,
-		unit = "nmgy",
+		unit = "deg",
+		ucd = "pos.eq.dec",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 157, tableId = 7, name = "trailFluxSigma",
-		description = "Uncertainty of trailFlux.",
+	SET columnId = 171, tableId = 7, name = "psDeclSigma",
+		description = "Uncertainty of psDecl.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "nmgy",
+		unit = "deg",
+		ucd = "stat.error;pos.eq.dec",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 158, tableId = 7, name = "trailLength",
-		description = "Maximum likelihood fit of trail length.",
+	SET columnId = 172, tableId = 7, name = "psFlux_psRa_Cov",
+		description = "Covariance between psFlux and psRa.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "arcsec",
+		unit = "ngmy*deg",
+		ucd = "stat.covariance",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 159, tableId = 7, name = "trailLengthSigma",
-		description = "Uncertainty of trailLength.",
+	SET columnId = 173, tableId = 7, name = "psFlux_psDecl_Cov",
+		description = "Covariance between psFlux and psDecl.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "nmgy",
+		unit = "ngmy*deg",
+		ucd = "stat.covariance",
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 160, tableId = 7, name = "trailAngle",
-		description = "Maximum likelihood fit of the angle between the meridian through the centroid and the trail direction (bearing).",
+	SET columnId = 174, tableId = 7, name = "psRa_psDecl_Cov",
+		description = "Covariance between psRa and psDecl.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "degrees",
+		unit = "deg^2",
+		ucd = "stat.covariance",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 161, tableId = 7, name = "trailAngleSigma",
-		description = "Uncertainty of trailAngle.",
+	SET columnId = 175, tableId = 7, name = "psLnL",
+		description = "Natural log likelihood of the observed data given the Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
-		unit = "nmgy",
+		ucd = "stat.likelihood",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 162, tableId = 7, name = "trailFlux_trailLength_Cov",
-		description = "Covariance of trailFlux and trailLength",
+	SET columnId = 176, tableId = 7, name = "psChi2",
+		description = "Chi^2 statistic of the model fit.",
 		type = "FLOAT",
 		notNull = 0,
+		ucd = "stat.fit.chi2",
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 163, tableId = 7, name = "trailFlux_trailAngle_Cov",
-		description = "Covariance of trailFlux and trailAngle",
-		type = "FLOAT",
+	SET columnId = 177, tableId = 7, name = "psNdata",
+		description = "The number of data points (pixels) used to fit the model.",
+		type = "INT",
 		notNull = 0,
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 164, tableId = 7, name = "trailLength_trailAngle_Cov",
-		description = "Covariance of trailLength and trailAngle",
+	SET columnId = 178, tableId = 7, name = "trailFlux",
+		description = "Calibrated flux for a trailed source model. Note this actually measures the flux difference between the template and the visit image.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 165, tableId = 7, name = "trailLnL",
-		description = "Natural log likelihood of the observed data given the trailed Point Source model.",
+	SET columnId = 179, tableId = 7, name = "trailFluxSigma",
+		description = "Uncertainty of trailFlux.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "nmgy",
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 166, tableId = 7, name = "trailChi2",
-		description = "Chi^2 static of the model fit.",
-		type = "FLOAT",
+	SET columnId = 180, tableId = 7, name = "trailRa",
+		description = " RA-coordinate of centroid for trailed source model.",
+		type = "DOUBLE",
 		notNull = 0,
+		unit = "deg",
+		ucd = "pos.eq.ra",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
-	SET columnId = 167, tableId = 7, name = "trailN",
-		description = "The number of data points (pixels) used to fix the model.",
-		type = "INT",
+	SET columnId = 181, tableId = 7, name = "trailRaSigma",
+		description = "Uncertainty of trailRa.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "deg",
+		ucd = "stat.error;pos.eq.ra",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 168, tableId = 7, name = "fpFlux",
+	SET columnId = 182, tableId = 7, name = "trailDecl",
+		description = " Decl-coordinate of centroid for trailed source model.",
+		type = "DOUBLE",
+		notNull = 0,
+		unit = "deg",
+		ucd = "pos.eq.dec",
+		displayOrder = 38;
+
+	INSERT INTO md_Column
+	SET columnId = 183, tableId = 7, name = "trailDeclSigma",
+		description = "Uncertainty of trailDecl.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "deg",
+		ucd = "stat.error;pos.eq.dec",
+		displayOrder = 39;
+
+	INSERT INTO md_Column
+	SET columnId = 184, tableId = 7, name = "trailLength",
+		description = "Maximum likelihood fit of trail length.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "arcsec",
+		displayOrder = 40;
+
+	INSERT INTO md_Column
+	SET columnId = 185, tableId = 7, name = "trailLengthSigma",
+		description = "Uncertainty of trailLength.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		displayOrder = 41;
+
+	INSERT INTO md_Column
+	SET columnId = 186, tableId = 7, name = "trailAngle",
+		description = "Maximum likelihood fit of the angle between the meridian through the centroid and the trail direction (bearing).",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "deg",
+		displayOrder = 42;
+
+	INSERT INTO md_Column
+	SET columnId = 187, tableId = 7, name = "trailAngleSigma",
+		description = "Uncertainty of trailAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		displayOrder = 43;
+
+	INSERT INTO md_Column
+	SET columnId = 188, tableId = 7, name = "trailFlux_trailRa_Cov",
+		description = "Covariance of trailFlux and trailRa.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 44;
+
+	INSERT INTO md_Column
+	SET columnId = 189, tableId = 7, name = "trailFlux_trailDecl_Cov",
+		description = "Covariance of trailFlux and trailDecl.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 45;
+
+	INSERT INTO md_Column
+	SET columnId = 190, tableId = 7, name = "trailFlux_trailLength_Cov",
+		description = "Covariance of trailFlux and trailLength",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 46;
+
+	INSERT INTO md_Column
+	SET columnId = 191, tableId = 7, name = "trailFlux_trailAngle_Cov",
+		description = "Covariance of trailFlux and trailAngle",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 47;
+
+	INSERT INTO md_Column
+	SET columnId = 192, tableId = 7, name = "trailRa_trailDecl_Cov",
+		description = "Covariance of trailRa and trailDecl.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 48;
+
+	INSERT INTO md_Column
+	SET columnId = 193, tableId = 7, name = "trailRa_trailLength_Cov",
+		description = "Covariance of trailRa and trailLength.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 49;
+
+	INSERT INTO md_Column
+	SET columnId = 194, tableId = 7, name = "trailRa_trailAngle_Cov",
+		description = "Covariance of trailRa and trailAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 50;
+
+	INSERT INTO md_Column
+	SET columnId = 195, tableId = 7, name = "trailDecl_trailLength_Cov",
+		description = "Covariance of trailDecl and trailLength.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 51;
+
+	INSERT INTO md_Column
+	SET columnId = 196, tableId = 7, name = "trailDecl_trailAngle_Cov",
+		description = "Covariance of trailDecl and trailAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 52;
+
+	INSERT INTO md_Column
+	SET columnId = 197, tableId = 7, name = "trailLength_trailAngle_Cov",
+		description = "Covariance of trailLength and trailAngle",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 53;
+
+	INSERT INTO md_Column
+	SET columnId = 198, tableId = 7, name = "trailLnL",
+		description = "Natural log likelihood of the observed data given the trailed source model.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.likelihood",
+		displayOrder = 54;
+
+	INSERT INTO md_Column
+	SET columnId = 199, tableId = 7, name = "trailChi2",
+		description = "Chi^2 statistic of the model fit.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.fit.chi2",
+		displayOrder = 55;
+
+	INSERT INTO md_Column
+	SET columnId = 200, tableId = 7, name = "trailNdata",
+		description = "The number of data points (pixels) used to fit the model.",
+		type = "INT",
+		notNull = 0,
+		displayOrder = 56;
+
+	INSERT INTO md_Column
+	SET columnId = 201, tableId = 7, name = "dipMeanFlux",
+		description = "Maximum likelihood value for the mean absolute flux of the two lobes for a dipole model.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		displayOrder = 57;
+
+	INSERT INTO md_Column
+	SET columnId = 202, tableId = 7, name = "dipMeanFluxSigma",
+		description = "Uncertainty of dipMeanFlux.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
+		displayOrder = 58;
+
+	INSERT INTO md_Column
+	SET columnId = 203, tableId = 7, name = "dipFluxDiff",
+		description = "Maximum likelihood value for the difference of absolute fluxes of the two lobes for a dipole model.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		displayOrder = 59;
+
+	INSERT INTO md_Column
+	SET columnId = 204, tableId = 7, name = "dipFluxDiffSigma",
+		description = "Uncertainty of dipFluxDiff.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy",
+		ucd = "stat.error",
+		displayOrder = 60;
+
+	INSERT INTO md_Column
+	SET columnId = 205, tableId = 7, name = "dipRa",
+		description = " RA-coordinate of centroid for dipole model.",
+		type = "DOUBLE",
+		notNull = 0,
+		unit = "deg",
+		ucd = "pos.eq.ra",
+		displayOrder = 61;
+
+	INSERT INTO md_Column
+	SET columnId = 206, tableId = 7, name = "dipRaSigma",
+		description = "Uncertainty of trailRa.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "deg",
+		ucd = "stat.error;pos.eq.ra",
+		displayOrder = 62;
+
+	INSERT INTO md_Column
+	SET columnId = 207, tableId = 7, name = "dipDecl",
+		description = " Decl-coordinate of centroid for dipole model.",
+		type = "DOUBLE",
+		notNull = 0,
+		unit = "deg",
+		ucd = "pos.eq.dec",
+		displayOrder = 63;
+
+	INSERT INTO md_Column
+	SET columnId = 208, tableId = 7, name = "dipDeclSigma",
+		description = "Uncertainty of dipDecl.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "deg",
+		ucd = "stat.error;pos.eq.dec",
+		displayOrder = 64;
+
+	INSERT INTO md_Column
+	SET columnId = 209, tableId = 7, name = "dipLength",
+		description = "Maximum likelihood value for the lobe separation in dipole model.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "arcsec",
+		ucd = "pos.angDistance",
+		displayOrder = 65;
+
+	INSERT INTO md_Column
+	SET columnId = 210, tableId = 7, name = "dipLengthSigma",
+		description = "Uncertainty of dipLength.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "arcsec",
+		ucd = "stat.error;pos.angDistance",
+		displayOrder = 66;
+
+	INSERT INTO md_Column
+	SET columnId = 211, tableId = 7, name = "dipAngle",
+		description = "Maximum likelihood fit of the angle between the meridian through the centroid and the dipole direction (bearing, from negative to positive lobe).",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "deg",
+		ucd = "pos.posAng",
+		displayOrder = 67;
+
+	INSERT INTO md_Column
+	SET columnId = 212, tableId = 7, name = "dipAngleSigma",
+		description = "Uncertainty of dipAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "deg",
+		ucd = "stat.error;pos.posAng",
+		displayOrder = 68;
+
+	INSERT INTO md_Column
+	SET columnId = 213, tableId = 7, name = "dipMeanFlux_dipFluxDiff_Cov",
+		description = "Covariance of dipMeanFlux and dipFluxDiff.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 69;
+
+	INSERT INTO md_Column
+	SET columnId = 214, tableId = 7, name = "dipMeanFlux_dipRa_Cov",
+		description = "Covariance of dipMeanFlux and dipRa.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 70;
+
+	INSERT INTO md_Column
+	SET columnId = 215, tableId = 7, name = "dipMeanFlux_dipDecl_Cov",
+		description = "Covariance of dipMeanFlux and dipDecl.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 71;
+
+	INSERT INTO md_Column
+	SET columnId = 216, tableId = 7, name = "dipMeanFlux_dipLength_Cov",
+		description = "Covariance of dipMeanFlux and dipLength.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 72;
+
+	INSERT INTO md_Column
+	SET columnId = 217, tableId = 7, name = "dipMeanFlux_dipAngle_Cov",
+		description = "Covariance of dipMeanFlux and dipAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 73;
+
+	INSERT INTO md_Column
+	SET columnId = 218, tableId = 7, name = "dipFluxDiff_dipRa_Cov",
+		description = "Covariance of dipFluxDiff and dipRa.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 74;
+
+	INSERT INTO md_Column
+	SET columnId = 219, tableId = 7, name = "dipFluxDiff_dipDecl_Cov",
+		description = "Covariance of dipFluxDiff and dipDecl.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 75;
+
+	INSERT INTO md_Column
+	SET columnId = 220, tableId = 7, name = "dipFluxDiff_dipLength_Cov",
+		description = "Covariance of dipFluxDiff and dipLength.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 76;
+
+	INSERT INTO md_Column
+	SET columnId = 221, tableId = 7, name = "dipFluxDiff_dipAngle_Cov",
+		description = "Covariance of dipFluxDiff and dipAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 77;
+
+	INSERT INTO md_Column
+	SET columnId = 222, tableId = 7, name = "dipRa_dipDecl_Cov",
+		description = "Covariance of dipRa and dipDecl.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 78;
+
+	INSERT INTO md_Column
+	SET columnId = 223, tableId = 7, name = "dipRa_dipLength_Cov",
+		description = "Covariance of dipRa and dipLength.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 79;
+
+	INSERT INTO md_Column
+	SET columnId = 224, tableId = 7, name = "dipRa_dipAngle_Cov",
+		description = "Covariance of dipRa and dipAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 80;
+
+	INSERT INTO md_Column
+	SET columnId = 225, tableId = 7, name = "dipDecl_dipLength_Cov",
+		description = "Covariance of dipDecl and dipLength.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 81;
+
+	INSERT INTO md_Column
+	SET columnId = 226, tableId = 7, name = "dipDecl_dipAngle_Cov",
+		description = "Covariance of dipDecl and dipAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 82;
+
+	INSERT INTO md_Column
+	SET columnId = 227, tableId = 7, name = "dipLength_dipAngle_Cov",
+		description = "Covariance of dipLength and dipAngle.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.covariance",
+		displayOrder = 83;
+
+	INSERT INTO md_Column
+	SET columnId = 228, tableId = 7, name = "dipLnL",
+		description = "Natural log likelihood of the observed data given the dipole source model.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.likelihood",
+		displayOrder = 84;
+
+	INSERT INTO md_Column
+	SET columnId = 229, tableId = 7, name = "dipChi2",
+		description = "Chi^2 statistic of the model fit.",
+		type = "FLOAT",
+		notNull = 0,
+		ucd = "stat.fit.chi2",
+		displayOrder = 85;
+
+	INSERT INTO md_Column
+	SET columnId = 230, tableId = 7, name = "dipNdata",
+		description = "The number of data points (pixels) used to fit the model.",
+		type = "INT",
+		notNull = 0,
+		displayOrder = 86;
+
+	INSERT INTO md_Column
+	SET columnId = 231, tableId = 7, name = "totFlux",
 		description = "Calibrated flux for Point Source model measured on the visit image centered at the centroid measured on the difference image (forced photometry flux).",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
 		ucd = "phot.count",
-		displayOrder = 38;
+		displayOrder = 87;
 
 	INSERT INTO md_Column
-	SET columnId = 169, tableId = 7, name = "fpFluxSigma",
-		description = "Uncertainty of fpFlux",
+	SET columnId = 232, tableId = 7, name = "totFluxErr",
+		description = "Estimated uncertainty of totFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
 		ucd = "stat.error;phot.count",
-		displayOrder = 39;
+		displayOrder = 88;
 
 	INSERT INTO md_Column
-	SET columnId = 170, tableId = 7, name = "diffFlux",
+	SET columnId = 233, tableId = 7, name = "diffFlux",
 		description = "Calibrated flux for Point Source model centered on radec but measured on the difference of snaps comprising this visit.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
-		displayOrder = 40;
+		displayOrder = 89;
 
 	INSERT INTO md_Column
-	SET columnId = 171, tableId = 7, name = "diffFluxSigma",
-		description = "Uncertainty of diffFlux",
+	SET columnId = 234, tableId = 7, name = "diffFluxErr",
+		description = "Estimated uncertainty of diffFlux.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy",
 		ucd = "stat.error;phot.count",
-		displayOrder = 41;
+		displayOrder = 90;
 
 	INSERT INTO md_Column
-	SET columnId = 172, tableId = 7, name = "fpSky",
+	SET columnId = 235, tableId = 7, name = "fpBkgd",
 		description = "Estimated sky background at the position (centroid) of the object.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy/asec^2",
-		displayOrder = 42;
+		displayOrder = 91;
 
 	INSERT INTO md_Column
-	SET columnId = 173, tableId = 7, name = "fpSkySigma",
-		description = "Uncertainty of fpSky.",
+	SET columnId = 236, tableId = 7, name = "fpBkgdErr",
+		description = "Estimated uncertainty of fpBkgd.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "nmgy/asec^2",
-		displayOrder = 43;
+		displayOrder = 92;
 
 	INSERT INTO md_Column
-	SET columnId = 174, tableId = 7, name = "E1",
-		description = "Adaptive e1 shape measure of the source as measured on the difference image.",
+	SET columnId = 237, tableId = 7, name = "ixx",
+		description = "Adaptive second moment of the source intensity.</desc> <unit>nmgy*asec^2</unit>",
 		type = "FLOAT",
 		notNull = 0,
-		ucd = "phys.size.axisRatio",
-		displayOrder = 44;
+		unit = "nmgy*asec^2",
+		displayOrder = 93;
 
 	INSERT INTO md_Column
-	SET columnId = 175, tableId = 7, name = "E1Sigma",
-		description = "Uncertainty of E1.",
+	SET columnId = 238, tableId = 7, name = "ixxSigma",
+		description = "Uncertainty of ixx. <ucd>stat.error</ucd> <unit>nmgy*asec^2</unit>",
 		type = "FLOAT",
 		notNull = 0,
-		ucd = "stat.error:phys.size.axisRatio",
-		displayOrder = 45;
+		unit = "nmgy*asec^2",
+		ucd = "stat.error",
+		displayOrder = 94;
 
 	INSERT INTO md_Column
-	SET columnId = 176, tableId = 7, name = "E2",
-		description = "Adaptive e2 shape measure of the source as measured on the difference image.",
+	SET columnId = 239, tableId = 7, name = "iyy",
+		description = "Adaptive second moment of the source intensity.</desc> <unit>nmgy*asec^2</unit>",
 		type = "FLOAT",
 		notNull = 0,
-		ucd = "phys.size.axisRatio",
-		displayOrder = 46;
+		unit = "nmgy*asec^2",
+		displayOrder = 95;
 
 	INSERT INTO md_Column
-	SET columnId = 177, tableId = 7, name = "E2Sigma",
-		description = "Uncertainty of E2.",
+	SET columnId = 240, tableId = 7, name = "iyySigma",
+		description = "Uncertainty of iyy. <ucd>stat.error</ucd> <unit>nmgy*asec^2</unit>",
 		type = "FLOAT",
 		notNull = 0,
-		ucd = "stat.error:phys.size.axisRatio",
-		displayOrder = 47;
+		unit = "nmgy*asec^2",
+		ucd = "stat.error",
+		displayOrder = 96;
 
 	INSERT INTO md_Column
-	SET columnId = 178, tableId = 7, name = "E1_E2_Cov",
-		description = "Covariance of E1 and E2",
+	SET columnId = 241, tableId = 7, name = "ixy",
+		description = "Adaptive second moment of the source intensity.</desc> <unit>nmgy*asec^2</unit>",
 		type = "FLOAT",
 		notNull = 0,
-		displayOrder = 48;
+		unit = "nmgy*asec^2",
+		displayOrder = 97;
 
 	INSERT INTO md_Column
-	SET columnId = 179, tableId = 7, name = "mSum",
-		description = "Sum of second adaptive moments.",
+	SET columnId = 242, tableId = 7, name = "ixySigma",
+		description = "Uncertainty of ixy. <ucd>stat.error</ucd> <unit>nmgy*asec^2</unit>",
 		type = "FLOAT",
 		notNull = 0,
-		displayOrder = 49;
+		unit = "nmgy*asec^2",
+		ucd = "stat.error",
+		displayOrder = 98;
 
 	INSERT INTO md_Column
-	SET columnId = 180, tableId = 7, name = "mSumSigma",
-		description = "Uncertainty of mSum.",
+	SET columnId = 243, tableId = 7, name = "ixx_iyy_Cov",
+		description = "Covariance of ixx and iyy. <unit>nmgy^2*asec^4</unit>",
 		type = "FLOAT",
 		notNull = 0,
-		displayOrder = 50;
+		unit = "nmgy^2*asec^4",
+		displayOrder = 99;
 
 	INSERT INTO md_Column
-	SET columnId = 181, tableId = 7, name = "extendedness",
+	SET columnId = 244, tableId = 7, name = "ixx_ixy_Cov",
+		description = "Covariance of ixx and ixy. <unit>nmgy^2*asec^4</unit>",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy^2*asec^4",
+		displayOrder = 100;
+
+	INSERT INTO md_Column
+	SET columnId = 245, tableId = 7, name = "iyy_ixy_Cov",
+		description = "Covariance of iyy and ixy. <unit>nmgy^2*asec^4</unit>",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy^2*asec^4",
+		displayOrder = 101;
+
+	INSERT INTO md_Column
+	SET columnId = 246, tableId = 7, name = "ixxPSF",
+		description = "Adaptive second moment for the PSF.</desc> <unit>nmgy*asec^2</unit>",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy*asec^2",
+		displayOrder = 102;
+
+	INSERT INTO md_Column
+	SET columnId = 247, tableId = 7, name = "iyyPSF",
+		description = "Adaptive second moment for the PSF.</desc> <unit>nmgy*asec^2</unit>",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy*asec^2",
+		displayOrder = 103;
+
+	INSERT INTO md_Column
+	SET columnId = 248, tableId = 7, name = "ixyPSF",
+		description = "Adaptive second moment for the PSF.</desc> <unit>nmgy*asec^2</unit>",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "nmgy*asec^2",
+		displayOrder = 104;
+
+	INSERT INTO md_Column
+	SET columnId = 249, tableId = 7, name = "extendedness",
 		description = "A measure of extendedness, Computed using a combination of available moments and model fluxes or from a likelihood ratio of point/trailed source models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence that the source is extended. extendedness = 0 implies a high degree of confidence that the source is point-like.",
 		type = "FLOAT",
 		notNull = 0,
-		displayOrder = 51;
+		displayOrder = 105;
 
 	INSERT INTO md_Column
-	SET columnId = 182, tableId = 7, name = "apMeanSb01",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
+	SET columnId = 250, tableId = 7, name = "spuriousness",
+		description = "A measure of spuriousness, computed using information from the source and image characterization, as well as the information on the Telescope and Camera system (e.g., ghost maps, defect maps, etc.).",
 		type = "FLOAT",
 		notNull = 0,
-		displayOrder = 52;
+		displayOrder = 106;
 
 	INSERT INTO md_Column
-	SET columnId = 183, tableId = 7, name = "apMeanSb01Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 53;
-
-	INSERT INTO md_Column
-	SET columnId = 184, tableId = 7, name = "apMeanSb02",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 54;
-
-	INSERT INTO md_Column
-	SET columnId = 185, tableId = 7, name = "apMeanSb02Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 55;
-
-	INSERT INTO md_Column
-	SET columnId = 186, tableId = 7, name = "apMeanSb03",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 56;
-
-	INSERT INTO md_Column
-	SET columnId = 187, tableId = 7, name = "apMeanSb03Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 57;
-
-	INSERT INTO md_Column
-	SET columnId = 188, tableId = 7, name = "apMeanSb04",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 58;
-
-	INSERT INTO md_Column
-	SET columnId = 189, tableId = 7, name = "apMeanSb04Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 59;
-
-	INSERT INTO md_Column
-	SET columnId = 190, tableId = 7, name = "apMeanSb05",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 60;
-
-	INSERT INTO md_Column
-	SET columnId = 191, tableId = 7, name = "apMeanSb05Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 61;
-
-	INSERT INTO md_Column
-	SET columnId = 192, tableId = 7, name = "apMeanSb06",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 62;
-
-	INSERT INTO md_Column
-	SET columnId = 193, tableId = 7, name = "apMeanSb06Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 63;
-
-	INSERT INTO md_Column
-	SET columnId = 194, tableId = 7, name = "apMeanSb07",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 64;
-
-	INSERT INTO md_Column
-	SET columnId = 195, tableId = 7, name = "apMeanSb07Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 65;
-
-	INSERT INTO md_Column
-	SET columnId = 196, tableId = 7, name = "apMeanSb08",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 66;
-
-	INSERT INTO md_Column
-	SET columnId = 197, tableId = 7, name = "apMeanSb08Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 67;
-
-	INSERT INTO md_Column
-	SET columnId = 198, tableId = 7, name = "apMeanSb09",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 68;
-
-	INSERT INTO md_Column
-	SET columnId = 199, tableId = 7, name = "apMeanSb09Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 69;
-
-	INSERT INTO md_Column
-	SET columnId = 200, tableId = 7, name = "apMeanSb10",
-		description = "Mean surface brightness at which the aperture measurement is being performed.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 70;
-
-	INSERT INTO md_Column
-	SET columnId = 201, tableId = 7, name = "apMeanSb10Sigma",
-		description = "Standard deviation of pixel surface brightness in annulus.",
-		type = "FLOAT",
-		notNull = 0,
-		displayOrder = 71;
-
-	INSERT INTO md_Column
-	SET columnId = 202, tableId = 7, name = "flags",
+	SET columnId = 251, tableId = 7, name = "flags",
 		description = "Flags, bitwise OR tbd.",
 		type = "BIGINT",
 		notNull = 1,
 		defaultValue = "0",
 		ucd = "meta.code",
-		displayOrder = 72;
+		displayOrder = 107;
 
 	INSERT INTO md_Column
-	SET columnId = 203, tableId = 7, name = "htmId20",
+	SET columnId = 252, tableId = 7, name = "htmId20",
 		description = "HTM index.",
 		type = "BIGINT",
 		notNull = 1,
-		displayOrder = 73;
+		displayOrder = 108;
 
 	INSERT INTO md_Index
 	SET indexId = 12, tableId = 7,
@@ -1792,14 +2261,14 @@ SET tableId = 8, name = "ForcedSource",
 	description = "Forced-photometry source measurement on an individual Exposure based on a Multifit shape model derived from a deep detection.";
 
 	INSERT INTO md_Column
-	SET columnId = 204, tableId = 8, name = "objectId",
+	SET columnId = 253, tableId = 8, name = "objectId",
 		type = "BIGINT",
 		notNull = 1,
 		ucd = "meta.id;src",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 205, tableId = 8, name = "ccdVisitId",
+	SET columnId = 254, tableId = 8, name = "ccdVisitId",
 		description = "Id of the ccd visit where this forcedSource was measured. Note that we are allowing a forcedSource to belong to multiple amplifiers, but it may not span multiple ccds.",
 		type = "BIGINT",
 		notNull = 1,
@@ -1807,7 +2276,7 @@ SET tableId = 8, name = "ForcedSource",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 206, tableId = 8, name = "psFlux",
+	SET columnId = 255, tableId = 8, name = "psFlux",
 		description = "Point Source model flux.",
 		type = "FLOAT",
 		notNull = 1,
@@ -1816,7 +2285,7 @@ SET tableId = 8, name = "ForcedSource",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 207, tableId = 8, name = "psFlux_Sigma",
+	SET columnId = 256, tableId = 8, name = "psFlux_Sigma",
 		description = "Uncertainty of psFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -1825,7 +2294,7 @@ SET tableId = 8, name = "ForcedSource",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 208, tableId = 8, name = "flags",
+	SET columnId = 257, tableId = 8, name = "flags",
 		description = "Flags, bitwise OR tbd",
 		type = "TINYINT",
 		notNull = 1,
@@ -1846,7 +2315,7 @@ SET tableId = 9, name = "LeapSeconds",
 	description = "Based on <a href='http://maia.usno.navy.mil/ser7/tai-utc.dat'> http://maia.usno.navy.mil/ser7/tai-utc.dat</a>.";
 
 	INSERT INTO md_Column
-	SET columnId = 209, tableId = 9, name = "whenJd",
+	SET columnId = 258, tableId = 9, name = "whenJd",
 		description = "JD of change in TAI-UTC difference (leap second).",
 		type = "FLOAT",
 		notNull = 1,
@@ -1855,7 +2324,7 @@ SET tableId = 9, name = "LeapSeconds",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 210, tableId = 9, name = "offset",
+	SET columnId = 259, tableId = 9, name = "offset",
 		description = "New number of leap seconds.",
 		type = "FLOAT",
 		notNull = 1,
@@ -1864,7 +2333,7 @@ SET tableId = 9, name = "LeapSeconds",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 211, tableId = 9, name = "mjdRef",
+	SET columnId = 260, tableId = 9, name = "mjdRef",
 		description = "Reference MJD for drift (prior to 1972-Jan-1).",
 		type = "FLOAT",
 		notNull = 1,
@@ -1873,7 +2342,7 @@ SET tableId = 9, name = "LeapSeconds",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 212, tableId = 9, name = "drift",
+	SET columnId = 261, tableId = 9, name = "drift",
 		description = "Drift in seconds per day (prior to 1972-Jan-1).",
 		type = "FLOAT",
 		notNull = 1,
@@ -1882,7 +2351,7 @@ SET tableId = 9, name = "LeapSeconds",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 213, tableId = 9, name = "whenMjdUtc",
+	SET columnId = 262, tableId = 9, name = "whenMjdUtc",
 		description = "MJD in UTC system of change (computed).",
 		type = "FLOAT",
 		notNull = 0,
@@ -1891,7 +2360,7 @@ SET tableId = 9, name = "LeapSeconds",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 214, tableId = 9, name = "whenUtc",
+	SET columnId = 263, tableId = 9, name = "whenUtc",
 		description = "Nanoseconds from epoch in UTC system of change (computed).",
 		type = "BIGINT",
 		notNull = 0,
@@ -1900,7 +2369,7 @@ SET tableId = 9, name = "LeapSeconds",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 215, tableId = 9, name = "whenTai",
+	SET columnId = 264, tableId = 9, name = "whenTai",
 		description = "Nanoseconds from epoch in TAI system of change (computed).",
 		type = "BIGINT",
 		notNull = 0,
@@ -1916,7 +2385,7 @@ SET tableId = 10, name = "Object",
 	description = "The Object table contains descriptions of the multi-epoch static astronomical objects, in particular their astrophysical properties as derived from analysis of the Sources that are associated with them. Note that fast moving objects are kept in the MovingObject tables. Note that less-frequently used columns are stored in a separate table called Object_Extra.";
 
 	INSERT INTO md_Column
-	SET columnId = 216, tableId = 10, name = "objectId",
+	SET columnId = 265, tableId = 10, name = "objectId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -1924,21 +2393,21 @@ SET tableId = 10, name = "Object",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 217, tableId = 10, name = "parentObjectId",
+	SET columnId = 266, tableId = 10, name = "parentObjectId",
 		description = "Id of the parent object this object has been deblended from, if any.",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 218, tableId = 10, name = "prv_inputId",
+	SET columnId = 267, tableId = 10, name = "prv_inputId",
 		description = "Pointer to prv_InputType. Indicates which input was used to produce a given object.",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 219, tableId = 10, name = "psRa",
+	SET columnId = 268, tableId = 10, name = "psRa",
 		description = "RA-coordinate of the center of the object for the Point Source model at time 'psEpoch'.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -1947,7 +2416,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 220, tableId = 10, name = "psRaSigma",
+	SET columnId = 269, tableId = 10, name = "psRaSigma",
 		description = "Uncertainty of psRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -1956,7 +2425,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 221, tableId = 10, name = "psDecl",
+	SET columnId = 270, tableId = 10, name = "psDecl",
 		description = "Decl-coordinate of the center of the object for the Point Source model at time 'psEpoch'.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -1965,7 +2434,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 222, tableId = 10, name = "psDeclSigma",
+	SET columnId = 271, tableId = 10, name = "psDeclSigma",
 		description = "Uncertainty of psDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -1974,7 +2443,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 223, tableId = 10, name = "psMuRa",
+	SET columnId = 272, tableId = 10, name = "psMuRa",
 		description = "Proper motion (ra) for the Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
@@ -1983,7 +2452,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 224, tableId = 10, name = "psMuRaSigma",
+	SET columnId = 273, tableId = 10, name = "psMuRaSigma",
 		description = "Uncertainty of psMuRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -1992,7 +2461,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 225, tableId = 10, name = "psMuDecl",
+	SET columnId = 274, tableId = 10, name = "psMuDecl",
 		description = "Proper motion (decl) for the Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2001,7 +2470,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 226, tableId = 10, name = "psMuDeclSigma",
+	SET columnId = 275, tableId = 10, name = "psMuDeclSigma",
 		description = "Uncertainty of psMuDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2010,7 +2479,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 227, tableId = 10, name = "psParallax",
+	SET columnId = 276, tableId = 10, name = "psParallax",
 		description = "Stellar parallax. for the Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2019,7 +2488,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 228, tableId = 10, name = "psParallaxSigma",
+	SET columnId = 277, tableId = 10, name = "psParallaxSigma",
 		description = "Uncertainty of psParallax.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2028,7 +2497,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 229, tableId = 10, name = "uPsFlux",
+	SET columnId = 278, tableId = 10, name = "uPsFlux",
 		description = "Calibrated flux for Point Source model for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2037,7 +2506,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 230, tableId = 10, name = "uPsFluxSigma",
+	SET columnId = 279, tableId = 10, name = "uPsFluxSigma",
 		description = "Uncertainty of uPsFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2046,7 +2515,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 231, tableId = 10, name = "gPsFlux",
+	SET columnId = 280, tableId = 10, name = "gPsFlux",
 		description = "Calibrated flux for Point Source model for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2055,7 +2524,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 232, tableId = 10, name = "gPsFluxSigma",
+	SET columnId = 281, tableId = 10, name = "gPsFluxSigma",
 		description = "Uncertainty of gPsFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2064,7 +2533,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 233, tableId = 10, name = "rPsFlux",
+	SET columnId = 282, tableId = 10, name = "rPsFlux",
 		description = "Calibrated flux for Point Source model for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2073,7 +2542,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 234, tableId = 10, name = "rPsFluxSigma",
+	SET columnId = 283, tableId = 10, name = "rPsFluxSigma",
 		description = "Uncertainty of rPsFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2082,7 +2551,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 235, tableId = 10, name = "iPsFlux",
+	SET columnId = 284, tableId = 10, name = "iPsFlux",
 		description = "Calibrated flux for Point Source model for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2091,7 +2560,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 236, tableId = 10, name = "iPsFluxSigma",
+	SET columnId = 285, tableId = 10, name = "iPsFluxSigma",
 		description = "Uncertainty of iPsFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2100,7 +2569,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 237, tableId = 10, name = "zPsFlux",
+	SET columnId = 286, tableId = 10, name = "zPsFlux",
 		description = "Calibrated flux for Point Source model for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2109,7 +2578,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 238, tableId = 10, name = "zPsFluxSigma",
+	SET columnId = 287, tableId = 10, name = "zPsFluxSigma",
 		description = "Uncertainty of zPsFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2118,7 +2587,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 239, tableId = 10, name = "yPsFlux",
+	SET columnId = 288, tableId = 10, name = "yPsFlux",
 		description = "Calibrated flux for Point Source model for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2127,7 +2596,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 240, tableId = 10, name = "yPsFluxSigma",
+	SET columnId = 289, tableId = 10, name = "yPsFluxSigma",
 		description = "Uncertainty of yPsFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2136,28 +2605,28 @@ SET tableId = 10, name = "Object",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 241, tableId = 10, name = "psLnL",
+	SET columnId = 290, tableId = 10, name = "psLnL",
 		description = "Natural log likelihood of the observed data given the Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 242, tableId = 10, name = "psChi2",
+	SET columnId = 291, tableId = 10, name = "psChi2",
 		description = "Chi^2 static of the model fit.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 243, tableId = 10, name = "psN",
+	SET columnId = 292, tableId = 10, name = "psN",
 		description = "The number of data points (pixels) used to fit the model.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 244, tableId = 10, name = "uBbdRa",
+	SET columnId = 293, tableId = 10, name = "uBbdRa",
 		description = "RA-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For u filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -2166,7 +2635,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 245, tableId = 10, name = "uBdRaSigma",
+	SET columnId = 294, tableId = 10, name = "uBdRaSigma",
 		description = "Uncertainty of uBdRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2175,7 +2644,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 246, tableId = 10, name = "uBdDecl",
+	SET columnId = 295, tableId = 10, name = "uBdDecl",
 		description = "Decl-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For u filter.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -2184,7 +2653,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 247, tableId = 10, name = "uBdDeclSigma",
+	SET columnId = 296, tableId = 10, name = "uBdDeclSigma",
 		description = "Uncertainty of uBdDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2193,7 +2662,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 248, tableId = 10, name = "uBdE1",
+	SET columnId = 297, tableId = 10, name = "uBdE1",
 		description = "Ellipticity for the Bulge+Disk (e1). For u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2201,7 +2670,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 249, tableId = 10, name = "uBdE1Sigma",
+	SET columnId = 298, tableId = 10, name = "uBdE1Sigma",
 		description = "Uncertainty of uBdE1.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2209,7 +2678,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 250, tableId = 10, name = "uBdE2",
+	SET columnId = 299, tableId = 10, name = "uBdE2",
 		description = "Ellipticity for Bulge+Disk model (e2). For u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2217,7 +2686,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 251, tableId = 10, name = "uBdE2Sigma",
+	SET columnId = 300, tableId = 10, name = "uBdE2Sigma",
 		description = "Uncertainty of uBdE2.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2225,7 +2694,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
-	SET columnId = 252, tableId = 10, name = "uBdFluxB",
+	SET columnId = 301, tableId = 10, name = "uBdFluxB",
 		description = "Integrated flux of the de Vaucouleurs component for the Bulge+Disk model. For u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2233,7 +2702,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 253, tableId = 10, name = "uBdFluxBSigma",
+	SET columnId = 302, tableId = 10, name = "uBdFluxBSigma",
 		description = "Uncertainty of uBdFluxB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2241,7 +2710,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 38;
 
 	INSERT INTO md_Column
-	SET columnId = 254, tableId = 10, name = "uBdFluxD",
+	SET columnId = 303, tableId = 10, name = "uBdFluxD",
 		description = "Integrated flux of the exponential component for the Bulge+Disk model. For u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2249,7 +2718,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 39;
 
 	INSERT INTO md_Column
-	SET columnId = 255, tableId = 10, name = "uBdFluxDSigma",
+	SET columnId = 304, tableId = 10, name = "uBdFluxDSigma",
 		description = "Uncertainty of uBdFluxD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2257,7 +2726,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 40;
 
 	INSERT INTO md_Column
-	SET columnId = 256, tableId = 10, name = "uBdReB",
+	SET columnId = 305, tableId = 10, name = "uBdReB",
 		description = "Effective radius of the de Vaucouleurs profile component for the Bulge+Disk model. For u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2265,7 +2734,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 41;
 
 	INSERT INTO md_Column
-	SET columnId = 257, tableId = 10, name = "uBdReBSigma",
+	SET columnId = 306, tableId = 10, name = "uBdReBSigma",
 		description = "Uncertainty of uBdReB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2273,7 +2742,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 42;
 
 	INSERT INTO md_Column
-	SET columnId = 258, tableId = 10, name = "uBdReD",
+	SET columnId = 307, tableId = 10, name = "uBdReD",
 		description = "Effective radius of the exponential profile component for the Bulge+Disk model. For u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2281,7 +2750,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 43;
 
 	INSERT INTO md_Column
-	SET columnId = 259, tableId = 10, name = "uBdReDSigma",
+	SET columnId = 308, tableId = 10, name = "uBdReDSigma",
 		description = "Uncertainty of uBdReD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2289,28 +2758,28 @@ SET tableId = 10, name = "Object",
 		displayOrder = 44;
 
 	INSERT INTO md_Column
-	SET columnId = 260, tableId = 10, name = "uBdLnL",
+	SET columnId = 309, tableId = 10, name = "uBdLnL",
 		description = "Natural log likelihood of the observed data given the Bulge+Disk model. For u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 45;
 
 	INSERT INTO md_Column
-	SET columnId = 261, tableId = 10, name = "uBdChi2",
+	SET columnId = 310, tableId = 10, name = "uBdChi2",
 		description = "Chi^2 static of the model fit. For u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 46;
 
 	INSERT INTO md_Column
-	SET columnId = 262, tableId = 10, name = "uBdN",
+	SET columnId = 311, tableId = 10, name = "uBdN",
 		description = "The number of data points (pixels) used to fit the model. For u filter.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 47;
 
 	INSERT INTO md_Column
-	SET columnId = 263, tableId = 10, name = "gBbdRa",
+	SET columnId = 312, tableId = 10, name = "gBbdRa",
 		description = "RA-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For g filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -2319,7 +2788,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 48;
 
 	INSERT INTO md_Column
-	SET columnId = 264, tableId = 10, name = "gBdRaSigma",
+	SET columnId = 313, tableId = 10, name = "gBdRaSigma",
 		description = "Uncertainty of gBdRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2328,7 +2797,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 49;
 
 	INSERT INTO md_Column
-	SET columnId = 265, tableId = 10, name = "gBdDecl",
+	SET columnId = 314, tableId = 10, name = "gBdDecl",
 		description = "Decl-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For g filter.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -2337,7 +2806,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 50;
 
 	INSERT INTO md_Column
-	SET columnId = 266, tableId = 10, name = "gBdDeclSigma",
+	SET columnId = 315, tableId = 10, name = "gBdDeclSigma",
 		description = "Uncertainty of gBdDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2346,7 +2815,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 51;
 
 	INSERT INTO md_Column
-	SET columnId = 267, tableId = 10, name = "gBdE1",
+	SET columnId = 316, tableId = 10, name = "gBdE1",
 		description = "Ellipticity for the Bulge+Disk (e1). For g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2354,7 +2823,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 52;
 
 	INSERT INTO md_Column
-	SET columnId = 268, tableId = 10, name = "gBdE1Sigma",
+	SET columnId = 317, tableId = 10, name = "gBdE1Sigma",
 		description = "Uncertainty of gBdE1.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2362,7 +2831,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 53;
 
 	INSERT INTO md_Column
-	SET columnId = 269, tableId = 10, name = "gBdE2",
+	SET columnId = 318, tableId = 10, name = "gBdE2",
 		description = "Ellipticity for Bulge+Disk model (e2). For g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2370,7 +2839,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 54;
 
 	INSERT INTO md_Column
-	SET columnId = 270, tableId = 10, name = "gBdE2Sigma",
+	SET columnId = 319, tableId = 10, name = "gBdE2Sigma",
 		description = "Uncertainty of gBdE2.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2378,7 +2847,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 55;
 
 	INSERT INTO md_Column
-	SET columnId = 271, tableId = 10, name = "gBdFluxB",
+	SET columnId = 320, tableId = 10, name = "gBdFluxB",
 		description = "Integrated flux of the de Vaucouleurs component for the Bulge+Disk model. For g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2386,7 +2855,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 56;
 
 	INSERT INTO md_Column
-	SET columnId = 272, tableId = 10, name = "gBdFluxBSigma",
+	SET columnId = 321, tableId = 10, name = "gBdFluxBSigma",
 		description = "Uncertainty of gBdFluxB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2394,7 +2863,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 57;
 
 	INSERT INTO md_Column
-	SET columnId = 273, tableId = 10, name = "gBdFluxD",
+	SET columnId = 322, tableId = 10, name = "gBdFluxD",
 		description = "Integrated flux of the exponential component for the Bulge+Disk model. For g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2402,7 +2871,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 58;
 
 	INSERT INTO md_Column
-	SET columnId = 274, tableId = 10, name = "gBdFluxDSigma",
+	SET columnId = 323, tableId = 10, name = "gBdFluxDSigma",
 		description = "Uncertainty of gBdFluxD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2410,7 +2879,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 59;
 
 	INSERT INTO md_Column
-	SET columnId = 275, tableId = 10, name = "gBdReB",
+	SET columnId = 324, tableId = 10, name = "gBdReB",
 		description = "Effective radius of the de Vaucouleurs profile component for the Bulge+Disk model. For g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2418,7 +2887,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 60;
 
 	INSERT INTO md_Column
-	SET columnId = 276, tableId = 10, name = "gBdReBSigma",
+	SET columnId = 325, tableId = 10, name = "gBdReBSigma",
 		description = "Uncertainty of gBdReB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2426,7 +2895,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 61;
 
 	INSERT INTO md_Column
-	SET columnId = 277, tableId = 10, name = "gBdReD",
+	SET columnId = 326, tableId = 10, name = "gBdReD",
 		description = "Effective radius of the exponential profile component for the Bulge+Disk model. For g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2434,7 +2903,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 62;
 
 	INSERT INTO md_Column
-	SET columnId = 278, tableId = 10, name = "gBdReDSigma",
+	SET columnId = 327, tableId = 10, name = "gBdReDSigma",
 		description = "Uncertainty of gBdReD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2442,28 +2911,28 @@ SET tableId = 10, name = "Object",
 		displayOrder = 63;
 
 	INSERT INTO md_Column
-	SET columnId = 279, tableId = 10, name = "gBdLnL",
+	SET columnId = 328, tableId = 10, name = "gBdLnL",
 		description = "Natural log likelihood of the observed data given the Bulge+Disk model. For g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 64;
 
 	INSERT INTO md_Column
-	SET columnId = 280, tableId = 10, name = "gBdChi2",
+	SET columnId = 329, tableId = 10, name = "gBdChi2",
 		description = "Chi^2 static of the model fit. For g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 65;
 
 	INSERT INTO md_Column
-	SET columnId = 281, tableId = 10, name = "gBdN",
+	SET columnId = 330, tableId = 10, name = "gBdN",
 		description = "The number of data points (pixels) used to fit the model. For g filter.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 66;
 
 	INSERT INTO md_Column
-	SET columnId = 282, tableId = 10, name = "rBbdRa",
+	SET columnId = 331, tableId = 10, name = "rBbdRa",
 		description = "RA-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For r filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -2472,7 +2941,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 67;
 
 	INSERT INTO md_Column
-	SET columnId = 283, tableId = 10, name = "rBdRaSigma",
+	SET columnId = 332, tableId = 10, name = "rBdRaSigma",
 		description = "Uncertainty of rBdRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2481,7 +2950,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 68;
 
 	INSERT INTO md_Column
-	SET columnId = 284, tableId = 10, name = "rBdDecl",
+	SET columnId = 333, tableId = 10, name = "rBdDecl",
 		description = "Decl-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For r filter.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -2490,7 +2959,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 69;
 
 	INSERT INTO md_Column
-	SET columnId = 285, tableId = 10, name = "rBdDeclSigma",
+	SET columnId = 334, tableId = 10, name = "rBdDeclSigma",
 		description = "Uncertainty of rBdDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2499,7 +2968,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 70;
 
 	INSERT INTO md_Column
-	SET columnId = 286, tableId = 10, name = "rBdE1",
+	SET columnId = 335, tableId = 10, name = "rBdE1",
 		description = "Ellipticity for the Bulge+Disk (e1). For r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2507,7 +2976,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 71;
 
 	INSERT INTO md_Column
-	SET columnId = 287, tableId = 10, name = "rBdE1Sigma",
+	SET columnId = 336, tableId = 10, name = "rBdE1Sigma",
 		description = "Uncertainty of rBdE1.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2515,7 +2984,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 72;
 
 	INSERT INTO md_Column
-	SET columnId = 288, tableId = 10, name = "rBdE2",
+	SET columnId = 337, tableId = 10, name = "rBdE2",
 		description = "Ellipticity for Bulge+Disk model (e2). For r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2523,7 +2992,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 73;
 
 	INSERT INTO md_Column
-	SET columnId = 289, tableId = 10, name = "rBdE2Sigma",
+	SET columnId = 338, tableId = 10, name = "rBdE2Sigma",
 		description = "Uncertainty of rBdE2.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2531,7 +3000,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 74;
 
 	INSERT INTO md_Column
-	SET columnId = 290, tableId = 10, name = "rBdFluxB",
+	SET columnId = 339, tableId = 10, name = "rBdFluxB",
 		description = "Integrated flux of the de Vaucouleurs component for the Bulge+Disk model. For r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2539,7 +3008,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 75;
 
 	INSERT INTO md_Column
-	SET columnId = 291, tableId = 10, name = "rBdFluxBSigma",
+	SET columnId = 340, tableId = 10, name = "rBdFluxBSigma",
 		description = "Uncertainty of rBdFluxB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2547,7 +3016,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 76;
 
 	INSERT INTO md_Column
-	SET columnId = 292, tableId = 10, name = "rBdFluxD",
+	SET columnId = 341, tableId = 10, name = "rBdFluxD",
 		description = "Integrated flux of the exponential component for the Bulge+Disk model. For r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2555,7 +3024,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 77;
 
 	INSERT INTO md_Column
-	SET columnId = 293, tableId = 10, name = "rBdFluxDSigma",
+	SET columnId = 342, tableId = 10, name = "rBdFluxDSigma",
 		description = "Uncertainty of rBdFluxD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2563,7 +3032,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 78;
 
 	INSERT INTO md_Column
-	SET columnId = 294, tableId = 10, name = "rBdReB",
+	SET columnId = 343, tableId = 10, name = "rBdReB",
 		description = "Effective radius of the de Vaucouleurs profile component for the Bulge+Disk model. For r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2571,7 +3040,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 79;
 
 	INSERT INTO md_Column
-	SET columnId = 295, tableId = 10, name = "rBdReBSigma",
+	SET columnId = 344, tableId = 10, name = "rBdReBSigma",
 		description = "Uncertainty of rBdReB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2579,7 +3048,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 80;
 
 	INSERT INTO md_Column
-	SET columnId = 296, tableId = 10, name = "rBdReD",
+	SET columnId = 345, tableId = 10, name = "rBdReD",
 		description = "Effective radius of the exponential profile component for the Bulge+Disk model. For r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2587,7 +3056,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 81;
 
 	INSERT INTO md_Column
-	SET columnId = 297, tableId = 10, name = "rBdReDSigma",
+	SET columnId = 346, tableId = 10, name = "rBdReDSigma",
 		description = "Uncertainty of rBdReD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2595,28 +3064,28 @@ SET tableId = 10, name = "Object",
 		displayOrder = 82;
 
 	INSERT INTO md_Column
-	SET columnId = 298, tableId = 10, name = "rBdLnL",
+	SET columnId = 347, tableId = 10, name = "rBdLnL",
 		description = "Natural log likelihood of the observed data given the Bulge+Disk model. For r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 83;
 
 	INSERT INTO md_Column
-	SET columnId = 299, tableId = 10, name = "rBdChi2",
+	SET columnId = 348, tableId = 10, name = "rBdChi2",
 		description = "Chi^2 static of the model fit. For r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 84;
 
 	INSERT INTO md_Column
-	SET columnId = 300, tableId = 10, name = "rBdN",
+	SET columnId = 349, tableId = 10, name = "rBdN",
 		description = "The number of data points (pixels) used to fit the model. For r filter.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 85;
 
 	INSERT INTO md_Column
-	SET columnId = 301, tableId = 10, name = "iBbdRa",
+	SET columnId = 350, tableId = 10, name = "iBbdRa",
 		description = "RA-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For i filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -2625,7 +3094,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 86;
 
 	INSERT INTO md_Column
-	SET columnId = 302, tableId = 10, name = "iBdRaSigma",
+	SET columnId = 351, tableId = 10, name = "iBdRaSigma",
 		description = "Uncertainty of iBdRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2634,7 +3103,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 87;
 
 	INSERT INTO md_Column
-	SET columnId = 303, tableId = 10, name = "iBdDecl",
+	SET columnId = 352, tableId = 10, name = "iBdDecl",
 		description = "Decl-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For i filter.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -2643,7 +3112,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 88;
 
 	INSERT INTO md_Column
-	SET columnId = 304, tableId = 10, name = "iBdDeclSigma",
+	SET columnId = 353, tableId = 10, name = "iBdDeclSigma",
 		description = "Uncertainty of iBdDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2652,7 +3121,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 89;
 
 	INSERT INTO md_Column
-	SET columnId = 305, tableId = 10, name = "iBdE1",
+	SET columnId = 354, tableId = 10, name = "iBdE1",
 		description = "Ellipticity for the Bulge+Disk (e1). For i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2660,7 +3129,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 90;
 
 	INSERT INTO md_Column
-	SET columnId = 306, tableId = 10, name = "iBdE1Sigma",
+	SET columnId = 355, tableId = 10, name = "iBdE1Sigma",
 		description = "Uncertainty of iBdE1.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2668,7 +3137,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 91;
 
 	INSERT INTO md_Column
-	SET columnId = 307, tableId = 10, name = "iBdE2",
+	SET columnId = 356, tableId = 10, name = "iBdE2",
 		description = "Ellipticity for Bulge+Disk model (e2). For i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2676,7 +3145,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 92;
 
 	INSERT INTO md_Column
-	SET columnId = 308, tableId = 10, name = "iBdE2Sigma",
+	SET columnId = 357, tableId = 10, name = "iBdE2Sigma",
 		description = "Uncertainty of iBdE2.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2684,7 +3153,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 93;
 
 	INSERT INTO md_Column
-	SET columnId = 309, tableId = 10, name = "iBdFluxB",
+	SET columnId = 358, tableId = 10, name = "iBdFluxB",
 		description = "Integrated flux of the de Vaucouleurs component for the Bulge+Disk model. For i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2692,7 +3161,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 94;
 
 	INSERT INTO md_Column
-	SET columnId = 310, tableId = 10, name = "iBdFluxBSigma",
+	SET columnId = 359, tableId = 10, name = "iBdFluxBSigma",
 		description = "Uncertainty of iBdFluxB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2700,7 +3169,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 95;
 
 	INSERT INTO md_Column
-	SET columnId = 311, tableId = 10, name = "iBdFluxD",
+	SET columnId = 360, tableId = 10, name = "iBdFluxD",
 		description = "Integrated flux of the exponential component for the Bulge+Disk model. For i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2708,7 +3177,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 96;
 
 	INSERT INTO md_Column
-	SET columnId = 312, tableId = 10, name = "iBdFluxDSigma",
+	SET columnId = 361, tableId = 10, name = "iBdFluxDSigma",
 		description = "Uncertainty of iBdFluxD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2716,7 +3185,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 97;
 
 	INSERT INTO md_Column
-	SET columnId = 313, tableId = 10, name = "iBdReB",
+	SET columnId = 362, tableId = 10, name = "iBdReB",
 		description = "Effective radius of the de Vaucouleurs profile component for the Bulge+Disk model. For i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2724,7 +3193,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 98;
 
 	INSERT INTO md_Column
-	SET columnId = 314, tableId = 10, name = "iBdReBSigma",
+	SET columnId = 363, tableId = 10, name = "iBdReBSigma",
 		description = "Uncertainty of iBdReB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2732,7 +3201,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 99;
 
 	INSERT INTO md_Column
-	SET columnId = 315, tableId = 10, name = "iBdReD",
+	SET columnId = 364, tableId = 10, name = "iBdReD",
 		description = "Effective radius of the exponential profile component for the Bulge+Disk model. For i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2740,7 +3209,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 100;
 
 	INSERT INTO md_Column
-	SET columnId = 316, tableId = 10, name = "iBdReDSigma",
+	SET columnId = 365, tableId = 10, name = "iBdReDSigma",
 		description = "Uncertainty of iBdReD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2748,28 +3217,28 @@ SET tableId = 10, name = "Object",
 		displayOrder = 101;
 
 	INSERT INTO md_Column
-	SET columnId = 317, tableId = 10, name = "iBdLnL",
+	SET columnId = 366, tableId = 10, name = "iBdLnL",
 		description = "Natural log likelihood of the observed data given the Bulge+Disk model. For i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 102;
 
 	INSERT INTO md_Column
-	SET columnId = 318, tableId = 10, name = "iBdChi2",
+	SET columnId = 367, tableId = 10, name = "iBdChi2",
 		description = "Chi^2 static of the model fit. For i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 103;
 
 	INSERT INTO md_Column
-	SET columnId = 319, tableId = 10, name = "iBdN",
+	SET columnId = 368, tableId = 10, name = "iBdN",
 		description = "The number of data points (pixels) used to fit the model. For i filter.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 104;
 
 	INSERT INTO md_Column
-	SET columnId = 320, tableId = 10, name = "zBbdRa",
+	SET columnId = 369, tableId = 10, name = "zBbdRa",
 		description = "RA-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For z filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -2778,7 +3247,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 105;
 
 	INSERT INTO md_Column
-	SET columnId = 321, tableId = 10, name = "zBdRaSigma",
+	SET columnId = 370, tableId = 10, name = "zBdRaSigma",
 		description = "Uncertainty of zBdRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2787,7 +3256,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 106;
 
 	INSERT INTO md_Column
-	SET columnId = 322, tableId = 10, name = "zBdDecl",
+	SET columnId = 371, tableId = 10, name = "zBdDecl",
 		description = "Decl-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For z filter.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -2796,7 +3265,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 107;
 
 	INSERT INTO md_Column
-	SET columnId = 323, tableId = 10, name = "zBdDeclSigma",
+	SET columnId = 372, tableId = 10, name = "zBdDeclSigma",
 		description = "Uncertainty of zBdDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2805,7 +3274,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 108;
 
 	INSERT INTO md_Column
-	SET columnId = 324, tableId = 10, name = "zBdE1",
+	SET columnId = 373, tableId = 10, name = "zBdE1",
 		description = "Ellipticity for the Bulge+Disk (e1). For z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2813,7 +3282,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 109;
 
 	INSERT INTO md_Column
-	SET columnId = 325, tableId = 10, name = "zBdE1Sigma",
+	SET columnId = 374, tableId = 10, name = "zBdE1Sigma",
 		description = "Uncertainty of zBdE1.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2821,7 +3290,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 110;
 
 	INSERT INTO md_Column
-	SET columnId = 326, tableId = 10, name = "zBdE2",
+	SET columnId = 375, tableId = 10, name = "zBdE2",
 		description = "Ellipticity for Bulge+Disk model (e2). For z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2829,7 +3298,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 111;
 
 	INSERT INTO md_Column
-	SET columnId = 327, tableId = 10, name = "zBdE2Sigma",
+	SET columnId = 376, tableId = 10, name = "zBdE2Sigma",
 		description = "Uncertainty of zBdE2.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2837,7 +3306,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 112;
 
 	INSERT INTO md_Column
-	SET columnId = 328, tableId = 10, name = "zBdFluxB",
+	SET columnId = 377, tableId = 10, name = "zBdFluxB",
 		description = "Integrated flux of the de Vaucouleurs component for the Bulge+Disk model. For z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2845,7 +3314,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 113;
 
 	INSERT INTO md_Column
-	SET columnId = 329, tableId = 10, name = "zBdFluxBSigma",
+	SET columnId = 378, tableId = 10, name = "zBdFluxBSigma",
 		description = "Uncertainty of zBdFluxB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2853,7 +3322,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 114;
 
 	INSERT INTO md_Column
-	SET columnId = 330, tableId = 10, name = "zBdFluxD",
+	SET columnId = 379, tableId = 10, name = "zBdFluxD",
 		description = "Integrated flux of the exponential component for the Bulge+Disk model. For z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2861,7 +3330,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 115;
 
 	INSERT INTO md_Column
-	SET columnId = 331, tableId = 10, name = "zBdFluxDSigma",
+	SET columnId = 380, tableId = 10, name = "zBdFluxDSigma",
 		description = "Uncertainty of zBdFluxD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2869,7 +3338,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 116;
 
 	INSERT INTO md_Column
-	SET columnId = 332, tableId = 10, name = "zBdReB",
+	SET columnId = 381, tableId = 10, name = "zBdReB",
 		description = "Effective radius of the de Vaucouleurs profile component for the Bulge+Disk model. For z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2877,7 +3346,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 117;
 
 	INSERT INTO md_Column
-	SET columnId = 333, tableId = 10, name = "zBdReBSigma",
+	SET columnId = 382, tableId = 10, name = "zBdReBSigma",
 		description = "Uncertainty of zBdReB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2885,7 +3354,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 118;
 
 	INSERT INTO md_Column
-	SET columnId = 334, tableId = 10, name = "zBdReD",
+	SET columnId = 383, tableId = 10, name = "zBdReD",
 		description = "Effective radius of the exponential profile component for the Bulge+Disk model. For z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2893,7 +3362,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 119;
 
 	INSERT INTO md_Column
-	SET columnId = 335, tableId = 10, name = "zBdReDSigma",
+	SET columnId = 384, tableId = 10, name = "zBdReDSigma",
 		description = "Uncertainty of zBdReD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2901,28 +3370,28 @@ SET tableId = 10, name = "Object",
 		displayOrder = 120;
 
 	INSERT INTO md_Column
-	SET columnId = 336, tableId = 10, name = "zBdLnL",
+	SET columnId = 385, tableId = 10, name = "zBdLnL",
 		description = "Natural log likelihood of the observed data given the Bulge+Disk model. For z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 121;
 
 	INSERT INTO md_Column
-	SET columnId = 337, tableId = 10, name = "zBdChi2",
+	SET columnId = 386, tableId = 10, name = "zBdChi2",
 		description = "Chi^2 static of the model fit. For z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 122;
 
 	INSERT INTO md_Column
-	SET columnId = 338, tableId = 10, name = "zBdN",
+	SET columnId = 387, tableId = 10, name = "zBdN",
 		description = "The number of data points (pixels) used to fit the model. For z filter.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 123;
 
 	INSERT INTO md_Column
-	SET columnId = 339, tableId = 10, name = "yBbdRa",
+	SET columnId = 388, tableId = 10, name = "yBbdRa",
 		description = "RA-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For y filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -2931,7 +3400,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 124;
 
 	INSERT INTO md_Column
-	SET columnId = 340, tableId = 10, name = "yBdRaSigma",
+	SET columnId = 389, tableId = 10, name = "yBdRaSigma",
 		description = "Uncertainty of yBdRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2940,7 +3409,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 125;
 
 	INSERT INTO md_Column
-	SET columnId = 341, tableId = 10, name = "yBdDecl",
+	SET columnId = 390, tableId = 10, name = "yBdDecl",
 		description = "Decl-coordinate of the center of the object for the Bulge+Disk model at time radecTai. For y filter.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -2949,7 +3418,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 126;
 
 	INSERT INTO md_Column
-	SET columnId = 342, tableId = 10, name = "yBdDeclSigma",
+	SET columnId = 391, tableId = 10, name = "yBdDeclSigma",
 		description = "Uncertainty of yBdDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2958,7 +3427,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 127;
 
 	INSERT INTO md_Column
-	SET columnId = 343, tableId = 10, name = "yBdE1",
+	SET columnId = 392, tableId = 10, name = "yBdE1",
 		description = "Ellipticity for the Bulge+Disk (e1). For y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2966,7 +3435,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 128;
 
 	INSERT INTO md_Column
-	SET columnId = 344, tableId = 10, name = "yBdE1Sigma",
+	SET columnId = 393, tableId = 10, name = "yBdE1Sigma",
 		description = "Uncertainty of yBdE1.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2974,7 +3443,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 129;
 
 	INSERT INTO md_Column
-	SET columnId = 345, tableId = 10, name = "yBdE2",
+	SET columnId = 394, tableId = 10, name = "yBdE2",
 		description = "Ellipticity for Bulge+Disk model (e2). For y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2982,7 +3451,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 130;
 
 	INSERT INTO md_Column
-	SET columnId = 346, tableId = 10, name = "yBdE2Sigma",
+	SET columnId = 395, tableId = 10, name = "yBdE2Sigma",
 		description = "Uncertainty of yBdE2.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2990,7 +3459,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 131;
 
 	INSERT INTO md_Column
-	SET columnId = 347, tableId = 10, name = "yBdFluxB",
+	SET columnId = 396, tableId = 10, name = "yBdFluxB",
 		description = "Integrated flux of the de Vaucouleurs component for the Bulge+Disk model. For y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -2998,7 +3467,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 132;
 
 	INSERT INTO md_Column
-	SET columnId = 348, tableId = 10, name = "yBdFluxBSigma",
+	SET columnId = 397, tableId = 10, name = "yBdFluxBSigma",
 		description = "Uncertainty of yBdFluxB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3006,7 +3475,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 133;
 
 	INSERT INTO md_Column
-	SET columnId = 349, tableId = 10, name = "yBdFluxD",
+	SET columnId = 398, tableId = 10, name = "yBdFluxD",
 		description = "Integrated flux of the exponential component for the Bulge+Disk model. For y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3014,7 +3483,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 134;
 
 	INSERT INTO md_Column
-	SET columnId = 350, tableId = 10, name = "yBdFluxDSigma",
+	SET columnId = 399, tableId = 10, name = "yBdFluxDSigma",
 		description = "Uncertainty of yBdFluxD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3022,7 +3491,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 135;
 
 	INSERT INTO md_Column
-	SET columnId = 351, tableId = 10, name = "yBdReB",
+	SET columnId = 400, tableId = 10, name = "yBdReB",
 		description = "Effective radius of the de Vaucouleurs profile component for the Bulge+Disk model. For y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3030,7 +3499,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 136;
 
 	INSERT INTO md_Column
-	SET columnId = 352, tableId = 10, name = "yBdReBSigma",
+	SET columnId = 401, tableId = 10, name = "yBdReBSigma",
 		description = "Uncertainty of yBdReB.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3038,7 +3507,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 137;
 
 	INSERT INTO md_Column
-	SET columnId = 353, tableId = 10, name = "yBdReD",
+	SET columnId = 402, tableId = 10, name = "yBdReD",
 		description = "Effective radius of the exponential profile component for the Bulge+Disk model. For y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3046,7 +3515,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 138;
 
 	INSERT INTO md_Column
-	SET columnId = 354, tableId = 10, name = "yBdReDSigma",
+	SET columnId = 403, tableId = 10, name = "yBdReDSigma",
 		description = "Uncertainty of yBdReD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3054,28 +3523,28 @@ SET tableId = 10, name = "Object",
 		displayOrder = 139;
 
 	INSERT INTO md_Column
-	SET columnId = 355, tableId = 10, name = "yBdLnL",
+	SET columnId = 404, tableId = 10, name = "yBdLnL",
 		description = "Natural log likelihood of the observed data given the Bulge+Disk model. For y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 140;
 
 	INSERT INTO md_Column
-	SET columnId = 356, tableId = 10, name = "yBdChi2",
+	SET columnId = 405, tableId = 10, name = "yBdChi2",
 		description = "Chi^2 static of the model fit. For y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 141;
 
 	INSERT INTO md_Column
-	SET columnId = 357, tableId = 10, name = "yBdN",
+	SET columnId = 406, tableId = 10, name = "yBdN",
 		description = "The number of data points (pixels) used to fit the model. For y filter.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 142;
 
 	INSERT INTO md_Column
-	SET columnId = 358, tableId = 10, name = "ugStd",
+	SET columnId = 407, tableId = 10, name = "ugStd",
 		description = "Color of the object measured in 'standard seeing'. While the exact algorithm is yet to be determined, this color is guaranteed to be seeing-independent and suitable for photo-Z determinations.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3083,7 +3552,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 143;
 
 	INSERT INTO md_Column
-	SET columnId = 359, tableId = 10, name = "ugStdSigma",
+	SET columnId = 408, tableId = 10, name = "ugStdSigma",
 		description = "Uncertainty of ugStd.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3091,7 +3560,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 144;
 
 	INSERT INTO md_Column
-	SET columnId = 360, tableId = 10, name = "grStd",
+	SET columnId = 409, tableId = 10, name = "grStd",
 		description = "Color of the object measured in 'standard seeing'. While the exact algorithm is yet to be determined, this color is guaranteed to be seeing-independent and suitable for photo-Z determinations.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3099,7 +3568,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 145;
 
 	INSERT INTO md_Column
-	SET columnId = 361, tableId = 10, name = "grStdSigma",
+	SET columnId = 410, tableId = 10, name = "grStdSigma",
 		description = "Uncertainty of grStd.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3107,7 +3576,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 146;
 
 	INSERT INTO md_Column
-	SET columnId = 362, tableId = 10, name = "riStd",
+	SET columnId = 411, tableId = 10, name = "riStd",
 		description = "Color of the object measured in 'standard seeing'. While the exact algorithm is yet to be determined, this color is is guaranteed to be seeing-independent and suitable for photo-Z determinations.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3115,7 +3584,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 147;
 
 	INSERT INTO md_Column
-	SET columnId = 363, tableId = 10, name = "riStdSigma",
+	SET columnId = 412, tableId = 10, name = "riStdSigma",
 		description = "Uncertainty of riStd.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3123,7 +3592,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 148;
 
 	INSERT INTO md_Column
-	SET columnId = 364, tableId = 10, name = "izStd",
+	SET columnId = 413, tableId = 10, name = "izStd",
 		description = "Color of the object measured in 'standard seeing'. While the exact algorithm is yet to be determined, this color is guaranteed to be seeing-independent and suitable for photo-Z determinations.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3131,7 +3600,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 149;
 
 	INSERT INTO md_Column
-	SET columnId = 365, tableId = 10, name = "izStdSigma",
+	SET columnId = 414, tableId = 10, name = "izStdSigma",
 		description = "Uncertainty of izStd.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3139,7 +3608,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 150;
 
 	INSERT INTO md_Column
-	SET columnId = 366, tableId = 10, name = "zyStd",
+	SET columnId = 415, tableId = 10, name = "zyStd",
 		description = "Color of the object measured in 'standard seeing'. While the exact algorithm is yet to be determined, this color is guaranteed to be seeing-independent and suitable for photo-Z determinations.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3147,7 +3616,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 151;
 
 	INSERT INTO md_Column
-	SET columnId = 367, tableId = 10, name = "zyStdSigma",
+	SET columnId = 416, tableId = 10, name = "zyStdSigma",
 		description = "Uncertainty of zyStd.",
 		type = "FLOAT",
 		notNull = 1,
@@ -3155,7 +3624,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 152;
 
 	INSERT INTO md_Column
-	SET columnId = 368, tableId = 10, name = "uRa",
+	SET columnId = 417, tableId = 10, name = "uRa",
 		description = "RA-coordinate coordinate of the centroid computed for u filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3164,7 +3633,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 153;
 
 	INSERT INTO md_Column
-	SET columnId = 369, tableId = 10, name = "uRaSigma",
+	SET columnId = 418, tableId = 10, name = "uRaSigma",
 		description = "Uncertainty of uRa.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3173,7 +3642,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 154;
 
 	INSERT INTO md_Column
-	SET columnId = 370, tableId = 10, name = "uDecl",
+	SET columnId = 419, tableId = 10, name = "uDecl",
 		description = "Decl-coordinate coordinate of the centroid computed for u filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3182,7 +3651,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 155;
 
 	INSERT INTO md_Column
-	SET columnId = 371, tableId = 10, name = "uDeclSigma",
+	SET columnId = 420, tableId = 10, name = "uDeclSigma",
 		description = "Uncertainty of uDecl.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3191,7 +3660,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 156;
 
 	INSERT INTO md_Column
-	SET columnId = 372, tableId = 10, name = "gRa",
+	SET columnId = 421, tableId = 10, name = "gRa",
 		description = "RA--coordinate coordinate of the centroid computed for g filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3200,7 +3669,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 157;
 
 	INSERT INTO md_Column
-	SET columnId = 373, tableId = 10, name = "gRaSigma",
+	SET columnId = 422, tableId = 10, name = "gRaSigma",
 		description = "Uncertainty of gRa.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3209,7 +3678,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 158;
 
 	INSERT INTO md_Column
-	SET columnId = 374, tableId = 10, name = "gDecl",
+	SET columnId = 423, tableId = 10, name = "gDecl",
 		description = "Decl--coordinate coordinate of the centroid computed for g filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3218,7 +3687,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 159;
 
 	INSERT INTO md_Column
-	SET columnId = 375, tableId = 10, name = "gDeclSigma",
+	SET columnId = 424, tableId = 10, name = "gDeclSigma",
 		description = "Uncertainty of gDecl.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3227,7 +3696,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 160;
 
 	INSERT INTO md_Column
-	SET columnId = 376, tableId = 10, name = "rRa",
+	SET columnId = 425, tableId = 10, name = "rRa",
 		description = "RA-coordinate coordinate of the centroid computed for r filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3236,7 +3705,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 161;
 
 	INSERT INTO md_Column
-	SET columnId = 377, tableId = 10, name = "rRaSigma",
+	SET columnId = 426, tableId = 10, name = "rRaSigma",
 		description = "Uncertainty of rRa.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3245,7 +3714,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 162;
 
 	INSERT INTO md_Column
-	SET columnId = 378, tableId = 10, name = "rDecl",
+	SET columnId = 427, tableId = 10, name = "rDecl",
 		description = "Decl-coordinate coordinate of the centroid computed for r filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3254,7 +3723,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 163;
 
 	INSERT INTO md_Column
-	SET columnId = 379, tableId = 10, name = "rDeclSigma",
+	SET columnId = 428, tableId = 10, name = "rDeclSigma",
 		description = "Uncertainty of rDecl.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3263,7 +3732,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 164;
 
 	INSERT INTO md_Column
-	SET columnId = 380, tableId = 10, name = "iRa",
+	SET columnId = 429, tableId = 10, name = "iRa",
 		description = "RA-coordinate coordinate of the centroid computed for i filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3272,7 +3741,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 165;
 
 	INSERT INTO md_Column
-	SET columnId = 381, tableId = 10, name = "iRaSigma",
+	SET columnId = 430, tableId = 10, name = "iRaSigma",
 		description = "Uncertainty of iRa.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3281,7 +3750,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 166;
 
 	INSERT INTO md_Column
-	SET columnId = 382, tableId = 10, name = "iDecl",
+	SET columnId = 431, tableId = 10, name = "iDecl",
 		description = "Decl-coordinate coordinate of the centroid computed for i filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3290,7 +3759,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 167;
 
 	INSERT INTO md_Column
-	SET columnId = 383, tableId = 10, name = "iDeclSigma",
+	SET columnId = 432, tableId = 10, name = "iDeclSigma",
 		description = "Uncertainty of iDecl.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3299,7 +3768,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 168;
 
 	INSERT INTO md_Column
-	SET columnId = 384, tableId = 10, name = "zRa",
+	SET columnId = 433, tableId = 10, name = "zRa",
 		description = "RA-coordinate coordinate of the centroid computed for z filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3308,7 +3777,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 169;
 
 	INSERT INTO md_Column
-	SET columnId = 385, tableId = 10, name = "zRaSigma",
+	SET columnId = 434, tableId = 10, name = "zRaSigma",
 		description = "Uncertainty of zRa.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3317,7 +3786,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 170;
 
 	INSERT INTO md_Column
-	SET columnId = 386, tableId = 10, name = "zDecl",
+	SET columnId = 435, tableId = 10, name = "zDecl",
 		description = "Decl-coordinate coordinate of the centroid computed for z filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3326,7 +3795,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 171;
 
 	INSERT INTO md_Column
-	SET columnId = 387, tableId = 10, name = "zDeclSigma",
+	SET columnId = 436, tableId = 10, name = "zDeclSigma",
 		description = "Uncertainty of zDecl.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3335,7 +3804,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 172;
 
 	INSERT INTO md_Column
-	SET columnId = 388, tableId = 10, name = "yRa",
+	SET columnId = 437, tableId = 10, name = "yRa",
 		description = "RA-coordinate coordinate of the centroid computed for y filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3344,7 +3813,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 173;
 
 	INSERT INTO md_Column
-	SET columnId = 389, tableId = 10, name = "yRaSigma",
+	SET columnId = 438, tableId = 10, name = "yRaSigma",
 		description = "Uncertainty of yRa.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3353,7 +3822,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 174;
 
 	INSERT INTO md_Column
-	SET columnId = 390, tableId = 10, name = "yDecl",
+	SET columnId = 439, tableId = 10, name = "yDecl",
 		description = "Decl-coordinate coordinate of the centroid computed for y filter.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3362,7 +3831,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 175;
 
 	INSERT INTO md_Column
-	SET columnId = 391, tableId = 10, name = "yDeclSigma",
+	SET columnId = 440, tableId = 10, name = "yDeclSigma",
 		description = "Uncertainty of yDecl.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -3371,7 +3840,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 176;
 
 	INSERT INTO md_Column
-	SET columnId = 392, tableId = 10, name = "uE1",
+	SET columnId = 441, tableId = 10, name = "uE1",
 		description = "Adaptive e1 shape measure for u filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3379,7 +3848,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 177;
 
 	INSERT INTO md_Column
-	SET columnId = 393, tableId = 10, name = "uE1Sigma",
+	SET columnId = 442, tableId = 10, name = "uE1Sigma",
 		description = "Uncertainty of uE1",
 		type = "FLOAT",
 		notNull = 0,
@@ -3387,7 +3856,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 178;
 
 	INSERT INTO md_Column
-	SET columnId = 394, tableId = 10, name = "uE2",
+	SET columnId = 443, tableId = 10, name = "uE2",
 		description = "Adaptive e2 shape measure for u filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3395,7 +3864,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 179;
 
 	INSERT INTO md_Column
-	SET columnId = 395, tableId = 10, name = "uE2Sigma",
+	SET columnId = 444, tableId = 10, name = "uE2Sigma",
 		description = "Uncertainty of uE2",
 		type = "FLOAT",
 		notNull = 0,
@@ -3403,14 +3872,14 @@ SET tableId = 10, name = "Object",
 		displayOrder = 180;
 
 	INSERT INTO md_Column
-	SET columnId = 396, tableId = 10, name = "uE1_E2_Cov",
+	SET columnId = 445, tableId = 10, name = "uE1_E2_Cov",
 		description = "Covariance of uE1 and uE2.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 181;
 
 	INSERT INTO md_Column
-	SET columnId = 397, tableId = 10, name = "gE1",
+	SET columnId = 446, tableId = 10, name = "gE1",
 		description = "Adaptive e1 shape measure for g filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3418,7 +3887,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 182;
 
 	INSERT INTO md_Column
-	SET columnId = 398, tableId = 10, name = "gE1Sigma",
+	SET columnId = 447, tableId = 10, name = "gE1Sigma",
 		description = "Uncertainty of gE1",
 		type = "FLOAT",
 		notNull = 0,
@@ -3426,7 +3895,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 183;
 
 	INSERT INTO md_Column
-	SET columnId = 399, tableId = 10, name = "gE2",
+	SET columnId = 448, tableId = 10, name = "gE2",
 		description = "Adaptive e2 shape measure for g filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3434,7 +3903,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 184;
 
 	INSERT INTO md_Column
-	SET columnId = 400, tableId = 10, name = "gE2Sigma",
+	SET columnId = 449, tableId = 10, name = "gE2Sigma",
 		description = "Uncertainty of gE2",
 		type = "FLOAT",
 		notNull = 0,
@@ -3442,14 +3911,14 @@ SET tableId = 10, name = "Object",
 		displayOrder = 185;
 
 	INSERT INTO md_Column
-	SET columnId = 401, tableId = 10, name = "gE1_E2_Cov",
+	SET columnId = 450, tableId = 10, name = "gE1_E2_Cov",
 		description = "Covariance of gE1 and gE2.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 186;
 
 	INSERT INTO md_Column
-	SET columnId = 402, tableId = 10, name = "rE1",
+	SET columnId = 451, tableId = 10, name = "rE1",
 		description = "Adaptive e1 shape measure for r filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3457,7 +3926,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 187;
 
 	INSERT INTO md_Column
-	SET columnId = 403, tableId = 10, name = "rE1Sigma",
+	SET columnId = 452, tableId = 10, name = "rE1Sigma",
 		description = "Uncertainty of rE1",
 		type = "FLOAT",
 		notNull = 0,
@@ -3465,7 +3934,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 188;
 
 	INSERT INTO md_Column
-	SET columnId = 404, tableId = 10, name = "rE2",
+	SET columnId = 453, tableId = 10, name = "rE2",
 		description = "Adaptive e2 shape measure for r filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3473,7 +3942,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 189;
 
 	INSERT INTO md_Column
-	SET columnId = 405, tableId = 10, name = "rE2Sigma",
+	SET columnId = 454, tableId = 10, name = "rE2Sigma",
 		description = "Uncertainty of rE2",
 		type = "FLOAT",
 		notNull = 0,
@@ -3481,14 +3950,14 @@ SET tableId = 10, name = "Object",
 		displayOrder = 190;
 
 	INSERT INTO md_Column
-	SET columnId = 406, tableId = 10, name = "rE1_E2_Cov",
+	SET columnId = 455, tableId = 10, name = "rE1_E2_Cov",
 		description = "Covariance of rE1 and rE2.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 191;
 
 	INSERT INTO md_Column
-	SET columnId = 407, tableId = 10, name = "iE1",
+	SET columnId = 456, tableId = 10, name = "iE1",
 		description = "Adaptive e1 shape measure for i filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3496,7 +3965,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 192;
 
 	INSERT INTO md_Column
-	SET columnId = 408, tableId = 10, name = "iE1Sigma",
+	SET columnId = 457, tableId = 10, name = "iE1Sigma",
 		description = "Uncertainty of iE1",
 		type = "FLOAT",
 		notNull = 0,
@@ -3504,7 +3973,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 193;
 
 	INSERT INTO md_Column
-	SET columnId = 409, tableId = 10, name = "iE2",
+	SET columnId = 458, tableId = 10, name = "iE2",
 		description = "Adaptive e2 shape measure for i filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3512,7 +3981,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 194;
 
 	INSERT INTO md_Column
-	SET columnId = 410, tableId = 10, name = "iE2Sigma",
+	SET columnId = 459, tableId = 10, name = "iE2Sigma",
 		description = "Uncertainty of iE2",
 		type = "FLOAT",
 		notNull = 0,
@@ -3520,14 +3989,14 @@ SET tableId = 10, name = "Object",
 		displayOrder = 195;
 
 	INSERT INTO md_Column
-	SET columnId = 411, tableId = 10, name = "iE1_E2_Cov",
+	SET columnId = 460, tableId = 10, name = "iE1_E2_Cov",
 		description = "Covariance of iE1 and iE2.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 196;
 
 	INSERT INTO md_Column
-	SET columnId = 412, tableId = 10, name = "zE1",
+	SET columnId = 461, tableId = 10, name = "zE1",
 		description = "Adaptive e1 shape measure for z filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3535,7 +4004,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 197;
 
 	INSERT INTO md_Column
-	SET columnId = 413, tableId = 10, name = "zE1Sigma",
+	SET columnId = 462, tableId = 10, name = "zE1Sigma",
 		description = "Uncertainty of zE1",
 		type = "FLOAT",
 		notNull = 0,
@@ -3543,7 +4012,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 198;
 
 	INSERT INTO md_Column
-	SET columnId = 414, tableId = 10, name = "zE2",
+	SET columnId = 463, tableId = 10, name = "zE2",
 		description = "Adaptive e2 shape measure for z filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3551,7 +4020,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 199;
 
 	INSERT INTO md_Column
-	SET columnId = 415, tableId = 10, name = "zE2Sigma",
+	SET columnId = 464, tableId = 10, name = "zE2Sigma",
 		description = "Uncertainty of zE2",
 		type = "FLOAT",
 		notNull = 0,
@@ -3559,14 +4028,14 @@ SET tableId = 10, name = "Object",
 		displayOrder = 200;
 
 	INSERT INTO md_Column
-	SET columnId = 416, tableId = 10, name = "zE1_E2_Cov",
+	SET columnId = 465, tableId = 10, name = "zE1_E2_Cov",
 		description = "Covariance of zE1 and zE2.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 201;
 
 	INSERT INTO md_Column
-	SET columnId = 417, tableId = 10, name = "yE1",
+	SET columnId = 466, tableId = 10, name = "yE1",
 		description = "Adaptive e1 shape measure for y filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3574,7 +4043,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 202;
 
 	INSERT INTO md_Column
-	SET columnId = 418, tableId = 10, name = "yE1Sigma",
+	SET columnId = 467, tableId = 10, name = "yE1Sigma",
 		description = "Uncertainty of yE1",
 		type = "FLOAT",
 		notNull = 0,
@@ -3582,7 +4051,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 203;
 
 	INSERT INTO md_Column
-	SET columnId = 419, tableId = 10, name = "yE2",
+	SET columnId = 468, tableId = 10, name = "yE2",
 		description = "Adaptive e2 shape measure for y filter. See Bernstein and Jarvis (2002) for detailed discussion of all adaptive-moment related quantities.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3590,7 +4059,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 204;
 
 	INSERT INTO md_Column
-	SET columnId = 420, tableId = 10, name = "yE2Sigma",
+	SET columnId = 469, tableId = 10, name = "yE2Sigma",
 		description = "Uncertainty of yE2",
 		type = "FLOAT",
 		notNull = 0,
@@ -3598,140 +4067,140 @@ SET tableId = 10, name = "Object",
 		displayOrder = 205;
 
 	INSERT INTO md_Column
-	SET columnId = 421, tableId = 10, name = "yE1_E2_Cov",
+	SET columnId = 470, tableId = 10, name = "yE1_E2_Cov",
 		description = "Covariance of yE1 and yE2.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 206;
 
 	INSERT INTO md_Column
-	SET columnId = 422, tableId = 10, name = "uMSum",
+	SET columnId = 471, tableId = 10, name = "uMSum",
 		description = "Sum of second adaptive moments for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 207;
 
 	INSERT INTO md_Column
-	SET columnId = 423, tableId = 10, name = "uMSumSigma",
+	SET columnId = 472, tableId = 10, name = "uMSumSigma",
 		description = "Uncertainty of uMSum",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 208;
 
 	INSERT INTO md_Column
-	SET columnId = 424, tableId = 10, name = "gMSum",
+	SET columnId = 473, tableId = 10, name = "gMSum",
 		description = "Sum of second adaptive moments for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 209;
 
 	INSERT INTO md_Column
-	SET columnId = 425, tableId = 10, name = "gMSumSigma",
+	SET columnId = 474, tableId = 10, name = "gMSumSigma",
 		description = "Uncertainty of gMSum",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 210;
 
 	INSERT INTO md_Column
-	SET columnId = 426, tableId = 10, name = "rMSum",
+	SET columnId = 475, tableId = 10, name = "rMSum",
 		description = "Sum of second adaptive moments for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 211;
 
 	INSERT INTO md_Column
-	SET columnId = 427, tableId = 10, name = "rMSumSigma",
+	SET columnId = 476, tableId = 10, name = "rMSumSigma",
 		description = "Uncertainty of rMSum",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 212;
 
 	INSERT INTO md_Column
-	SET columnId = 428, tableId = 10, name = "iMSum",
+	SET columnId = 477, tableId = 10, name = "iMSum",
 		description = "Sum of second adaptive moments for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 213;
 
 	INSERT INTO md_Column
-	SET columnId = 429, tableId = 10, name = "iMSumSigma",
+	SET columnId = 478, tableId = 10, name = "iMSumSigma",
 		description = "Uncertainty of iMSum",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 214;
 
 	INSERT INTO md_Column
-	SET columnId = 430, tableId = 10, name = "zMSum",
+	SET columnId = 479, tableId = 10, name = "zMSum",
 		description = "Sum of second adaptive moments for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 215;
 
 	INSERT INTO md_Column
-	SET columnId = 431, tableId = 10, name = "zMSumSigma",
+	SET columnId = 480, tableId = 10, name = "zMSumSigma",
 		description = "Uncertainty of zMSum",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 216;
 
 	INSERT INTO md_Column
-	SET columnId = 432, tableId = 10, name = "yMSum",
+	SET columnId = 481, tableId = 10, name = "yMSum",
 		description = "Sum of second adaptive moments for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 217;
 
 	INSERT INTO md_Column
-	SET columnId = 433, tableId = 10, name = "yMSumSigma",
+	SET columnId = 482, tableId = 10, name = "yMSumSigma",
 		description = "Uncertainty of yMSum",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 218;
 
 	INSERT INTO md_Column
-	SET columnId = 434, tableId = 10, name = "uM4",
+	SET columnId = 483, tableId = 10, name = "uM4",
 		description = "Fourth order adaptive moment for u filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 219;
 
 	INSERT INTO md_Column
-	SET columnId = 435, tableId = 10, name = "gM4",
+	SET columnId = 484, tableId = 10, name = "gM4",
 		description = "Fourth order adaptive moment for g filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 220;
 
 	INSERT INTO md_Column
-	SET columnId = 436, tableId = 10, name = "rM4",
+	SET columnId = 485, tableId = 10, name = "rM4",
 		description = "Fourth order adaptive moment for r filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 221;
 
 	INSERT INTO md_Column
-	SET columnId = 437, tableId = 10, name = "iM4",
+	SET columnId = 486, tableId = 10, name = "iM4",
 		description = "Fourth order adaptive moment for i filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 222;
 
 	INSERT INTO md_Column
-	SET columnId = 438, tableId = 10, name = "zM4",
+	SET columnId = 487, tableId = 10, name = "zM4",
 		description = "Fourth order adaptive moment for z filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 223;
 
 	INSERT INTO md_Column
-	SET columnId = 439, tableId = 10, name = "yM4",
+	SET columnId = 488, tableId = 10, name = "yM4",
 		description = "Fourth order adaptive moment for y filter.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 224;
 
 	INSERT INTO md_Column
-	SET columnId = 440, tableId = 10, name = "uPetroRad",
+	SET columnId = 489, tableId = 10, name = "uPetroRad",
 		description = "Petrosian radius, computed using elliptical apertures defined by the adaptive moments for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3739,7 +4208,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 225;
 
 	INSERT INTO md_Column
-	SET columnId = 441, tableId = 10, name = "uPetroRadSigma",
+	SET columnId = 490, tableId = 10, name = "uPetroRadSigma",
 		description = "Uncertainty of uPetroRad",
 		type = "FLOAT",
 		notNull = 0,
@@ -3747,7 +4216,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 226;
 
 	INSERT INTO md_Column
-	SET columnId = 442, tableId = 10, name = "gPetroRad",
+	SET columnId = 491, tableId = 10, name = "gPetroRad",
 		description = "Petrosian radius, computed using elliptical apertures defined by the adaptive moments for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3755,7 +4224,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 227;
 
 	INSERT INTO md_Column
-	SET columnId = 443, tableId = 10, name = "gPetroRadSigma",
+	SET columnId = 492, tableId = 10, name = "gPetroRadSigma",
 		description = "Uncertainty of gPetroRad",
 		type = "FLOAT",
 		notNull = 0,
@@ -3763,7 +4232,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 228;
 
 	INSERT INTO md_Column
-	SET columnId = 444, tableId = 10, name = "rPetroRad",
+	SET columnId = 493, tableId = 10, name = "rPetroRad",
 		description = "Petrosian radius, computed using elliptical apertures defined by the adaptive moments for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3771,7 +4240,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 229;
 
 	INSERT INTO md_Column
-	SET columnId = 445, tableId = 10, name = "rPetroRadSigma",
+	SET columnId = 494, tableId = 10, name = "rPetroRadSigma",
 		description = "Uncertainty of rPetroRad",
 		type = "FLOAT",
 		notNull = 0,
@@ -3779,7 +4248,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 230;
 
 	INSERT INTO md_Column
-	SET columnId = 446, tableId = 10, name = "iPetroRad",
+	SET columnId = 495, tableId = 10, name = "iPetroRad",
 		description = "Petrosian radius, computed using elliptical apertures defined by the adaptive moments for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3787,7 +4256,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 231;
 
 	INSERT INTO md_Column
-	SET columnId = 447, tableId = 10, name = "iPetroRadSigma",
+	SET columnId = 496, tableId = 10, name = "iPetroRadSigma",
 		description = "Uncertainty of iPetroRad",
 		type = "FLOAT",
 		notNull = 0,
@@ -3795,7 +4264,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 232;
 
 	INSERT INTO md_Column
-	SET columnId = 448, tableId = 10, name = "zPetroRad",
+	SET columnId = 497, tableId = 10, name = "zPetroRad",
 		description = "Petrosian radius, computed using elliptical apertures defined by the adaptive moments for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3803,7 +4272,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 233;
 
 	INSERT INTO md_Column
-	SET columnId = 449, tableId = 10, name = "zPetroRadSigma",
+	SET columnId = 498, tableId = 10, name = "zPetroRadSigma",
 		description = "Uncertainty of zPetroRad",
 		type = "FLOAT",
 		notNull = 0,
@@ -3811,7 +4280,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 234;
 
 	INSERT INTO md_Column
-	SET columnId = 450, tableId = 10, name = "yPetroRad",
+	SET columnId = 499, tableId = 10, name = "yPetroRad",
 		description = "Petrosian radius, computed using elliptical apertures defined by the adaptive moments for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3819,7 +4288,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 235;
 
 	INSERT INTO md_Column
-	SET columnId = 451, tableId = 10, name = "yPetroRadSigma",
+	SET columnId = 500, tableId = 10, name = "yPetroRadSigma",
 		description = "Uncertainty of yPetroRad",
 		type = "FLOAT",
 		notNull = 0,
@@ -3827,14 +4296,14 @@ SET tableId = 10, name = "Object",
 		displayOrder = 236;
 
 	INSERT INTO md_Column
-	SET columnId = 452, tableId = 10, name = "petroFilter",
+	SET columnId = 501, tableId = 10, name = "petroFilter",
 		description = "Name of the filter of the canonical petroRad.",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 237;
 
 	INSERT INTO md_Column
-	SET columnId = 453, tableId = 10, name = "uPetroFlux",
+	SET columnId = 502, tableId = 10, name = "uPetroFlux",
 		description = "Petrosian flux within a defined multiple of the canonical petroRad for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3842,7 +4311,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 238;
 
 	INSERT INTO md_Column
-	SET columnId = 454, tableId = 10, name = "uPetroFluxSigma",
+	SET columnId = 503, tableId = 10, name = "uPetroFluxSigma",
 		description = "Uncertainty of uPetroFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3850,7 +4319,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 239;
 
 	INSERT INTO md_Column
-	SET columnId = 455, tableId = 10, name = "gPetroFlux",
+	SET columnId = 504, tableId = 10, name = "gPetroFlux",
 		description = "Petrosian flux within a defined multiple of the canonical petroRad for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3858,7 +4327,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 240;
 
 	INSERT INTO md_Column
-	SET columnId = 456, tableId = 10, name = "gPetroFluxSigma",
+	SET columnId = 505, tableId = 10, name = "gPetroFluxSigma",
 		description = "Uncertainty of gPetroFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3866,7 +4335,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 241;
 
 	INSERT INTO md_Column
-	SET columnId = 457, tableId = 10, name = "rPetroFlux",
+	SET columnId = 506, tableId = 10, name = "rPetroFlux",
 		description = "Petrosian flux within a defined multiple of the canonical petroRad for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3874,7 +4343,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 242;
 
 	INSERT INTO md_Column
-	SET columnId = 458, tableId = 10, name = "rPetroFluxSigma",
+	SET columnId = 507, tableId = 10, name = "rPetroFluxSigma",
 		description = "Uncertainty of rPetroFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3882,7 +4351,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 243;
 
 	INSERT INTO md_Column
-	SET columnId = 459, tableId = 10, name = "iPetroFlux",
+	SET columnId = 508, tableId = 10, name = "iPetroFlux",
 		description = "Petrosian flux within a defined multiple of the canonical petroRad for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3890,7 +4359,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 244;
 
 	INSERT INTO md_Column
-	SET columnId = 460, tableId = 10, name = "iPetroFluxSigma",
+	SET columnId = 509, tableId = 10, name = "iPetroFluxSigma",
 		description = "Uncertainty of iPetroFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3898,7 +4367,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 245;
 
 	INSERT INTO md_Column
-	SET columnId = 461, tableId = 10, name = "zPetroFlux",
+	SET columnId = 510, tableId = 10, name = "zPetroFlux",
 		description = "Petrosian flux within a defined multiple of the canonical petroRad for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3906,7 +4375,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 246;
 
 	INSERT INTO md_Column
-	SET columnId = 462, tableId = 10, name = "zPetroFluxSigma",
+	SET columnId = 511, tableId = 10, name = "zPetroFluxSigma",
 		description = "Uncertainty of zPetroFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3914,7 +4383,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 247;
 
 	INSERT INTO md_Column
-	SET columnId = 463, tableId = 10, name = "yPetroFlux",
+	SET columnId = 512, tableId = 10, name = "yPetroFlux",
 		description = "Petrosian flux within a defined multiple of the canonical petroRad for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3922,7 +4391,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 248;
 
 	INSERT INTO md_Column
-	SET columnId = 464, tableId = 10, name = "yPetroFluxSigma",
+	SET columnId = 513, tableId = 10, name = "yPetroFluxSigma",
 		description = "Uncertainty of yPetroFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3930,7 +4399,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 249;
 
 	INSERT INTO md_Column
-	SET columnId = 465, tableId = 10, name = "uPetroRad50",
+	SET columnId = 514, tableId = 10, name = "uPetroRad50",
 		description = "Radius containing 50% of Petrosian flux for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3938,7 +4407,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 250;
 
 	INSERT INTO md_Column
-	SET columnId = 466, tableId = 10, name = "uPetroRad50Sigma",
+	SET columnId = 515, tableId = 10, name = "uPetroRad50Sigma",
 		description = "Uncertainty of uPetroRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3946,7 +4415,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 251;
 
 	INSERT INTO md_Column
-	SET columnId = 467, tableId = 10, name = "gPetroRad50",
+	SET columnId = 516, tableId = 10, name = "gPetroRad50",
 		description = "Radius containing 50% of Petrosian flux for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3954,7 +4423,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 252;
 
 	INSERT INTO md_Column
-	SET columnId = 468, tableId = 10, name = "gPetroRad50Sigma",
+	SET columnId = 517, tableId = 10, name = "gPetroRad50Sigma",
 		description = "Uncertainty of gPetroRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3962,7 +4431,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 253;
 
 	INSERT INTO md_Column
-	SET columnId = 469, tableId = 10, name = "rPetroRad50",
+	SET columnId = 518, tableId = 10, name = "rPetroRad50",
 		description = "Radius containing 50% of Petrosian flux for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3970,7 +4439,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 254;
 
 	INSERT INTO md_Column
-	SET columnId = 470, tableId = 10, name = "rPetroRad50Sigma",
+	SET columnId = 519, tableId = 10, name = "rPetroRad50Sigma",
 		description = "Uncertainty of rPetroRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3978,7 +4447,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 255;
 
 	INSERT INTO md_Column
-	SET columnId = 471, tableId = 10, name = "iPetroRad50",
+	SET columnId = 520, tableId = 10, name = "iPetroRad50",
 		description = "Radius containing 50% of Petrosian flux for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3986,7 +4455,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 256;
 
 	INSERT INTO md_Column
-	SET columnId = 472, tableId = 10, name = "iPetroRad50Sigma",
+	SET columnId = 521, tableId = 10, name = "iPetroRad50Sigma",
 		description = "Uncertainty of iPetroRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -3994,7 +4463,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 257;
 
 	INSERT INTO md_Column
-	SET columnId = 473, tableId = 10, name = "zPetroRad50",
+	SET columnId = 522, tableId = 10, name = "zPetroRad50",
 		description = "Radius containing 50% of Petrosian flux for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4002,7 +4471,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 258;
 
 	INSERT INTO md_Column
-	SET columnId = 474, tableId = 10, name = "zPetroRad50Sigma",
+	SET columnId = 523, tableId = 10, name = "zPetroRad50Sigma",
 		description = "Uncertainty of zPetroRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4010,7 +4479,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 259;
 
 	INSERT INTO md_Column
-	SET columnId = 475, tableId = 10, name = "yPetroRad50",
+	SET columnId = 524, tableId = 10, name = "yPetroRad50",
 		description = "Radius containing 50% of Petrosian flux for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4018,7 +4487,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 260;
 
 	INSERT INTO md_Column
-	SET columnId = 476, tableId = 10, name = "yPetroRad50Sigma",
+	SET columnId = 525, tableId = 10, name = "yPetroRad50Sigma",
 		description = "Uncertainty of yPetroRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4026,7 +4495,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 261;
 
 	INSERT INTO md_Column
-	SET columnId = 477, tableId = 10, name = "uPetroRad90",
+	SET columnId = 526, tableId = 10, name = "uPetroRad90",
 		description = "Radius containing 90% of Petrosian flux for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4034,7 +4503,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 262;
 
 	INSERT INTO md_Column
-	SET columnId = 478, tableId = 10, name = "uPetroRad90Sigma",
+	SET columnId = 527, tableId = 10, name = "uPetroRad90Sigma",
 		description = "Uncertainty of uPetroRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4042,7 +4511,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 263;
 
 	INSERT INTO md_Column
-	SET columnId = 479, tableId = 10, name = "gPetroRad90",
+	SET columnId = 528, tableId = 10, name = "gPetroRad90",
 		description = "Radius containing 90% of Petrosian flux for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4050,7 +4519,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 264;
 
 	INSERT INTO md_Column
-	SET columnId = 480, tableId = 10, name = "gPetroRad90Sigma",
+	SET columnId = 529, tableId = 10, name = "gPetroRad90Sigma",
 		description = "Uncertainty of gPetroRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4058,7 +4527,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 265;
 
 	INSERT INTO md_Column
-	SET columnId = 481, tableId = 10, name = "rPetroRad90",
+	SET columnId = 530, tableId = 10, name = "rPetroRad90",
 		description = "Radius containing 90% of Petrosian flux for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4066,7 +4535,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 266;
 
 	INSERT INTO md_Column
-	SET columnId = 482, tableId = 10, name = "rPetroRad90Sigma",
+	SET columnId = 531, tableId = 10, name = "rPetroRad90Sigma",
 		description = "Uncertainty of rPetroRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4074,7 +4543,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 267;
 
 	INSERT INTO md_Column
-	SET columnId = 483, tableId = 10, name = "iPetroRad90",
+	SET columnId = 532, tableId = 10, name = "iPetroRad90",
 		description = "Radius containing 90% of Petrosian flux for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4082,7 +4551,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 268;
 
 	INSERT INTO md_Column
-	SET columnId = 484, tableId = 10, name = "iPetroRad90Sigma",
+	SET columnId = 533, tableId = 10, name = "iPetroRad90Sigma",
 		description = "Uncertainty of iPetroRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4090,7 +4559,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 269;
 
 	INSERT INTO md_Column
-	SET columnId = 485, tableId = 10, name = "zPetroRad90",
+	SET columnId = 534, tableId = 10, name = "zPetroRad90",
 		description = "Radius containing 90% of Petrosian flux for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4098,7 +4567,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 270;
 
 	INSERT INTO md_Column
-	SET columnId = 486, tableId = 10, name = "zPetroRad90Sigma",
+	SET columnId = 535, tableId = 10, name = "zPetroRad90Sigma",
 		description = "Uncertainty of zPetroRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4106,7 +4575,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 271;
 
 	INSERT INTO md_Column
-	SET columnId = 487, tableId = 10, name = "yPetroRad90",
+	SET columnId = 536, tableId = 10, name = "yPetroRad90",
 		description = "Radius containing 90% of Petrosian flux for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4114,7 +4583,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 272;
 
 	INSERT INTO md_Column
-	SET columnId = 488, tableId = 10, name = "yPetroRad90Sigma",
+	SET columnId = 537, tableId = 10, name = "yPetroRad90Sigma",
 		description = "Uncertainty of yPetroRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4122,7 +4591,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 273;
 
 	INSERT INTO md_Column
-	SET columnId = 489, tableId = 10, name = "uKronRad",
+	SET columnId = 538, tableId = 10, name = "uKronRad",
 		description = "Kron radius (computed using elliptical apertures defined by the adaptive moments) for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4130,7 +4599,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 274;
 
 	INSERT INTO md_Column
-	SET columnId = 490, tableId = 10, name = "uKronRadSigma",
+	SET columnId = 539, tableId = 10, name = "uKronRadSigma",
 		description = "Uncertainty of uKronRad.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4138,7 +4607,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 275;
 
 	INSERT INTO md_Column
-	SET columnId = 491, tableId = 10, name = "gKronRad",
+	SET columnId = 540, tableId = 10, name = "gKronRad",
 		description = "Kron radius (computed using elliptical apertures defined by the adaptive moments) for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4146,7 +4615,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 276;
 
 	INSERT INTO md_Column
-	SET columnId = 492, tableId = 10, name = "gKronRadSigma",
+	SET columnId = 541, tableId = 10, name = "gKronRadSigma",
 		description = "Uncertainty of gKronRad.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4154,7 +4623,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 277;
 
 	INSERT INTO md_Column
-	SET columnId = 493, tableId = 10, name = "rKronRad",
+	SET columnId = 542, tableId = 10, name = "rKronRad",
 		description = "Kron radius (computed using elliptical apertures defined by the adaptive moments) for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4162,7 +4631,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 278;
 
 	INSERT INTO md_Column
-	SET columnId = 494, tableId = 10, name = "rKronRadSigma",
+	SET columnId = 543, tableId = 10, name = "rKronRadSigma",
 		description = "Uncertainty of rKronRad.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4170,7 +4639,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 279;
 
 	INSERT INTO md_Column
-	SET columnId = 495, tableId = 10, name = "iKronRad",
+	SET columnId = 544, tableId = 10, name = "iKronRad",
 		description = "Kron radius (computed using elliptical apertures defined by the adaptive moments) for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4178,7 +4647,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 280;
 
 	INSERT INTO md_Column
-	SET columnId = 496, tableId = 10, name = "iKronRadSigma",
+	SET columnId = 545, tableId = 10, name = "iKronRadSigma",
 		description = "Uncertainty of iKronRad.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4186,7 +4655,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 281;
 
 	INSERT INTO md_Column
-	SET columnId = 497, tableId = 10, name = "zKronRad",
+	SET columnId = 546, tableId = 10, name = "zKronRad",
 		description = "Kron radius (computed using elliptical apertures defined by the adaptive moments) for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4194,7 +4663,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 282;
 
 	INSERT INTO md_Column
-	SET columnId = 498, tableId = 10, name = "zKronRadSigma",
+	SET columnId = 547, tableId = 10, name = "zKronRadSigma",
 		description = "Uncertainty of zKronRad.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4202,7 +4671,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 283;
 
 	INSERT INTO md_Column
-	SET columnId = 499, tableId = 10, name = "yKronRad",
+	SET columnId = 548, tableId = 10, name = "yKronRad",
 		description = "Kron radius (computed using elliptical apertures defined by the adaptive moments) for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4210,7 +4679,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 284;
 
 	INSERT INTO md_Column
-	SET columnId = 500, tableId = 10, name = "yKronRadSigma",
+	SET columnId = 549, tableId = 10, name = "yKronRadSigma",
 		description = "Uncertainty of yKronRad.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4218,14 +4687,14 @@ SET tableId = 10, name = "Object",
 		displayOrder = 285;
 
 	INSERT INTO md_Column
-	SET columnId = 501, tableId = 10, name = "kronFilter",
+	SET columnId = 550, tableId = 10, name = "kronFilter",
 		description = "The filter of the canonical kronRad.",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 286;
 
 	INSERT INTO md_Column
-	SET columnId = 502, tableId = 10, name = "uKronFlux",
+	SET columnId = 551, tableId = 10, name = "uKronFlux",
 		description = "Kron flux within a defined multiple of the canonical kronRad for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4233,7 +4702,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 287;
 
 	INSERT INTO md_Column
-	SET columnId = 503, tableId = 10, name = "uKronFluxSigma",
+	SET columnId = 552, tableId = 10, name = "uKronFluxSigma",
 		description = "Uncertainty of uKronFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4241,7 +4710,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 288;
 
 	INSERT INTO md_Column
-	SET columnId = 504, tableId = 10, name = "gKronFlux",
+	SET columnId = 553, tableId = 10, name = "gKronFlux",
 		description = "Kron flux within a defined multiple of the canonical kronRad for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4249,7 +4718,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 289;
 
 	INSERT INTO md_Column
-	SET columnId = 505, tableId = 10, name = "gKronFluxSigma",
+	SET columnId = 554, tableId = 10, name = "gKronFluxSigma",
 		description = "Uncertainty of gKronFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4257,7 +4726,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 290;
 
 	INSERT INTO md_Column
-	SET columnId = 506, tableId = 10, name = "rKronFlux",
+	SET columnId = 555, tableId = 10, name = "rKronFlux",
 		description = "Kron flux within a defined multiple of the canonical kronRad for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4265,7 +4734,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 291;
 
 	INSERT INTO md_Column
-	SET columnId = 507, tableId = 10, name = "rKronFluxSigma",
+	SET columnId = 556, tableId = 10, name = "rKronFluxSigma",
 		description = "Uncertainty of rKronFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4273,7 +4742,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 292;
 
 	INSERT INTO md_Column
-	SET columnId = 508, tableId = 10, name = "iKronFlux",
+	SET columnId = 557, tableId = 10, name = "iKronFlux",
 		description = "Kron flux within a defined multiple of the canonical kronRad for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4281,7 +4750,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 293;
 
 	INSERT INTO md_Column
-	SET columnId = 509, tableId = 10, name = "iKronFluxSigma",
+	SET columnId = 558, tableId = 10, name = "iKronFluxSigma",
 		description = "Uncertainty of iKronFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4289,7 +4758,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 294;
 
 	INSERT INTO md_Column
-	SET columnId = 510, tableId = 10, name = "zKronFlux",
+	SET columnId = 559, tableId = 10, name = "zKronFlux",
 		description = "Kron flux within a defined multiple of the canonical kronRad for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4297,7 +4766,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 295;
 
 	INSERT INTO md_Column
-	SET columnId = 511, tableId = 10, name = "zKronFluxSigma",
+	SET columnId = 560, tableId = 10, name = "zKronFluxSigma",
 		description = "Uncertainty of zKronFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4305,7 +4774,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 296;
 
 	INSERT INTO md_Column
-	SET columnId = 512, tableId = 10, name = "yKronFlux",
+	SET columnId = 561, tableId = 10, name = "yKronFlux",
 		description = "Kron flux within a defined multiple of the canonical kronRad for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4313,7 +4782,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 297;
 
 	INSERT INTO md_Column
-	SET columnId = 513, tableId = 10, name = "yKronFluxSigma",
+	SET columnId = 562, tableId = 10, name = "yKronFluxSigma",
 		description = "Uncertainty of yKronFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4321,7 +4790,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 298;
 
 	INSERT INTO md_Column
-	SET columnId = 514, tableId = 10, name = "uKronRad50",
+	SET columnId = 563, tableId = 10, name = "uKronRad50",
 		description = "Radius containing 50% of Kron flux for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4329,7 +4798,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 299;
 
 	INSERT INTO md_Column
-	SET columnId = 515, tableId = 10, name = "uKronRad50Sigma",
+	SET columnId = 564, tableId = 10, name = "uKronRad50Sigma",
 		description = "Uncertainty of uKronRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4337,7 +4806,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 300;
 
 	INSERT INTO md_Column
-	SET columnId = 516, tableId = 10, name = "gKronRad50",
+	SET columnId = 565, tableId = 10, name = "gKronRad50",
 		description = "Radius containing 50% of Kron flux for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4345,7 +4814,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 301;
 
 	INSERT INTO md_Column
-	SET columnId = 517, tableId = 10, name = "gKronRad50Sigma",
+	SET columnId = 566, tableId = 10, name = "gKronRad50Sigma",
 		description = "Uncertainty of gKronRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4353,7 +4822,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 302;
 
 	INSERT INTO md_Column
-	SET columnId = 518, tableId = 10, name = "rKronRad50",
+	SET columnId = 567, tableId = 10, name = "rKronRad50",
 		description = "Radius containing 50% of Kron flux for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4361,7 +4830,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 303;
 
 	INSERT INTO md_Column
-	SET columnId = 519, tableId = 10, name = "rKronRad50Sigma",
+	SET columnId = 568, tableId = 10, name = "rKronRad50Sigma",
 		description = "Uncertainty of rKronRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4369,7 +4838,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 304;
 
 	INSERT INTO md_Column
-	SET columnId = 520, tableId = 10, name = "iKronRad50",
+	SET columnId = 569, tableId = 10, name = "iKronRad50",
 		description = "Radius containing 50% of Kron flux for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4377,7 +4846,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 305;
 
 	INSERT INTO md_Column
-	SET columnId = 521, tableId = 10, name = "iKronRad50Sigma",
+	SET columnId = 570, tableId = 10, name = "iKronRad50Sigma",
 		description = "Uncertainty of iKronRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4385,7 +4854,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 306;
 
 	INSERT INTO md_Column
-	SET columnId = 522, tableId = 10, name = "zKronRad50",
+	SET columnId = 571, tableId = 10, name = "zKronRad50",
 		description = "Radius containing 50% of Kron flux for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4393,7 +4862,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 307;
 
 	INSERT INTO md_Column
-	SET columnId = 523, tableId = 10, name = "zKronRad50Sigma",
+	SET columnId = 572, tableId = 10, name = "zKronRad50Sigma",
 		description = "Uncertainty of zKronRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4401,7 +4870,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 308;
 
 	INSERT INTO md_Column
-	SET columnId = 524, tableId = 10, name = "yKronRad50",
+	SET columnId = 573, tableId = 10, name = "yKronRad50",
 		description = "Radius containing 50% of Kron flux for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4409,7 +4878,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 309;
 
 	INSERT INTO md_Column
-	SET columnId = 525, tableId = 10, name = "yKronRad50Sigma",
+	SET columnId = 574, tableId = 10, name = "yKronRad50Sigma",
 		description = "Uncertainty of yKronRad50.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4417,7 +4886,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 310;
 
 	INSERT INTO md_Column
-	SET columnId = 526, tableId = 10, name = "uKronRad90",
+	SET columnId = 575, tableId = 10, name = "uKronRad90",
 		description = "Radius containing 90% of Kron flux for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4425,7 +4894,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 311;
 
 	INSERT INTO md_Column
-	SET columnId = 527, tableId = 10, name = "uKronRad90Sigma",
+	SET columnId = 576, tableId = 10, name = "uKronRad90Sigma",
 		description = "Uncertainty of uKronRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4433,7 +4902,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 312;
 
 	INSERT INTO md_Column
-	SET columnId = 528, tableId = 10, name = "gKronRad90",
+	SET columnId = 577, tableId = 10, name = "gKronRad90",
 		description = "Radius containing 90% of Kron flux for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4441,7 +4910,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 313;
 
 	INSERT INTO md_Column
-	SET columnId = 529, tableId = 10, name = "gKronRad90Sigma",
+	SET columnId = 578, tableId = 10, name = "gKronRad90Sigma",
 		description = "Uncertainty of gKronRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4449,7 +4918,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 314;
 
 	INSERT INTO md_Column
-	SET columnId = 530, tableId = 10, name = "rKronRad90",
+	SET columnId = 579, tableId = 10, name = "rKronRad90",
 		description = "Radius containing 90% of Kron flux for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4457,7 +4926,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 315;
 
 	INSERT INTO md_Column
-	SET columnId = 531, tableId = 10, name = "rKronRad90Sigma",
+	SET columnId = 580, tableId = 10, name = "rKronRad90Sigma",
 		description = "Uncertainty of rKronRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4465,7 +4934,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 316;
 
 	INSERT INTO md_Column
-	SET columnId = 532, tableId = 10, name = "iKronRad90",
+	SET columnId = 581, tableId = 10, name = "iKronRad90",
 		description = "Radius containing 90% of Kron flux for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4473,7 +4942,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 317;
 
 	INSERT INTO md_Column
-	SET columnId = 533, tableId = 10, name = "iKronRad90Sigma",
+	SET columnId = 582, tableId = 10, name = "iKronRad90Sigma",
 		description = "Uncertainty of iKronRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4481,7 +4950,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 318;
 
 	INSERT INTO md_Column
-	SET columnId = 534, tableId = 10, name = "zKronRad90",
+	SET columnId = 583, tableId = 10, name = "zKronRad90",
 		description = "Radius containing 90% of Kron flux for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4489,7 +4958,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 319;
 
 	INSERT INTO md_Column
-	SET columnId = 535, tableId = 10, name = "zKronRad90Sigma",
+	SET columnId = 584, tableId = 10, name = "zKronRad90Sigma",
 		description = "Uncertainty of zKronRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4497,7 +4966,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 320;
 
 	INSERT INTO md_Column
-	SET columnId = 536, tableId = 10, name = "yKronRad90",
+	SET columnId = 585, tableId = 10, name = "yKronRad90",
 		description = "Radius containing 90% of Kron flux for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4505,7 +4974,7 @@ SET tableId = 10, name = "Object",
 		displayOrder = 321;
 
 	INSERT INTO md_Column
-	SET columnId = 537, tableId = 10, name = "yKronRad90Sigma",
+	SET columnId = 586, tableId = 10, name = "yKronRad90Sigma",
 		description = "Uncertainty of yKronRad90.",
 		type = "FLOAT",
 		notNull = 0,
@@ -4513,63 +4982,63 @@ SET tableId = 10, name = "Object",
 		displayOrder = 322;
 
 	INSERT INTO md_Column
-	SET columnId = 538, tableId = 10, name = "uApN",
+	SET columnId = 587, tableId = 10, name = "uApN",
 		description = "Number of elliptical annuli (see below) for u filter.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 323;
 
 	INSERT INTO md_Column
-	SET columnId = 539, tableId = 10, name = "gApN",
+	SET columnId = 588, tableId = 10, name = "gApN",
 		description = "Number of elliptical annuli (see below) for g filter.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 324;
 
 	INSERT INTO md_Column
-	SET columnId = 540, tableId = 10, name = "rApN",
+	SET columnId = 589, tableId = 10, name = "rApN",
 		description = "Number of elliptical annuli (see below) for r filter.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 325;
 
 	INSERT INTO md_Column
-	SET columnId = 541, tableId = 10, name = "iApN",
+	SET columnId = 590, tableId = 10, name = "iApN",
 		description = "Number of elliptical annuli (see below) for i filter.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 326;
 
 	INSERT INTO md_Column
-	SET columnId = 542, tableId = 10, name = "zApN",
+	SET columnId = 591, tableId = 10, name = "zApN",
 		description = "Number of elliptical annuli (see below) for z filter.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 327;
 
 	INSERT INTO md_Column
-	SET columnId = 543, tableId = 10, name = "yApN",
+	SET columnId = 592, tableId = 10, name = "yApN",
 		description = "Number of elliptical annuli (see below) for y filter.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 328;
 
 	INSERT INTO md_Column
-	SET columnId = 544, tableId = 10, name = "extendedness",
+	SET columnId = 593, tableId = 10, name = "extendedness",
 		description = "A measure of extendedness, computed using a combination of available moments and model fluxes or from a likelihood ratio of point/trailed source models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence that the source is extended. extendedness = 0 implies a high degree of confidence that the source is point-like.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 329;
 
 	INSERT INTO md_Column
-	SET columnId = 545, tableId = 10, name = "FLAGS1",
+	SET columnId = 594, tableId = 10, name = "FLAGS1",
 		description = "Flags, tbd.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 330;
 
 	INSERT INTO md_Column
-	SET columnId = 546, tableId = 10, name = "FLAGS2",
+	SET columnId = 595, tableId = 10, name = "FLAGS2",
 		description = "Flags, tbd.",
 		type = "BIGINT",
 		notNull = 1,
@@ -4593,7 +5062,7 @@ SET tableId = 11, name = "Object_APMean",
 	description = "Aperture mean (per bin) for the Object table. We expect ~8 bins on average per object.";
 
 	INSERT INTO md_Column
-	SET columnId = 547, tableId = 11, name = "objectId",
+	SET columnId = 596, tableId = 11, name = "objectId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -4601,21 +5070,21 @@ SET tableId = 11, name = "Object_APMean",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 548, tableId = 11, name = "filterName",
+	SET columnId = 597, tableId = 11, name = "filterName",
 		description = "Name of the filter.",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 549, tableId = 11, name = "binN",
+	SET columnId = 598, tableId = 11, name = "binN",
 		description = "A bin in radius at which the aperture measurement is being performed.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 550, tableId = 11, name = "sbMean",
+	SET columnId = 599, tableId = 11, name = "sbMean",
 		description = "Mean surface brightness at which the aperture measurement is being performed.",
 		type = "FLOAT",
 		notNull = 1,
@@ -4623,7 +5092,7 @@ SET tableId = 11, name = "Object_APMean",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 551, tableId = 11, name = "sbSigma",
+	SET columnId = 600, tableId = 11, name = "sbSigma",
 		description = "Standard deviation of pixel surface brightness in annulus.",
 		type = "FLOAT",
 		notNull = 1,
@@ -4642,7 +5111,7 @@ SET tableId = 12, name = "Object_Extra",
 	description = "Less frequently used information from The Object table.";
 
 	INSERT INTO md_Column
-	SET columnId = 552, tableId = 12, name = "objectId",
+	SET columnId = 601, tableId = 12, name = "objectId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -4650,28 +5119,28 @@ SET tableId = 12, name = "Object_Extra",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 553, tableId = 12, name = "psCov",
+	SET columnId = 602, tableId = 12, name = "psCov",
 		description = "Various covariances for Point Source model. 66 TINYINTs.",
 		type = "BLOB",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 554, tableId = 12, name = "bdCov",
+	SET columnId = 603, tableId = 12, name = "bdCov",
 		description = "Covariance matrix for the Bulge+Disk model. 168 TINYINTs. [((8x9/2)-8)*6].",
 		type = "BLOB",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 555, tableId = 12, name = "bdSamples",
+	SET columnId = 604, tableId = 12, name = "bdSamples",
 		description = "Independent samples of Bulge+Disk likelihood surface. All sampled quantities will be stored with at lease ~3 significant digits of precision. The number of samples will vary from object to object, depending on how well the object’s likelihood function is approximated by a Gaussian. We are assuming on average [9x200x4 FLOAT16].",
 		type = "BLOB",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 556, tableId = 12, name = "photoZ",
+	SET columnId = 605, tableId = 12, name = "photoZ",
 		description = "Photometric redshift likelihood samples (pairs of {z, logL}) computed using a to-be-determined published and widely accepted algorithm at the time of LSST Commissioning. [2x100 FLOAT].",
 		type = "BLOB",
 		notNull = 1,
@@ -4690,7 +5159,7 @@ SET tableId = 13, name = "Object_NonPeriodic",
 	description = "Definition of non-periodic features for Object table. We expect about 20 per object.";
 
 	INSERT INTO md_Column
-	SET columnId = 557, tableId = 13, name = "objectId",
+	SET columnId = 606, tableId = 13, name = "objectId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -4698,21 +5167,21 @@ SET tableId = 13, name = "Object_NonPeriodic",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 558, tableId = 13, name = "filterName",
+	SET columnId = 607, tableId = 13, name = "filterName",
 		description = "Name of the filter.",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 559, tableId = 13, name = "theFeature",
+	SET columnId = 608, tableId = 13, name = "theFeature",
 		description = "Feature/metric identifier.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 560, tableId = 13, name = "theValue",
+	SET columnId = 609, tableId = 13, name = "theValue",
 		description = "Feature/metric value.",
 		type = "FLOAT",
 		notNull = 1,
@@ -4731,7 +5200,7 @@ SET tableId = 14, name = "Object_Periodic",
 	description = "Definition of periodic features for Object table. We expect about 32 per object.";
 
 	INSERT INTO md_Column
-	SET columnId = 561, tableId = 14, name = "objectId",
+	SET columnId = 610, tableId = 14, name = "objectId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -4739,21 +5208,21 @@ SET tableId = 14, name = "Object_Periodic",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 562, tableId = 14, name = "filterName",
+	SET columnId = 611, tableId = 14, name = "filterName",
 		description = "Name of the filter.",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 563, tableId = 14, name = "theFeature",
+	SET columnId = 612, tableId = 14, name = "theFeature",
 		description = "Feature/metric identifier.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 564, tableId = 14, name = "theValue",
+	SET columnId = 613, tableId = 14, name = "theValue",
 		description = "Feature/metric value.",
 		type = "FLOAT",
 		notNull = 1,
@@ -4772,7 +5241,7 @@ SET tableId = 15, name = "RawAmpExposure",
 	description = "Exposure for one amplifier (raw image).";
 
 	INSERT INTO md_Column
-	SET columnId = 565, tableId = 15, name = "rawAmpExposureId",
+	SET columnId = 614, tableId = 15, name = "rawAmpExposureId",
 		description = "Primary key (unique identifier).",
 		type = "BIGINT",
 		notNull = 1,
@@ -4780,7 +5249,7 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 566, tableId = 15, name = "rawCcdExposureId",
+	SET columnId = 615, tableId = 15, name = "rawCcdExposureId",
 		description = "Pointer to RawCcdExposure containing this amp exposure.",
 		type = "BIGINT",
 		notNull = 1,
@@ -4788,7 +5257,7 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 567, tableId = 15, name = "ampName",
+	SET columnId = 616, tableId = 15, name = "ampName",
 		description = "Amplifier name.",
 		type = "CHAR(3)",
 		notNull = 1,
@@ -4796,7 +5265,7 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 568, tableId = 15, name = "ccdName",
+	SET columnId = 617, tableId = 15, name = "ccdName",
 		description = "Ccd name.",
 		type = "CHAR(3)",
 		notNull = 1,
@@ -4804,7 +5273,7 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 569, tableId = 15, name = "raftName",
+	SET columnId = 618, tableId = 15, name = "raftName",
 		description = "Raft name.",
 		type = "CHAR(3)",
 		notNull = 1,
@@ -4812,7 +5281,7 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 570, tableId = 15, name = "filterName",
+	SET columnId = 619, tableId = 15, name = "filterName",
 		description = "Filter name.",
 		type = "CHAR(1)",
 		notNull = 1,
@@ -4820,7 +5289,7 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 571, tableId = 15, name = "ra",
+	SET columnId = 620, tableId = 15, name = "ra",
 		description = "Ra of amp center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -4829,7 +5298,7 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 572, tableId = 15, name = "decl",
+	SET columnId = 621, tableId = 15, name = "decl",
 		description = "Decl of amp center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -4838,63 +5307,63 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 573, tableId = 15, name = "bias",
-		description = "Bias as measured from overscan columns.",
-		type = "FLOAT",
+	SET columnId = 622, tableId = 15, name = "skyRotation",
+		description = "Sky rotation angle.",
+		type = "DOUBLE",
 		notNull = 1,
-		unit = "DN",
+		unit = "deg",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 574, tableId = 15, name = "biasNom",
-		description = "Preset bias.",
+	SET columnId = 623, tableId = 15, name = "bias",
+		description = "Bias as measured from overscan columns.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "DN",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 575, tableId = 15, name = "gain",
+	SET columnId = 624, tableId = 15, name = "biasNom",
+		description = "Preset bias.",
+		type = "FLOAT",
+		notNull = 1,
+		unit = "DN",
+		displayOrder = 11;
+
+	INSERT INTO md_Column
+	SET columnId = 625, tableId = 15, name = "gain",
 		description = "Measured gain value.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "electrons/DN",
-		displayOrder = 11;
-
-	INSERT INTO md_Column
-	SET columnId = 576, tableId = 15, name = "gainNom",
-		description = "Preset gain.",
-		type = "FLOAT",
-		notNull = 1,
-		unit = "DN",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 577, tableId = 15, name = "rdNoise",
-		description = "Read noise for detector/amplifier.",
+	SET columnId = 626, tableId = 15, name = "gainNom",
+		description = "Preset gain.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "DN",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 578, tableId = 15, name = "saturation",
-		description = "Maximum data value for A/D converter.",
-		type = "INTEGER",
+	SET columnId = 627, tableId = 15, name = "rdNoise",
+		description = "Read noise for detector/amplifier.",
+		type = "FLOAT",
 		notNull = 1,
 		unit = "DN",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 579, tableId = 15, name = "llcx",
-		description = "FITS pixel coordinates (0.5, 0.5).",
+	SET columnId = 628, tableId = 15, name = "saturation",
+		description = "Maximum data value for A/D converter.",
 		type = "INTEGER",
 		notNull = 1,
-		unit = "pixels",
+		unit = "DN",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 580, tableId = 15, name = "llcy",
+	SET columnId = 629, tableId = 15, name = "llcx",
 		description = "FITS pixel coordinates (0.5, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
@@ -4902,15 +5371,15 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 581, tableId = 15, name = "ulcx",
-		description = "FITS pixel coordinates (0.5, 0.5+NAXIS2).",
+	SET columnId = 630, tableId = 15, name = "llcy",
+		description = "FITS pixel coordinates (0.5, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 582, tableId = 15, name = "ulcy",
+	SET columnId = 631, tableId = 15, name = "ulcx",
 		description = "FITS pixel coordinates (0.5, 0.5+NAXIS2).",
 		type = "INTEGER",
 		notNull = 1,
@@ -4918,15 +5387,15 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 583, tableId = 15, name = "urcx",
-		description = "FITS pixel coordinates (0.5+NAXIS1, 0.5+NAXIS2).",
+	SET columnId = 632, tableId = 15, name = "ulcy",
+		description = "FITS pixel coordinates (0.5, 0.5+NAXIS2).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 584, tableId = 15, name = "urcy",
+	SET columnId = 633, tableId = 15, name = "urcx",
 		description = "FITS pixel coordinates (0.5+NAXIS1, 0.5+NAXIS2).",
 		type = "INTEGER",
 		notNull = 1,
@@ -4934,15 +5403,15 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 585, tableId = 15, name = "lrcx",
-		description = "FITS pixel coordinates (0.5+NAXIS1, 0.5).",
+	SET columnId = 634, tableId = 15, name = "urcy",
+		description = "FITS pixel coordinates (0.5+NAXIS1, 0.5+NAXIS2).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 586, tableId = 15, name = "lrcy",
+	SET columnId = 635, tableId = 15, name = "lrcx",
 		description = "FITS pixel coordinates (0.5+NAXIS1, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
@@ -4950,48 +5419,47 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 587, tableId = 15, name = "xSize",
-		description = "Number of columns in the image.",
+	SET columnId = 636, tableId = 15, name = "lrcy",
+		description = "FITS pixel coordinates (0.5+NAXIS1, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
+		unit = "pixels",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 588, tableId = 15, name = "ySize",
-		description = "Number of rows in the image.",
+	SET columnId = 637, tableId = 15, name = "xSize",
+		description = "Number of columns in the image.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 589, tableId = 15, name = "obsStart",
+	SET columnId = 638, tableId = 15, name = "ySize",
+		description = "Number of rows in the image.",
+		type = "INTEGER",
+		notNull = 1,
+		displayOrder = 25;
+
+	INSERT INTO md_Column
+	SET columnId = 639, tableId = 15, name = "obsStart",
 		description = "Start of the exposure, TAI, accurate to 10ms.",
 		type = "TIMESTAMP",
 		notNull = 1,
 		defaultValue = "CURRENT_TIMESTAMP",
 		ucd = "time.start",
-		displayOrder = 25;
+		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 590, tableId = 15, name = "expMidpt",
+	SET columnId = 640, tableId = 15, name = "expMidpt",
 		description = "Midpoint for exposure. TAI, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
 		ucd = "time.epoch",
-		displayOrder = 26;
-
-	INSERT INTO md_Column
-	SET columnId = 591, tableId = 15, name = "expTime",
-		description = "Duration of exposure, accurate to 10ms.",
-		type = "DOUBLE",
-		notNull = 1,
-		unit = "s",
-		ucd = "time.duration",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 592, tableId = 15, name = "darkTime",
-		description = "Dark current accumulation time, accurate to 10ms.",
+	SET columnId = 641, tableId = 15, name = "expTime",
+		description = "Duration of exposure, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "s",
@@ -4999,12 +5467,21 @@ SET tableId = 15, name = "RawAmpExposure",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 593, tableId = 15, name = "flags",
+	SET columnId = 642, tableId = 15, name = "darkTime",
+		description = "Dark current accumulation time, accurate to 10ms.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "s",
+		ucd = "time.duration",
+		displayOrder = 29;
+
+	INSERT INTO md_Column
+	SET columnId = 643, tableId = 15, name = "flags",
 		type = "INTEGER",
 		notNull = 1,
 		defaultValue = "0",
 		ucd = "meta.code",
-		displayOrder = 29;
+		displayOrder = 30;
 
 	INSERT INTO md_Index
 	SET indexId = 25, tableId = 15,
@@ -5019,7 +5496,7 @@ SET tableId = 16, name = "RawAmpExposureMetadata",
 	description = "Generic key-value pair metadata for RawAmpExposure.";
 
 	INSERT INTO md_Column
-	SET columnId = 594, tableId = 16, name = "rawAmpExposureId",
+	SET columnId = 644, tableId = 16, name = "rawAmpExposureId",
 		description = "Id of the corresponding RawAmpExposure.",
 		type = "BIGINT",
 		notNull = 1,
@@ -5027,25 +5504,25 @@ SET tableId = 16, name = "RawAmpExposureMetadata",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 595, tableId = 16, name = "metadataKey",
+	SET columnId = 645, tableId = 16, name = "metadataKey",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 596, tableId = 16, name = "intValue",
+	SET columnId = 646, tableId = 16, name = "intValue",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 597, tableId = 16, name = "doubleValue",
+	SET columnId = 647, tableId = 16, name = "doubleValue",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 598, tableId = 16, name = "stringValue",
+	SET columnId = 648, tableId = 16, name = "stringValue",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 5;
@@ -5067,7 +5544,7 @@ SET tableId = 17, name = "RawCcdExposure",
 	engine = "MyISAM";
 
 	INSERT INTO md_Column
-	SET columnId = 599, tableId = 17, name = "rawCcdExposureId",
+	SET columnId = 649, tableId = 17, name = "rawCcdExposureId",
 		description = "Primary key (unique identifier).",
 		type = "BIGINT",
 		notNull = 1,
@@ -5075,7 +5552,7 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 600, tableId = 17, name = "rawExposureId",
+	SET columnId = 650, tableId = 17, name = "rawExposureId",
 		description = "Point to the RawExposure containing this ccd exposure.",
 		type = "BIGINT",
 		notNull = 1,
@@ -5083,7 +5560,7 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 601, tableId = 17, name = "ccdName",
+	SET columnId = 651, tableId = 17, name = "ccdName",
 		description = "Ccd name.",
 		type = "CHAR(3)",
 		notNull = 1,
@@ -5091,7 +5568,7 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 602, tableId = 17, name = "raftName",
+	SET columnId = 652, tableId = 17, name = "raftName",
 		description = "Raft name.",
 		type = "CHAR(3)",
 		notNull = 1,
@@ -5099,7 +5576,7 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 603, tableId = 17, name = "filterName",
+	SET columnId = 653, tableId = 17, name = "filterName",
 		description = "Filter name.",
 		type = "CHAR(1)",
 		notNull = 1,
@@ -5107,7 +5584,7 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 604, tableId = 17, name = "ra",
+	SET columnId = 654, tableId = 17, name = "ra",
 		description = "RA of field of view center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5116,7 +5593,7 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 605, tableId = 17, name = "decl",
+	SET columnId = 655, tableId = 17, name = "decl",
 		description = "Declination of field of view center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5125,31 +5602,31 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 606, tableId = 17, name = "zenithDistance",
+	SET columnId = 656, tableId = 17, name = "skyRotation",
+		description = "Sky rotation angle.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "deg",
+		displayOrder = 8;
+
+	INSERT INTO md_Column
+	SET columnId = 657, tableId = 17, name = "zenithDistance",
 		description = "Zenith distance at observation mid-point.",
 		type = "FLOAT",
 		notNull = 1,
 		unit = "deg",
 		ucd = "pos.az.zd",
-		displayOrder = 8;
-
-	INSERT INTO md_Column
-	SET columnId = 607, tableId = 17, name = "airmass",
-		description = "Airmass at the observed line of sight.",
-		type = "FLOAT",
-		notNull = 1,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 608, tableId = 17, name = "llcx",
-		description = "FITS pixel coordinates (0.5, 0.5).",
-		type = "INTEGER",
+	SET columnId = 658, tableId = 17, name = "airmass",
+		description = "Airmass at the observed line of sight.",
+		type = "FLOAT",
 		notNull = 1,
-		unit = "pixels",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 609, tableId = 17, name = "llcy",
+	SET columnId = 659, tableId = 17, name = "llcx",
 		description = "FITS pixel coordinates (0.5, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
@@ -5157,15 +5634,15 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 610, tableId = 17, name = "ulcx",
-		description = "FITS pixel coordinates (0.5, 0.5+ySize).",
+	SET columnId = 660, tableId = 17, name = "llcy",
+		description = "FITS pixel coordinates (0.5, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 611, tableId = 17, name = "ulcy",
+	SET columnId = 661, tableId = 17, name = "ulcx",
 		description = "FITS pixel coordinates (0.5, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
@@ -5173,15 +5650,15 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 612, tableId = 17, name = "urcx",
-		description = "FITS pixel coordinates (0.5+xSize, 0.5+ySize).",
+	SET columnId = 662, tableId = 17, name = "ulcy",
+		description = "FITS pixel coordinates (0.5, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 613, tableId = 17, name = "urcy",
+	SET columnId = 663, tableId = 17, name = "urcx",
 		description = "FITS pixel coordinates (0.5+xSize, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
@@ -5189,15 +5666,15 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 614, tableId = 17, name = "lrcx",
-		description = "FITS pixel coordinates (0.5+xSize, 0.5).",
+	SET columnId = 664, tableId = 17, name = "urcy",
+		description = "FITS pixel coordinates (0.5+xSize, 0.5+ySize).",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixels",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 615, tableId = 17, name = "lrcy",
+	SET columnId = 665, tableId = 17, name = "lrcx",
 		description = "FITS pixel coordinates (0.5+xSize, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
@@ -5205,48 +5682,47 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 616, tableId = 17, name = "xSize",
-		description = "Number of rows in the image.",
+	SET columnId = 666, tableId = 17, name = "lrcy",
+		description = "FITS pixel coordinates (0.5+xSize, 0.5).",
 		type = "INTEGER",
 		notNull = 1,
+		unit = "pixels",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 617, tableId = 17, name = "ySize",
-		description = "Number of columns in the image.",
+	SET columnId = 667, tableId = 17, name = "xSize",
+		description = "Number of rows in the image.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 618, tableId = 17, name = "obsStart",
+	SET columnId = 668, tableId = 17, name = "ySize",
+		description = "Number of columns in the image.",
+		type = "INTEGER",
+		notNull = 1,
+		displayOrder = 20;
+
+	INSERT INTO md_Column
+	SET columnId = 669, tableId = 17, name = "obsStart",
 		description = "Start of the exposure, TAI, accurate to 10ms.",
 		type = "TIMESTAMP",
 		notNull = 1,
 		defaultValue = "CURRENT_TIMESTAMP",
 		ucd = "time.start",
-		displayOrder = 20;
+		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 619, tableId = 17, name = "expMidpt",
+	SET columnId = 670, tableId = 17, name = "expMidpt",
 		description = "Midpoint for exposure. TAI, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
 		ucd = "time.epoch",
-		displayOrder = 21;
-
-	INSERT INTO md_Column
-	SET columnId = 620, tableId = 17, name = "expTime",
-		description = "Duration of exposure, accurate to 10ms.",
-		type = "DOUBLE",
-		notNull = 1,
-		unit = "s",
-		ucd = "time.duration",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 621, tableId = 17, name = "darkTime",
-		description = "Dark current accumulation time, accurate to 10ms.",
+	SET columnId = 671, tableId = 17, name = "expTime",
+		description = "Duration of exposure, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "s",
@@ -5254,24 +5730,24 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 622, tableId = 17, name = "ccdTemp",
-		description = "Temperature measured on the Ccd.",
-		type = "FLOAT",
+	SET columnId = 672, tableId = 17, name = "darkTime",
+		description = "Dark current accumulation time, accurate to 10ms.",
+		type = "DOUBLE",
 		notNull = 1,
+		unit = "s",
+		ucd = "time.duration",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 623, tableId = 17, name = "binX",
-		description = "Binning of the ccd in x (row) direction.",
-		type = "INTEGER",
+	SET columnId = 673, tableId = 17, name = "ccdTemp",
+		description = "Temperature measured on the Ccd.",
+		type = "FLOAT",
 		notNull = 1,
-		unit = "pixel",
-		ucd = "meta.number",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 624, tableId = 17, name = "binY",
-		description = "Binning of the ccd in y (column) direction.",
+	SET columnId = 674, tableId = 17, name = "binX",
+		description = "Binning of the ccd in x (row) direction.",
 		type = "INTEGER",
 		notNull = 1,
 		unit = "pixel",
@@ -5279,20 +5755,29 @@ SET tableId = 17, name = "RawCcdExposure",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 625, tableId = 17, name = "WCS",
-		description = "A nominal WCS derives from telescope pointing information (not fitted). [10x8 BYTES].",
-		type = "BLOB",
-		notNull = 0,
+	SET columnId = 675, tableId = 17, name = "binY",
+		description = "Binning of the ccd in y (column) direction.",
+		type = "INTEGER",
+		notNull = 1,
+		unit = "pixel",
+		ucd = "meta.number",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 626, tableId = 17, name = "flags",
+	SET columnId = 676, tableId = 17, name = "WCS",
+		description = "A nominal WCS derives from telescope pointing information (not fitted). [10x8 BYTES].",
+		type = "BLOB",
+		notNull = 0,
+		displayOrder = 28;
+
+	INSERT INTO md_Column
+	SET columnId = 677, tableId = 17, name = "flags",
 		description = "Flags, bitwise OR tbd",
 		type = "INTEGER",
 		notNull = 1,
 		defaultValue = "0",
 		ucd = "meta.code",
-		displayOrder = 28;
+		displayOrder = 29;
 
 	INSERT INTO md_Index
 	SET indexId = 28, tableId = 17,
@@ -5307,7 +5792,7 @@ SET tableId = 18, name = "RawCcdExposureMetadata",
 	description = "Generic key-value pair metadata for RawCcdExposure.";
 
 	INSERT INTO md_Column
-	SET columnId = 627, tableId = 18, name = "rawCcdExposureId",
+	SET columnId = 678, tableId = 18, name = "rawCcdExposureId",
 		description = "Id of the corresponding RawCcdExposure.",
 		type = "BIGINT",
 		notNull = 1,
@@ -5315,13 +5800,13 @@ SET tableId = 18, name = "RawCcdExposureMetadata",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 628, tableId = 18, name = "metadataKey",
+	SET columnId = 679, tableId = 18, name = "metadataKey",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 629, tableId = 18, name = "metadataValue",
+	SET columnId = 680, tableId = 18, name = "metadataValue",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 3;
@@ -5339,7 +5824,7 @@ SET tableId = 19, name = "RawExposure",
 	description = "Raw exposure (entire exposure, all ccds).";
 
 	INSERT INTO md_Column
-	SET columnId = 630, tableId = 19, name = "rawExposureId",
+	SET columnId = 681, tableId = 19, name = "rawExposureId",
 		description = "Primary key (unique identifier.)",
 		type = "BIGINT",
 		notNull = 1,
@@ -5347,7 +5832,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 631, tableId = 19, name = "filterName",
+	SET columnId = 682, tableId = 19, name = "filterName",
 		description = "Filter name.",
 		type = "CHAR(1)",
 		notNull = 1,
@@ -5355,7 +5840,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 632, tableId = 19, name = "ra",
+	SET columnId = 683, tableId = 19, name = "ra",
 		description = "Right Ascension of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5364,7 +5849,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 633, tableId = 19, name = "decl",
+	SET columnId = 684, tableId = 19, name = "decl",
 		description = "Declination of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5373,45 +5858,45 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 634, tableId = 19, name = "altitude",
-		description = "Altitude of focal plane center.",
+	SET columnId = 685, tableId = 19, name = "skyRotation",
+		description = "Sky rotation angle.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 635, tableId = 19, name = "azimuth",
-		description = "Azimuth of focal plane center.",
+	SET columnId = 686, tableId = 19, name = "altitude",
+		description = "Altitude of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 636, tableId = 19, name = "rotation",
-		description = "Rotation of the camera.",
+	SET columnId = 687, tableId = 19, name = "azimuth",
+		description = "Azimuth of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 637, tableId = 19, name = "programId",
+	SET columnId = 688, tableId = 19, name = "programId",
 		description = "Observing program id (e.g., universal cadence, or one of the deep drilling programs, etc.).",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 638, tableId = 19, name = "exposureType",
+	SET columnId = 689, tableId = 19, name = "exposureType",
 		description = "Type of exposure (science exposure, dark, flat, etc.).",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 639, tableId = 19, name = "zenithDistance",
+	SET columnId = 690, tableId = 19, name = "zenithDistance",
 		description = "Zenith distance at observation mid-point.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5420,14 +5905,14 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 640, tableId = 19, name = "airmass",
+	SET columnId = 691, tableId = 19, name = "airmass",
 		description = "Airmass of the observed line of sight.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 641, tableId = 19, name = "obsStart",
+	SET columnId = 692, tableId = 19, name = "obsStart",
 		description = "Start of the exposure, TAI, accurate to 10ms.",
 		type = "TIMESTAMP",
 		notNull = 1,
@@ -5436,7 +5921,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 642, tableId = 19, name = "expMidpt",
+	SET columnId = 693, tableId = 19, name = "expMidpt",
 		description = "Midpoint for exposure. TAI, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5444,7 +5929,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 643, tableId = 19, name = "expTime",
+	SET columnId = 694, tableId = 19, name = "expTime",
 		description = "Duration of exposure, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -5453,7 +5938,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 644, tableId = 19, name = "cameraTemp",
+	SET columnId = 695, tableId = 19, name = "cameraTemp",
 		description = "Temperature measured of the camera.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5461,7 +5946,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 645, tableId = 19, name = "mirror1Temp",
+	SET columnId = 696, tableId = 19, name = "mirror1Temp",
 		description = "Primary mirror temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5469,7 +5954,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 646, tableId = 19, name = "mirror2Temp",
+	SET columnId = 697, tableId = 19, name = "mirror2Temp",
 		description = "Secondary mirror temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5477,7 +5962,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 647, tableId = 19, name = "mirror3Temp",
+	SET columnId = 698, tableId = 19, name = "mirror3Temp",
 		description = "Tertiary mirror temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5485,7 +5970,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 648, tableId = 19, name = "domeTemp",
+	SET columnId = 699, tableId = 19, name = "domeTemp",
 		description = "Dome temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5493,7 +5978,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 649, tableId = 19, name = "externalTemp",
+	SET columnId = 700, tableId = 19, name = "externalTemp",
 		description = "Temperature outside the dome.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5501,7 +5986,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 650, tableId = 19, name = "dimmSeeing",
+	SET columnId = 701, tableId = 19, name = "dimmSeeing",
 		description = "Seeing measured by the differential image motion monitor.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5509,7 +5994,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 651, tableId = 19, name = "pwvGPS",
+	SET columnId = 702, tableId = 19, name = "pwvGPS",
 		description = " GPS-based measurement of precipitable water vapor (PVW).",
 		type = "FLOAT",
 		notNull = 1,
@@ -5517,7 +6002,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 652, tableId = 19, name = "pwvMW",
+	SET columnId = 703, tableId = 19, name = "pwvMW",
 		description = "Microwave radiometer measurement of PVW.",
 		type = "FLOAT",
 		notNull = 1,
@@ -5525,7 +6010,7 @@ SET tableId = 19, name = "RawExposure",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 653, tableId = 19, name = "flags",
+	SET columnId = 704, tableId = 19, name = "flags",
 		description = "Flags, bitwise OR tbd",
 		type = "INTEGER",
 		notNull = 1,
@@ -5546,7 +6031,7 @@ SET tableId = 20, name = "SSObject",
 	description = "The SSObject table contains description of the Solar System (moving) Objects.";
 
 	INSERT INTO md_Column
-	SET columnId = 654, tableId = 20, name = "ssObjectId",
+	SET columnId = 705, tableId = 20, name = "ssObjectId",
 		description = "Unique identifier.",
 		type = "BIGINT",
 		notNull = 1,
@@ -5554,252 +6039,280 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 655, tableId = 20, name = "q",
+	SET columnId = 706, tableId = 20, name = "q",
 		description = "Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 656, tableId = 20, name = "qSigma",
+	SET columnId = 707, tableId = 20, name = "qSigma",
 		description = "Uncertainty of q.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.error",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 657, tableId = 20, name = "e",
+	SET columnId = 708, tableId = 20, name = "e",
 		description = "Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 658, tableId = 20, name = "eSigma",
+	SET columnId = 709, tableId = 20, name = "eSigma",
 		description = "Uncertainty of e.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.error",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 659, tableId = 20, name = "i",
+	SET columnId = 710, tableId = 20, name = "i",
 		description = "Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 660, tableId = 20, name = "iSigma",
+	SET columnId = 711, tableId = 20, name = "iSigma",
 		description = "Uncertainty of i.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.error",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 661, tableId = 20, name = "lan",
+	SET columnId = 712, tableId = 20, name = "lan",
 		description = "Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 662, tableId = 20, name = "lanSigma",
+	SET columnId = 713, tableId = 20, name = "lanSigma",
 		description = "Uncertainty of lan.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.error",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 663, tableId = 20, name = "aop",
+	SET columnId = 714, tableId = 20, name = "aop",
 		description = "Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 664, tableId = 20, name = "oepSigma",
+	SET columnId = 715, tableId = 20, name = "aopSigma",
 		description = "Uncertainty of aop.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.error",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 665, tableId = 20, name = "M",
+	SET columnId = 716, tableId = 20, name = "M",
 		description = "Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 666, tableId = 20, name = "MSigma",
-		description = "Uncertainty of oe6.",
+	SET columnId = 717, tableId = 20, name = "MSigma",
+		description = "Uncertainty of M.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.error",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 667, tableId = 20, name = "epoch",
+	SET columnId = 718, tableId = 20, name = "epoch",
 		description = "Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 668, tableId = 20, name = "epochSigma",
-		description = "Uncertainty of oe7.",
+	SET columnId = 719, tableId = 20, name = "epochSigma",
+		description = "Uncertainty of epoch.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.error",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 669, tableId = 20, name = "q_e_Cov",
+	SET columnId = 720, tableId = 20, name = "q_e_Cov",
 		description = "Covariance of q and e.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 670, tableId = 20, name = "q_i_Cov",
+	SET columnId = 721, tableId = 20, name = "q_i_Cov",
 		description = "Covariance of q and i.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 671, tableId = 20, name = "q_lan_Cov",
+	SET columnId = 722, tableId = 20, name = "q_lan_Cov",
 		description = "Covariance of q and lan.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 672, tableId = 20, name = "q_aop_Cov",
+	SET columnId = 723, tableId = 20, name = "q_aop_Cov",
 		description = "Covariance of q and aop.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 673, tableId = 20, name = "q_M_Cov",
+	SET columnId = 724, tableId = 20, name = "q_M_Cov",
 		description = "Covariance of q and M.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 674, tableId = 20, name = "q_epoch_Cov",
+	SET columnId = 725, tableId = 20, name = "q_epoch_Cov",
 		description = "Covariance of q and epoch.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 675, tableId = 20, name = "e_i_Cov",
+	SET columnId = 726, tableId = 20, name = "e_i_Cov",
 		description = "Covariance of e and i.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 676, tableId = 20, name = "e_lan_Cov",
+	SET columnId = 727, tableId = 20, name = "e_lan_Cov",
 		description = "Covariance of e and lan.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 677, tableId = 20, name = "e_aop_Cov",
+	SET columnId = 728, tableId = 20, name = "e_aop_Cov",
 		description = "Covariance of e and aop.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 678, tableId = 20, name = "e_M_Cov",
+	SET columnId = 729, tableId = 20, name = "e_M_Cov",
 		description = "Covariance of e and M.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 679, tableId = 20, name = "e_epoch_Cov",
+	SET columnId = 730, tableId = 20, name = "e_epoch_Cov",
 		description = "Covariance of e and epoch.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 680, tableId = 20, name = "i_lan_Cov",
+	SET columnId = 731, tableId = 20, name = "i_lan_Cov",
 		description = "Covariance of i and lan.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 681, tableId = 20, name = "i_aop_Cov",
+	SET columnId = 732, tableId = 20, name = "i_aop_Cov",
 		description = "Covariance of i and aop.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 682, tableId = 20, name = "i_M_Cov",
+	SET columnId = 733, tableId = 20, name = "i_M_Cov",
 		description = "Covariance of i and M.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 683, tableId = 20, name = "i_epoch_Cov",
+	SET columnId = 734, tableId = 20, name = "i_epoch_Cov",
 		description = "Covariance of i and epoch.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 684, tableId = 20, name = "lan_aop_Cov",
+	SET columnId = 735, tableId = 20, name = "lan_aop_Cov",
 		description = "Covariance of lan and aop.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 685, tableId = 20, name = "lan_M_Cov",
+	SET columnId = 736, tableId = 20, name = "lan_M_Cov",
 		description = "Covariance of lan and M.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 686, tableId = 20, name = "lan_epoch_Cov",
+	SET columnId = 737, tableId = 20, name = "lan_epoch_Cov",
 		description = "Covariance of lan and epoch.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 687, tableId = 20, name = "aop_M_Cov",
+	SET columnId = 738, tableId = 20, name = "aop_M_Cov",
 		description = "Covariance of aop and M.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 688, tableId = 20, name = "aop_epoch_Cov",
+	SET columnId = 739, tableId = 20, name = "aop_epoch_Cov",
 		description = "Covariance of aop and epoch.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 689, tableId = 20, name = "M_epoch_Cov",
+	SET columnId = 740, tableId = 20, name = "M_epoch_Cov",
 		description = "Covariance of M and epoch.",
 		type = "DOUBLE",
 		notNull = 0,
+		ucd = "stat.covariance",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
-	SET columnId = 690, tableId = 20, name = "arc",
+	SET columnId = 741, tableId = 20, name = "arc",
 		description = "Arc of observation.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5807,28 +6320,30 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 691, tableId = 20, name = "orbFitLnL",
+	SET columnId = 742, tableId = 20, name = "orbFitLnL",
 		description = "Natural log of the likelihood of the orbital elements fit.",
 		type = "FLOAT",
 		notNull = 0,
+		ucd = "stat.likelihood",
 		displayOrder = 38;
 
 	INSERT INTO md_Column
-	SET columnId = 692, tableId = 20, name = "orbFitChi2",
+	SET columnId = 743, tableId = 20, name = "orbFitChi2",
 		description = "Chi^2 statistic of the orbital elements fit.",
 		type = "FLOAT",
 		notNull = 0,
+		ucd = "stat.fit.chi2",
 		displayOrder = 39;
 
 	INSERT INTO md_Column
-	SET columnId = 693, tableId = 20, name = "orbFitN",
+	SET columnId = 744, tableId = 20, name = "orbFitNdata",
 		description = "Number of observations used in the fit.",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 40;
 
 	INSERT INTO md_Column
-	SET columnId = 694, tableId = 20, name = "MOID1",
+	SET columnId = 745, tableId = 20, name = "MOID1",
 		description = "Minimum orbit intersection distance.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5836,7 +6351,7 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 41;
 
 	INSERT INTO md_Column
-	SET columnId = 695, tableId = 20, name = "MOID2",
+	SET columnId = 746, tableId = 20, name = "MOID2",
 		description = "Minimum orbit intersection distance.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5844,7 +6359,7 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 42;
 
 	INSERT INTO md_Column
-	SET columnId = 696, tableId = 20, name = "moidLon1",
+	SET columnId = 747, tableId = 20, name = "moidLon1",
 		description = "MOID longitudes.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -5852,7 +6367,7 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 43;
 
 	INSERT INTO md_Column
-	SET columnId = 697, tableId = 20, name = "moidLon2",
+	SET columnId = 748, tableId = 20, name = "moidLon2",
 		description = "MOID longitudes.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -5860,7 +6375,7 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 44;
 
 	INSERT INTO md_Column
-	SET columnId = 698, tableId = 20, name = "uH",
+	SET columnId = 749, tableId = 20, name = "uH",
 		description = "Mean absolute magnitude for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5868,15 +6383,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 45;
 
 	INSERT INTO md_Column
-	SET columnId = 699, tableId = 20, name = "uHSigma",
-		description = "Uncertainty of uH.",
+	SET columnId = 750, tableId = 20, name = "uHErr",
+		description = "Uncertainty of uH estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 46;
 
 	INSERT INTO md_Column
-	SET columnId = 700, tableId = 20, name = "uG1",
+	SET columnId = 751, tableId = 20, name = "uG1",
 		description = "Fitted G1 slope parameter for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5884,15 +6400,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 47;
 
 	INSERT INTO md_Column
-	SET columnId = 701, tableId = 20, name = "uG1Sigma",
-		description = "Uncertainty of uG1.",
+	SET columnId = 752, tableId = 20, name = "uG1Err",
+		description = "Uncertainty of uG1 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 48;
 
 	INSERT INTO md_Column
-	SET columnId = 702, tableId = 20, name = "uG2",
+	SET columnId = 753, tableId = 20, name = "uG2",
 		description = "Fitted G2 slope parameter for u filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5900,15 +6417,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 49;
 
 	INSERT INTO md_Column
-	SET columnId = 703, tableId = 20, name = "uG2Sigma",
-		description = "Uncertainty of uG2.",
+	SET columnId = 754, tableId = 20, name = "uG2Err",
+		description = "Uncertainty of uG2 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 50;
 
 	INSERT INTO md_Column
-	SET columnId = 704, tableId = 20, name = "gH",
+	SET columnId = 755, tableId = 20, name = "gH",
 		description = "Mean absolute magnitude for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5916,15 +6434,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 51;
 
 	INSERT INTO md_Column
-	SET columnId = 705, tableId = 20, name = "gHSigma",
-		description = "Uncertainty of gH.",
+	SET columnId = 756, tableId = 20, name = "gHErr",
+		description = "Uncertainty of gH estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 52;
 
 	INSERT INTO md_Column
-	SET columnId = 706, tableId = 20, name = "gG1",
+	SET columnId = 757, tableId = 20, name = "gG1",
 		description = "Fitted G1 slope parameter for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5932,15 +6451,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 53;
 
 	INSERT INTO md_Column
-	SET columnId = 707, tableId = 20, name = "gG1Sigma",
-		description = "Uncertainty of gG1.",
+	SET columnId = 758, tableId = 20, name = "gG1Err",
+		description = "Uncertainty of gG1 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 54;
 
 	INSERT INTO md_Column
-	SET columnId = 708, tableId = 20, name = "gG2",
+	SET columnId = 759, tableId = 20, name = "gG2",
 		description = "Fitted G2 slope parameter for g filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5948,15 +6468,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 55;
 
 	INSERT INTO md_Column
-	SET columnId = 709, tableId = 20, name = "gG2Sigma",
-		description = "Uncertainty of gG2.",
+	SET columnId = 760, tableId = 20, name = "gG2Err",
+		description = "Uncertainty of gG2 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 56;
 
 	INSERT INTO md_Column
-	SET columnId = 710, tableId = 20, name = "rH",
+	SET columnId = 761, tableId = 20, name = "rH",
 		description = "Mean absolute magnitude for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5964,15 +6485,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 57;
 
 	INSERT INTO md_Column
-	SET columnId = 711, tableId = 20, name = "rHSigma",
-		description = "Uncertainty of rH.",
+	SET columnId = 762, tableId = 20, name = "rHErr",
+		description = "Uncertainty of rH estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 58;
 
 	INSERT INTO md_Column
-	SET columnId = 712, tableId = 20, name = "rG1",
+	SET columnId = 763, tableId = 20, name = "rG1",
 		description = "Fitted G1 slope parameter for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5980,15 +6502,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 59;
 
 	INSERT INTO md_Column
-	SET columnId = 713, tableId = 20, name = "rG1Sigma",
-		description = "Uncertainty of rG1.",
+	SET columnId = 764, tableId = 20, name = "rG1Err",
+		description = "Uncertainty of rG1 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 60;
 
 	INSERT INTO md_Column
-	SET columnId = 714, tableId = 20, name = "rG2",
+	SET columnId = 765, tableId = 20, name = "rG2",
 		description = "Fitted G2 slope parameter for r filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -5996,15 +6519,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 61;
 
 	INSERT INTO md_Column
-	SET columnId = 715, tableId = 20, name = "rG2Sigma",
-		description = "Uncertainty of rG2.",
+	SET columnId = 766, tableId = 20, name = "rG2Err",
+		description = "Uncertainty of rG2 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 62;
 
 	INSERT INTO md_Column
-	SET columnId = 716, tableId = 20, name = "iH",
+	SET columnId = 767, tableId = 20, name = "iH",
 		description = "Mean absolute magnitude for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6012,15 +6536,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 63;
 
 	INSERT INTO md_Column
-	SET columnId = 717, tableId = 20, name = "iHSigma",
-		description = "Uncertainty of iH.",
+	SET columnId = 768, tableId = 20, name = "iHErr",
+		description = "Uncertainty of iH estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 64;
 
 	INSERT INTO md_Column
-	SET columnId = 718, tableId = 20, name = "iG1",
+	SET columnId = 769, tableId = 20, name = "iG1",
 		description = "Fitted G1 slope parameter for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6028,15 +6553,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 65;
 
 	INSERT INTO md_Column
-	SET columnId = 719, tableId = 20, name = "iG1Sigma",
-		description = "Uncertainty of iG1.",
+	SET columnId = 770, tableId = 20, name = "iG1Err",
+		description = "Uncertainty of iG1 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 66;
 
 	INSERT INTO md_Column
-	SET columnId = 720, tableId = 20, name = "iG2",
+	SET columnId = 771, tableId = 20, name = "iG2",
 		description = "Fitted G2 slope parameter for i filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6044,15 +6570,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 67;
 
 	INSERT INTO md_Column
-	SET columnId = 721, tableId = 20, name = "iG2Sigma",
-		description = "Uncertainty of iG2.",
+	SET columnId = 772, tableId = 20, name = "iG2Err",
+		description = "Uncertainty of iG2 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 68;
 
 	INSERT INTO md_Column
-	SET columnId = 722, tableId = 20, name = "zH",
+	SET columnId = 773, tableId = 20, name = "zH",
 		description = "Mean absolute magnitude for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6060,15 +6587,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 69;
 
 	INSERT INTO md_Column
-	SET columnId = 723, tableId = 20, name = "zHSigma",
-		description = "Uncertainty of zH.",
+	SET columnId = 774, tableId = 20, name = "zHErr",
+		description = "Uncertainty of zH estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 70;
 
 	INSERT INTO md_Column
-	SET columnId = 724, tableId = 20, name = "zG1",
+	SET columnId = 775, tableId = 20, name = "zG1",
 		description = "Fitted G1 slope parameter for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6076,15 +6604,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 71;
 
 	INSERT INTO md_Column
-	SET columnId = 725, tableId = 20, name = "zG1Sigma",
-		description = "Uncertainty of zG1.",
+	SET columnId = 776, tableId = 20, name = "zG1Err",
+		description = "Uncertainty of zG1 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 72;
 
 	INSERT INTO md_Column
-	SET columnId = 726, tableId = 20, name = "zG2",
+	SET columnId = 777, tableId = 20, name = "zG2",
 		description = "Fitted G2 slope parameter for z filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6092,15 +6621,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 73;
 
 	INSERT INTO md_Column
-	SET columnId = 727, tableId = 20, name = "zG2Sigma",
-		description = "Uncertainty of zG2.",
+	SET columnId = 778, tableId = 20, name = "zG2Err",
+		description = "Uncertainty of zG2 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 74;
 
 	INSERT INTO md_Column
-	SET columnId = 728, tableId = 20, name = "yH",
+	SET columnId = 779, tableId = 20, name = "yH",
 		description = "Mean absolute magnitude for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6108,15 +6638,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 75;
 
 	INSERT INTO md_Column
-	SET columnId = 729, tableId = 20, name = "yHSigma",
-		description = "Uncertainty of yH.",
+	SET columnId = 780, tableId = 20, name = "yHErr",
+		description = "Uncertainty of yH estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 76;
 
 	INSERT INTO md_Column
-	SET columnId = 730, tableId = 20, name = "yG1",
+	SET columnId = 781, tableId = 20, name = "yG1",
 		description = "Fitted G1 slope parameter for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6124,15 +6655,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 77;
 
 	INSERT INTO md_Column
-	SET columnId = 731, tableId = 20, name = "yG1Sigma",
-		description = "Uncertainty of yG1.",
+	SET columnId = 782, tableId = 20, name = "yG1Err",
+		description = "Uncertainty of yG1 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 78;
 
 	INSERT INTO md_Column
-	SET columnId = 732, tableId = 20, name = "yG2",
+	SET columnId = 783, tableId = 20, name = "yG2",
 		description = "Fitted G2 slope parameter for y filter.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6140,15 +6672,16 @@ SET tableId = 20, name = "SSObject",
 		displayOrder = 79;
 
 	INSERT INTO md_Column
-	SET columnId = 733, tableId = 20, name = "yG2Sigma",
-		description = "Uncertainty of yG2.",
+	SET columnId = 784, tableId = 20, name = "yG2Err",
+		description = "Uncertainty of yG2 estimate.",
 		type = "FLOAT",
 		notNull = 0,
 		unit = "mag",
+		ucd = "stat.error",
 		displayOrder = 80;
 
 	INSERT INTO md_Column
-	SET columnId = 734, tableId = 20, name = "flags",
+	SET columnId = 785, tableId = 20, name = "flags",
 		description = "Flags, bitwise OR tbd.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6169,7 +6702,7 @@ SET tableId = 21, name = "Source",
 	description = "Table to store high signal-to-noise &quot;sources&quot;. A source is a measurement of Object's properties from a single image that contains its footprint on the sky.";
 
 	INSERT INTO md_Column
-	SET columnId = 735, tableId = 21, name = "sourceId",
+	SET columnId = 786, tableId = 21, name = "sourceId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6177,7 +6710,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 736, tableId = 21, name = "ccdVisitId",
+	SET columnId = 787, tableId = 21, name = "ccdVisitId",
 		description = "Id of the ccdVisit where this source was measured. Note that we are allowing a source to belong to multiple amplifiers, but it may not span multiple ccds.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6185,7 +6718,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 737, tableId = 21, name = "filterName",
+	SET columnId = 788, tableId = 21, name = "filterName",
 		description = "Name of the filter used to take the two exposures where this source was measured.",
 		type = "CHAR(1)",
 		notNull = 1,
@@ -6193,7 +6726,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 738, tableId = 21, name = "objectId",
+	SET columnId = 789, tableId = 21, name = "objectId",
 		description = "Id of the corresponding object. Note that this might be NULL (each source will point to either object or ssObject).",
 		type = "BIGINT",
 		notNull = 0,
@@ -6201,7 +6734,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 739, tableId = 21, name = "ssObjectId",
+	SET columnId = 790, tableId = 21, name = "ssObjectId",
 		description = "Id of the corresponding ssObject. Note that this might be NULL (each source will point to either object or ssObject).",
 		type = "BIGINT",
 		notNull = 0,
@@ -6209,21 +6742,21 @@ SET tableId = 21, name = "Source",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 740, tableId = 21, name = "parentSourceId",
+	SET columnId = 791, tableId = 21, name = "parentSourceId",
 		description = "Id of the parent source this source has been deblended from, if any.",
 		type = "BIGINT",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 741, tableId = 21, name = "htmId20",
+	SET columnId = 792, tableId = 21, name = "htmId20",
 		description = "HTM index.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 742, tableId = 21, name = "sky",
+	SET columnId = 793, tableId = 21, name = "sky",
 		description = "Estimated sky background at the position (centroid) of the source.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6231,7 +6764,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 743, tableId = 21, name = "skySigma",
+	SET columnId = 794, tableId = 21, name = "skySigma",
 		description = "Uncertainty of sky.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6239,7 +6772,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 744, tableId = 21, name = "psFlux",
+	SET columnId = 795, tableId = 21, name = "psFlux",
 		description = "Calibrated flux for Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6248,7 +6781,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 745, tableId = 21, name = "psFluxSigma",
+	SET columnId = 796, tableId = 21, name = "psFluxSigma",
 		description = "Uncertainty of psFlux.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6256,7 +6789,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 746, tableId = 21, name = "psX",
+	SET columnId = 797, tableId = 21, name = "psX",
 		description = "Point source model (x) position of the object on the CCD.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6264,7 +6797,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 747, tableId = 21, name = "psXSigma",
+	SET columnId = 798, tableId = 21, name = "psXSigma",
 		description = "Uncertainty of psX.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6272,14 +6805,14 @@ SET tableId = 21, name = "Source",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 748, tableId = 21, name = "psY",
+	SET columnId = 799, tableId = 21, name = "psY",
 		description = "Point source model (y) position of the object on the CCD.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 749, tableId = 21, name = "psYSigma",
+	SET columnId = 800, tableId = 21, name = "psYSigma",
 		description = "Uncertainty of psY.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6287,49 +6820,49 @@ SET tableId = 21, name = "Source",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 750, tableId = 21, name = "psFlux_psX_Cov",
+	SET columnId = 801, tableId = 21, name = "psFlux_psX_Cov",
 		description = "Covariance of psFlux and psX.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 751, tableId = 21, name = "psFlux_psY_Cov",
+	SET columnId = 802, tableId = 21, name = "psFlux_psY_Cov",
 		description = "Covariance of psFlux and psY.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 752, tableId = 21, name = "psX_Y_Cov",
+	SET columnId = 803, tableId = 21, name = "psX_Y_Cov",
 		description = "Covariance of psX and psY.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 753, tableId = 21, name = "psLnL",
+	SET columnId = 804, tableId = 21, name = "psLnL",
 		description = "Natural log likelihood of the observed data given the Point Source model.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 754, tableId = 21, name = "psChi2",
+	SET columnId = 805, tableId = 21, name = "psChi2",
 		description = "Chi^2 static of the model fit.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 755, tableId = 21, name = "psN",
+	SET columnId = 806, tableId = 21, name = "psN",
 		description = "The number of data points (pixels) used to fit the model.",
 		type = "INT",
 		notNull = 0,
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 756, tableId = 21, name = "psRa",
+	SET columnId = 807, tableId = 21, name = "psRa",
 		description = "RA-coordinate of the center of the object for the Point Source model at time radecTai.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6338,7 +6871,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 757, tableId = 21, name = "psRaSigma",
+	SET columnId = 808, tableId = 21, name = "psRaSigma",
 		description = "Uncertainty of psRa.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6347,7 +6880,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 758, tableId = 21, name = "psDecl",
+	SET columnId = 809, tableId = 21, name = "psDecl",
 		description = "Decl-coordinate of the center of the object for the Point Source model at time radecTai.",
 		type = "DOUBLE",
 		notNull = 0,
@@ -6356,7 +6889,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 759, tableId = 21, name = "psDeclSigma",
+	SET columnId = 810, tableId = 21, name = "psDeclSigma",
 		description = "Uncertainty of psDecl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6365,21 +6898,21 @@ SET tableId = 21, name = "Source",
 		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 760, tableId = 21, name = "psFlux_psRa_Cov",
+	SET columnId = 811, tableId = 21, name = "psFlux_psRa_Cov",
 		description = "Covariance of psFlux and psRa.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 26;
 
 	INSERT INTO md_Column
-	SET columnId = 761, tableId = 21, name = "psFlux_psDecl_Cov",
+	SET columnId = 812, tableId = 21, name = "psFlux_psDecl_Cov",
 		description = "Covariance of psFlux and psRa.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 762, tableId = 21, name = "x",
+	SET columnId = 813, tableId = 21, name = "x",
 		description = "x position computed using an algorithm similar to that used by SDSS.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6388,7 +6921,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 763, tableId = 21, name = "xSigma",
+	SET columnId = 814, tableId = 21, name = "xSigma",
 		description = "Uncertainty of x.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6397,7 +6930,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 764, tableId = 21, name = "y",
+	SET columnId = 815, tableId = 21, name = "y",
 		description = "y position computed using an algorithm similar to that used by SDSS.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6406,7 +6939,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 765, tableId = 21, name = "ySigma",
+	SET columnId = 816, tableId = 21, name = "ySigma",
 		description = "Uncertainty of y.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6415,7 +6948,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 766, tableId = 21, name = "x_y_Cov",
+	SET columnId = 817, tableId = 21, name = "x_y_Cov",
 		description = "Covariance between x and y.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6423,7 +6956,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 767, tableId = 21, name = "ra",
+	SET columnId = 818, tableId = 21, name = "ra",
 		description = "Calibrated RA-coordinate of the center of the source transformed from xy.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6432,7 +6965,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 768, tableId = 21, name = "raSigma",
+	SET columnId = 819, tableId = 21, name = "raSigma",
 		description = "Uncertainty of ra.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6441,7 +6974,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 769, tableId = 21, name = "decl",
+	SET columnId = 820, tableId = 21, name = "decl",
 		description = "Calibated Decl-coordinate of the center of the source transformed from xy.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6450,7 +6983,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 770, tableId = 21, name = "declSigma",
+	SET columnId = 821, tableId = 21, name = "declSigma",
 		description = "Uncertainty of decl.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6459,7 +6992,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
-	SET columnId = 771, tableId = 21, name = "ra_decl_Cov",
+	SET columnId = 822, tableId = 21, name = "ra_decl_Cov",
 		description = "Covariance of ra and decl.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6467,7 +7000,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 772, tableId = 21, name = "E1",
+	SET columnId = 823, tableId = 21, name = "E1",
 		description = "Adaptive e1 shape measure of the source as measured on the difference image.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6475,7 +7008,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 38;
 
 	INSERT INTO md_Column
-	SET columnId = 773, tableId = 21, name = "E1Sigma",
+	SET columnId = 824, tableId = 21, name = "E1Sigma",
 		description = "Uncertainty of E1.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6483,7 +7016,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 39;
 
 	INSERT INTO md_Column
-	SET columnId = 774, tableId = 21, name = "E2",
+	SET columnId = 825, tableId = 21, name = "E2",
 		description = "Adaptive e2 shape measure of the source as measured on the difference image.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6491,7 +7024,7 @@ SET tableId = 21, name = "Source",
 		displayOrder = 40;
 
 	INSERT INTO md_Column
-	SET columnId = 775, tableId = 21, name = "E2Sigma",
+	SET columnId = 826, tableId = 21, name = "E2Sigma",
 		description = "Uncertainty of E2.",
 		type = "FLOAT",
 		notNull = 0,
@@ -6499,42 +7032,42 @@ SET tableId = 21, name = "Source",
 		displayOrder = 41;
 
 	INSERT INTO md_Column
-	SET columnId = 776, tableId = 21, name = "E1_E2_Cov",
+	SET columnId = 827, tableId = 21, name = "E1_E2_Cov",
 		description = "Covariance of E1 and E2",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 42;
 
 	INSERT INTO md_Column
-	SET columnId = 777, tableId = 21, name = "mSum",
+	SET columnId = 828, tableId = 21, name = "mSum",
 		description = "Sum of second adaptive moments.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 43;
 
 	INSERT INTO md_Column
-	SET columnId = 778, tableId = 21, name = "mSumSigma",
+	SET columnId = 829, tableId = 21, name = "mSumSigma",
 		description = "Uncertainty of mSum.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 44;
 
 	INSERT INTO md_Column
-	SET columnId = 779, tableId = 21, name = "m4",
+	SET columnId = 830, tableId = 21, name = "m4",
 		description = "Fourth order adaptive moment.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 45;
 
 	INSERT INTO md_Column
-	SET columnId = 780, tableId = 21, name = "apN",
+	SET columnId = 831, tableId = 21, name = "apN",
 		description = "Number of elliptical annuli.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 46;
 
 	INSERT INTO md_Column
-	SET columnId = 781, tableId = 21, name = "flags",
+	SET columnId = 832, tableId = 21, name = "flags",
 		description = "Flags. Tbd.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6573,7 +7106,7 @@ SET tableId = 22, name = "Source_APMean",
 	description = "Aperture mean (per bin) for the Source table. We expect ~8 bins on average per source.";
 
 	INSERT INTO md_Column
-	SET columnId = 782, tableId = 22, name = "sourceId",
+	SET columnId = 833, tableId = 22, name = "sourceId",
 		description = "Unique id.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6581,14 +7114,14 @@ SET tableId = 22, name = "Source_APMean",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 783, tableId = 22, name = "binN",
+	SET columnId = 834, tableId = 22, name = "binN",
 		description = "A bin in radius at which the aperture measurement is being performed.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 784, tableId = 22, name = "sbMean",
+	SET columnId = 835, tableId = 22, name = "sbMean",
 		description = "Mean surface brightness at which the aperture measurement is being performed.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6596,7 +7129,7 @@ SET tableId = 22, name = "Source_APMean",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 785, tableId = 22, name = "sbSigma",
+	SET columnId = 836, tableId = 22, name = "sbSigma",
 		description = "Standard deviation of pixel surface brightness in annulus.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6615,7 +7148,7 @@ SET tableId = 23, name = "Visit",
 	description = "Defines a single Visit.";
 
 	INSERT INTO md_Column
-	SET columnId = 786, tableId = 23, name = "visitId",
+	SET columnId = 837, tableId = 23, name = "visitId",
 		description = "Unique identifier.",
 		type = "INTEGER",
 		notNull = 1,
@@ -6623,7 +7156,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 787, tableId = 23, name = "filterName",
+	SET columnId = 838, tableId = 23, name = "filterName",
 		description = "Filter name.",
 		type = "CHAR(1)",
 		notNull = 1,
@@ -6631,14 +7164,14 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 788, tableId = 23, name = "nExposures",
+	SET columnId = 839, tableId = 23, name = "nExposures",
 		description = "Number of exposures combined to produce this visit.",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 789, tableId = 23, name = "ra",
+	SET columnId = 840, tableId = 23, name = "ra",
 		description = "RA of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6647,7 +7180,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 790, tableId = 23, name = "decl",
+	SET columnId = 841, tableId = 23, name = "decl",
 		description = "Decl of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6656,45 +7189,45 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 791, tableId = 23, name = "altitude",
-		description = "Altitude of focal plane center.",
+	SET columnId = 842, tableId = 23, name = "skyRotation",
+		description = "Sky rotation angle.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 792, tableId = 23, name = "azimuth",
-		description = "Azimuth of focal plane center.",
+	SET columnId = 843, tableId = 23, name = "altitude",
+		description = "Altitude of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 793, tableId = 23, name = "rotation",
-		description = "Rotation of the camera.",
+	SET columnId = 844, tableId = 23, name = "azimuth",
+		description = "Azimuth of focal plane center.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "deg",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 794, tableId = 23, name = "programId",
+	SET columnId = 845, tableId = 23, name = "programId",
 		description = "Observing program id (e.g., universal cadence, or one of the deep drilling programs, etc.).",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 795, tableId = 23, name = "exposureType",
+	SET columnId = 846, tableId = 23, name = "exposureType",
 		description = "Type of exposure (science exposure, dark, flat, etc.).",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 796, tableId = 23, name = "zenithDistance",
+	SET columnId = 847, tableId = 23, name = "zenithDistance",
 		description = "Zenith distance at observation mid-point.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6703,14 +7236,14 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 797, tableId = 23, name = "airmass",
+	SET columnId = 848, tableId = 23, name = "airmass",
 		description = "Airmass of the observed line of sight.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 798, tableId = 23, name = "obsStart",
+	SET columnId = 849, tableId = 23, name = "obsStart",
 		description = "Start of the exposure at the fiducial center of the focal plane array, TAI, accurate to 10ms.",
 		type = "TIMESTAMP",
 		notNull = 1,
@@ -6719,7 +7252,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 799, tableId = 23, name = "expMidpt",
+	SET columnId = 850, tableId = 23, name = "expMidpt",
 		description = "Midpoint for exposure at the fiducial center of the focal plane array. TAI, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6727,7 +7260,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 800, tableId = 23, name = "expTime",
+	SET columnId = 851, tableId = 23, name = "expTime",
 		description = "Average duration of exposure, accurate to 10ms.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -6736,7 +7269,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 801, tableId = 23, name = "cameraTemp",
+	SET columnId = 852, tableId = 23, name = "cameraTemp",
 		description = "Temperature measured of the camera.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6744,7 +7277,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 802, tableId = 23, name = "mirror1Temp",
+	SET columnId = 853, tableId = 23, name = "mirror1Temp",
 		description = "Primary mirror temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6752,7 +7285,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 803, tableId = 23, name = "mirror2Temp",
+	SET columnId = 854, tableId = 23, name = "mirror2Temp",
 		description = "Secondary mirror temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6760,7 +7293,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 804, tableId = 23, name = "mirror3Temp",
+	SET columnId = 855, tableId = 23, name = "mirror3Temp",
 		description = "Tertiary mirror temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6768,7 +7301,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 805, tableId = 23, name = "domeTemp",
+	SET columnId = 856, tableId = 23, name = "domeTemp",
 		description = "Dome temperature.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6776,7 +7309,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 806, tableId = 23, name = "externalTemp",
+	SET columnId = 857, tableId = 23, name = "externalTemp",
 		description = "Temperature outside the dome.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6784,7 +7317,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 807, tableId = 23, name = "dimmSeeing",
+	SET columnId = 858, tableId = 23, name = "dimmSeeing",
 		description = "Seeing measured by the differential image motion monitor.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6792,7 +7325,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 808, tableId = 23, name = "pwvGPS",
+	SET columnId = 859, tableId = 23, name = "pwvGPS",
 		description = " GPS-based measurement of precipitable water vapor (PVW).",
 		type = "FLOAT",
 		notNull = 1,
@@ -6800,7 +7333,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 809, tableId = 23, name = "pwvMW",
+	SET columnId = 860, tableId = 23, name = "pwvMW",
 		description = "Microwave radiometer measurement of PVW.",
 		type = "FLOAT",
 		notNull = 1,
@@ -6808,7 +7341,7 @@ SET tableId = 23, name = "Visit",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 810, tableId = 23, name = "flags",
+	SET columnId = 861, tableId = 23, name = "flags",
 		description = "Flags, bitwise OR tbd",
 		type = "INTEGER",
 		notNull = 1,
@@ -6829,7 +7362,7 @@ SET tableId = 24, name = "VisitMetadata",
 	description = "Visit-related generic key-value pair metadata.";
 
 	INSERT INTO md_Column
-	SET columnId = 811, tableId = 24, name = "visitId",
+	SET columnId = 862, tableId = 24, name = "visitId",
 		description = "Id of the corresponding Visit.",
 		type = "INTEGER",
 		notNull = 1,
@@ -6837,13 +7370,13 @@ SET tableId = 24, name = "VisitMetadata",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 812, tableId = 24, name = "metadataKey",
+	SET columnId = 863, tableId = 24, name = "metadataKey",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 813, tableId = 24, name = "metadataValue",
+	SET columnId = 864, tableId = 24, name = "metadataValue",
 		type = "VARCHAR(255)",
 		notNull = 0,
 		displayOrder = 3;
@@ -6861,7 +7394,7 @@ SET tableId = 25, name = "Visit_To_RawExposure",
 	description = "Mapping table: Visit to raw Exposure.";
 
 	INSERT INTO md_Column
-	SET columnId = 814, tableId = 25, name = "visitId",
+	SET columnId = 865, tableId = 25, name = "visitId",
 		description = "Pointer to entry in Visit table.",
 		type = "INTEGER",
 		notNull = 1,
@@ -6869,7 +7402,7 @@ SET tableId = 25, name = "Visit_To_RawExposure",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 815, tableId = 25, name = "rawExposureId",
+	SET columnId = 866, tableId = 25, name = "rawExposureId",
 		description = "Pointer to entry in RawExposure table.",
 		type = "BIGINT",
 		notNull = 1,
@@ -6894,14 +7427,14 @@ SET tableId = 26, name = "ZZZ_Schema_Description",
 	description = "Internal table used for storing schema version and description.";
 
 	INSERT INTO md_Column
-	SET columnId = 816, tableId = 26, name = "version",
+	SET columnId = 867, tableId = 26, name = "version",
 		description = "The schema version.",
 		type = "VARCHAR(255),",
 		notNull = 0,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 817, tableId = 26, name = "descr",
+	SET columnId = 868, tableId = 26, name = "descr",
 		description = "Description of the schema.",
 		type = "VARCHAR(255)",
 		notNull = 0,
@@ -6915,7 +7448,7 @@ SET tableId = 27, name = "prv_DataBlock",
 	description = "This table defines blocks of data. A block of data is a group of ids from the same table that are processed together using the same configuration.";
 
 	INSERT INTO md_Column
-	SET columnId = 818, tableId = 27, name = "blockId",
+	SET columnId = 869, tableId = 27, name = "blockId",
 		description = "Unique id",
 		type = "BIGINT",
 		notNull = 1,
@@ -6923,7 +7456,7 @@ SET tableId = 27, name = "prv_DataBlock",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 819, tableId = 27, name = "tableName",
+	SET columnId = 870, tableId = 27, name = "tableName",
 		description = "Name of the table this data block is part of.",
 		type = "VARCHAR(64)",
 		notNull = 1,
@@ -6942,7 +7475,7 @@ SET tableId = 28, name = "prv_Node",
 	description = "This table defines nodes. One row per node.";
 
 	INSERT INTO md_Column
-	SET columnId = 820, tableId = 28, name = "nodeId",
+	SET columnId = 871, tableId = 28, name = "nodeId",
 		description = "Unique id",
 		type = "INT",
 		notNull = 1,
@@ -6950,7 +7483,7 @@ SET tableId = 28, name = "prv_Node",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 821, tableId = 28, name = "nodeName",
+	SET columnId = 872, tableId = 28, name = "nodeName",
 		description = "Name of the node.",
 		type = "VARCHAR(64),",
 		notNull = 0,
@@ -6969,7 +7502,7 @@ SET tableId = 29, name = "prv_Pipeline",
 	description = " This table defines all LSST Pipelines. One row per pipeline.";
 
 	INSERT INTO md_Column
-	SET columnId = 822, tableId = 29, name = "pipelineId",
+	SET columnId = 873, tableId = 29, name = "pipelineId",
 		description = "Unique id",
 		type = "INT",
 		notNull = 1,
@@ -6977,7 +7510,7 @@ SET tableId = 29, name = "prv_Pipeline",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 823, tableId = 29, name = "pipelineName",
+	SET columnId = 874, tableId = 29, name = "pipelineName",
 		description = "Pipeline name.",
 		type = "VARCHAR(64),",
 		notNull = 0,
@@ -6997,7 +7530,7 @@ SET tableId = 30, name = "prv_ProcHistory",
 	description = "This table produces unique procHistoryIds. The id changes each time something changes in the provenance. It is not linked to any other table. Because it is recording the time, it can serve as a 'snapshot'. E.g., based on the time we can find out which configurations were valid at that time, what was executed at that time etc. It also serves as a 'flag' that something has changed.";
 
 	INSERT INTO md_Column
-	SET columnId = 824, tableId = 30, name = "procHistoryId",
+	SET columnId = 875, tableId = 30, name = "procHistoryId",
 		description = "Unique id",
 		type = "BIGINT",
 		notNull = 1,
@@ -7005,7 +7538,7 @@ SET tableId = 30, name = "prv_ProcHistory",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 825, tableId = 30, name = "theTime",
+	SET columnId = 876, tableId = 30, name = "theTime",
 		description = "Time when this procHistory id was created.",
 		type = "TIMESTAMP",
 		notNull = 1,
@@ -7013,7 +7546,7 @@ SET tableId = 30, name = "prv_ProcHistory",
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 826, tableId = 30, name = "description",
+	SET columnId = 877, tableId = 30, name = "description",
 		description = "Description what has changed. This is optional.",
 		type = "TEXT,",
 		notNull = 0,
@@ -7032,33 +7565,33 @@ SET tableId = 31, name = "prv_RowIdToDataBlock",
 	description = "This table defines which rows belong to a given data block.";
 
 	INSERT INTO md_Column
-	SET columnId = 827, tableId = 31, name = "theId",
+	SET columnId = 878, tableId = 31, name = "theId",
 		description = "The id of one data element. Note that we are not enforcing strict foreign key constraint because this will point to different tables.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 828, tableId = 31, name = "blockId",
+	SET columnId = 879, tableId = 31, name = "blockId",
 		description = "Id of the block a given row id corresponds to.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 829, tableId = 31, name = "CONSTRAINT",
+	SET columnId = 880, tableId = 31, name = "CONSTRAINT",
 		type = "FK_rowIdTodataBlock_blockId",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 830, tableId = 31, name = "FOREIGN",
+	SET columnId = 881, tableId = 31, name = "FOREIGN",
 		type = "KEY(blockId)",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 831, tableId = 31, name = "REFERENCES",
+	SET columnId = 882, tableId = 31, name = "REFERENCES",
 		type = "prv_DataBlock(blockId)",
 		notNull = 0,
 		displayOrder = 5;
@@ -7081,7 +7614,7 @@ SET tableId = 32, name = "prv_Task",
 	description = "This table defines all tasks for all pipelines.";
 
 	INSERT INTO md_Column
-	SET columnId = 832, tableId = 32, name = "taskId",
+	SET columnId = 883, tableId = 32, name = "taskId",
 		description = "Unique id",
 		type = "INT",
 		notNull = 1,
@@ -7089,7 +7622,7 @@ SET tableId = 32, name = "prv_Task",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 833, tableId = 32, name = "taskName",
+	SET columnId = 884, tableId = 32, name = "taskName",
 		description = "Name of the task.",
 		type = "VARCHAR(64),",
 		notNull = 0,
@@ -7108,7 +7641,7 @@ SET tableId = 33, name = "prv_TaskExecution",
 	description = "This table keeps information about all tasks ever executed. Since the configuration of the system is not allowed to change while a tasks is running, we are not keeping a time range here, but instead we just keep the time of when the task started. It might be a good idea to keep the time of the middle of task execution: endTime-startTime/2 to reduce changes of running into an issue with time synchronization between different machines. This table is one of the most important parts of provenance - it links tasks executions with nodes and processed groups. Occasionally manual patching will be required, which will lead to more than one valid configuration of a given task. TaskCnfVersion indicates which version should be used for a given task execution.";
 
 	INSERT INTO md_Column
-	SET columnId = 834, tableId = 33, name = "taskExecId",
+	SET columnId = 885, tableId = 33, name = "taskExecId",
 		description = "Unique id",
 		type = "BIGINT",
 		notNull = 1,
@@ -7116,28 +7649,28 @@ SET tableId = 33, name = "prv_TaskExecution",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 835, tableId = 33, name = "taskId",
+	SET columnId = 886, tableId = 33, name = "taskId",
 		description = "Id of the task that is executed.",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 836, tableId = 33, name = "nodeId",
+	SET columnId = 887, tableId = 33, name = "nodeId",
 		description = "Id of the node where the task is executed.",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 837, tableId = 33, name = "theTime",
+	SET columnId = 888, tableId = 33, name = "theTime",
 		description = "The time when the task execution was started.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 838, tableId = 33, name = "taskCnfVersion",
+	SET columnId = 889, tableId = 33, name = "taskCnfVersion",
 		description = "Version of the task configuration. Typically there is only one, in some rare cases when manual patching in required, we can end up with more than one valid config version.",
 		type = "INT",
 		notNull = 1,
@@ -7145,55 +7678,55 @@ SET tableId = 33, name = "prv_TaskExecution",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 839, tableId = 33, name = "CONSTRAINT",
+	SET columnId = 890, tableId = 33, name = "CONSTRAINT",
 		type = "FK_taskExec_taskId",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 840, tableId = 33, name = "FOREIGN",
+	SET columnId = 891, tableId = 33, name = "FOREIGN",
 		type = "KEY(taskId)",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 841, tableId = 33, name = "REFERENCES",
+	SET columnId = 892, tableId = 33, name = "REFERENCES",
 		type = "prv_Task(taskId),",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 842, tableId = 33, name = "CONSTRAINT",
+	SET columnId = 893, tableId = 33, name = "CONSTRAINT",
 		type = "FK_taskExec_nodeId",
 		notNull = 0,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 843, tableId = 33, name = "FOREIGN",
+	SET columnId = 894, tableId = 33, name = "FOREIGN",
 		type = "KEY(nodeId)",
 		notNull = 0,
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 844, tableId = 33, name = "REFERENCES",
+	SET columnId = 895, tableId = 33, name = "REFERENCES",
 		type = "prv_Node(nodeId),",
 		notNull = 0,
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 845, tableId = 33, name = "CONSTRAINT",
+	SET columnId = 896, tableId = 33, name = "CONSTRAINT",
 		type = "FK_taskExec_cnfVersion",
 		notNull = 0,
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 846, tableId = 33, name = "FOREIGN",
+	SET columnId = 897, tableId = 33, name = "FOREIGN",
 		type = "KEY(taskCnfVersion)",
 		notNull = 0,
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 847, tableId = 33, name = "REFERENCES",
+	SET columnId = 898, tableId = 33, name = "REFERENCES",
 		type = "prv_cnf_Task(taskCnfVersion)",
 		notNull = 0,
 		displayOrder = 14;
@@ -7226,51 +7759,51 @@ SET tableId = 34, name = "prv_TaskExecutionToInputDataBlock",
 	description = "This table maps tasks executions to input DataBlocks. Each block is typically processed by multiple task executions, and each task execution may process multiple data blocks, so it is many-to-many.";
 
 	INSERT INTO md_Column
-	SET columnId = 848, tableId = 34, name = "taskExecId",
+	SET columnId = 899, tableId = 34, name = "taskExecId",
 		description = "Id of the task execution.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 849, tableId = 34, name = "blockId",
+	SET columnId = 900, tableId = 34, name = "blockId",
 		description = "Id of the block a given task execution uses an input or NULL.",
 		type = "BIGINT,",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 850, tableId = 34, name = "CONSTRAINT",
+	SET columnId = 901, tableId = 34, name = "CONSTRAINT",
 		type = "FK_te2IDB_taskExecId",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 851, tableId = 34, name = "FOREIGN",
+	SET columnId = 902, tableId = 34, name = "FOREIGN",
 		type = "KEY(taskExecId)",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 852, tableId = 34, name = "REFERENCES",
+	SET columnId = 903, tableId = 34, name = "REFERENCES",
 		type = "prv_TaskExecution(taskExecId),",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 853, tableId = 34, name = "CONSTRAINT",
+	SET columnId = 904, tableId = 34, name = "CONSTRAINT",
 		type = "FK_te2IDB_blockId",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 854, tableId = 34, name = "FOREIGN",
+	SET columnId = 905, tableId = 34, name = "FOREIGN",
 		type = "KEY(blockId)",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 855, tableId = 34, name = "REFERENCES",
+	SET columnId = 906, tableId = 34, name = "REFERENCES",
 		type = "prv_DataBlock(blockId)",
 		notNull = 0,
 		displayOrder = 8;
@@ -7293,51 +7826,51 @@ SET tableId = 35, name = "prv_TaskExecutionToOutputDataBlock",
 	description = "This table maps tasks executions to output DataBlocks. Note that each task execution may output multiple data blocks. There is one entry here for each task execution - output block pair.";
 
 	INSERT INTO md_Column
-	SET columnId = 856, tableId = 35, name = "taskExecId",
+	SET columnId = 907, tableId = 35, name = "taskExecId",
 		description = "Id of the task execution.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 857, tableId = 35, name = "blockId",
+	SET columnId = 908, tableId = 35, name = "blockId",
 		description = "Id of the block produced by a given task execution or NULL.",
 		type = "BIGINT,",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 858, tableId = 35, name = "CONSTRAINT",
+	SET columnId = 909, tableId = 35, name = "CONSTRAINT",
 		type = "FK_te2ODB_taskExecId",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 859, tableId = 35, name = "FOREIGN",
+	SET columnId = 910, tableId = 35, name = "FOREIGN",
 		type = "KEY(taskExecId)",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 860, tableId = 35, name = "REFERENCES",
+	SET columnId = 911, tableId = 35, name = "REFERENCES",
 		type = "prv_TaskExecution(taskExecId),",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 861, tableId = 35, name = "CONSTRAINT",
+	SET columnId = 912, tableId = 35, name = "CONSTRAINT",
 		type = "FK_te2ODB_blockId",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 862, tableId = 35, name = "FOREIGN",
+	SET columnId = 913, tableId = 35, name = "FOREIGN",
 		type = "KEY(blockId)",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 863, tableId = 35, name = "REFERENCES",
+	SET columnId = 914, tableId = 35, name = "REFERENCES",
 		type = "prv_DataBlock(blockId)",
 		notNull = 0,
 		displayOrder = 8;
@@ -7360,68 +7893,68 @@ SET tableId = 36, name = "prv_cnf_Node",
 	description = "This table defines all configurations for all nodes.";
 
 	INSERT INTO md_Column
-	SET columnId = 864, tableId = 36, name = "nodeId",
+	SET columnId = 915, tableId = 36, name = "nodeId",
 		description = "Id of the node this configuration is for.",
 		type = "INT,",
 		notNull = 0,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 865, tableId = 36, name = "validityBegin",
+	SET columnId = 916, tableId = 36, name = "validityBegin",
 		description = "Time when this configuration started to be valid.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 866, tableId = 36, name = "validityEnd",
+	SET columnId = 917, tableId = 36, name = "validityEnd",
 		description = "Time when this configuration stoped being valid.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 867, tableId = 36, name = "ip",
+	SET columnId = 918, tableId = 36, name = "ip",
 		description = "IP address (just a silly varchar for now)",
 		type = "VARCHAR(64),",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 868, tableId = 36, name = "os",
+	SET columnId = 919, tableId = 36, name = "os",
 		description = "Operating system name and version.",
 		type = "VARCHAR(64),",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 869, tableId = 36, name = "cores",
+	SET columnId = 920, tableId = 36, name = "cores",
 		description = "Number of cores.",
 		type = "INT,",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 870, tableId = 36, name = "ram",
+	SET columnId = 921, tableId = 36, name = "ram",
 		description = "Size of memory [GB].",
 		type = "INT,",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 871, tableId = 36, name = "CONSTRAINT",
+	SET columnId = 922, tableId = 36, name = "CONSTRAINT",
 		type = "FK_cnfNode_nodeId",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 872, tableId = 36, name = "FOREIGN",
+	SET columnId = 923, tableId = 36, name = "FOREIGN",
 		type = "KEY(nodeId)",
 		notNull = 0,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 873, tableId = 36, name = "REFERENCES",
+	SET columnId = 924, tableId = 36, name = "REFERENCES",
 		type = "prv_Node(nodeId)",
 		notNull = 0,
 		displayOrder = 10;
@@ -7439,7 +7972,7 @@ SET tableId = 37, name = "prv_cnf_Pipeline",
 	description = "This table defines all configurations for all pipelines.";
 
 	INSERT INTO md_Column
-	SET columnId = 874, tableId = 37, name = "pipelineCnfId",
+	SET columnId = 925, tableId = 37, name = "pipelineCnfId",
 		description = "Unique id",
 		type = "INT",
 		notNull = 1,
@@ -7447,47 +7980,47 @@ SET tableId = 37, name = "prv_cnf_Pipeline",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 875, tableId = 37, name = "pipelineId",
+	SET columnId = 926, tableId = 37, name = "pipelineId",
 		description = "Id of the pipeline this configuration is for.",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 876, tableId = 37, name = "validityBegin",
+	SET columnId = 927, tableId = 37, name = "validityBegin",
 		description = "Time when this configuration started to be valid.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 877, tableId = 37, name = "validityEnd",
+	SET columnId = 928, tableId = 37, name = "validityEnd",
 		description = "Time when this configuration stoped being valid.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 878, tableId = 37, name = "notes",
+	SET columnId = 929, tableId = 37, name = "notes",
 		description = "Notes/description useful to keep with this configuration.",
 		type = "VARCHAR(256),",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 879, tableId = 37, name = "CONSTRAINT",
+	SET columnId = 930, tableId = 37, name = "CONSTRAINT",
 		type = "FK_cnfPipeline_prv_Pipeline",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 880, tableId = 37, name = "FOREIGN",
+	SET columnId = 931, tableId = 37, name = "FOREIGN",
 		type = "KEY(pipelineId)",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 881, tableId = 37, name = "REFERENCES",
+	SET columnId = 932, tableId = 37, name = "REFERENCES",
 		type = "prv_Pipeline(pipelineId)",
 		notNull = 0,
 		displayOrder = 8;
@@ -7510,20 +8043,20 @@ SET tableId = 38, name = "prv_cnf_Pipeline_Tasks",
 	description = "This is a helper table for prv_cnf_Pipeline, it defines what tasks a given configuration of a pipeline consists of, and what the order is. If tasks are arranged hierarchically, parentTaskId determines which parent task given task belongs to. For tasks that do not have a parent task, parentTaskId is set to NULL. Positions should be numbered starting with 1, and are relative to its parent task.";
 
 	INSERT INTO md_Column
-	SET columnId = 882, tableId = 38, name = "pipelineCnfId",
+	SET columnId = 933, tableId = 38, name = "pipelineCnfId",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 883, tableId = 38, name = "taskId",
+	SET columnId = 934, tableId = 38, name = "taskId",
 		description = "Id of the corresponding task.",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 884, tableId = 38, name = "parentTaskId",
+	SET columnId = 935, tableId = 38, name = "parentTaskId",
 		description = "Id of the parent task, or NULL if there is no parent task.",
 		type = "INT",
 		notNull = 0,
@@ -7531,44 +8064,44 @@ SET tableId = 38, name = "prv_cnf_Pipeline_Tasks",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 885, tableId = 38, name = "taskPosition",
+	SET columnId = 936, tableId = 38, name = "taskPosition",
 		description = "Position of the task in the pipeline. Starts with 1.",
 		type = "INT",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 886, tableId = 38, name = "CONSTRAINT",
+	SET columnId = 937, tableId = 38, name = "CONSTRAINT",
 		type = "FK_cnfPipeTasks_taskId",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 887, tableId = 38, name = "FOREIGN",
+	SET columnId = 938, tableId = 38, name = "FOREIGN",
 		type = "KEY(taskId)",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 888, tableId = 38, name = "REFERENCES",
+	SET columnId = 939, tableId = 38, name = "REFERENCES",
 		type = "prv_Task(taskId),",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 889, tableId = 38, name = "CONSTRAINT",
+	SET columnId = 940, tableId = 38, name = "CONSTRAINT",
 		type = "FK_cnfPipeTasks_pipeCnfId",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 890, tableId = 38, name = "FOREIGN",
+	SET columnId = 941, tableId = 38, name = "FOREIGN",
 		type = "KEY(pipelineCnfId)",
 		notNull = 0,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 891, tableId = 38, name = "REFERENCES",
+	SET columnId = 942, tableId = 38, name = "REFERENCES",
 		type = "prv_cnf_Pipeline(pipelineCnfId)",
 		notNull = 0,
 		displayOrder = 10;
@@ -7591,7 +8124,7 @@ SET tableId = 39, name = "prv_cnf_Task",
 	description = "This table defines all configurations for all tasks. Note that occasionally manual patching will be required, leading to more than one configuration (the default one, and the patch). This is achieved through taskCnfVersion column.";
 
 	INSERT INTO md_Column
-	SET columnId = 892, tableId = 39, name = "taskCnfId",
+	SET columnId = 943, tableId = 39, name = "taskCnfId",
 		description = "Unique id",
 		type = "INT",
 		notNull = 1,
@@ -7599,28 +8132,28 @@ SET tableId = 39, name = "prv_cnf_Task",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 893, tableId = 39, name = "taskId",
+	SET columnId = 944, tableId = 39, name = "taskId",
 		description = "Id of the corresponding task.",
 		type = "INT,",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 894, tableId = 39, name = "validityBegin",
+	SET columnId = 945, tableId = 39, name = "validityBegin",
 		description = "Time when this configuration started to be valid.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 895, tableId = 39, name = "validityEnd",
+	SET columnId = 946, tableId = 39, name = "validityEnd",
 		description = "Time when this configuration stoped being valid.",
 		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 896, tableId = 39, name = "taskCnfVersion",
+	SET columnId = 947, tableId = 39, name = "taskCnfVersion",
 		description = "Version of the config (in case there is more than one configuration that is valid for a given validity range.",
 		type = "INT",
 		notNull = 1,
@@ -7628,26 +8161,26 @@ SET tableId = 39, name = "prv_cnf_Task",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 897, tableId = 39, name = "gitSHA",
+	SET columnId = 948, tableId = 39, name = "gitSHA",
 		description = "We need to capture version of the software used by this task. For now we are assuming it is just one SHA of one commit in git. In practice this can be more complicated, it can span multiple repos etc.",
 		type = "VARCHAR(256),",
 		notNull = 0,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 898, tableId = 39, name = "CONSTRAINT",
+	SET columnId = 949, tableId = 39, name = "CONSTRAINT",
 		type = "FK_cnfTask_taskId",
 		notNull = 0,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 899, tableId = 39, name = "FOREIGN",
+	SET columnId = 950, tableId = 39, name = "FOREIGN",
 		type = "KEY(taskId)",
 		notNull = 0,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 900, tableId = 39, name = "REFERENCES",
+	SET columnId = 951, tableId = 39, name = "REFERENCES",
 		type = "prv_Task(taskId)",
 		notNull = 0,
 		displayOrder = 9;
@@ -7675,33 +8208,33 @@ SET tableId = 40, name = "prv_cnf_Task_Columns",
 	description = "This table defines which tables+columns are altered by a given task. One row per table+column.";
 
 	INSERT INTO md_Column
-	SET columnId = 901, tableId = 40, name = "taskCnfId",
+	SET columnId = 952, tableId = 40, name = "taskCnfId",
 		description = "If of the corresponding task configuration.",
 		type = "INT,",
 		notNull = 0,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 902, tableId = 40, name = "tcName",
+	SET columnId = 953, tableId = 40, name = "tcName",
 		description = "Table and column pair. Format: '<table>.<column>'. '<table>.*' is allowed to indicate all columns in a table.",
 		type = "TEXT,",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 903, tableId = 40, name = "CONSTRAINT",
+	SET columnId = 954, tableId = 40, name = "CONSTRAINT",
 		type = "FK_cnfTaskCols_taskCnfId",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 904, tableId = 40, name = "FOREIGN",
+	SET columnId = 955, tableId = 40, name = "FOREIGN",
 		type = "KEY(taskCnfId)",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 905, tableId = 40, name = "REFERENCES",
+	SET columnId = 956, tableId = 40, name = "REFERENCES",
 		type = "prv_cnf_Task(taskCnfId)",
 		notNull = 0,
 		displayOrder = 5;
@@ -7719,33 +8252,33 @@ SET tableId = 41, name = "prv_cnf_Task_Files",
 	description = "This table defines which files are altered by a given task. One row per file. This table can be trivially extended should we capture which sections of files are altered.";
 
 	INSERT INTO md_Column
-	SET columnId = 906, tableId = 41, name = "taskCnfId",
+	SET columnId = 957, tableId = 41, name = "taskCnfId",
 		description = "If of the corresponding task configuration.",
 		type = "INT,",
 		notNull = 0,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 907, tableId = 41, name = "fileUrl",
+	SET columnId = 958, tableId = 41, name = "fileUrl",
 		description = "url that uniquely locates the file.",
 		type = "TEXT,",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 908, tableId = 41, name = "CONSTRAINT",
+	SET columnId = 959, tableId = 41, name = "CONSTRAINT",
 		type = "FK_cnfTaskFiles_taskCnfId",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 909, tableId = 41, name = "FOREIGN",
+	SET columnId = 960, tableId = 41, name = "FOREIGN",
 		type = "KEY(taskCnfId)",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 910, tableId = 41, name = "REFERENCES",
+	SET columnId = 961, tableId = 41, name = "REFERENCES",
 		type = "prv_cnf_Task(taskCnfId)",
 		notNull = 0,
 		displayOrder = 5;
@@ -7763,40 +8296,40 @@ SET tableId = 42, name = "prv_cnf_Task_KVParams",
 	description = "This table keeps parameter values for tasks. One row per parameter. For now everything is kept as strings (not efficient).";
 
 	INSERT INTO md_Column
-	SET columnId = 911, tableId = 42, name = "taskCnfId",
+	SET columnId = 962, tableId = 42, name = "taskCnfId",
 		description = "If of the corresponding task configuration.",
 		type = "INT,",
 		notNull = 0,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 912, tableId = 42, name = "theKey",
+	SET columnId = 963, tableId = 42, name = "theKey",
 		description = "Unique key.",
 		type = "VARCHAR(255),",
 		notNull = 0,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 913, tableId = 42, name = "theValue",
+	SET columnId = 964, tableId = 42, name = "theValue",
 		description = "Value for the given key.",
 		type = "VARCHAR(255),",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 914, tableId = 42, name = "CONSTRAINT",
+	SET columnId = 965, tableId = 42, name = "CONSTRAINT",
 		type = "FK_cnfTaskKVParams_tcId",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 915, tableId = 42, name = "FOREIGN",
+	SET columnId = 966, tableId = 42, name = "FOREIGN",
 		type = "KEY(taskCnfId)",
 		notNull = 0,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 916, tableId = 42, name = "REFERENCES",
+	SET columnId = 967, tableId = 42, name = "REFERENCES",
 		type = "prv_cnf_Task(taskCnfId)",
 		notNull = 0,
 		displayOrder = 6;
@@ -7814,21 +8347,21 @@ SET tableId = 43, name = "sdqa_ImageStatus",
 	description = "Unique set of status names and their definitions, e.g. 'passed', 'failed', etc.";
 
 	INSERT INTO md_Column
-	SET columnId = 917, tableId = 43, name = "sdqa_imageStatusId",
+	SET columnId = 968, tableId = 43, name = "sdqa_imageStatusId",
 		description = "Primary key",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 918, tableId = 43, name = "statusName",
+	SET columnId = 969, tableId = 43, name = "statusName",
 		description = "One-word, camel-case, descriptive name of a possible image status (e.g., passedAuto, marginallyPassedManual, etc.)",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 919, tableId = 43, name = "definition",
+	SET columnId = 970, tableId = 43, name = "definition",
 		description = "Detailed Definition of the image status",
 		type = "VARCHAR(255)",
 		notNull = 1,
@@ -7847,35 +8380,35 @@ SET tableId = 44, name = "sdqa_Metric",
 	description = "Unique set of metric names and associated metadata (e.g., 'nDeadPix';, 'median';, etc.). There will be approximately 30 records total in this table.";
 
 	INSERT INTO md_Column
-	SET columnId = 920, tableId = 44, name = "sdqa_metricId",
+	SET columnId = 971, tableId = 44, name = "sdqa_metricId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 921, tableId = 44, name = "metricName",
+	SET columnId = 972, tableId = 44, name = "metricName",
 		description = "One-word, camel-case, descriptive name of a possible metric (e.g., mSatPix, median, etc).",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 922, tableId = 44, name = "physicalUnits",
+	SET columnId = 973, tableId = 44, name = "physicalUnits",
 		description = "Physical units of metric.",
 		type = "VARCHAR(30)",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 923, tableId = 44, name = "dataType",
+	SET columnId = 974, tableId = 44, name = "dataType",
 		description = "Flag indicating whether data type of the metric value is integer (0) or float (1).",
 		type = "CHAR(1)",
 		notNull = 1,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 924, tableId = 44, name = "definition",
+	SET columnId = 975, tableId = 44, name = "definition",
 		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 5;
@@ -7898,28 +8431,28 @@ SET tableId = 45, name = "sdqa_Rating_CcdVisit",
 	description = "Various SDQA ratings for a given CcdVisit.";
 
 	INSERT INTO md_Column
-	SET columnId = 925, tableId = 45, name = "sdqa_ratingId",
+	SET columnId = 976, tableId = 45, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 926, tableId = 45, name = "sdqa_metricId",
+	SET columnId = 977, tableId = 45, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 927, tableId = 45, name = "sdqa_thresholdId",
+	SET columnId = 978, tableId = 45, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 928, tableId = 45, name = "ccdVisitId",
+	SET columnId = 979, tableId = 45, name = "ccdVisitId",
 		description = "Pointer to CcdVisit.",
 		type = "BIGINT",
 		notNull = 1,
@@ -7927,14 +8460,14 @@ SET tableId = 45, name = "sdqa_Rating_CcdVisit",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 929, tableId = 45, name = "metricValue",
+	SET columnId = 980, tableId = 45, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 930, tableId = 45, name = "metricSigma",
+	SET columnId = 981, tableId = 45, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -7973,28 +8506,28 @@ SET tableId = 46, name = "sdqa_Rating_ForAmpVisit",
 	description = "Various SDQA ratings for a given amplifier image. There will approximately 30 of these records per image record.";
 
 	INSERT INTO md_Column
-	SET columnId = 931, tableId = 46, name = "sdqa_ratingId",
+	SET columnId = 982, tableId = 46, name = "sdqa_ratingId",
 		description = "Primary key. Auto-increment is used, we define a composite unique key, so potential duplicates will be captured.",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 932, tableId = 46, name = "sdqa_metricId",
+	SET columnId = 983, tableId = 46, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 933, tableId = 46, name = "sdqa_thresholdId",
+	SET columnId = 984, tableId = 46, name = "sdqa_thresholdId",
 		description = "Pointer to sdqa_Threshold.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 934, tableId = 46, name = "ampVisitId",
+	SET columnId = 985, tableId = 46, name = "ampVisitId",
 		description = "Pointer to AmpVisit.",
 		type = "BIGINT",
 		notNull = 1,
@@ -8002,14 +8535,14 @@ SET tableId = 46, name = "sdqa_Rating_ForAmpVisit",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 935, tableId = 46, name = "metricValue",
+	SET columnId = 986, tableId = 46, name = "metricValue",
 		description = "Value of this SDQA metric.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 936, tableId = 46, name = "metricSigma",
+	SET columnId = 987, tableId = 46, name = "metricSigma",
 		description = "Uncertainty of the value of this metric.",
 		type = "DOUBLE",
 		notNull = 1,
@@ -8048,35 +8581,35 @@ SET tableId = 47, name = "sdqa_Threshold",
 	description = "Version-controlled metric thresholds. Total number of these records is approximately equal to 30 x the number of times the thresholds will be changed over the entire period of LSST operations (of ordre of 100), with most of the changes occuring in the first year of operations.";
 
 	INSERT INTO md_Column
-	SET columnId = 937, tableId = 47, name = "sdqa_thresholdId",
+	SET columnId = 988, tableId = 47, name = "sdqa_thresholdId",
 		description = "Primary key.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 938, tableId = 47, name = "sdqa_metricId",
+	SET columnId = 989, tableId = 47, name = "sdqa_metricId",
 		description = "Pointer to sdqa_Metric table.",
 		type = "SMALLINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 939, tableId = 47, name = "upperThreshold",
+	SET columnId = 990, tableId = 47, name = "upperThreshold",
 		description = "Threshold for which a metric value is tested to be greater than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 940, tableId = 47, name = "lowerThreshold",
+	SET columnId = 991, tableId = 47, name = "lowerThreshold",
 		description = "Threshold for which a metric value is tested to be less than.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 941, tableId = 47, name = "createdDate",
+	SET columnId = 992, tableId = 47, name = "createdDate",
 		description = "Database timestamp when the record is inserted.",
 		type = "TIMESTAMP",
 		notNull = 1,
